@@ -1,0 +1,138 @@
+"use client";
+
+import { create } from "zustand";
+import { estimateEngine } from "@/lib/engine";
+import { applyOperation } from "@/lib/operations";
+import type { Attachment, ChangeRecord, ChatMessage, Estimate, LineItem } from "@/lib/types";
+
+let msgSeq = 0;
+const nextMsgId = () => `m_${++msgSeq}_${msgSeq.toString(36)}`;
+
+interface EstimateState {
+  estimate: Estimate;
+  messages: ChatMessage[];
+  isStreaming: boolean;
+  pendingChanges: ChangeRecord[] | null; // diff awaiting accept/reject
+  snapshot: Estimate | null; // pre-AI state, for reject/undo
+  highlightIds: Set<string>; // line items touched by the latest AI run
+
+  hydrate: (estimate: Estimate, messages: ChatMessage[]) => void;
+  sendMessage: (text: string, attachments?: Attachment[]) => Promise<void>;
+  acceptChanges: () => void;
+  rejectChanges: () => void;
+  editLineItem: (id: string, field: keyof LineItem, value: string | number) => void;
+}
+
+async function persist(estimate: Estimate) {
+  try {
+    await fetch("/api/estimate", {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(estimate),
+    });
+  } catch {
+    // Best-effort; the UI stays authoritative even if the save blips.
+  }
+}
+
+export const useEstimateStore = create<EstimateState>((set, get) => ({
+  estimate: {
+    id: "",
+    projectId: "",
+    name: "",
+    status: "draft",
+    location: null,
+    markupDefault: 15,
+    finishLevel: "medium",
+    aiUpdateCount: 0,
+    groups: [],
+    totals: { totalCost: 0, totalMarkup: 0, estimateTotal: 0, profitMargin: 0 },
+  },
+  messages: [],
+  isStreaming: false,
+  pendingChanges: null,
+  snapshot: null,
+  highlightIds: new Set(),
+
+  hydrate: (estimate, messages) => set({ estimate, messages }),
+
+  sendMessage: async (text, attachments = []) => {
+    const trimmed = text.trim();
+    if ((!trimmed && attachments.length === 0) || get().isStreaming) return;
+
+    const userMsg: ChatMessage = {
+      id: nextMsgId(),
+      role: "user",
+      content: trimmed,
+      attachments: attachments.length ? attachments.map((a) => ({ name: a.name, kind: a.kind })) : undefined,
+    };
+    const aiMsg: ChatMessage = { id: nextMsgId(), role: "ai", content: "", streaming: true };
+
+    const snapshot = get().estimate;
+    set((s) => ({
+      messages: [...s.messages, userMsg, aiMsg],
+      isStreaming: true,
+      snapshot,
+      pendingChanges: null,
+      highlightIds: new Set(),
+    }));
+
+    const collected: ChangeRecord[] = [];
+    const touched = new Set<string>();
+
+    const patchAi = (patch: Partial<ChatMessage>) =>
+      set((s) => ({
+        messages: s.messages.map((m) => (m.id === aiMsg.id ? { ...m, ...patch } : m)),
+      }));
+
+    try {
+      for await (const delta of estimateEngine.send(trimmed, { estimate: get().estimate, attachments })) {
+        switch (delta.type) {
+          case "text":
+            patchAi({ content: get().messages.find((m) => m.id === aiMsg.id)!.content + delta.text });
+            break;
+          case "operation": {
+            const { estimate: nextEstimate, changes } = applyOperation(get().estimate, delta.operation);
+            collected.push(...changes);
+            for (const c of changes) touched.add(c.itemId);
+            set({ estimate: nextEstimate, highlightIds: new Set(touched) });
+            break;
+          }
+          case "summary": {
+            const est = get().estimate;
+            const itemCount = est.groups.reduce((n, g) => n + g.items.length, 0);
+            patchAi({ summary: { estimateId: est.id, name: delta.name, itemCount, total: est.totals.estimateTotal } });
+            break;
+          }
+          case "milestone":
+            patchAi({ milestone: delta.text });
+            break;
+          case "suggestions":
+            patchAi({ suggestions: delta.suggestions });
+            break;
+        }
+      }
+    } finally {
+      patchAi({ streaming: false });
+      set({ isStreaming: false, pendingChanges: collected.length ? collected : null });
+    }
+  },
+
+  acceptChanges: () => {
+    set({ pendingChanges: null, snapshot: null, highlightIds: new Set() });
+    void persist(get().estimate);
+  },
+
+  rejectChanges: () => {
+    const snap = get().snapshot;
+    if (snap) set({ estimate: snap });
+    set({ pendingChanges: null, snapshot: null, highlightIds: new Set() });
+    void persist(get().estimate);
+  },
+
+  editLineItem: (id, field, value) => {
+    const { estimate } = applyOperation(get().estimate, { op: "edit_line_item", id, field, value });
+    set({ estimate });
+    void persist(estimate);
+  },
+}));

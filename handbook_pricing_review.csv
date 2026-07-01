@@ -1,0 +1,74 @@
+Task,Category,Unit,Labor min,Material $ (+25%),Price trip-excl $ (time math),Book figure (floor ref),Time-math vs book,Variable,Standalone min,Notes
+Bathroom faucet replace/install,Bathroom,each,60,0.0,100,$100,in book range,,yes ($200 job-min),client supplies faucet; p46
+Sink drain replace/install,Bathroom,each,75,25.0,150,$100-250,in book range,V,yes ($200 job-min),range=complexity
+Minor sink drain cleaning,Bathroom,each,40,0.0,67,$65,above book,,yes ($200 job-min),
+Bathroom sink replace/install,Bathroom,each,90,31.25,181,$200-350,in book range,V,yes ($200 job-min),
+Bathroom vanity replace/install,Bathroom,each,150,50.0,300,$300-400,in book range,V,,
+Towel bar replace/install,Bathroom,each,20,10.0,43,$45,in book range,,yes ($200 job-min),tiny job
+GFCI outlet replace/install,Bathroom,each,30,25.0,75,$120,UNDER book floor - review,,yes ($200 job-min),electrical going rate
+Angle stop / supply valve replace,Bathroom,each,35,18.75,77,$85,in book range,,yes ($200 job-min),
+Water-supply hoses replace/install,Bathroom,each,20,15.0,48,$35,above book,,yes ($200 job-min),
+Medicine cabinet replace/install,Bathroom,each,75,37.5,162,$100-200,in book range,V,yes ($200 job-min),
+Bathroom mirror replace/install,Bathroom,each,45,25.0,100,$75-175,in book range,V,yes ($200 job-min),
+Toilet replacement/installation,Bathroom,each,90,31.25,181,$145,above book,,yes ($200 job-min),CONFLICT D3: keep ratebook 185
+Toilet flange replace/repair,Bathroom,each,90,25.0,175,$185-300,in book range,V,yes ($200 job-min),distinct from toilet swap
+Toilet flush/fill valve replace,Bathroom,each,40,22.5,89,$90,in book range,,yes ($200 job-min),
+Toilet wax ring replacement,Bathroom,each,50,10.0,93,$100,in book range,,yes ($200 job-min),
+Shower cartridge replacement,Bathroom,each,60,37.5,138,$150-250,in book range,V,yes ($200 job-min),
+Shower head replacement,Bathroom,each,20,0.0,33,$45,UNDER book floor - review,,yes ($200 job-min),client supplies head
+Shower/bathtub recaulking,Bathroom,lump sum,90,15.0,165,$130-200,in book range,V,yes ($200 job-min),
+Shower curtain rod installation,Bathroom,each,30,18.75,69,$65,above book,,yes ($200 job-min),
+Shower door replace/install,Bathroom,each,120,50.0,250,$150-300,in book range,V,,
+Bath exhaust fan install w/ wiring,Bathroom,each,120,37.5,238,$200-300,in book range,V,,
+Bathroom light fixture replace/install,Bathroom,each,45,15.0,90,$85,above book,,yes ($200 job-min),
+Refrigerator water supply valve replace,Kitchen,each,35,18.75,77,$85,in book range,,yes ($200 job-min),
+Cabinet/drawer pull/knob install,Kitchen,per pull,6,3.75,14,$6-10,above book,V,,per-piece D5
+Cabinet hinge replacement,Kitchen,per hinge,8,5.0,18,$6-10,above book,V,,per-piece D5
+GFCI outlet replace/install,Kitchen,each,30,25.0,75,$120,UNDER book floor - review,,yes ($200 job-min),
+Kitchen light fixture replace/install,Kitchen,each,45,15.0,90,$85,above book,,yes ($200 job-min),
+Dishwasher replacement,Kitchen,each,90,25.0,175,$150-250,in book range,V,yes ($200 job-min),
+Dishwasher electrical outlet install,Kitchen,each,45,25.0,100,$120,in book range,,yes ($200 job-min),
+Kitchen faucet replace/install,Kitchen,each,60,0.0,100,$145,UNDER book floor - review,,yes ($200 job-min),client supplies faucet
+Minor sink drain cleaning,Kitchen,each,40,0.0,67,$65,above book,,yes ($200 job-min),
+Kitchen sink replace/install,Kitchen,each,120,31.25,231,$200-350,in book range,V,,
+Sink drain replace/install,Kitchen,each,75,25.0,150,$100-250,in book range,V,yes ($200 job-min),
+Garbage disposal replace/install,Kitchen,each,60,0.0,100,$125,in book range,,yes ($200 job-min),client supplies unit
+Angle stop / supply valve replace,Kitchen,each,35,18.75,77,$85,in book range,,yes ($200 job-min),
+Water supply hoses replace/install,Kitchen,each,20,15.0,48,$35,above book,,yes ($200 job-min),
+Dishwasher air gap clean/replace,Kitchen,each,40,12.5,79,$100,UNDER book floor - review,,yes ($200 job-min),
+Sink soap dispenser replace/install,Kitchen,each,30,15.0,65,$45-150,in book range,V,yes ($200 job-min),
+Over-range microwave replace/install,Common Rooms,each,75,0.0,125,$155,in book range,,yes ($200 job-min),client supplies unit
+Over-range vent hood replace/install,Common Rooms,each,60,18.75,119,$125,in book range,,yes ($200 job-min),
+Picture/mirror mounting/hanging,Common Rooms,per picture,15,3.75,29,$15,above book,V,,per-piece D5
+Light fixture replace/install,Common Rooms,each,45,15.0,90,$85,above book,,yes ($200 job-min),
+New electrical wires run,Common Rooms,each,180,50.0,350,$250-450,in book range,V,,quote on site - access
+Electrical outlet replace/install,Common Rooms,each,25,3.75,45,$75,UNDER book floor - review,,yes ($200 job-min),
+Light switch replace/install,Common Rooms,each,25,7.5,49,$75,UNDER book floor - review,,yes ($200 job-min),
+Furniture assembly,Common Rooms,per hour,,0,100.0,$0,book has no $,V,yes ($200 job-min),book gives no number - hourly
+TV mounting,Common Rooms,each,60,18.75,119,$125,in book range,,yes ($200 job-min),
+Ceiling fan replace/install,Common Rooms,each,60,18.75,119,$150,UNDER book floor - review,,yes ($200 job-min),D6: time math
+Interior door replacement,Common Rooms,each,75,37.5,162,$120,above book,,yes ($200 job-min),
+Doorknob/deadbolt replace/install,Common Rooms,each,30,22.5,72,$85,in book range,,yes ($200 job-min),
+Electronic deadbolt install,Common Rooms,each,35,0.0,58,$90,UNDER book floor - review,,yes ($200 job-min),client supplies unit
+Trim/casing/baseboard replace/install,Common Rooms,per linear foot,4,2.5,9,$100-300,UNDER book floor - review,V,yes ($200 job-min),per lf; book gives lump range
+Minor drywall repair (up to 6x6),Common Rooms,lump sum,90,18.75,169,$200-400,in book range,V,yes ($200 job-min),
+Blinds/curtains hung/install,Common Rooms,each,45,0.0,75,$75,in book range,,yes ($200 job-min),client supplies
+Can (recessed) lighting install,Common Rooms,per recessed light,45,31.25,106,$85,above book,V,yes ($200 job-min),per-piece D5
+Sliding glass door roller replace,Common Rooms,each,90,37.5,188,$100-200,in book range,V,yes ($200 job-min),
+Prehung door replacement,Common Rooms,each,120,50.0,250,$350,UNDER book floor - review,,,
+Fence replacement (per 8ft panel),Exterior,per fence panel,60,50.0,150,$200-300,UNDER book floor - review,V,yes ($200 job-min),per-piece D5; long runs quote
+Fence repair (per post),Exterior,per fence post,45,31.25,106,$145,UNDER book floor - review,V,yes ($200 job-min),per-piece D5
+Sprinkler line repair,Exterior,each,60,25.0,125,$75-300,in book range,V,yes ($200 job-min),quote on site
+Sprinkler head replacement,Exterior,each,30,15.0,65,$85,UNDER book floor - review,,yes ($200 job-min),
+Sprinkler drip replace/repair,Exterior,each,45,18.75,94,$75-180,in book range,V,yes ($200 job-min),
+Sprinkler valve replacement,Exterior,each,60,31.25,131,$135,in book range,,yes ($200 job-min),
+Sprinkler timer replace/install,Exterior,each,45,37.5,112,$125,in book range,,yes ($200 job-min),
+Exterior caulking,Exterior,lump sum,75,15.0,140,$75-200,in book range,V,yes ($200 job-min),
+Hose spigot replacement,Exterior,each,45,18.75,94,$75,above book,,yes ($200 job-min),
+Main water valve repacking,Exterior,each,75,18.75,144,$155,in book range,V,yes ($200 job-min),depends on valve
+Gate rebuild,Exterior,each,120,50.0,250,$200,above book,,,
+Gate rebuild w/ post replacement,Exterior,each,180,75.0,375,$350-450,in book range,V,,quote on site
+Backyard cleanup,Exterior,per pickup load,60,0.0,100,$50-75,above book,V,yes ($200 job-min),per-piece D5; + dump fee
+Debris haul-off - ceiling fan,Disposal,each,15,0.0,25,$20,above book,,yes ($200 job-min),optional
+Debris haul-off - prehung door,Disposal,each,25,0.0,42,$55,UNDER book floor - review,,yes ($200 job-min),optional
+Debris haul-off - large load,Disposal,lump sum,60,0.0,100,$155,UNDER book floor - review,V,yes ($200 job-min),by volume

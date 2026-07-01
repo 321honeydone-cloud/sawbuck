@@ -1,0 +1,11 @@
+node_modules
+.next
+.git
+_w1_backups
+*.bak-*
+*.tsbuildinfo
+launcher
+branding
+*.vbs
+*.bat
+*.lnk

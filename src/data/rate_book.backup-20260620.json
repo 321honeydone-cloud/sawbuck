@@ -1,0 +1,4626 @@
+{
+  "settings": {
+    "company": "HoneyDone Property Maintenance LLC",
+    "insurance_policy": "NXT7HVHV3Q-00-GL",
+    "hourly_rate": 100,
+    "trip_fee": 100,
+    "trip_fee_visible_as_line_item": false,
+    "materials_markup_pct": 25,
+    "card_surcharge_pct": 3,
+    "florida_sales_tax_pct": 6,
+    "military_discount_pct": 10,
+    "round_to": 0
+  },
+  "task_count": 459,
+  "categories": [
+    "Appliances",
+    "Cabinets",
+    "Carpentry",
+    "Decks",
+    "Doors",
+    "Electrical",
+    "Exterior Walls Finishes",
+    "Fencing",
+    "Flooring",
+    "Interior Wall & Ceiling Finishes &",
+    "Masonry",
+    "Misc / Exterior",
+    "Plumbing",
+    "Roofing",
+    "Service",
+    "Tile",
+    "Windows"
+  ],
+  "tasks": [
+    {
+      "category": "Service",
+      "name": "Trip Fee (per visit)",
+      "unit": "per visit",
+      "labor_minutes": 0,
+      "material_allowance": 0,
+      "market_override": 100,
+      "final_price": 100,
+      "source_tag": null
+    },
+    {
+      "category": "Plumbing",
+      "name": "Replace faucet (customer supplied)",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 160,
+      "source_tag": null
+    },
+    {
+      "category": "Plumbing",
+      "name": "Replace toilet fill valve (customer supplied)",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80,
+      "source_tag": null
+    },
+    {
+      "category": "Plumbing",
+      "name": "Replace toilet flapper (customer supplied)",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 46.66666666666667,
+      "source_tag": null
+    },
+    {
+      "category": "Plumbing",
+      "name": "Install garbage disposal (customer supplied)",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 160,
+      "source_tag": null
+    },
+    {
+      "category": "Plumbing",
+      "name": "Clear sink drain (basic)",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80,
+      "source_tag": null
+    },
+    {
+      "category": "Electrical",
+      "name": "Replace outlet or switch",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": 85,
+      "final_price": 85,
+      "source_tag": null
+    },
+    {
+      "category": "Electrical",
+      "name": "Replace light fixture (standard)",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 105,
+      "source_tag": null
+    },
+    {
+      "category": "Electrical",
+      "name": "Replace ceiling fan (standard)",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 160,
+      "source_tag": null
+    },
+    {
+      "category": "Electrical",
+      "name": "Replace hardwired smoke/CO detector",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55,
+      "source_tag": null
+    },
+    {
+      "category": "Doors",
+      "name": "Replace interior doorknob/lever (customer supplied)",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55,
+      "source_tag": null
+    },
+    {
+      "category": "Doors",
+      "name": "Adjust strike plate / latch alignment",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55,
+      "source_tag": null
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bypass, Replace Headrail",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bypass, Replace Doors(Set) (Always",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 0,
+      "market_override": 240,
+      "final_price": 240,
+      "source_tag": "Fixed"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bypass, Replace Wheels (All)",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bypass, Reinstall And/Or Adjust Doors",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bypass, Install Floor Guide",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bypass, Install Handle (Including",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 43.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bifold, Replace Headrail (Set)",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 0,
+      "market_override": 185,
+      "final_price": 185,
+      "source_tag": "Fixed"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bifold, Replace Door Hardware (As",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 100,
+      "source_tag": "Trip Fee+"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bifold, Replace Doors (All New",
+      "unit": "each",
+      "labor_minutes": 165,
+      "material_allowance": 0,
+      "market_override": 275,
+      "final_price": 275,
+      "source_tag": "Fixed"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bifold, Reinstall And/Or Adjust Doors",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 100,
+      "source_tag": "Trip Fee+"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Bifold, Install Knobs",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Standard, Replace Door Only",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 0,
+      "market_override": 250,
+      "final_price": 250,
+      "source_tag": "Fixed"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Standard, Replace Door And Frame",
+      "unit": "each",
+      "labor_minutes": 250,
+      "material_allowance": 0,
+      "market_override": 350,
+      "final_price": 350,
+      "source_tag": "Fixed"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Standard, Replace Knob",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Standard, Adjust Door / Strike Plate",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Pocket, Replace Latching Mechanism",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Pocket, Replace Locking Mechanism",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Pocket, Replace Rail",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 225.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Pocket, Replace Door",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 220.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Pocket, Repair / Stuck Door",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 110.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Barn, Install New",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 280.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Barn, Replace Door Slab Only",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 165.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Barn, Replace Hardware",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Accordion, Replace Rail",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Accordion, Replace Door",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 145.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Accordion, Replace Hardware",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Bypass, Install New",
+      "unit": "each",
+      "labor_minutes": 600,
+      "material_allowance": 0,
+      "market_override": 600,
+      "final_price": 600,
+      "source_tag": "Fixed"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Bypass, Replace Wheels",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Bypass, Adjust Wheels",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Bypass, Replace Handle",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Bypass, Replace Bumbers",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 8,
+      "market_override": null,
+      "final_price": 49.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Hinged, Replace Trim",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Hinged, Replace Door",
+      "unit": "each",
+      "labor_minutes": 600,
+      "material_allowance": 0,
+      "market_override": 600,
+      "final_price": 600,
+      "source_tag": "Fixed"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Hinged, Replace Handle",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Hinged, Replace Magnet",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 46.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior, Shower, Hinged, Adjust",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Replace Door And",
+      "unit": "each",
+      "labor_minutes": null,
+      "material_allowance": 0,
+      "market_override": 600,
+      "final_price": 600,
+      "source_tag": "PriceOnly"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Replace Doorknob &",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Replace Deadbolt &",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Adjust/Align To Latch/",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Replace Weather",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Replace Sweep /",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Replace Threshold",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Install Chain Lock",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 51.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Install Slide Latch",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 51.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Standard Entry, Install Alarm",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Glass, Replace Handle",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Glass, Replace Mortise Latch",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Glass, Adjust Lock/Latch",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Glass, Adjust Wheels",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 75.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Glass, Replace Wheels",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 175.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Glass, Install Security Bar",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 48.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Glass, Clean And Lubricate",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Glass, Replace Door/Assembly 1,000+ 1,000+",
+      "unit": "each",
+      "labor_minutes": 480,
+      "material_allowance": 0,
+      "market_override": 1000,
+      "final_price": 1000,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Screen, Replace Door",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 105.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Screen, Replace Wheels",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Screen, Replace Handle/Latch",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Screen, Adjust",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 41.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Sliding Screen, Re-Screen",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Hinged Screen, Replace Door",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 140.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Hinged Screen, Replace Pneumatic",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 70.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Hinged Screen, Replace Spring &",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Hinged Screen, Replace Handle",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Hinged Screen, Re-Screen",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Hinged Screen, Adjust Lock/Latch",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 41.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Security, Install New 400+",
+      "unit": "each",
+      "labor_minutes": 300,
+      "material_allowance": 0,
+      "market_override": 450,
+      "final_price": 450,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Security, Replace Door 400+",
+      "unit": "each",
+      "labor_minutes": 300,
+      "material_allowance": 0,
+      "market_override": 450,
+      "final_price": 450,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Security, Adjust Lock/Latch",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Security, Replace Knob/Handle/Lever",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 100.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "*Replace/Install Self Closing Hinges, Garage",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 70.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Replace Garage Door Panel Unknown Unknown",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 0,
+      "market_override": 300,
+      "final_price": 300,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Replace Wheel",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Replace Lock/Latch",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Replace Motor Unknown Unknown",
+      "unit": "each",
+      "labor_minutes": 180,
+      "material_allowance": 0,
+      "market_override": 400,
+      "final_price": 400,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Clean And Lubricate",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Reset Emergency Pull",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 33.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Adjust IR Sensors",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Replace Bottom Seal",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 130.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Replace Trim",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 130.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Replace/Repair Wall Button",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Program New Clicker",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 33.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Program New Keypad Unknown Unknown",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, Garage, Paint",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 175.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Replace Doors Only",
+      "unit": "each",
+      "labor_minutes": 240,
+      "material_allowance": 0,
+      "market_override": 400,
+      "final_price": 400,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Replace Doors & 1000+",
+      "unit": "each",
+      "labor_minutes": 480,
+      "material_allowance": 0,
+      "market_override": 1000,
+      "final_price": 1000,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Replace Weather",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Replace Doorknob",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Replace Deadbolt &",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 55.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Adjust/Aligh to Lock/",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 75.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Replace Bottom",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Replace Threshold",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Replace Bolt/Lock",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Install Chain/Bar",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 51.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Exterior, French (Specific), Install Alarm",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior/Exterior, Install Doorstops",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior/Exterior, Install Automatic Closing",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 100.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Doors",
+      "name": "Interior/Exterior, Install Dog/Cat Doors",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Replace Sink",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 225.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Install New (After New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 225.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Replace Strainer Basket",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Caulk",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 8,
+      "market_override": null,
+      "final_price": 58.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Repair/Replace Drain Pipes",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Snake/Unclog",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Replace Faucet",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 160.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Repair Faucet",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Replace Sprayer",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Replace Supply Line",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Replace Shutoff Valve",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Porcelain Repair",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Replace Garbage Disposal",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 160.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Repair Garbage Disposal",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Install New Garbage Disposal",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 165.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Install Water Filtration System",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 175.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Remove Water Filtration System",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Install Soap Dispenser/",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Kitchen, Remove Soap Dispenser/",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 33.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Dishwasher, Replace",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 220.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Dishwasher, Mount To Countertop",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Dishwasher, Replace Supply Line",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Dishwasher, Replace Drain Line",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Dishwasher, Install Drain Line Service Loop",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 8,
+      "market_override": null,
+      "final_price": 58.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Dishwasher, Repair",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Replace Sink",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 225.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Install New (After New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 225.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Replace Drain Assembly",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Replace/Repair Drain Pipes",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Replace/Repair Pop Up",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Caulk",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 8,
+      "market_override": null,
+      "final_price": 58.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Unclog",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Replace Faucet",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 135.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Repair Faucet",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Replce Supply Lines",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Replace Shutoff Valves",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Sink, Bathroom, Porcelain Repair",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Shower Head",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Shower Head Pipe/Arm",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Spout",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Valve Stems",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 145.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Repair Valve Stems",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Shower Cartridge",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Repair Shower Cartridge",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Main Manifold",
+      "unit": "each",
+      "labor_minutes": 180,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 350.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace/Install Trim/Beauty Kit",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace/Seal Overflow Drain",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Trip Lever Drain",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Drain Assembly",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 150.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Pop Up Drain Stopper",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Repair Porcelain",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Caulk/Seal Surround",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Unclog/Snake",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Tub/Shower, Replace Shower Drain Cover",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 51.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 165.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Unclog",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Fill Valve",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Flapper",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 46.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Flush Lever",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 8,
+      "market_override": null,
+      "final_price": 49.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Install Bolt Caps",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Caulk",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 8,
+      "market_override": null,
+      "final_price": 58.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Seat",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 51.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Tank Lid",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Wax Ring",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 110.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Tank/Bowl Seal",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace High Efficiency Tank Assemblies",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Flange",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 175.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Supply Line",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 8,
+      "market_override": null,
+      "final_price": 58.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Toilet, Replace Shutoff Valve",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Hose Bibb, Replace Bibb (Laundry Or Garden)",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Hose Bibb, Repair (Laundry Or Garden)",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Softener, Add Salt & Cycle",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Softener, Repair Common Plumbing",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 175.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Softener, Remove",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 160.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Softener, Install New",
+      "unit": "each",
+      "labor_minutes": 180,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 350.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Replace Install New",
+      "unit": "each",
+      "labor_minutes": 300,
+      "material_allowance": 0,
+      "market_override": 600,
+      "final_price": 600,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Pilot Light Re-Light",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Replace Heating Elements",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 150.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Replace TP Valve",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Seal Exhaust Pipes",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Replace Shutoff Valves",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Flush",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 110.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Install/Repair Vent Plumbing",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Water Heater, Adjust Temperature",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 33.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Plumbing, General Copper Repair/Replacment",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Plumbing, General PVC Repair/Replacement",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Plumbing, General PEX/Flexible Repair/",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Plumbing, General 1/4\" or 3/8\" Copper Tubing",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Plumbing, General Steel Supply Line",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 150.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Plumbing, General Drain/Sewer Line Repair/",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Plumbing, General Irrigation Line Repair/",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Plumbing",
+      "name": "Plumbing, General Exterior/Main Shutoff Valve",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Refrigerator, Replace Appliance",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 110.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Refrigerator, Replace Ice Maker",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 150.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Refrigerator, Replace Water Filter",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 43.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Refrigerator, Replace Supply Line",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Refrigerator, Replace Shelves/Drawers",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Refrigerator, Repair Appliance",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 145.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Washing Machine, Replace Supply Lines",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Washing Machine, Replace Drain Hose",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Washing Machine, Replace Electrical Plug",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Washing Machine, Clear Drain Side Debris",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Washing Machine, Install Or Remove",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Dryer, Replace/Upgrade Electrical Plug",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Dryer, Replace Gas Valve",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Dryer, Replace Gas Line",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Dryer, Replace Exhaust Hose",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Dryer, Full Vent Cleaning To Exterior",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 135.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Dryer, Install Or Remove",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range/Oven Install Or Remove",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range/Oven, Install Anti-Tip Device",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range/Oven, Replace Burners/Coils",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range/Oven, Replace Electrical Cord",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range/Oven, Replace Gas Valve",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range/Oven, Replace Gas Line",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range/Oven, Repair/Replace Drawer Rails",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Above Range Microwave,",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 165.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Above Range Microwave, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 165.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Above Range Microwave, Change Fuse",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Above Range Microwave, Replace Door/Handle",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 100.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Above Range Microwave, Replace Filters",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 43.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Above Range Microwave, Replace Turn Table",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 43.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range Hood, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 225.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range Hood, Replace Filters",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 43.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Appliances",
+      "name": "Range Hood, Replace Fan Motor",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Circuit Breakers, Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fuses, Replace",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Wiring, Replace/Repair",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 230.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Outlets, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": 85,
+      "final_price": 85,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Outlets, Split/Switch Controlled, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 40,
+      "material_allowance": 10,
+      "market_override": 95,
+      "final_price": 95,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "GFCI Outlets, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": 95,
+      "final_price": 95,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Switches, Replace Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 5,
+      "market_override": 85,
+      "final_price": 85,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Switches, Dimmable, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": 95,
+      "final_price": 95,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Switches, Sensored, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 40,
+      "material_allowance": 15,
+      "market_override": 110,
+      "final_price": 110,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Switches, 3 Way, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": 110,
+      "final_price": 110,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Gang Boxes, Remodel Type, Install",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Ceiling Fan Rated Remodel Gang Boxes, Install",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "General Lighting Gang Boxes, Install",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Outdoor Weatherproof Boxes, Install",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Cable Outlets, Replace",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Phone Jack, Replace",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Ceiling Fan, Install New",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 165.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Ceiling Fan, Balance",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Ceiling Fan, Replace/Install Remote &",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Ceiling Fan, Replace Light",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Ceiling Fan, Replace Pull Chain",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Ceiling Fan, Replace Globes",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 51.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Can Lights, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Vanity Light Bar, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Chandelier, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 225.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Dome Light, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Fluorescent, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Pendant Light, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Track Light, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 150.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Sconce, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Porch Light, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Sensored Flood, Program",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Sensored Flood, Install New",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 150.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Sensored Exterior, Diagnose/Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Hard Wired Pathway Lights, Replace/",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Fixture, Under Cabinet Lighting, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Exhaust Fan, Replace Motor",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Exhaust Fan, Replace Unit",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Smoke/CO Detectors, Replace/Install New",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Doorbell, Wired, Diagnose",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 80.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Doorbell, Wired, Replace Transformer",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Doorbell, Wired, Replace Push Button",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Doorbell, Wired, Replace Chime Box",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Doorbell, Wireless, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Outlet Covers, Replace",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 3,
+      "market_override": null,
+      "final_price": 36.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Switch Plates, Replace",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 3,
+      "market_override": null,
+      "final_price": 36.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Bulbs, Fixture, Replace",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Bulbs, Mocrowave, Replace",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Bulbs, Oven/Range, Replace",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Bulbs, Refrigerator, Replace",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Electrical",
+      "name": "Bulbs, Halogen, Replace",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window, Replace",
+      "unit": "each",
+      "labor_minutes": 240,
+      "material_allowance": 0,
+      "market_override": 450,
+      "final_price": 450,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window Glass, Single Pane, Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window Glass, Dual Pane, Replace",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window, Casement, Crank, Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 100.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window, Locks, Replace/Repair",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window, Springs & Balances, Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window, Blinds, Standard Horizontal, Replace",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window, Curtain Rods, Replace",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window Blinds, Standard Vertical, Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window, Clear Weep Holes",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 41.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Windows",
+      "name": "Window, Install Sensors/Alarms",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet, Kitchen, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 175.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet, Vanity, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 230.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet, Pantry/Laundry, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 230.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet, Rotten Sink Cabinet Bottom, Replace",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet, Door, Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 100.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet, Door Hinges, Replace",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet Door Hinges, Adjustment",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 33.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet Drawer, Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 130.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet Drawer, Build New Box",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet Drawer, Replace Rails",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet, Door And Drawer Pulls, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet, Toe Kick, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet Coutertops, Replace/Install",
+      "unit": "each",
+      "labor_minutes": 240,
+      "material_allowance": 0,
+      "market_override": 400,
+      "final_price": 400,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Cabinets",
+      "name": "Cabinet Countetops, Caulk",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Carpentry",
+      "name": "Baseboard, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 60.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Carpentry",
+      "name": "Door Casing, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Carpentry",
+      "name": "Window Casing, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Carpentry",
+      "name": "Wainscott, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Carpentry",
+      "name": "Chair Rail, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Carpentry",
+      "name": "Crown Moulding, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Carpentry",
+      "name": "Cabinet Trim, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Carpentry",
+      "name": "Fascia, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Tile",
+      "name": "Tile, Floor, Install/Repair",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Tile",
+      "name": "Tile, Bathroom Walls, Install/Repair",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 300.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Tile",
+      "name": "Tile, Backsplash, Install/Repair",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Tile",
+      "name": "Tile, Countertop, Install, Repair",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Tile",
+      "name": "Tile, Pool, Install/Repair",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 300.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Tile",
+      "name": "Tile, Grout Matching And Application",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Tile",
+      "name": "Tile, Sealing",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Carpet, Stretching",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 160.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Carpet, Install New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 230.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Carpet, Patching",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Carpet, Cleaning",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Carpet, Transition Strips, Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Carpet, Tack Strip, Install",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 90.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Vinyl, Plank, Glue Down, Install New",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 290.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Vinyl, Plank, Glue Down, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Vinyl, Plank, Floating, Install New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 230.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Vinyl, Plank, Floating, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Vinyl, Sheet, Glue Down, Install New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Vinyl, Sheet, Glue Down, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Laminate, Floating, Install New",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 290.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Laminate, Floating, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Cement, Stained, Re-Stain",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Cement, Epoxy, Re-Apply",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 300.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Wood Floors, Refinish",
+      "unit": "each",
+      "labor_minutes": 180,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 350.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Wood Floors, Replace Damaged Pieces",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Wood Floors, Install New",
+      "unit": "each",
+      "labor_minutes": 180,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 350.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "Wood Floors, Repair Gouges & Dents",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "All Flooring, Repair Squeaks",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Flooring",
+      "name": "All Flooring, Install Transition Strips",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Drywall, Patch",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Drywall, Texture",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Drywall, Smooth Finish",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 145.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Drywall, Install New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Drywall, Patch And Paint",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Drywall, Broken Joint/Tape Repair",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 145.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Drywall, Nail Pop Repair",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 85.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Shiplap, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Wallpaper,Remove",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 165.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Wallpaper, Install New",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 290.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Wallpaper, Repair",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Paint, Full Interior",
+      "unit": "each",
+      "labor_minutes": 360,
+      "material_allowance": 0,
+      "market_override": 350,
+      "final_price": 350,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Popcorn, Paint",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 230.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Popcorn, Remove",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 225.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Popcorn, Patch",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Popcorn, Apply",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Ceiling Tile, Glue Down, Replace/Repair/Install",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Ceiling Tile, Drop Down, Replace/Repair/Install",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "TV Mount, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Paper Towel Holder, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "TP Holder, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 5,
+      "market_override": null,
+      "final_price": 38.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Grab Bars, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Stair Bannister, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Permanent Shower Rod, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Mirror, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Towel Hooks & Rings, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 8,
+      "market_override": null,
+      "final_price": 41.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Shelving, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Closet Rods, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "AC Registers, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 25,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 51.67,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "AC Returns, Remove/Install",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "HVAC (Generally Farmed Out To A Specialist)",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 0,
+      "market_override": 100,
+      "final_price": 100,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Swamp Cooler, Replace Motor",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Swamp Cooler, Replace Pads",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 100.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Swamp Cooler, Replace Spider",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 65.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Swamp Cooler, Replace Pump",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 130.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Swamp Cooler, Replace Whole",
+      "unit": "each",
+      "labor_minutes": 240,
+      "material_allowance": 0,
+      "market_override": 400,
+      "final_price": 400,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Thermostat, Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 100.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Thermostat, Program",
+      "unit": "each",
+      "labor_minutes": 30,
+      "material_allowance": 0,
+      "market_override": null,
+      "final_price": 50.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Interior Wall & Ceiling Finishes &",
+      "name": "Filter, Replace",
+      "unit": "each",
+      "labor_minutes": 20,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 43.33,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Patch, Flat Roof",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Patch, Shingle Roof",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Patch, Tile Roof",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Patch, Metal Roof",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Patch, Asphalt Roof",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Scuppers, Repair",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Gutters, Rapair",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Gutters, Clean Out",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 10,
+      "market_override": null,
+      "final_price": 160.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Gutters, Install New",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Chimney, Sealing",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Chimney, Cap Install/Replace",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Vent Caps, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Vents, Whirlybird, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 35,
+      "market_override": null,
+      "final_price": 160.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Parapet, Seal",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Skylight, Install New",
+      "unit": "each",
+      "labor_minutes": 300,
+      "material_allowance": 0,
+      "market_override": 500,
+      "final_price": 500,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Skylight, Covers, Replace",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Skylight, Seal",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 150.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Satellite Dishes, Install/Remove",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 115.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Roofing",
+      "name": "Other Roof Accessories, Install/Remove",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 120.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Stucco, Install",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 60,
+      "market_override": null,
+      "final_price": 310.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Stucco, Repair",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, 4X8, Install",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, 4X8, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Vinyl, Install",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Vinyl, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Shiplap, Install",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Shiplap, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Board And Batten, Install",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Board And Batten, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Shingles/Shakes, Install",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 60,
+      "market_override": null,
+      "final_price": 310.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Shingles/Shakes, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 35,
+      "market_override": null,
+      "final_price": 185.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Fiber/Cement, Install",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 60,
+      "market_override": null,
+      "final_price": 310.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Fiber/Cement, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Metal, Intall",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Siding, Metal, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Exterior Walls Finishes",
+      "name": "Paint, Full Exterior",
+      "unit": "each",
+      "labor_minutes": 360,
+      "material_allowance": 0,
+      "market_override": 600,
+      "final_price": 600,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Masonry",
+      "name": "Brick, Repair",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Masonry",
+      "name": "Slump Block, Repair",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Masonry",
+      "name": "Cinder Block, Repair",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Masonry",
+      "name": "Stone Veneer, Repair",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 45,
+      "market_override": null,
+      "final_price": 195.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Masonry",
+      "name": "Stone Wall, Repair",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Masonry",
+      "name": "Grout, Replace/Repair",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Masonry",
+      "name": "Fireplace, Repair",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Masonry",
+      "name": "Chimney Flue, Replace/Repair",
+      "unit": "each",
+      "labor_minutes": 150,
+      "material_allowance": 60,
+      "market_override": null,
+      "final_price": 310.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Decks",
+      "name": "Deck, Build New",
+      "unit": "each",
+      "labor_minutes": 720,
+      "material_allowance": 0,
+      "market_override": 1500,
+      "final_price": 1500,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Decks",
+      "name": "Deck, Repair/Replace Rotten Parts",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Decks",
+      "name": "Deck, Refinishing",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 240.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Wood Picket, Build New",
+      "unit": "each",
+      "labor_minutes": 480,
+      "material_allowance": 0,
+      "market_override": 800,
+      "final_price": 800,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Wood Picket, Repair/Replace Wooden Parts",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Wood Picket, Seal",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Wood Gate, Build New Or Repair",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Wood Mounted Latches & Hinges, Install/",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Chain Link, Build New",
+      "unit": "each",
+      "labor_minutes": 360,
+      "material_allowance": 0,
+      "market_override": 600,
+      "final_price": 600,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Chain Link, Repair/Replace Components",
+      "unit": "each",
+      "labor_minutes": 75,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 155.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Chain Link Gate, Build New Or Repair",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Chain Link Latches & Hinges, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 95.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Block/Masonry, Build New",
+      "unit": "each",
+      "labor_minutes": 600,
+      "material_allowance": 0,
+      "market_override": 1200,
+      "final_price": 1200,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Block/Masonry, Repair/Replace",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Block/Masonry, Grout",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Block/Masonry, Mount Gates To Masonry",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Block/Masonry, Install Latches/Hinges To",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 125.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Fencing",
+      "name": "Gates, Self Closing Devices, Install/Replace",
+      "unit": "each",
+      "labor_minutes": 45,
+      "material_allowance": 25,
+      "market_override": null,
+      "final_price": 100.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Tree Removal/Trimming",
+      "unit": "each",
+      "labor_minutes": 180,
+      "material_allowance": 0,
+      "market_override": 300,
+      "final_price": 300,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Install Misters",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 50,
+      "market_override": null,
+      "final_price": 250.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Pour Cement Slabs",
+      "unit": "each",
+      "labor_minutes": 360,
+      "material_allowance": 0,
+      "market_override": 600,
+      "final_price": 600,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Install Mailboxes",
+      "unit": "each",
+      "labor_minutes": 60,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 130.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Pressure Washing",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 15,
+      "market_override": null,
+      "final_price": 165.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Christimas Lights Installation/Removal",
+      "unit": "each",
+      "labor_minutes": 120,
+      "material_allowance": 20,
+      "market_override": null,
+      "final_price": 220.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Welding, General Skills",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 40,
+      "market_override": null,
+      "final_price": 190.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Solar, General Skills",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Pools, General Skills",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Landscaping, General Skills",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 30,
+      "market_override": null,
+      "final_price": 180.0,
+      "source_tag": "claude_estimate_2026-06"
+    },
+    {
+      "category": "Misc / Exterior",
+      "name": "Junk Hauling",
+      "unit": "each",
+      "labor_minutes": 90,
+      "material_allowance": 0,
+      "market_override": 200,
+      "final_price": 200,
+      "source_tag": "claude_estimate_2026-06"
+    }
+  ]
+}

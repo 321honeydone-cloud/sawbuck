@@ -1,0 +1,37 @@
+{
+  "_note": "SAMPLE rate book so the app builds and runs. Replace this whole file with your real rate_book.json from the HoneyDone bot folder (459 priced tasks). Same shape: settings + tasks[].",
+  "settings": {
+    "trip_fee": 100,
+    "military_discount_pct": 10,
+    "card_surcharge_pct": 3
+  },
+  "tasks": [
+    { "name": "Gutters, Clean Out", "category": "Roofing & Gutters", "final_price": 175 },
+    { "name": "Gutters, Rapair", "category": "Roofing & Gutters", "final_price": 240 },
+    { "name": "Gutters, Install New", "category": "Roofing & Gutters", "final_price": 850 },
+    { "name": "Pressure Washing", "category": "Exterior", "final_price": 285 },
+    { "name": "Junk Hauling", "category": "Exterior", "final_price": 200 },
+    { "name": "Tree Removal/Trimming", "category": "Exterior", "final_price": 350 },
+    { "name": "Fascia, Repair/Replace", "category": "Carpentry", "final_price": 425 },
+    { "name": "Drywall, Patch", "category": "Drywall & Interior", "final_price": 185 },
+    { "name": "Drywall, Patch And Paint", "category": "Drywall & Interior", "final_price": 285 },
+    { "name": "Paint, Full Interior", "category": "Paint", "final_price": 1800 },
+    { "name": "Paint, Full Exterior", "category": "Paint", "final_price": 2600 },
+    { "name": "TV Mount, Remove/Install", "category": "Interior", "final_price": 150 },
+    { "name": "Fixture, Ceiling Fan, Install New", "category": "Electrical", "final_price": 225 },
+    { "name": "Replace ceiling fan (standard)", "category": "Electrical", "final_price": 140 },
+    { "name": "Outlets, Replace/Install", "category": "Electrical", "final_price": 95 },
+    { "name": "Switches, Replace Install", "category": "Electrical", "final_price": 90 },
+    { "name": "Smoke/CO Detectors, Replace/Install New", "category": "Electrical", "final_price": 85 },
+    { "name": "Toilet, Replace", "category": "Plumbing", "final_price": 285 },
+    { "name": "Toilet, Unclog", "category": "Plumbing", "final_price": 150 },
+    { "name": "Sink, Kitchen, Replace Faucet", "category": "Plumbing", "final_price": 195 },
+    { "name": "Sink, Bathroom, Replace Faucet", "category": "Plumbing", "final_price": 175 },
+    { "name": "Sink, Kitchen, Replace Garbage Disposal", "category": "Plumbing", "final_price": 245 },
+    { "name": "Water Heater, Replace Install New", "category": "Plumbing", "final_price": 1450 },
+    { "name": "Tub/Shower, Caulk/Seal Surround", "category": "Tile & Wet Areas", "final_price": 175 },
+    { "name": "Grout, Replace/Repair", "category": "Tile & Wet Areas", "final_price": 350 },
+    { "name": "Deck, Repair/Replace Rotten Parts", "category": "Decks & Fences", "final_price": 650 },
+    { "name": "Wood Picket, Repair/Replace Wooden Parts", "category": "Decks & Fences", "final_price": 320 }
+  ]
+}

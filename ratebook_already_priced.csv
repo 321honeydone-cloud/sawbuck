@@ -1,0 +1,196 @@
+New taxonomy item,Maps to your priced task,Your price,Match score
+Labor > Appliances > Dishwasher > Replace Supply Line,"Refrigerator, Replace Supply Line",90.0,0.909
+Labor > Appliances > Dryer > Dryer Vent - Full Cleaning To Exterior,"Dryer, Full Vent Cleaning To Exterior",135.0,0.989
+Labor > Appliances > Dryer > Replace Dryer,"Dryer, Install Or Remove",85.0,0.851
+Labor > Appliances > Dryer > Replace Exhaust Hose,"Dryer, Replace Exhaust Hose",65.0,0.925
+Labor > Appliances > Dryer > Replace Gas Line,"Dryer, Replace Gas Line",155.0,0.923
+Labor > Appliances > Dryer > Replace Gas Valve,"Dryer, Replace Gas Valve",125.0,0.923
+Labor > Appliances > Dryer > Replace Motor,"Range Hood, Replace Fan Motor",155.0,0.811
+Labor > Appliances > Full Range (Cooktop + Oven) > Install Anti-Tip Device,"Range/Oven, Install Anti-Tip Device",60.0,0.897
+Labor > Appliances > Full Range (Cooktop + Oven) > Replace Electrical Cord,"Range/Oven, Replace Electrical Cord",90.0,0.88
+Labor > Appliances > Full Range (Cooktop + Oven) > Replace Gas Line,"Dryer, Replace Gas Line",155.0,0.923
+Labor > Appliances > Full Range (Cooktop + Oven) > Replace Gas Valve,"Dryer, Replace Gas Valve",125.0,0.923
+Labor > Appliances > Microwave > Replace Door Handle,"Above Range Microwave, Replace Door/Handle",100.0,0.835
+Labor > Appliances > Microwave > Replace Fan / Motor,"Range Hood, Replace Fan Motor",155.0,0.876
+Labor > Appliances > Microwave > Replace Filter,"Refrigerator, Replace Water Filter",43.33,0.833
+Labor > Appliances > Microwave > Replace Microwave,"Above Range Microwave,",165.0,0.833
+Labor > Appliances > Range Hood > Replace Fan Motor,"Range Hood, Replace Fan Motor",155.0,0.876
+Labor > Appliances > Range Hood > Replace Filter,"Refrigerator, Replace Water Filter",43.33,0.833
+Labor > Appliances > Range Hood > Replace Range Hood,"Range Hood, Replace/Install New",225.0,0.965
+Labor > Appliances > Refrigerator > Install New Refrigerator,"Refrigerator, Repair Appliance",145.0,0.861
+Labor > Appliances > Refrigerator > Repair Ice Maker,"Refrigerator, Replace Ice Maker",150.0,0.889
+Labor > Appliances > Refrigerator > Replace Ice Maker,"Refrigerator, Replace Ice Maker",150.0,0.907
+Labor > Appliances > Refrigerator > Replace Shelves / Drawers,"Refrigerator, Replace Shelves/Drawers",65.0,0.912
+Labor > Appliances > Refrigerator > Replace Supply Line,"Refrigerator, Replace Supply Line",90.0,0.909
+Labor > Appliances > Refrigerator > Replace Water Filter,"Refrigerator, Replace Water Filter",43.33,0.91
+Labor > Appliances > Standalone Cooktop > Replace Electrical Cord,"Range/Oven, Replace Electrical Cord",90.0,0.88
+Labor > Appliances > Standalone Cooktop > Replace Gas Line,"Dryer, Replace Gas Line",155.0,0.923
+Labor > Appliances > Standalone Cooktop > Replace Gas Valve,"Dryer, Replace Gas Valve",125.0,0.923
+Labor > Appliances > Standalone Or Double Oven > Replace Electrical Cord,"Range/Oven, Replace Electrical Cord",90.0,0.88
+Labor > Appliances > Standalone Or Double Oven > Replace Gas Line,"Dryer, Replace Gas Line",155.0,0.923
+Labor > Appliances > Standalone Or Double Oven > Replace Gas Valve,"Dryer, Replace Gas Valve",125.0,0.923
+Labor > Appliances > Trash Compactor > Replace Drawer,"Range/Oven, Repair/Replace Drawer Rails",95.0,0.803
+Labor > Cabinets > Build New Drawer Box,"Cabinet Drawer, Build New Box",180.0,0.925
+Labor > Cabinets > Repair Door,"Cabinet, Door, Replace",100.0,0.852
+Labor > Cabinets > Repair Drawer Box,"Cabinet Drawer, Build New Box",180.0,0.841
+Labor > Cabinets > Replace Door,"Cabinet, Door, Replace",100.0,0.878
+Labor > Cabinets > Replace Door / Drawer Pulls,"Cabinet, Door And Drawer Pulls, Replace/Install",60.0,0.904
+Labor > Cabinets > Replace Toe Kick,"Cabinet, Toe Kick, Replace/Install",95.0,0.895
+Labor > Carpentry > Repair Baseboard,"Baseboard, Install/Replace",60.0,0.95
+Labor > Carpentry > Repair Door Casing,"Door Casing, Install/Replace",90.0,0.952
+Labor > Carpentry > Replace Baseboard,"Baseboard, Install/Replace",60.0,0.97
+Labor > Carpentry > Replace Chair Rail,"Chair Rail, Install/Replace",90.0,0.975
+Labor > Carpentry > Replace Door Casing - Interior,"Door Casing, Install/Replace",90.0,0.815
+Labor > Carpentry > Replace Wainscott,"Wainscott, Install/Replace",250.0,0.97
+Labor > Doors > Exterior > Garage > Program New Clicker,"Exterior, Garage, Program New Clicker",33.33,0.863
+Labor > Doors > Exterior > Garage > Program New Keypad,"Exterior, Garage, Program New Keypad Unknown Unknown",65.0,0.809
+Labor > Doors > Exterior > Garage > Repair / Replace Wall Button,"Exterior, Garage, Replace/Repair Wall Button",65.0,0.86
+Labor > Doors > Exterior > Garage > Replace Bottom Seal,"Exterior, Garage, Replace Bottom Seal",130.0,0.863
+Labor > Doors > Exterior > Garage > Replace Wheel,"Exterior, Garage, Replace Wheel",90.0,0.829
+Labor > Doors > Exterior > Garage > Reset Emergency Pull,"Exterior, Garage, Reset Emergency Pull",33.33,0.88
+Labor > Doors > Exterior > Hinged Screen > Re-Screen,"Exterior, Hinged Screen, Re-Screen",95.0,0.832
+Labor > Doors > Exterior > Sliding Glass > Adjust Lock / Latch,"Exterior, Security, Adjust Lock/Latch",50.0,0.872
+Labor > Doors > Exterior > Sliding Glass > Adjust Wheels,"Interior, Shower, Bypass, Adjust Wheels",50.0,0.817
+Labor > Doors > Exterior > Sliding Glass > Install Security Bar,"Exterior, Sliding Glass, Install Security Bar",48.33,0.828
+Labor > Doors > Exterior > Sliding Screen > Re-Screen,"Exterior, Hinged Screen, Re-Screen",95.0,0.832
+Labor > Doors > Exterior > Sliding Screen > Replace Handle / Latch,"Exterior, Sliding Screen, Replace Handle/Latch",65.0,0.827
+Labor > Doors > Exterior > Sliding Screen > Replace Wheels (All),"Interior, Bypass, Replace Wheels (All)",90.0,0.861
+Labor > Doors > Exterior > Standard Slab > Install Chain Lock,"Exterior, Standard Entry, Install Chain Lock",51.67,0.823
+Labor > Doors > Exterior > Standard Slab > Install Slide Latch,"Exterior, Standard Entry, Install Slide Latch",51.67,0.825
+Labor > Doors > Exterior > Standard Slab > Replace Bottom Seal,"Exterior, Garage, Replace Bottom Seal",130.0,0.863
+Labor > Doors > Interior > Accordion > Replace Rail,"Interior, Pocket, Replace Rail",225.0,0.827
+Labor > Doors > Interior > Barn > Replace Door (Slab Only),"Interior, Barn, Replace Door Slab Only",165.0,0.886
+Labor > Doors > Interior > Bifold > Reinstall And Adjust,"Interior, Bypass, Reinstall And/Or Adjust Doors",50.0,0.847
+Labor > Doors > Interior > Bypass > Reinstall And Adjust,"Interior, Bypass, Reinstall And/Or Adjust Doors",50.0,0.847
+Labor > Doors > Interior > Bypass > Replace Headrail,"Interior, Bypass, Replace Headrail",120.0,0.835
+Labor > Doors > Interior > Bypass > Replace Or Install Floor Guide,"Interior, Bypass, Install Floor Guide",38.33,0.856
+Labor > Doors > Interior > Bypass > Replace Wheels (All),"Interior, Bypass, Replace Wheels (All)",90.0,0.861
+Labor > Doors > Interior > Pocket > Replace Door (Slab),"Interior, Barn, Replace Door Slab Only",165.0,0.825
+Labor > Doors > Interior > Pocket > Replace Locking Mechanism,"Interior, Pocket, Replace Locking Mechanism",90.0,0.869
+Labor > Doors > Interior > Pocket > Replace Rail,"Interior, Pocket, Replace Rail",225.0,0.827
+Labor > Doors > Interior > Shower > Bypass > Replace Wheels (All),"Interior, Bypass, Replace Wheels (All)",90.0,0.861
+Labor > Doors > Interior > Standard Slab > Adjust / Repair / Replace Strike Plate,Adjust strike plate / latch alignment,55,0.854
+Labor > Doors > Interior > Standard Slab > Replace Door (Slab),"Interior, Barn, Replace Door Slab Only",165.0,0.825
+Labor > Doors > Interior > Standard Slab > Replace Knob / Handle / Lever,"Exterior, Security, Replace Knob/Handle/Lever",100.0,0.881
+Labor > Doors > Interior > Standard Slab > Replace Latching Mechanism,"Interior, Pocket, Replace Latching Mechanism",90.0,0.87
+Labor > Doors > Miscellaneous > Install Dog / Cat Doors,"Interior/Exterior, Install Dog/Cat Doors",240.0,0.86
+Labor > Electrical > Bulbs > Standard - Replace,Replace ceiling fan (standard),160,0.839
+Labor > Electrical > Distribution > Install Ceiling Fan Rated Box (Remodel),"Ceiling Fan Rated Remodel Gang Boxes, Install",120.0,0.808
+Labor > Electrical > Doorbells > Wired > Replace Chime Box,"Doorbell, Wired, Replace Chime Box",90.0,0.868
+Labor > Electrical > Doorbells > Wired > Replace Transformer,"Doorbell, Wired, Replace Transformer",120.0,0.846
+Labor > Electrical > Exhaust Fans > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Exhaust Fans > Replace Motor,"Exhaust Fan, Replace Motor",125.0,0.846
+Labor > Electrical > Lighting > Can / Recessed > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Can / Recessed > Replace Can,"Fixture, Can Lights, Replace/Install New",120.0,0.818
+Labor > Electrical > Lighting > Ceiling Fan > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Ceiling Fan > Replace / Install,"Outlets, Replace/Install",85,0.855
+Labor > Electrical > Lighting > Ceiling Fan > Replace Pull Chain,"Fixture, Ceiling Fan, Replace Pull Chain",60.0,0.837
+Labor > Electrical > Lighting > Chandelier > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Chandelier > Replace Chandelier,"Fixture, Chandelier, Replace/Install New",225.0,0.88
+Labor > Electrical > Lighting > Dome > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Dome > Replace,"Fuses, Replace",60.0,0.855
+Labor > Electrical > Lighting > Exterior Flood > Program Fixture,"Fixture, Sensored Flood, Program",50.0,0.857
+Labor > Electrical > Lighting > Exterior Flood > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Exterior Flood > Replace Fixture,"Bulbs, Fixture, Replace",38.33,0.896
+Labor > Electrical > Lighting > Exterior Pathway > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Exterior Porch > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Exterior Porch > Replace Fixture,"Bulbs, Fixture, Replace",38.33,0.896
+Labor > Electrical > Lighting > Fluorescent > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Fluorescent > Replace Fluorescent Fixture,"Fixture, Fluorescent, Replace/Install New",120.0,0.973
+Labor > Electrical > Lighting > Pendant > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Pendant > Replace Pendant Fixture,"Fixture, Pendant Light, Replace/Install New",115.0,0.899
+Labor > Electrical > Lighting > Sconce > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Sconce > Replace Fixture,"Bulbs, Fixture, Replace",38.33,0.896
+Labor > Electrical > Lighting > Track > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Track > Replace Fixture,"Bulbs, Fixture, Replace",38.33,0.896
+Labor > Electrical > Lighting > Under Cabinet > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Under Cabinet > Replace Fixture,"Bulbs, Fixture, Replace",38.33,0.896
+Labor > Electrical > Lighting > Vanity > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Lighting > Vanity > Replace Vanity Fixture,"Fixture, Vanity Light Bar, Replace/Install New",115.0,0.857
+Labor > Electrical > Smoke / CO Detectors > Battery Operated > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Smoke / CO Detectors > Battery Operated > Replace,"Fuses, Replace",60.0,0.855
+Labor > Electrical > Smoke / CO Detectors > Carbon Monoxide > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Smoke / CO Detectors > Hard Wired > Repair Wiring,"Wiring, Replace/Repair",230.0,0.966
+Labor > Electrical > Smoke / CO Detectors > Hard Wired > Replace Detector,Replace hardwired smoke/CO detector,55,0.812
+Labor > Exterior Walls > Full Exterior Paint,"Paint, Full Exterior",600,0.923
+Labor > Exterior Walls > Repair / Replace 4X8 Siding,"Siding, 4X8, Repair/Replace",155.0,0.922
+Labor > Exterior Walls > Repair / Replace Fiber Cement Siding,"Siding, Fiber/Cement, Repair/Replace",190.0,0.936
+Labor > Exterior Walls > Repair / Replace Shiplap Siding,"Siding, Shiplap, Repair/Replace",155.0,0.929
+Labor > Exterior Walls > Repair / Replace Shiplap Siding,"Siding, Shiplap, Repair/Replace",155.0,0.929
+Labor > Exterior Walls > Repair / Replace Vinyl Siding,"Siding, Vinyl, Repair/Replace",155.0,0.924
+Labor > Exterior Walls > Repair Stucco,"Stucco, Repair",190.0,0.905
+Labor > Fencing > Chain Link > Build New Gate,"Wood Gate, Build New Or Repair",250.0,0.887
+Labor > Fencing > Chain Link > Repair Gate,"Wood Gate, Build New Or Repair",250.0,0.816
+Labor > Fencing > Chain Link > Replace Chain Link,"Chain Link, Repair/Replace Components",155.0,0.892
+Labor > Fencing > Masonry > Repair / Replace Block,"Block/Masonry, Repair/Replace",250.0,0.887
+Labor > Fencing > Wood Picket > Build New Gate,"Wood Gate, Build New Or Repair",250.0,0.887
+Labor > Flooring > Carpet > Replace Tack Strip,"Carpet, Tack Strip, Install",90.0,0.88
+Labor > Flooring > Hardwood > Refinish,"Wood Floors, Refinish",350.0,0.837
+Labor > Flooring > Hardwood > Repair Squeaks,"All Flooring, Repair Squeaks",115.0,0.884
+Labor > Flooring > Laminate - Wood > Refinish,"Wood Floors, Refinish",350.0,0.837
+Labor > Plumbing > Bathroom > Toilet > Caulk Toilet,"Toilet, Caulk",58.0,0.983
+Labor > Plumbing > Bathroom > Toilet > Replace Bolt Caps,"Toilet, Install Bolt Caps",38.33,0.877
+Labor > Plumbing > Bathroom > Toilet > Replace Fill Valve,"Toilet, Replace Fill Valve",80.0,0.92
+Labor > Plumbing > Bathroom > Toilet > Replace Flapper,"Toilet, Replace Flapper",46.67,0.898
+Labor > Plumbing > Bathroom > Toilet > Replace Flush Lever,"Toilet, Replace Flush Lever",49.67,0.921
+Labor > Plumbing > Bathroom > Toilet > Replace Seat,"Toilet, Replace Seat",51.67,0.895
+Labor > Plumbing > Bathroom > Toilet > Replace Supply Line,"Toilet, Replace Supply Line",58.0,0.921
+Labor > Plumbing > Bathroom > Toilet > Replace Tank,"Toilet, Replace Tank Lid",38.33,0.838
+Labor > Plumbing > Bathroom > Toilet > Replace Tank Lid,"Toilet, Replace Tank Lid",38.33,0.919
+Labor > Plumbing > Bathroom > Toilet > Replace Toilet,"Toilet, Replace",165.0,0.985
+Labor > Plumbing > Bathroom > Toilet > Replace Wax Ring,"Toilet, Replace Wax Ring",110.0,0.919
+Labor > Plumbing > Bathroom > Toilet > Snake / Unclog,"Sink, Kitchen, Snake/Unclog",80.0,0.865
+Labor > Plumbing > Bathroom > Tub / Shower > Install / Replace Shower Trim Kit,"Tub/Shower, Replace/Install Trim/Beauty Kit",125.0,0.884
+Labor > Plumbing > Bathroom > Tub / Shower > Repalace Shower Drain Cover,"Tub/Shower, Replace Shower Drain Cover",51.67,0.804
+Labor > Plumbing > Bathroom > Tub / Shower > Replace Shower Cartridge,"Tub/Shower, Replace Shower Cartridge",125.0,0.917
+Labor > Plumbing > Bathroom > Tub / Shower > Replace Shower Head,"Tub/Shower, Replace Shower Head",60.0,0.914
+Labor > Plumbing > Bathroom > Tub / Shower > Replace Shower Head Arm,"Tub/Shower, Replace Shower Head Pipe/Arm",90.0,0.883
+Labor > Plumbing > Bathroom > Tub / Shower > Replace Shower Manifold,"Tub/Shower, Replace Main Manifold",350.0,0.874
+Labor > Plumbing > Bathroom > Tub / Shower > Replace Tub Pop Up Stopper,"Tub/Shower, Replace Pop Up Drain Stopper",90.0,0.892
+Labor > Plumbing > Bathroom > Tub / Shower > Replace Tub Spout,"Tub/Shower, Replace Spout",65.0,0.913
+Labor > Plumbing > Bathroom > Tub / Shower > Unclog / Snake Tub / Shower,"Tub/Shower, Unclog/Snake",80.0,0.989
+Labor > Plumbing > Bathroom > Vanity Sink > Caulk Sink,"Sink, Kitchen, Caulk",58.0,0.903
+Labor > Plumbing > Bathroom > Vanity Sink > Repair / Replace Drain Pipes,"Sink, Kitchen, Repair/Replace Drain Pipes",120.0,0.877
+Labor > Plumbing > Bathroom > Vanity Sink > Replace / Install Faucet,Replace faucet (customer supplied),160,0.857
+Labor > Plumbing > Bathroom > Vanity Sink > Replace / Repair Pop Up Stopper,"Tub/Shower, Replace Pop Up Drain Stopper",90.0,0.855
+Labor > Plumbing > Bathroom > Vanity Sink > Replace Sink,"Sink, Kitchen, Replace Sink",225.0,0.882
+Labor > Plumbing > Bathroom > Vanity Sink > Replace Supply Line,"Toilet, Replace Supply Line",58.0,0.921
+Labor > Plumbing > Bathroom > Vanity Sink > Snake / Unclog Bathroom Sink,"Sink, Bathroom, Unclog",80.0,0.85
+Labor > Plumbing > Distribution / General Plumbing > PEX Repair,"Plumbing, General PEX/Flexible Repair/",180.0,0.807
+Labor > Plumbing > Distribution / General Plumbing > PVC Repair,"Plumbing, General PVC Repair/Replacement",180.0,0.803
+Labor > Plumbing > Exterior > Repair Hose Bibb,"Hose Bibb, Repair (Laundry Or Garden)",90.0,0.85
+Labor > Plumbing > Kitchen > Refrigerator > Repair Shutoff Valve,"Toilet, Replace Shutoff Valve",115.0,0.898
+Labor > Plumbing > Kitchen > Refrigerator > Replace Shutoff Valve,"Toilet, Replace Shutoff Valve",115.0,0.922
+Labor > Plumbing > Kitchen > Sink > Install / Replace Faucet,Replace faucet (customer supplied),160,0.862
+Labor > Plumbing > Kitchen > Sink > Repair / Install Drain Assembly,"Sink, Bathroom, Replace Drain Assembly",120.0,0.846
+Labor > Plumbing > Kitchen > Sink > Repair / Replace Sprayer,"Sink, Kitchen, Replace Sprayer",90.0,0.832
+Labor > Plumbing > Kitchen > Sink > Replace Garbage Disposal,Install garbage disposal (customer supplied),160,0.877
+Labor > Plumbing > Kitchen > Sink > Replace Strainer Basket,"Sink, Kitchen, Replace Strainer Basket",90.0,0.875
+Labor > Plumbing > Kitchen > Sink > Replace Supply Line,"Toilet, Replace Supply Line",58.0,0.921
+Labor > Plumbing > Water Heaters & Softeners > Add Salt To Water Softener,"Water Softener, Add Salt & Cycle",65.0,0.926
+Labor > Plumbing > Water Heaters & Softeners > Adjust Water Heater Temperature,"Water Heater, Adjust Temperature",33.33,0.991
+Labor > Plumbing > Water Heaters & Softeners > Flush Water Heater,"Water Heater, Flush",110.0,0.987
+Labor > Plumbing > Water Heaters & Softeners > Light Water Heater Pilot Light,"Water Heater, Pilot Light Re-Light",50.0,0.95
+Labor > Plumbing > Water Heaters & Softeners > Remove Water Softener Permanently,"Water Softener, Remove",160.0,0.844
+Labor > Plumbing > Water Heaters & Softeners > Replace Water Heater - Tankless,"Water Heater, Replace Install New",600,0.81
+Labor > Plumbing > Water Heaters & Softeners > Replace Water Heater Heating Elements,"Water Heater, Replace Heating Elements",150.0,0.992
+Labor > Plumbing > Water Heaters & Softeners > Replace Water Heater Shutoff Valve,"Water Heater, Replace Shutoff Valves",120.0,0.816
+Labor > Plumbing > Water Heaters & Softeners > Replace Water Heater TP Valve,"Water Heater, Replace TP Valve",120.0,0.991
+Labor > Plumbing > Water Heaters & Softeners > Replace Water Heater Tank,"Water Heater, Replace Install New",600,0.817
+Labor > Plumbing > Water Heaters & Softeners > Replace Water Softener,"Water Softener, Install New",350.0,0.955
+Labor > Plumbing > Water Heaters & Softeners > Seal Water Heater Exhaust Pipes,"Water Heater, Seal Exhaust Pipes",90.0,0.991
+Labor > Roofing > Install Chimney Cap,"Chimney, Cap Install/Replace",190.0,0.969
+Labor > Roofing > Patch Asphalt Roof,"Patch, Asphalt Roof",190.0,1.0
+Labor > Roofing > Patch Flat Roof,"Patch, Flat Roof",190.0,1.0
+Labor > Roofing > Patch Metal Roof,"Patch, Metal Roof",190.0,1.0
+Labor > Roofing > Patch Shingle Roof,"Patch, Shingle Roof",190.0,1.0
+Labor > Roofing > Patch Tile Roof,"Patch, Tile Roof",250.0,1.0
+Labor > Roofing > Repair Gutters,"Gutters, Install New",250.0,0.936
+Labor > Roofing > Replace Gutters,"Gutters, Install New",250.0,0.934
+Labor > Roofing > Seal Leaky Skylight,"Skylight, Seal",150.0,0.817
+Labor > Roofing > Seal Parapet,"Parapet, Seal",180.0,0.982
+Labor > Tile > Backsplash - Install New,"Tile, Backsplash, Install/Repair",240.0,0.958
+Labor > Windows > Clear Weep Holes,"Window, Clear Weep Holes",41.67,0.93
+Labor > Windows > Install Sensors / Alarms,"Window, Install Sensors/Alarms",65.0,0.922
+Labor > Windows > Repair Casement Crank,"Window, Casement, Crank, Replace",100.0,0.893
+Labor > Windows > Replace Casement Crank,"Window, Casement, Crank, Replace",100.0,0.912

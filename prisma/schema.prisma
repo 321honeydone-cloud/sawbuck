@@ -1,0 +1,106 @@
+// Handoff.ai clone — data model (spec section 5).
+//
+// First-slice note: groups / line items / totals are stored as a JSON string on
+// Estimate.data for fast iteration. The shape mirrors the spec's GROUP /
+// LINE_ITEM / TOTALS objects exactly (see src/lib/types.ts), so promoting these
+// to normalized tables later is a mechanical change.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// App users for per-user PIN login. The PIN is stored as an HMAC (pinHash),
+// never in plaintext. role: "user" sees only their own quotes, "admin" sees all.
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?  @unique // email-based sign-up (crew). null for PIN-only users.
+  passHash  String? // PBKDF2 hash for email accounts
+  pin       String? // readable PIN so the admin can see/share crew codes
+  pinHash   String?  @unique
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+}
+
+model Estimate {
+  id            String   @id // EST-10002
+  projectId     String // PRJ-10001
+  name          String
+  status        String   @default("draft") // draft | complete | sent | invoiced
+  location      String?
+  markupDefault Float    @default(15)
+  finishLevel   String   @default("medium") // low | medium | high | luxury
+  aiUpdateCount Int      @default(0)
+  userId        String? // owner of this quote; "owner" for the env bootstrap admin, null for legacy
+  data          String // JSON: { groups: Group[], totals: Totals }
+  messages      ChatMessage[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model ChatMessage {
+  id         String   @id @default(cuid())
+  estimateId String
+  estimate   Estimate @relation(fields: [estimateId], references: [id], onDelete: Cascade)
+  role       String // user | ai | system
+  content    String
+  // Optional JSON metadata: summary cards, milestone flags, etc.
+  meta       String?
+  createdAt  DateTime @default(now())
+
+  @@index([estimateId])
+}
+
+model UserPreset {
+  id           String  @id @default(cuid())
+  name         String
+  tradeTypes   String // JSON string[]
+  finishLevel  String  @default("medium")
+  location     String?
+  markupPct    Float   @default(15)
+  laborRate    Float   @default(85)
+}
+
+model Catalog {
+  id         String  @id @default(cuid())
+  name       String
+  type       String // labor | material | mixed
+  isArchived Boolean @default(false)
+  isActive   Boolean @default(true)
+  items      String // JSON CatalogItem[]
+}
+
+// Scout inspections. Issues are stored as a JSON blob on data, mirroring how
+// Estimate stores groups/totals. Photos ride along as downscaled data URLs.
+model Inspection {
+  id        String   @id // INS-10001
+  name      String
+  location  String?
+  userId    String? // owner; "owner" for the env bootstrap admin
+  status    String   @default("open") // open | done
+  data      String // JSON: { issues: InspectionIssue[] }
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+// User-submitted feedback, shown to the admin on the Admin page.
+model Feedback {
+  id        String   @id @default(cuid())
+  userId    String?
+  userName  String?
+  role      String?
+  message   String
+  page      String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}

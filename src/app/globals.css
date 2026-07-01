@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --gold: #c9a227;
+  --gold-bright: #f0c948;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #0a0a0c;
+  color: #f4f3ee;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Blueprint grid backdrop + soft gold glow. Fixed, sits behind everything;
+   translucent panels let it peek through at the edges. Fine 22px lines with a
+   bolder line every 110px for the estimator's blueprint feel. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(201, 162, 39, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(201, 162, 39, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.1) 1px, transparent 1px);
+  background-size: 22px 22px, 22px 22px, 110px 110px, 110px 110px;
+  opacity: 0.85;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 25% 8%, rgba(201, 162, 39, 0.1), transparent 55%);
+}
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Thin dark scrollbars. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a30 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #2a2a30;
+  border-radius: 4px;
+}
+
+/* Gold hexagon app badge (house frame, swappable glyph). */
+.hd-badge {
+  width: 38px;
+  height: 38px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+.hd-badge .frame {
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.hd-badge svg {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+}
+.hd-badge svg .fill {
+  fill: #0a0a0c;
+  stroke: none;
+}
+
+/* Brief gold flash on line items the AI just changed. */
+@keyframes ai-flash {
+  0% {
+    background-color: rgba(201, 162, 39, 0.24);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+.ai-flash {
+  animation: ai-flash 1.6s ease-out;
+}
+
+/* Blinking caret while the assistant is streaming. */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.caret::after {
+  content: "▋";
+  margin-left: 1px;
+  color: var(--gold);
+  animation: caret-blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+  }
+}
+
+/* Wrong-PIN shake on the login keypad. */
+@keyframes hd-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+.hd-shake {
+  animation: hd-shake 0.4s ease;
+}
+
+/* User-selectable text size. Scales rem-based type app-wide. Default is
+   "regular" (set by the inline script in layout.tsx). The icon-rail labels use
+   fixed px, so the nav stays put while the content type scales. */
+html { font-size: 16px; }
+html[data-fontscale="small"] { font-size: 15px; }
+html[data-fontscale="regular"] { font-size: 17px; }
+html[data-fontscale="large"] { font-size: 19px; }
+
+/* Indeterminate sweep on the loading splash bar. */
+@keyframes splash-bar {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(360%); }
+}
+.splash-bar { animation: splash-bar 1.1s ease-in-out infinite; }

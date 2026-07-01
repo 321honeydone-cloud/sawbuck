@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  @keyframes hdSweep{0%{transform:translateX(-110%)}100%{transform:translateX(420%)}}
+  @keyframes hdRise{0%{opacity:0;transform:translateY(14px)}14%{opacity:1;transform:none}86%{opacity:1;transform:none}100%{opacity:0;transform:translateY(0)}}
+  @keyframes hdIconPop{0%{opacity:0;transform:scale(.9)}12%{opacity:1;transform:scale(1)}86%{opacity:1}100%{opacity:0}}
+  @keyframes hdGlow{0%,100%{box-shadow:0 10px 40px rgba(0,0,0,.5),0 0 0 rgba(254,216,17,0)}50%{box-shadow:0 10px 40px rgba(0,0,0,.5),0 0 26px rgba(254,216,17,.22)}}
+</style>
+</helmet>
+
+<div style="position:relative;width:100%;min-height:100vh;background:#0e1117;background-image:linear-gradient(rgba(254,216,17,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(254,216,17,.028) 1px,transparent 1px);background-size:52px 52px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;font-family:'DM Sans',sans-serif;">
+
+  <div style="position:absolute;inset:0;background:radial-gradient(110% 80% at 50% 44%,rgba(254,216,17,.06),transparent 58%);pointer-events:none;"></div>
+
+  <!-- lockup -->
+  <div style="position:relative;display:flex;align-items:center;gap:26px;animation:hdRise 4.8s ease-in-out infinite;">
+    <div style="width:96px;height:96px;border-radius:21px;flex:none;animation:hdIconPop 4.8s ease-in-out infinite,hdGlow 2.6s ease-in-out infinite;background:#14181f;border:1px solid rgba(254,216,17,.16);display:flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 120 120" width="64" height="64" style="display:block;"><path d="M60 13 L100.7 36.5 L100.7 83.5 L60 107 L19.3 83.5 L19.3 36.5 Z" fill="none" stroke="#FED811" stroke-width="9" stroke-linejoin="round"/><path d="M60 30 Q66.5 53.5 90 60 Q66.5 66.5 60 90 Q53.5 66.5 30 60 Q53.5 53.5 60 30 Z" fill="#FED811"/></svg>
+    </div>
+    <div style="width:1px;height:74px;background:rgba(232,234,240,.14);"></div>
+    <div style="text-align:left;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:58px;line-height:.92;letter-spacing:.01em;color:#e8eaf0;text-transform:uppercase;">SAWBUCK&nbsp;<span style="color:#FED811;">AI</span></div>
+      <div style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.22em;color:#8a95a8;margin-top:12px;text-transform:uppercase;">Estimates, Done.</div>
+    </div>
+  </div>
+
+  <!-- bottom loading bar -->
+  <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(254,216,17,.07);overflow:hidden;">
+    <div style="position:absolute;top:0;bottom:0;width:26%;background:linear-gradient(90deg,transparent,#FED811 35%,#fff0a0 50%,#FED811 65%,transparent);animation:hdSweep 1.5s ease-in-out infinite;"></div>
+  </div>
+
+  <div style="position:absolute;bottom:22px;left:26px;font-family:'DM Sans',monospace;font-size:11px;font-weight:500;letter-spacing:.18em;color:#4d5563;text-transform:uppercase;">v1.0</div>
+  <div style="position:absolute;bottom:22px;right:26px;font-family:'DM Sans',monospace;font-size:11px;font-weight:500;letter-spacing:.18em;color:#4d5563;text-transform:uppercase;">Loading</div>
+
+</div>
+</x-dc>
+</body>
+</html>

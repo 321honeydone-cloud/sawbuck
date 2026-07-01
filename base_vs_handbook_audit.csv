@@ -1,0 +1,35 @@
+Handbook item,Book floor $,Matched base task,Your price $,Unit,Match score,Status
+vanity replace install,300,"Fixture, Vanity Light Bar, Replace/Install New",115.0,each,1.0,UNDER
+exhaust fan bath,200,"Exhaust Fan, Replace Motor",125.0,each,0.67,UNDER
+toilet replace install,145,Replace toilet fill valve (customer supplied),80,each,1.0,UNDER
+tv mount,125,"Dishwasher, Mount To Countertop",60.0,each,1.0,UNDER
+interior door replace,120,Replace interior doorknob/lever (customer supplied),55,each,1.0,UNDER
+sprinkler valve,135,Replace toilet fill valve (customer supplied),80,each,0.5,UNDER
+gfci outlet,120,Replace outlet or switch,85,each,0.5,UNDER
+electronic deadbolt,90,"Exterior, Standard Entry, Replace Deadbolt &",55.0,each,0.5,UNDER
+doorknob deadbolt replace,85,Replace interior doorknob/lever (customer supplied),55,each,0.5,UNDER
+deadbolt replace,85,"Exterior, Standard Entry, Replace Deadbolt &",55.0,each,1.0,UNDER
+shower cartridge,150,"Tub/Shower, Replace Shower Cartridge",125.0,each,1.0,UNDER
+sprinkler head,85,"Tub/Shower, Replace Shower Head",60.0,each,0.5,UNDER
+sink drain replace,100,Clear sink drain (basic),80,each,1.0,UNDER
+toilet flange,185,"Toilet, Replace Flange",175.0,each,1.0,ok
+toilet fill valve flush,90,Replace toilet fill valve (customer supplied),80,each,0.75,ok
+blinds curtains install,75,"Window, Blinds, Standard Horizontal, Replace",65.0,each,0.5,ok
+towel bar,45,"Exterior, Sliding Glass, Install Security Bar",48.33,each,0.5,ok
+toilet wax ring,100,"Toilet, Replace Wax Ring",110.0,each,1.0,ok
+ceiling fan replace install,150,Replace ceiling fan (standard),160,each,1.0,ok
+outlet replace install,75,Replace outlet or switch,85,each,1.0,ok
+light switch replace,75,Replace outlet or switch,85,each,0.5,ok
+microwave over range,155,"Above Range Microwave,",165.0,each,0.67,ok
+kitchen faucet replace,145,Replace faucet (customer supplied),160,each,1.0,ok
+faucet replace,145,Replace faucet (customer supplied),160,each,1.0,ok
+shower head,45,"Tub/Shower, Replace Shower Head",60.0,each,1.0,above
+light fixture replace install,85,Replace light fixture (standard),105,each,1.0,ok
+mirror install hang,75,"Mirror, Remove/Install",95.0,each,0.5,ok
+garbage disposal,125,Install garbage disposal (customer supplied),160,each,1.0,ok
+hose spigot bibb,75,"Hose Bibb, Replace Bibb (Laundry Or Garden)",120.0,each,0.67,above
+bathroom faucet replace,100,Replace faucet (customer supplied),160,each,1.0,above
+dishwasher replace,150,"Dishwasher, Replace",220.0,each,1.0,above
+medicine cabinet,100,"Fixture, Under Cabinet Lighting, Replace/Install",180.0,each,0.5,above
+vent hood over range,125,"Range Hood, Replace/Install New",225.0,each,0.5,above
+shower door replace,150,"Interior, Shower, Bypass, Install New",600,each,1.0,above
