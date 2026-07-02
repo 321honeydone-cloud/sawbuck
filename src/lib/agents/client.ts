@@ -156,7 +156,8 @@ async function claudeText(opts: ChatOpts): Promise<string> {
   const resp = await client.messages.create({
     model: claudeModel(opts.model),
     max_tokens: CLAUDE_MAX_TOKENS,
-    temperature: opts.temperature ?? 0.4,
+    // temperature is intentionally omitted: newer Claude models (Sonnet 5 and up)
+    // reject it as deprecated. The Ollama path below still honors opts.temperature.
     ...(system.trim() ? { system: system.trim() } : {}),
     // Cast: image blocks are built loosely above, the SDK validates at runtime.
     messages: [{ role: "user", content: claudeContent(opts.prompt, opts.images) as never }],
@@ -173,7 +174,6 @@ async function* claudeStream(opts: ChatOpts): AsyncGenerator<string> {
   const stream = client.messages.stream({
     model: claudeModel(opts.model),
     max_tokens: CLAUDE_MAX_TOKENS,
-    temperature: opts.temperature ?? 0.4,
     ...(opts.system ? { system: opts.system } : {}),
     messages: [{ role: "user", content: claudeContent(opts.prompt, opts.images) as never }],
   });
