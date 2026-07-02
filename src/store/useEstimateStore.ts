@@ -47,6 +47,25 @@ async function persist(estimate: Estimate) {
   }
 }
 
+/** Ask the server to summarize the request into a short estimate title
+ *  (2-4 words). Best-effort; returns null on any failure. */
+async function fetchAiTitle(message: string, estimate: Estimate): Promise<string | null> {
+  try {
+    const items = estimate.groups.flatMap((g) => g.items.map((i) => i.name)).filter(Boolean).slice(0, 12);
+    const res = await fetch("/api/estimate/title", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ message, items }),
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { title?: string };
+    const t = (data.title || "").trim();
+    return t || null;
+  } catch {
+    return null;
+  }
+}
+
 function findItem(estimate: Estimate, id: string): LineItem | undefined {
   for (const g of estimate.groups) {
     const it = g.items.find((i) => i.id === id);
@@ -176,16 +195,26 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
             patchAi({ trace: [...(get().messages.find((m) => m.id === aiMsg.id)?.trace ?? []), delta.text] });
             break;
           case "name":
-            if (isDefaultName(get().estimate.name)) {
-              set((s) => ({ estimate: { ...s.estimate, name: delta.name }, autoNameTick: s.autoNameTick + 1 }));
-            }
+            // The engine's provisional name is intentionally ignored here. A
+            // fresh build gets an AI-summarized title in the finally block below.
             break;
         }
       }
     } finally {
       patchAi({ streaming: false });
+      // Name a fresh estimate by asking the AI for a short title (e.g. "Mount TV"
+      // from "I want to hang up a TV"). Fire-and-forget so it never blocks the UI;
+      // the title types itself into the name field when it lands. Falls back to a
+      // trimmed prompt if the model is unreachable.
       if (collected.length > 0 && isDefaultName(get().estimate.name) && trimmed) {
-        set((s) => ({ estimate: { ...s.estimate, name: deriveJobName(trimmed) }, autoNameTick: s.autoNameTick + 1 }));
+        void (async () => {
+          const aiTitle = await fetchAiTitle(trimmed, get().estimate);
+          const finalName = (aiTitle || deriveJobName(trimmed)).trim();
+          if (finalName && isDefaultName(get().estimate.name)) {
+            set((s) => ({ estimate: { ...s.estimate, name: finalName }, autoNameTick: s.autoNameTick + 1 }));
+            void persist(get().estimate);
+          }
+        })();
       }
       set({ isStreaming: false, pendingChanges: collected.length ? collected : null });
       // Persist the AI's work immediately so navigating away never loses it.

@@ -61,18 +61,31 @@ export default function MobileMenu() {
     };
   }, [open]);
 
-  // Enter/exit animation: mount, flip to shown next frame for the spring pop,
-  // and on close play the exit before unmounting.
+  // Mount on open; on close, play the exit then unmount.
   useEffect(() => {
     if (open) {
       setVisible(true);
-      const r = requestAnimationFrame(() => setShown(true));
-      return () => cancelAnimationFrame(r);
+      return;
     }
     setShown(false);
     const t = setTimeout(() => setVisible(false), 380);
     return () => clearTimeout(t);
   }, [open]);
+
+  // Once mounted, flip to shown on a LATER frame. The double rAF guarantees the
+  // browser paints the collapsed (scale .6 / opacity 0) state first, so the
+  // spring pop actually transitions instead of snapping in.
+  useEffect(() => {
+    if (!visible) return;
+    let r2 = 0;
+    const r1 = requestAnimationFrame(() => {
+      r2 = requestAnimationFrame(() => setShown(true));
+    });
+    return () => {
+      cancelAnimationFrame(r1);
+      cancelAnimationFrame(r2);
+    };
+  }, [visible]);
 
   const onNew = async () => {
     setOpen(false);
