@@ -61,18 +61,15 @@ export const PROVIDER: "claude" | "ollama" = pickProvider();
  * is only the first-boot default now.
  */
 export async function activeProvider(): Promise<"claude" | "ollama"> {
-  let chosen: "claude" | "ollama";
+  // Return the brain the owner actually picked. We do NOT pre-check whether
+  // Ollama is reachable here: a slow tunnel ping used to false-trip and silently
+  // send everything to Claude. Instead, chatText/chatStream try Ollama for real
+  // and fall back to Claude only if the call genuinely errors.
   try {
-    chosen = await getAiProviderSetting();
+    return await getAiProviderSetting();
   } catch {
-    chosen = PROVIDER;
+    return PROVIDER;
   }
-  if (chosen === "ollama") {
-    if (await ollamaUp()) return "ollama";
-    return ANTHROPIC_KEY ? "claude" : "ollama";
-  }
-  if (ANTHROPIC_KEY) return "claude";
-  return (await ollamaUp()) ? "ollama" : "claude";
 }
 
 /** Cloud brain readiness + key, for agents that need Claude-only features like web search. */
@@ -104,7 +101,14 @@ export interface ChatOpts {
 /** One-shot text completion. Returns the assistant content, trimmed. */
 export async function chatText(opts: ChatOpts): Promise<string> {
   const provider = await activeProvider();
-  return provider === "claude" ? claudeText(opts) : ollamaText(opts);
+  if (provider !== "ollama") return claudeText(opts);
+  try {
+    return await ollamaText(opts);
+  } catch (e) {
+    if (!ANTHROPIC_KEY) throw e;
+    console.warn("[ai] Ollama call failed, falling back to Claude:", (e as Error).message);
+    return claudeText(opts);
+  }
 }
 
 /** Structured completion. Asks for JSON and parses it. Returns null on bad JSON. */
@@ -116,11 +120,21 @@ export async function chatJson<T>(opts: ChatOpts & { schema?: Record<string, unk
 /** Streaming text completion. Yields content chunks as they arrive. */
 export async function* chatStream(opts: ChatOpts): AsyncGenerator<string> {
   const provider = await activeProvider();
-  if (provider === "claude") {
+  if (provider !== "ollama") {
     yield* claudeStream(opts);
     return;
   }
-  yield* ollamaStream(opts);
+  let started = false;
+  try {
+    for await (const chunk of ollamaStream(opts)) {
+      started = true;
+      yield chunk;
+    }
+  } catch (e) {
+    if (started || !ANTHROPIC_KEY) throw e;
+    console.warn("[ai] Ollama stream failed, falling back to Claude:", (e as Error).message);
+    yield* claudeStream(opts);
+  }
 }
 
 /** Is the live brain reachable right now? Provider-aware so callers fall back fast. */
@@ -133,7 +147,7 @@ export async function aiReady(): Promise<boolean> {
 /** Is the local Ollama reachable right now? Kept for shop mode and back-compat. */
 export async function ollamaUp(): Promise<boolean> {
   try {
-    const r = await fetch(`${OLLAMA_URL}/api/tags`, ollamaInit({ signal: AbortSignal.timeout(1500) }) as RequestInit);
+    const r = await fetch(`${OLLAMA_URL}/api/tags`, ollamaInit({ signal: AbortSignal.timeout(6000) }) as RequestInit);
     return r.ok;
   } catch {
     return false;

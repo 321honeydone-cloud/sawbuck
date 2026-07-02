@@ -3,11 +3,12 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Nav from "./Nav";
+import MobileMenu from "./MobileMenu";
 import FeedbackWidget from "./FeedbackWidget";
 import { rateBook, setRateBookTasks } from "@/lib/loadRateBook";
 import { applyOverrides } from "@/lib/rateOverrides";
 
-// Estimator-first shell: slim icon rail on desktop, bottom tab bar on mobile.
+// Estimator-first shell: slim icon rail on desktop, hamburger menu on mobile.
 // The login keypad renders bare (no nav).
 export default function AppFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -31,11 +32,23 @@ export default function AppFrame({ children }: { children: React.ReactNode }) {
   }, []);
 
   if (pathname === "/login") return <>{children}</>;
+
+  // The estimate screen hosts the hamburger in its own top bar (next to
+  // Delete + Status), so we skip the shared mobile bar there to avoid stacking.
+  const showMobileBar = !pathname.startsWith("/estimate/");
+
   return (
     <div className="flex h-screen flex-col overflow-hidden md:flex-row">
-      <Nav variant="desktop" />
-      <div className="min-w-0 flex-1 overflow-hidden">{children}</div>
-      <Nav variant="mobile" />
+      <Nav />
+      <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+        {showMobileBar && (
+          <header className="flex items-center justify-between gap-3 border-b border-border bg-card px-4 py-2 backdrop-blur-sm md:hidden">
+            <img src="/logo.png" alt="Sawbuck AI" className="h-7 w-7 object-contain" />
+            <MobileMenu />
+          </header>
+        )}
+        <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
+      </div>
       <FeedbackWidget />
     </div>
   );

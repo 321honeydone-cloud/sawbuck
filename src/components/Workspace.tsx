@@ -6,6 +6,7 @@ import { useEstimateStore } from "@/store/useEstimateStore";
 import type { ChatMessage, Estimate, EstimateStatus } from "@/lib/types";
 import ChatPanel from "./ChatPanel";
 import EstimateSheet from "./EstimateSheet";
+import MobileMenu from "./MobileMenu";
 
 export interface EstimateSummary {
   id: string;
@@ -226,7 +227,6 @@ function TopBar() {
             {aiUpdateCount} AI {aiUpdateCount === 1 ? "update" : "updates"}
           </span>
         )}
-        <StatusSelect status={status} onChange={setStatus} />
         {confirmDel ? (
           <div className="flex items-center gap-1">
             <button
@@ -257,6 +257,8 @@ function TopBar() {
             </svg>
           </button>
         )}
+        <StatusSelect status={status} onChange={setStatus} />
+        <MobileMenu />
       </div>
     </header>
   );
