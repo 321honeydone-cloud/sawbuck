@@ -22,6 +22,8 @@ export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const [creating, setCreating] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [shown, setShown] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
   const [coords, setCoords] = useState<{ top: number; right: number }>({ top: 56, right: 12 });
 
@@ -59,6 +61,19 @@ export default function MobileMenu() {
     };
   }, [open]);
 
+  // Enter/exit animation: mount, flip to shown next frame for the spring pop,
+  // and on close play the exit before unmounting.
+  useEffect(() => {
+    if (open) {
+      setVisible(true);
+      const r = requestAnimationFrame(() => setShown(true));
+      return () => cancelAnimationFrame(r);
+    }
+    setShown(false);
+    const t = setTimeout(() => setVisible(false), 380);
+    return () => clearTimeout(t);
+  }, [open]);
+
   const onNew = async () => {
     setOpen(false);
     setCreating(true);
@@ -81,7 +96,7 @@ export default function MobileMenu() {
   const rowBase = "flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-xs font-semibold uppercase tracking-[0.07em] transition";
 
   const menu =
-    open && mounted
+    mounted && visible
       ? createPortal(
           <div className="md:hidden">
             {/* Blurred click-away backdrop */}
@@ -89,12 +104,16 @@ export default function MobileMenu() {
               aria-hidden="true"
               tabIndex={-1}
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-[90] cursor-default bg-black/50 backdrop-blur-sm"
+              className={`fixed inset-0 z-[90] cursor-default bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+                shown ? "opacity-100" : "opacity-0"
+              }`}
             />
             <div
               role="menu"
               style={{ top: coords.top, right: coords.right }}
-              className="fixed z-[100] w-52 origin-top-right rounded-lg border border-border bg-card p-1.5 shadow-xl shadow-black/50"
+              className={`fixed z-[100] w-52 origin-top-right rounded-lg border border-border bg-card p-1.5 shadow-xl shadow-black/50 transition-[opacity,transform] duration-[380ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                shown ? "scale-100 opacity-100" : "scale-[0.6] opacity-0"
+              }`}
             >
               <button
                 onClick={onNew}
