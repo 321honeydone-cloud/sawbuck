@@ -24,7 +24,7 @@ const PRICING_SYSTEM = `You are the Pricing Research employee for HoneyDone, a l
 
 /** Research one task. Returns null when the cloud brain is off or nothing solid was found. */
 export async function researchPrice(task: string, location = "Florida"): Promise<PriceFinding | null> {
-  const cb = cloudBrain();
+  const cb = await cloudBrain();
   if (!cb.ready) return null;
   const client = makeAnthropic(cb.key);
   const prompt = `Find the current all-in installed price for this work in ${location}: "${task}".

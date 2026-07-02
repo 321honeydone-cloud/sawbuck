@@ -233,7 +233,7 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
 
   // Step 3, Pricing Research. Fill price gaps the rate book cannot cover, or
   // answer a plain pricing question. Cloud-only (needs Claude web search).
-  const cloud = cloudBrain().ready;
+  const cloud = (await cloudBrain()).ready;
   const location = args.estimate.location || "Florida";
   const pricingQuestion = PRICING_Q.test(args.message);
   let marketExtra = "";

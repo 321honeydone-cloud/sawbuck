@@ -3,7 +3,7 @@
 // Ollama in the shop) and returns a plain-English task list the rate book can
 // price. Video in chat is handled through Scout, where clips are captured.
 import { NextResponse } from "next/server";
-import { aiReady, MODELS } from "@/lib/agents/client";
+import { aiReady, currentModels } from "@/lib/agents/client";
 import { describeAttachments } from "@/lib/agents/vision";
 import type { Attachment } from "@/lib/types";
 
@@ -24,20 +24,22 @@ export async function POST(req: Request) {
   }
 
   if (!(await aiReady())) {
+    const m = await currentModels();
     const detail =
-      MODELS.provider === "claude"
+      m.provider === "claude"
         ? "The cloud brain is not configured. Set ANTHROPIC_API_KEY."
-        : `No local model at ${MODELS.url}. Start Ollama first.`;
+        : `No local model at ${m.url}. Start Ollama first.`;
     return NextResponse.json({ error: "ai_down", detail }, { status: 503 });
   }
 
   try {
     const v = await describeAttachments(message, attachments);
+    const m = await currentModels();
     return NextResponse.json({
       description: v.description,
-      engine: MODELS.provider,
-      visionModel: v.usedImages ? MODELS.vision : null,
-      textModel: v.usedPdfs ? MODELS.text : null,
+      engine: m.provider,
+      visionModel: v.usedImages ? m.vision : null,
+      textModel: v.usedPdfs ? m.text : null,
     });
   } catch (e) {
     return NextResponse.json({ error: "vision_failed", detail: (e as Error).message }, { status: 502 });

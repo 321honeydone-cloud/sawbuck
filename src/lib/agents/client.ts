@@ -13,6 +13,7 @@
 // Shop env:   OLLAMA_URL, OLLAMA_TEXT_MODEL, OLLAMA_VISION_MODEL
 
 import { makeAnthropic } from "../anthropic";
+import { getAiProviderSetting } from "../settings";
 
 // ----- Shop (Ollama) settings -----
 export const OLLAMA_URL = process.env.OLLAMA_URL || "http://127.0.0.1:11434";
@@ -38,9 +39,33 @@ function pickProvider(): "claude" | "ollama" {
 /** Which brain is live for this server process. */
 export const PROVIDER: "claude" | "ollama" = pickProvider();
 
+/**
+ * The brain to use for THIS request. The owner picks Claude or Local (Ollama)
+ * from the Admin screen and the choice lives in the database, so it survives
+ * restarts. Safety net: if Local is picked but the Ollama box is not reachable
+ * from this server (for example the live cloud site, which cannot see the shop
+ * machine), we fall back to Claude so the app never goes dark. Env AI_PROVIDER
+ * is only the first-boot default now.
+ */
+export async function activeProvider(): Promise<"claude" | "ollama"> {
+  let chosen: "claude" | "ollama";
+  try {
+    chosen = await getAiProviderSetting();
+  } catch {
+    chosen = PROVIDER;
+  }
+  if (chosen === "ollama") {
+    if (await ollamaUp()) return "ollama";
+    return ANTHROPIC_KEY ? "claude" : "ollama";
+  }
+  if (ANTHROPIC_KEY) return "claude";
+  return (await ollamaUp()) ? "ollama" : "claude";
+}
+
 /** Cloud brain readiness + key, for agents that need Claude-only features like web search. */
-export function cloudBrain(): { ready: boolean; key: string } {
-  return { ready: PROVIDER === "claude" && !!ANTHROPIC_KEY, key: ANTHROPIC_KEY };
+export async function cloudBrain(): Promise<{ ready: boolean; key: string }> {
+  const provider = await activeProvider();
+  return { ready: provider === "claude" && !!ANTHROPIC_KEY, key: ANTHROPIC_KEY };
 }
 
 const CHAT = `${OLLAMA_URL}/api/chat`;
@@ -65,7 +90,8 @@ export interface ChatOpts {
 
 /** One-shot text completion. Returns the assistant content, trimmed. */
 export async function chatText(opts: ChatOpts): Promise<string> {
-  return PROVIDER === "claude" ? claudeText(opts) : ollamaText(opts);
+  const provider = await activeProvider();
+  return provider === "claude" ? claudeText(opts) : ollamaText(opts);
 }
 
 /** Structured completion. Asks for JSON and parses it. Returns null on bad JSON. */
@@ -76,7 +102,8 @@ export async function chatJson<T>(opts: ChatOpts & { schema?: Record<string, unk
 
 /** Streaming text completion. Yields content chunks as they arrive. */
 export async function* chatStream(opts: ChatOpts): AsyncGenerator<string> {
-  if (PROVIDER === "claude") {
+  const provider = await activeProvider();
+  if (provider === "claude") {
     yield* claudeStream(opts);
     return;
   }
@@ -85,7 +112,8 @@ export async function* chatStream(opts: ChatOpts): AsyncGenerator<string> {
 
 /** Is the live brain reachable right now? Provider-aware so callers fall back fast. */
 export async function aiReady(): Promise<boolean> {
-  if (PROVIDER === "claude") return !!ANTHROPIC_KEY;
+  const provider = await activeProvider();
+  if (provider === "claude") return !!ANTHROPIC_KEY;
   return ollamaUp();
 }
 
@@ -274,9 +302,18 @@ export function parseLooseJson<T>(raw: string): T | null {
   }
 }
 
-export const MODELS = {
-  provider: PROVIDER,
-  url: PROVIDER === "claude" ? "Anthropic API" : OLLAMA_URL,
-  text: PROVIDER === "claude" ? CLAUDE_TEXT_MODEL : TEXT_MODEL,
-  vision: PROVIDER === "claude" ? CLAUDE_TEXT_MODEL : VISION_MODEL,
-};
+/** Live view of the active brain + model names, for status displays. */
+export async function currentModels(): Promise<{
+  provider: "claude" | "ollama";
+  url: string;
+  text: string;
+  vision: string;
+}> {
+  const provider = await activeProvider();
+  return {
+    provider,
+    url: provider === "claude" ? "Anthropic API" : OLLAMA_URL,
+    text: provider === "claude" ? CLAUDE_TEXT_MODEL : TEXT_MODEL,
+    vision: provider === "claude" ? CLAUDE_TEXT_MODEL : VISION_MODEL,
+  };
+}

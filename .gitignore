@@ -8,4 +8,8 @@
 /prisma/*.db-journal
 next-env.d.ts
 .DS_Store
+
+# Local env backups (contain secrets - never commit)
 _w1_backups/
+.env.*
+!.env.production.example

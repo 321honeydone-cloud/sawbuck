@@ -1,0 +1,44 @@
+// Global, owner-controlled app settings backed by the database so they survive
+// restarts and redeploys. Today this holds the live AI brain ("claude" vs the
+// local Ollama). Reads are cached briefly so the hot AI path does not hit the
+// DB on every call. Server-only.
+
+import { prisma } from "./db";
+
+export type AiProvider = "claude" | "ollama";
+const AI_KEY = "aiProvider";
+const TTL_MS = 4000;
+
+let cached: { value: AiProvider; at: number } | null = null;
+
+/** First-boot default from env, before the owner has ever picked in the UI. */
+function envDefault(): AiProvider {
+  const p = (process.env.AI_PROVIDER || "").toLowerCase();
+  if (p === "ollama") return "ollama";
+  if (p === "claude") return "claude";
+  return process.env.ANTHROPIC_API_KEY ? "claude" : "ollama";
+}
+
+/** The brain the owner has chosen (or the env default). Cached for a few seconds. */
+export async function getAiProviderSetting(): Promise<AiProvider> {
+  if (cached && Date.now() - cached.at < TTL_MS) return cached.value;
+  let value = envDefault();
+  try {
+    const row = await prisma.appSetting.findUnique({ where: { key: AI_KEY } });
+    if (row?.value === "claude" || row?.value === "ollama") value = row.value;
+  } catch {
+    // Table may not exist yet (first deploy before db push). Fall back to env.
+  }
+  cached = { value, at: Date.now() };
+  return value;
+}
+
+/** Owner picks the brain. Persists to the DB and refreshes the cache now. */
+export async function setAiProviderSetting(value: AiProvider): Promise<void> {
+  await prisma.appSetting.upsert({
+    where: { key: AI_KEY },
+    update: { value },
+    create: { key: AI_KEY, value },
+  });
+  cached = { value, at: Date.now() };
+}

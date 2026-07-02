@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import UserManager from "@/components/UserManager";
+import AiBrainToggle from "@/components/AiBrainToggle";
 import CrewQuotes, { type UserQuoteGroup, type CrewQuote } from "@/components/CrewQuotes";
 import { prisma } from "@/lib/db";
 import { estimateFromRow } from "@/lib/serialize";
@@ -89,6 +90,15 @@ export default async function AdminPage() {
             Add or remove crew here.
           </p>
           <UserManager />
+        </section>
+
+        <section className="space-y-3">
+          <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">AI brain</div>
+          <p className="text-xs text-muted">
+            Pick which brain runs the crew. Claude works everywhere. Local (Ollama) only runs when you open the app on a
+            machine that can see your Ollama box.
+          </p>
+          <AiBrainToggle />
         </section>
 
         <section className="space-y-3">

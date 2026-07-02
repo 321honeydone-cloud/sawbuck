@@ -104,3 +104,11 @@ model Feedback {
 
   @@index([createdAt])
 }
+
+// Small key/value store for global app settings the owner controls from the UI
+// (for example which AI brain is live: "claude" or "ollama"). Survives restarts.
+model AppSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
