@@ -32,11 +32,21 @@ export default function ChatPanel() {
   const isStreaming = useEstimateStore((s) => s.isStreaming);
   const sendMessage = useEstimateStore((s) => s.sendMessage);
   const [draft, setDraft] = useState("");
+  const taRef = useRef<HTMLTextAreaElement>(null);
   const [files, setFiles] = useState<Attachment[]>([]);
   const [fileError, setFileError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
   const [listening, setListening] = useState(false);
   const [micSupported, setMicSupported] = useState(false);
+
+  // Grow the prompt box with the text (up to a cap, then scroll), like the
+  // chat box in Claude, instead of letting the line run off the edge.
+  useEffect(() => {
+    const el = taRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, 128)}px`;
+  }, [draft]);
   const recogRef = useRef<SpeechRec | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -144,7 +154,7 @@ export default function ChatPanel() {
         )}
         {fileError && <p className="mb-2 text-xs text-flag">{fileError}</p>}
 
-        <div className="flex items-center gap-2 rounded-xl border border-border bg-card-2 px-3 py-2 focus-within:border-brand/60">
+        <div className="flex items-end gap-2 rounded-xl border border-border bg-card-2 px-3 py-2 focus-within:border-brand/60">
           <input
             ref={fileInputRef}
             type="file"
@@ -178,6 +188,7 @@ export default function ChatPanel() {
             </button>
           )}
           <textarea
+            ref={taRef}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             onKeyDown={(e) => {
@@ -188,7 +199,7 @@ export default function ChatPanel() {
             }}
             rows={1}
             placeholder={files.length ? "Add a note…" : "Describe the job"}
-            className="max-h-32 min-w-0 flex-1 resize-none bg-transparent text-sm text-ink outline-none placeholder:text-muted"
+            className="max-h-32 min-w-0 flex-1 resize-none overflow-y-auto bg-transparent py-1 text-sm leading-5 text-ink outline-none placeholder:text-muted"
           />
           <button
             onClick={submit}
