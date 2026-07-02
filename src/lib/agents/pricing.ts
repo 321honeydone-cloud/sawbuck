@@ -8,7 +8,7 @@
 // carries on without it. Server-only.
 
 import { makeAnthropic } from "../anthropic";
-import { cloudBrain, CLAUDE_TEXT_MODEL, parseLooseJson } from "./client";
+import { CLAUDE_TEXT_MODEL, parseLooseJson } from "./client";
 
 export interface PriceFinding {
   task: string;
@@ -24,9 +24,12 @@ const PRICING_SYSTEM = `You are the Pricing Research employee for HoneyDone, a l
 
 /** Research one task. Returns null when the cloud brain is off or nothing solid was found. */
 export async function researchPrice(task: string, location = "Florida"): Promise<PriceFinding | null> {
-  const cb = await cloudBrain();
-  if (!cb.ready) return null;
-  const client = makeAnthropic(cb.key);
+  // Pricing research is Claude-only (web search) and runs whenever an API key is
+  // present, independent of the estimator brain toggle. That is what lets the
+  // overnight refresh keep prices fresh even while day-to-day quoting is on Local.
+  const key = process.env.ANTHROPIC_API_KEY || "";
+  if (!key) return null;
+  const client = makeAnthropic(key);
   const prompt = `Find the current all-in installed price for this work in ${location}: "${task}".
 Search the web, then answer with ONLY one JSON object and nothing else:
 {"task":"short task name","unit":"each|sq ft|linear ft|hour|lump sum","low":number,"median":number,"high":number,"basis":"one short line, for example installed price in Florida 2026","sources":["url","url"]}

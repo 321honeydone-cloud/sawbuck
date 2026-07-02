@@ -6,7 +6,7 @@ import { applyOperation } from "@/lib/operations";
 import type { Attachment, ChangeRecord, ChatMessage, Estimate, EstimateStatus, Exclusion, LineItem } from "@/lib/types";
 import { suggestExclusions } from "@/lib/exclusions";
 
-const DEFAULT_NAMES = new Set(["", "New HoneyDone Estimate", "Untitled Estimate", "Untitled"]);
+const DEFAULT_NAMES = new Set(["", "New Estimate", "New HoneyDone Estimate", "Untitled Estimate", "Untitled"]);
 const isDefaultName = (n: string) => DEFAULT_NAMES.has((n || "").trim());
 
 let msgSeq = 0;
@@ -20,6 +20,7 @@ interface EstimateState {
   pendingChanges: ChangeRecord[] | null; // diff awaiting accept/reject
   snapshot: Estimate | null; // pre-AI state, for reject/undo
   highlightIds: Set<string>; // line items touched by the latest AI run
+  autoNameTick: number; // bumps each time the AI auto-derives the name (drives the typing animation)
 
   hydrate: (estimate: Estimate, messages: ChatMessage[]) => void;
   sendMessage: (text: string, attachments?: Attachment[]) => Promise<void>;
@@ -105,6 +106,7 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
   pendingChanges: null,
   snapshot: null,
   highlightIds: new Set(),
+  autoNameTick: 0,
 
   hydrate: (estimate, messages) => set({ estimate, messages }),
 
@@ -175,7 +177,7 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
             break;
           case "name":
             if (isDefaultName(get().estimate.name)) {
-              set((s) => ({ estimate: { ...s.estimate, name: delta.name } }));
+              set((s) => ({ estimate: { ...s.estimate, name: delta.name }, autoNameTick: s.autoNameTick + 1 }));
             }
             break;
         }
@@ -183,7 +185,7 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
     } finally {
       patchAi({ streaming: false });
       if (collected.length > 0 && isDefaultName(get().estimate.name) && trimmed) {
-        set((s) => ({ estimate: { ...s.estimate, name: deriveJobName(trimmed) } }));
+        set((s) => ({ estimate: { ...s.estimate, name: deriveJobName(trimmed) }, autoNameTick: s.autoNameTick + 1 }));
       }
       set({ isStreaming: false, pendingChanges: collected.length ? collected : null });
       // Persist the AI's work immediately so navigating away never loses it.

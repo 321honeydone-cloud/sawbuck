@@ -153,14 +153,76 @@ function StatusSelect({ status, onChange }: { status: EstimateStatus; onChange: 
   );
 }
 
+// Estimate name field. Normally an editable, uncontrolled-feeling input, but
+// when the AI derives a name from the first prompt it types the name in one
+// character at a time (autoNameTick bumps in the store on each auto-name).
+function EstimateNameField() {
+  const name = useEstimateStore((s) => s.estimate.name);
+  const autoNameTick = useEstimateStore((s) => s.autoNameTick);
+  const rename = useEstimateStore((s) => s.renameEstimate);
+
+  const [value, setValue] = useState(name);
+  const [typing, setTyping] = useState(false);
+  const editing = useRef(false);
+  const lastTick = useRef(autoNameTick);
+
+  // Keep the field in sync with the store unless the user is editing it or the
+  // typewriter is mid-run.
+  useEffect(() => {
+    if (!typing && !editing.current) setValue(name);
+  }, [name, typing]);
+
+  // Play the typewriter whenever the store reports a fresh auto-name.
+  useEffect(() => {
+    if (autoNameTick === lastTick.current) return;
+    lastTick.current = autoNameTick;
+    const full = name.trim();
+    if (!full) return;
+    setTyping(true);
+    setValue("");
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      setValue(full.slice(0, i));
+      if (i >= full.length) {
+        clearInterval(id);
+        setTyping(false);
+      }
+    }, 40);
+    return () => clearInterval(id);
+  }, [autoNameTick, name]);
+
+  return (
+    <input
+      value={value}
+      readOnly={typing}
+      placeholder="Name this estimate"
+      aria-label="Estimate name"
+      onFocus={() => {
+        editing.current = true;
+      }}
+      onChange={(e) => setValue(e.target.value)}
+      onBlur={(e) => {
+        editing.current = false;
+        const v = e.target.value.trim();
+        if (v && v !== name) rename(v);
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+      }}
+      className={`w-full truncate rounded bg-transparent px-1.5 py-0.5 font-display text-sm font-semibold uppercase tracking-[0.06em] outline-none transition placeholder:normal-case placeholder:text-muted hover:bg-card-2 focus:bg-card-2 focus:ring-1 focus:ring-brand/50 ${
+        typing ? "text-brand caret-brand" : "text-ink"
+      }`}
+    />
+  );
+}
+
 function TopBar() {
   const router = useRouter();
   const id = useEstimateStore((s) => s.estimate.id);
-  const name = useEstimateStore((s) => s.estimate.name);
   const clientName = useEstimateStore((s) => s.estimate.clientName ?? "");
   const status = useEstimateStore((s) => s.estimate.status);
   const aiUpdateCount = useEstimateStore((s) => s.estimate.aiUpdateCount);
-  const rename = useEstimateStore((s) => s.renameEstimate);
   const setClient = useEstimateStore((s) => s.setClient);
   const setStatus = useEstimateStore((s) => s.setStatus);
   const [confirmDel, setConfirmDel] = useState(false);
@@ -191,20 +253,7 @@ function TopBar() {
   return (
     <header className="flex items-center justify-between gap-3 border-b border-border bg-card px-4 py-2 backdrop-blur-sm">
       <div className="min-w-0 flex-1">
-        <input
-          key={name}
-          defaultValue={name}
-          placeholder="Name this estimate"
-          aria-label="Estimate name"
-          onBlur={(e) => {
-            const v = e.target.value.trim();
-            if (v && v !== name) rename(v);
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") (e.target as HTMLInputElement).blur();
-          }}
-          className="w-full truncate rounded bg-transparent px-1.5 py-0.5 font-display text-sm font-semibold uppercase tracking-[0.06em] text-ink outline-none transition placeholder:normal-case placeholder:text-muted hover:bg-card-2 focus:bg-card-2 focus:ring-1 focus:ring-brand/50"
-        />
+        <EstimateNameField />
         <input
           key={"client-" + clientName}
           defaultValue={clientName}
