@@ -18,10 +18,11 @@
     "@anthropic-ai/sdk": "^0.104.2",
     "@prisma/client": "^6.2.1",
     "next": "^15.1.4",
+    "pdfjs-dist": "^4.7.76",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "zustand": "^5.0.2",
-    "pdfjs-dist": "^4.7.76"
+    "undici": "^6.27.0",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",

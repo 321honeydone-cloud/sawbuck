@@ -14,6 +14,7 @@
 
 import { makeAnthropic } from "../anthropic";
 import { getAiProviderSetting } from "../settings";
+import { ProxyAgent } from "undici";
 
 // ----- Shop (Ollama) settings -----
 export const OLLAMA_URL = process.env.OLLAMA_URL || "http://127.0.0.1:11434";
@@ -22,6 +23,18 @@ export const TEXT_MODEL = process.env.OLLAMA_TEXT_MODEL || "qwen3-32b-manny";
 // llama3.2-vision). The old default gemma4:26B is not a real tag, so photo
 // reading never worked in shop mode until this was set right.
 export const VISION_MODEL = process.env.OLLAMA_VISION_MODEL || "llama3.2-vision";
+
+// On the cloud deploy the app reaches the shop Ollama over Tailscale's userspace
+// outbound HTTP proxy (Render cannot run a normal VPN interface). When
+// OLLAMA_HTTP_PROXY is set we route every Ollama call through it; locally the
+// env is unset and calls go straight to 127.0.0.1.
+const OLLAMA_HTTP_PROXY = process.env.OLLAMA_HTTP_PROXY || "";
+let ollamaDispatcher: ProxyAgent | undefined;
+function ollamaInit<T extends Record<string, unknown>>(init: T): T {
+  if (!OLLAMA_HTTP_PROXY) return init;
+  if (!ollamaDispatcher) ollamaDispatcher = new ProxyAgent(OLLAMA_HTTP_PROXY);
+  return { ...init, dispatcher: ollamaDispatcher };
+}
 
 // ----- Cloud (Claude) settings -----
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY || "";
@@ -120,7 +133,7 @@ export async function aiReady(): Promise<boolean> {
 /** Is the local Ollama reachable right now? Kept for shop mode and back-compat. */
 export async function ollamaUp(): Promise<boolean> {
   try {
-    const r = await fetch(`${OLLAMA_URL}/api/tags`, { signal: AbortSignal.timeout(1500) });
+    const r = await fetch(`${OLLAMA_URL}/api/tags`, ollamaInit({ signal: AbortSignal.timeout(1500) }) as RequestInit);
     return r.ok;
   } catch {
     return false;
@@ -198,7 +211,7 @@ function buildMessages(system: string | undefined, prompt: string, images?: stri
 }
 
 async function ollamaText(opts: ChatOpts): Promise<string> {
-  const r = await fetch(CHAT, {
+  const r = await fetch(CHAT, ollamaInit({
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
@@ -210,14 +223,14 @@ async function ollamaText(opts: ChatOpts): Promise<string> {
       messages: buildMessages(opts.system, opts.prompt, opts.images),
     }),
     signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
-  });
+  }) as RequestInit);
   if (!r.ok) throw new Error(`Ollama ${opts.model || TEXT_MODEL} ${r.status}`);
   const data = (await r.json()) as { message?: { content?: string } };
   return (data.message?.content ?? "").trim();
 }
 
 async function* ollamaStream(opts: ChatOpts): AsyncGenerator<string> {
-  const r = await fetch(CHAT, {
+  const r = await fetch(CHAT, ollamaInit({
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
@@ -228,7 +241,7 @@ async function* ollamaStream(opts: ChatOpts): AsyncGenerator<string> {
       messages: buildMessages(opts.system, opts.prompt, opts.images),
     }),
     signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
-  });
+  }) as RequestInit);
   if (!r.ok || !r.body) throw new Error(`Ollama stream ${opts.model || TEXT_MODEL} ${r.status}`);
   const reader = r.body.getReader();
   const decoder = new TextDecoder();
