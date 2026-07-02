@@ -33,6 +33,12 @@ const UNITS: Unit[] = ["HRS", "EA", "LS", "SF", "LF", "SY", "CY", "DAY"];
 const COST_TYPES = ["Labor", "Material", "Other"];
 const EDIT_FIELDS = ["name", "quantity", "unit", "unitCost", "markupPct", "supplier", "costType"];
 
+// Intent detection so we lay in rate-book tasks deterministically on edits,
+// instead of trusting a local model to emit the structured add. ADD without an
+// EDIT/question word, plus a rate-book match, means "just add this known task".
+const ADD_INTENT = /\b(add|also|include|throw in|toss in|put in|plus|need)\b/i;
+const EDIT_INTENT = /\b(remove|delete|drop|take off|get rid|change|edit|update|swap|lower|raise|reduce|increase|discount|how much|why|what|when|which)\b|\?/i;
+
 const UNIT_MAP: Record<string, Unit> = {
   each: "EA", ea: "EA", "per visit": "LS", visit: "LS", hour: "HRS", hr: "HRS",
   hours: "HRS", day: "DAY", "linear foot": "LF", "linear ft": "LF", lf: "LF",
@@ -161,6 +167,42 @@ async function* rateBookBuild(jobText: string, estimateName: string): AsyncGener
   yield { type: "suggestions", suggestions: ["Build 3 tiers", "Add cleanup & haul-off", "Generate Jobber quote", "Finalize estimate"] };
 }
 
+/** Append rate-book-known tasks to an EXISTING quote, deterministically. No model,
+ * so a known task like "lint vent cleaning" lands every time regardless of the brain. */
+async function* rateBookAppend(jobText: string, estimate: Estimate): AsyncGenerator<EngineDelta> {
+  const q = getRateBookEngine().quote(jobText);
+  const existing = new Set(estimate.groups.flatMap((g) => g.items.map((i) => i.name.toLowerCase().trim())));
+  const toAdd = q.lines.filter((l) => !/trip (fee|charge)/i.test(l.task) && !existing.has(l.task.toLowerCase().trim()));
+
+  if (toAdd.length === 0) {
+    const already = q.lines.length > 0 ? " Those tasks are already on the quote." : "";
+    yield* streamText(`I could not find a new rate-book task to add.${already}`);
+    if (q.unmatched.length > 0) yield* streamText(` Not in your book yet: ${q.unmatched.map((u) => u.text).join(", ")}.`);
+    return;
+  }
+
+  const groupsPresent = new Set(estimate.groups.map((g) => g.name));
+  const created = new Set<string>();
+  for (const line of toAdd) {
+    const group = line.category || "Additional Work";
+    if (!groupsPresent.has(group) && !created.has(group)) {
+      created.add(group);
+      yield { type: "operation", operation: { op: "add_group", name: group } };
+      await sleep(50);
+    }
+    yield {
+      type: "operation",
+      operation: { op: "add_line_item", groupName: group, name: line.task, quantity: line.qty, unit: mapUnit(line.unit), unitCost: line.unitPrice, costType: "Other" },
+    };
+    await sleep(60);
+  }
+
+  const names = toAdd.map((l) => l.task).join(", ");
+  yield* streamText(`Added ${names} from your rate book at your flat rate${toAdd.length === 1 ? "" : "s"}.`);
+  if (q.unmatched.length > 0) yield* streamText(` I could not match: ${q.unmatched.map((u) => u.text).join(", ")}. Those aren't in your book yet.`);
+  yield { type: "summary", name: estimate.name };
+}
+
 export interface EstimatorArgs {
   message: string;
   estimate: Estimate;
@@ -187,6 +229,13 @@ export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineD
   // Fresh job that the rate book knows: price it flat, no model call.
   if (!hasItems && rateBookMatches(combined)) {
     yield* rateBookBuild(combined, args.estimate.name);
+    return;
+  }
+
+  // Add-to-existing of tasks the rate book already knows: lay them in directly,
+  // no reliance on the local model emitting a structured edit.
+  if (hasItems && ADD_INTENT.test(combined) && !EDIT_INTENT.test(combined) && rateBookMatches(combined)) {
+    yield* rateBookAppend(combined, args.estimate);
     return;
   }
 
