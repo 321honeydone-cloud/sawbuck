@@ -25,6 +25,7 @@ export default function MobileMenu() {
   const [visible, setVisible] = useState(false);
   const [shown, setShown] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const [coords, setCoords] = useState<{ top: number; right: number }>({ top: 56, right: 12 });
 
   useEffect(() => setMounted(true), []);
@@ -72,19 +73,17 @@ export default function MobileMenu() {
     return () => clearTimeout(t);
   }, [open]);
 
-  // Once mounted, flip to shown on a LATER frame. The double rAF guarantees the
-  // browser paints the collapsed (scale .6 / opacity 0) state first, so the
-  // spring pop actually transitions instead of snapping in.
+  // Once mounted, force the browser to commit the collapsed (scale .6 / opacity 0)
+  // state, then flip to shown so the spring pop has a real "from" frame to
+  // transition from. Without the forced reflow a freshly mounted node snaps
+  // straight to open (open wouldn't animate, only close did).
   useEffect(() => {
     if (!visible) return;
-    let r2 = 0;
-    const r1 = requestAnimationFrame(() => {
-      r2 = requestAnimationFrame(() => setShown(true));
+    const r = requestAnimationFrame(() => {
+      if (panelRef.current) void panelRef.current.offsetWidth; // reflow: lock in the from-state
+      setShown(true);
     });
-    return () => {
-      cancelAnimationFrame(r1);
-      cancelAnimationFrame(r2);
-    };
+    return () => cancelAnimationFrame(r);
   }, [visible]);
 
   const onNew = async () => {
@@ -122,6 +121,7 @@ export default function MobileMenu() {
               }`}
             />
             <div
+              ref={panelRef}
               role="menu"
               style={{ top: coords.top, right: coords.right }}
               className={`fixed z-[100] w-52 origin-top-right rounded-lg border border-border bg-card p-1.5 shadow-xl shadow-black/50 transition-[opacity,transform] duration-[380ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
