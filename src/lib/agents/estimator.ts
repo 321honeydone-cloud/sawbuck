@@ -193,7 +193,11 @@ export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineD
   // Otherwise think it through on the local model.
   const system = SYSTEM_PROMPT + (args.systemExtra ?? "");
   const attachNote = args.visionText ? `\n\nVision employee read the attachments and saw: ${args.visionText}` : "";
-  const userTurn = `Current estimate state:\n${estimateContext(args.estimate)}${attachNote}\n\nUser request: ${args.message || "(see what the vision employee saw above)"}\n\nReply in 1 to 3 short sentences, then put every change in the operations array. Use real line item ids from the state above when editing. Respond as JSON with keys reply and operations.`;
+  const example =
+    'Worked example. If the user says "add gutter cleaning", a CORRECT response is exactly:\n' +
+    '{"reply":"Added gutter cleaning.","operations":[{"op":"add_line_item","groupName":"Exterior","name":"Gutter cleaning","quantity":1,"unit":"LS","unitCost":150,"costType":"Labor","supplier":null}]}\n' +
+    "The operations array is NOT empty in that example. Any time you tell the user you added, changed, or removed anything, operations MUST contain a matching entry, or nothing actually happens. Leave operations empty ONLY when the user asked a question that changes nothing.";
+  const userTurn = `Current estimate state:\n${estimateContext(args.estimate)}${attachNote}\n\nUser request: ${args.message || "(see what the vision employee saw above)"}\n\n${example}\n\nNow handle the request. Reply in 1 to 3 short sentences AND put every change in the operations array, using real line item ids from the state above when editing. Respond as JSON with keys reply and operations.`;
 
   let result: { reply?: string; operations?: unknown[] } | null = null;
   try {
@@ -201,7 +205,7 @@ export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineD
       system,
       prompt: userTurn,
       schema: ESTIMATOR_SCHEMA,
-      temperature: 0.45,
+      temperature: 0.2,
     });
   } catch (err) {
     yield* streamText(`The estimator could not reach your local model. ${(err as Error).message}. Start Ollama and try again.`);
