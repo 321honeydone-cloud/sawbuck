@@ -20,7 +20,7 @@ export interface PriceFinding {
   sources: string[];
 }
 
-const PRICING_SYSTEM = `You are the Pricing Research employee for HoneyDone, a licensed Florida property maintenance and repair contractor. Use web search to find what a homeowner actually pays in 2026 for the work, focused on Florida and the Southeast US. Prefer cost-estimate sites like Homewyse, Fixr, HomeGuide, and Angi, and back them up with contractor forums like Reddit and ContractorTalk for real numbers. Report the ALL-IN installed price the customer pays, not just materials. No em dashes and no semicolons.`;
+const PRICING_SYSTEM = `You are the Pricing Research employee for HoneyDone, an insured Florida handyman and property maintenance service (not a licensed contractor). Use web search to find what a homeowner actually pays in 2026 for the work, focused on Florida and the Southeast US. Prefer cost-estimate sites like Homewyse, Fixr, HomeGuide, and Angi, and back them up with contractor forums like Reddit and ContractorTalk for real numbers. Report the ALL-IN installed price the customer pays, not just materials. No em dashes and no semicolons.`;
 
 /** Research one task. Returns null when the cloud brain is off or nothing solid was found. */
 export async function researchPrice(task: string, location = "Florida"): Promise<PriceFinding | null> {

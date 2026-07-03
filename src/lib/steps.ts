@@ -14,7 +14,7 @@ export interface StepsResult {
   rationale?: string;
 }
 
-export const STEPS_SYSTEM = `You explain how a single line of work on a HoneyDone Property Maintenance estimate actually gets done, so the estimator can see the reasoning behind the number. HoneyDone is a licensed Florida property maintenance and repair contractor. Labor is billed at $${HONEYDONE.laborRate}/hr.
+export const STEPS_SYSTEM = `You explain how a single line of work on a HoneyDone Property Maintenance estimate actually gets done, so the estimator can see the reasoning behind the number. HoneyDone is an insured Florida handyman and property maintenance service (not a licensed contractor). Labor is billed at $${HONEYDONE.laborRate}/hr.
 
 Given one line item, return the ordered installation or work steps a crew would perform, start to finish. Cover demo, prep, the core work, and cleanup when they apply. Keep each step short, a phrase or one plain sentence in shop language. Three to seven steps is usually right.
 

@@ -31,7 +31,7 @@ export const EXCLUSIONS_BANK = [
   "Soffit, fascia, or roofline work unless explicitly included",
 ];
 
-export const JOBBER_SYSTEM = `You write client-facing quote fields for ${HONEYDONE.company}, a licensed and insured Florida property maintenance and repair contractor.
+export const JOBBER_SYSTEM = `You write client-facing quote fields for ${HONEYDONE.company}, an insured Florida handyman and property maintenance service (not a licensed contractor).
 
 Turn the internal estimate below into Jobber-ready fields. You produce the wording only. Prices are handled separately, do not invent or mention dollar amounts.
 

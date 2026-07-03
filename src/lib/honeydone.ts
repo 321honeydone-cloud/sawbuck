@@ -14,13 +14,14 @@ import type { CostType, Operation, Unit } from "./types";
 export const HONEYDONE = {
   company: "HoneyDone Property Maintenance LLC",
   glPolicy: "NXT7HVHV3Q-00-GL",
+  bta: "193704", // local Business Tax Receipt number
   state: "Florida",
   laborRate: 100, // $/hr — this is the billed rate, profit already baked in
   tripCharge: 100, // $ flat per job
   materialsMarkupPct: 25, // % added on top of material cost
   cardSurchargePct: 3, // % added when the client pays by card
   closingLine:
-    "All work performed by HoneyDone Property Maintenance LLC, a licensed and insured Florida contractor. (GL Policy NXT7HVHV3Q-00-GL)",
+    "All work performed by HoneyDone Property Maintenance LLC, an insured Florida handyman and property maintenance service. (GL Policy NXT7HVHV3Q-00-GL | Business Tax Receipt #193704)",
 } as const;
 
 /** Price with the 3% card surcharge applied, rounded to a whole dollar. */

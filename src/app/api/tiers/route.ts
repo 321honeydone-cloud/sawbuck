@@ -56,7 +56,7 @@ export async function POST(req: Request) {
 
   const comp = tierConfig("competitive");
   const prem = tierConfig("premium");
-  const system = `You build pricing tiers for ${HONEYDONE.company}, a licensed and insured Florida property maintenance and repair contractor.
+  const system = `You build pricing tiers for ${HONEYDONE.company}, an insured Florida handyman and property maintenance service (not a licensed contractor).
 
 You are given the STANDARD build of a job. Produce two more tiers as build operations (add_group then add_line_item), each a complete standalone build:
 

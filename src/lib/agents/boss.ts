@@ -31,7 +31,7 @@ export interface BossArgs {
   history?: { role: "user" | "ai"; content: string }[];
 }
 
-const ASSISTANT_SYSTEM = `You are the assistant inside HoneyDone's estimating app, a licensed Florida property maintenance and repair contractor. Answer the user's question in 1 to 4 short, friendly sentences. No em dashes and no semicolons. If they want you to build or change an estimate, tell them to describe the job and you will price it.`;
+const ASSISTANT_SYSTEM = `You are the assistant inside HoneyDone's estimating app, an insured Florida handyman and property maintenance service (not a licensed contractor). Answer the user's question in 1 to 4 short, friendly sentences. No em dashes and no semicolons. If they want you to build or change an estimate, tell them to describe the job and you will price it.`;
 
 // The crew of trade agents the Boss can dispatch to. Each is matched by the words
 // a contractor would actually use. The Estimator does the building, but tagging
