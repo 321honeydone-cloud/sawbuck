@@ -3,7 +3,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useEstimateStore } from "@/store/useEstimateStore";
 import JobberModal from "./JobberModal";
-import TierBar from "./TierBar";
 import { money, pct } from "@/lib/format";
 import { cardPrice, HONEYDONE } from "@/lib/honeydone";
 import { computeTotals } from "@/lib/totals";
@@ -80,7 +79,6 @@ export default function EstimateSheet() {
     <div className="flex min-h-full flex-col">
       <TotalsBar totals={liveTotals} onJobber={() => setJobberOpen(true)} />
       <ReviewBar />
-      <TierBar />
       <JobberModal open={jobberOpen} onClose={() => setJobberOpen(false)} excluded={excluded} />
       <div className="flex-1 px-5 py-4">
         {!hasGroups ? (

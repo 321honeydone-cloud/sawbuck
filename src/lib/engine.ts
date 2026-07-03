@@ -284,7 +284,7 @@ async function* rateBookBuild(userMessage: string, ctx: EngineContext): AsyncGen
   yield { type: "milestone", text: "Priced from your rate book" };
   yield {
     type: "suggestions",
-    suggestions: ["Build 3 tiers", "Add cleanup & haul-off", "Generate Jobber quote", "Finalize estimate"],
+    suggestions: ["Add a Complications Cap", "Add cleanup & haul-off", "Generate Jobber quote", "Finalize estimate"],
   };
 }
 

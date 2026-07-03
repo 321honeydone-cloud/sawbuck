@@ -166,7 +166,7 @@ async function* rateBookBuild(jobText: string, estimateName: string): AsyncGener
   yield* streamText(closing);
   yield { type: "summary", name: estimateName };
   yield { type: "milestone", text: "Priced from your rate book" };
-  yield { type: "suggestions", suggestions: ["Build 3 tiers", "Add cleanup & haul-off", "Generate Jobber quote", "Finalize estimate"] };
+  yield { type: "suggestions", suggestions: ["Add a Complications Cap", "Add cleanup & haul-off", "Generate Jobber quote", "Finalize estimate"] };
 }
 
 /** Append rate-book-known tasks to an EXISTING quote, deterministically. No model,
@@ -442,6 +442,6 @@ export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineD
     if (args.message.trim()) yield { type: "name", name: deriveJobName(args.message) };
     yield { type: "summary", name: args.estimate.name };
     yield { type: "milestone", text: "Built on your local model" };
-    yield { type: "suggestions", suggestions: ["Build 3 tiers", "Add cleanup & haul-off", "Generate Jobber quote", "Finalize estimate"] };
+    yield { type: "suggestions", suggestions: ["Add a Complications Cap", "Add cleanup & haul-off", "Generate Jobber quote", "Finalize estimate"] };
   }
 }

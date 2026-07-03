@@ -200,6 +200,20 @@ export async function ollamaTags(): Promise<string[] | null> {
   }
 }
 
+/** Models currently loaded in the local Ollama box, with the VRAM (bytes) each
+ * is holding. null when the box is unreachable. Powers the admin GPU gauge when
+ * nvidia-smi is not available on this server (e.g. the cloud deploy). */
+export async function ollamaPs(): Promise<{ name: string; sizeVram: number }[] | null> {
+  try {
+    const r = await fetch(`${OLLAMA_URL}/api/ps`, ollamaInit({ signal: AbortSignal.timeout(6000) }) as RequestInit);
+    if (!r.ok) return null;
+    const data = (await r.json()) as { models?: { name?: string; size_vram?: number }[] };
+    return (data.models ?? []).map((m) => ({ name: String(m.name ?? ""), sizeVram: Number(m.size_vram ?? 0) }));
+  } catch {
+    return null;
+  }
+}
+
 // ===================================================================
 // Claude (cloud) provider
 // ===================================================================

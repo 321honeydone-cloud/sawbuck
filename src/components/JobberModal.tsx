@@ -4,11 +4,20 @@ import { useEffect, useState } from "react";
 import { useEstimateStore } from "@/store/useEstimateStore";
 import { money } from "@/lib/format";
 import { computeTotals } from "@/lib/totals";
-import { tierConfig } from "@/lib/tiers";
+import { splitBuilds, type BuildSplit } from "@/lib/builds";
 import type { JobberQuote } from "@/lib/jobber";
 
 /** Format the finalized quote as the plain-text block ready to send or paste. */
-function asText(q: JobberQuote, exclusionTexts: string[]): string {
+function asText(q: JobberQuote, split: BuildSplit, exclusionTexts: string[]): string {
+  const priceBlock = split.hasCap
+    ? [
+        `EXPECTED PRICE (Smooth Scenario): ${money(split.smoothCash)} (cash/check) | ${money(split.smoothCard)} (card)`,
+        `MAX COST GUARANTEE (the most you will ever pay): ${money(split.maxCash)} (cash/check) | ${money(split.maxCard)} (card)`,
+        "",
+        "The Max Cost Guarantee only applies if these specific issues are found once work starts. Anything not needed drops off your bill:",
+        ...split.capItems.map((i) => `- ${i.name}: up to +${money(i.clientTotal)}`),
+      ]
+    : [`PRICE: ${money(q.priceCash)} (cash/check) | ${money(q.priceCard)} (card)`];
   return [
     `CLIENT: ${q.client}`,
     "",
@@ -17,7 +26,7 @@ function asText(q: JobberQuote, exclusionTexts: string[]): string {
     "SCOPE OF WORK:",
     q.scopeOfWork,
     "",
-    `PRICE: ${money(q.priceCash)} (cash/check) | ${money(q.priceCard)} (card)`,
+    ...priceBlock,
     "",
     "EXCLUSIONS:",
     ...exclusionTexts.map((e) => `- ${e}`),
@@ -88,6 +97,7 @@ export default function JobberModal({
 
   if (!open) return null;
 
+  const split = splitBuilds(includedEstimate());
   const includedTexts = exclusions.filter((e) => e.included).map((e) => e.text);
 
   const addNow = () => {
@@ -98,7 +108,7 @@ export default function JobberModal({
   const copy = async () => {
     if (!quote) return;
     try {
-      await navigator.clipboard.writeText(asText(quote, includedTexts));
+      await navigator.clipboard.writeText(asText(quote, split, includedTexts));
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
@@ -114,15 +124,8 @@ export default function JobberModal({
       >
         <div className="sticky top-0 flex items-center justify-between border-b border-border bg-card px-5 py-3">
           <div>
-            <div className="flex items-center gap-2">
-              <h2 className="font-display text-sm font-semibold uppercase tracking-[0.08em] text-ink">Finalize Quote</h2>
-              {estimate.selectedTier && (
-                <span className="rounded border border-brand/50 bg-brand/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-brand">
-                  {tierConfig(estimate.selectedTier).label}
-                </span>
-              )}
-            </div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">Scope, price, and exclusions</p>
+            <h2 className="font-display text-sm font-semibold uppercase tracking-[0.08em] text-ink">Finalize Quote</h2>
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">Two builds, scope, and exclusions</p>
           </div>
           <div className="flex items-center gap-2">
             <button
@@ -154,14 +157,55 @@ export default function JobberModal({
                   <Label>Scope of work</Label>
                   <p className="mt-1 whitespace-pre-wrap leading-relaxed text-ink">{quote.scopeOfWork}</p>
                 </div>
-                <div>
-                  <Label>Price</Label>
-                  <p className="mt-1 font-display text-base tabular-nums text-ink">
-                    {money(quote.priceCash)} <span className="text-muted">cash/check</span>
-                    <span className="mx-2 text-muted">|</span>
-                    {money(quote.priceCard)} <span className="text-muted">card</span>
-                  </p>
-                </div>
+                {split.hasCap ? (
+                  <div className="space-y-3">
+                    <div className="rounded-lg border border-brand/50 bg-brand/10 p-3">
+                      <div className="flex items-baseline justify-between">
+                        <Label>Smooth Scenario · expected price</Label>
+                        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">if it goes as planned</span>
+                      </div>
+                      <p className="mt-1 font-display text-xl font-semibold tabular-nums text-brand">
+                        {money(split.smoothCash)} <span className="text-sm font-normal text-muted">cash/check</span>
+                        <span className="mx-2 text-muted">|</span>
+                        {money(split.smoothCard)} <span className="text-sm font-normal text-muted">card</span>
+                      </p>
+                    </div>
+                    <div className="rounded-lg border border-border bg-card-2 p-3">
+                      <div className="flex items-baseline justify-between">
+                        <Label>Max Cost Guarantee · ceiling</Label>
+                        <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted">the most you will ever pay</span>
+                      </div>
+                      <p className="mt-1 font-display text-lg font-semibold tabular-nums text-ink">
+                        {money(split.maxCash)} <span className="text-sm font-normal text-muted">cash/check</span>
+                        <span className="mx-2 text-muted">|</span>
+                        {money(split.maxCard)} <span className="text-sm font-normal text-muted">card</span>
+                      </p>
+                      <p className="mt-2 text-xs text-muted">
+                        Only charged if these specific issues turn up once work starts. Anything not needed drops off the bill.
+                      </p>
+                      <ul className="mt-1.5 space-y-1">
+                        {split.capItems.map((i) => (
+                          <li key={i.id} className="flex items-start justify-between gap-3 text-xs">
+                            <span className="text-ink">{i.name}</span>
+                            <span className="shrink-0 font-mono tabular-nums text-gold">up to +{money(i.clientTotal)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <Label>Price</Label>
+                    <p className="mt-1 font-display text-base tabular-nums text-ink">
+                      {money(quote.priceCash)} <span className="text-muted">cash/check</span>
+                      <span className="mx-2 text-muted">|</span>
+                      {money(quote.priceCard)} <span className="text-muted">card</span>
+                    </p>
+                    <p className="mt-1 text-xs text-muted">
+                      Single price. To show a Smooth vs Max build, ask the estimator to add a Complications Cap section for the risky items.
+                    </p>
+                  </div>
+                )}
               </>
             )}
 

@@ -7,6 +7,7 @@ import type { ChatMessage, Estimate, EstimateStatus } from "@/lib/types";
 import ChatPanel from "./ChatPanel";
 import EstimateSheet from "./EstimateSheet";
 import MobileMenu from "./MobileMenu";
+import GpuGauge from "./GpuGauge";
 
 export interface EstimateSummary {
   id: string;
@@ -276,6 +277,7 @@ function TopBar() {
             {aiUpdateCount} AI {aiUpdateCount === 1 ? "update" : "updates"}
           </span>
         )}
+        <GpuGauge />
         {confirmDel ? (
           <div className="flex items-center gap-1">
             <button
