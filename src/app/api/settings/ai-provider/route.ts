@@ -9,6 +9,7 @@ import {
   getAiProviderSetting,
   setAiProviderSetting,
   setLocalModelSetting,
+  getAiSwitchedAt,
   type AiProvider,
 } from "@/lib/settings";
 import { ollamaTags, activeLocalModel, LOCAL_TEXT_MODELS, OLLAMA_URL } from "@/lib/agents/client";
@@ -27,7 +28,8 @@ async function state() {
     // "gemma4:31b"; exact tag matches too.
     installed: (tags ?? []).some((t) => t === name || t.startsWith(`${name}:`)),
   }));
-  return { provider, localReachable, localUrl: OLLAMA_URL, hasCloudKey, localModel, localModels };
+  const switchedAt = await getAiSwitchedAt();
+  return { provider, localReachable, localUrl: OLLAMA_URL, hasCloudKey, localModel, localModels, switchedAt };
 }
 
 export async function GET() {

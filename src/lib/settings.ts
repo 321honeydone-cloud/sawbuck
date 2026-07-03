@@ -41,6 +41,7 @@ export async function setAiProviderSetting(value: AiProvider): Promise<void> {
     create: { key: AI_KEY, value },
   });
   cached = { value, at: Date.now() };
+  await stampSwitch();
 }
 
 // ----- Local (Ollama) model pick -----
@@ -73,4 +74,34 @@ export async function setLocalModelSetting(value: string): Promise<void> {
     create: { key: LOCAL_MODEL_KEY, value },
   });
   cachedLocal = { value, at: Date.now() };
+  await stampSwitch();
+}
+
+// ----- Switch timestamp -----
+// Set every time the owner saves a brain or model change, so the Admin panel
+// can show "switched at 2:41 PM" as proof the change actually landed in the DB.
+
+const SWITCHED_AT_KEY = "aiSwitchedAt";
+
+async function stampSwitch(): Promise<void> {
+  const value = new Date().toISOString();
+  try {
+    await prisma.appSetting.upsert({
+      where: { key: SWITCHED_AT_KEY },
+      update: { value },
+      create: { key: SWITCHED_AT_KEY, value },
+    });
+  } catch {
+    // Never let a timestamp write break the actual setting change.
+  }
+}
+
+/** When the brain or model was last switched (ISO string), or null if never. */
+export async function getAiSwitchedAt(): Promise<string | null> {
+  try {
+    const row = await prisma.appSetting.findUnique({ where: { key: SWITCHED_AT_KEY } });
+    return row?.value || null;
+  } catch {
+    return null;
+  }
 }
