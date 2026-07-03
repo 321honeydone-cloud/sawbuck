@@ -38,10 +38,18 @@ export default function FeedbackWidget() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-20 right-4 z-40 rounded-full border border-border bg-card px-3 py-2 font-display text-xs font-semibold uppercase tracking-[0.06em] text-muted shadow-lg transition hover:border-brand/60 hover:text-ink md:bottom-4"
         aria-label="Send feedback"
+        title="Send feedback"
+        className="group fixed bottom-20 right-4 z-40 flex items-center rounded-full border border-border bg-card/60 py-2 pl-2 pr-2 text-muted opacity-40 shadow-lg backdrop-blur-sm transition-all duration-200 hover:border-brand/60 hover:bg-card hover:text-ink hover:opacity-100 md:bottom-4"
       >
-        Feedback
+        <span className="grid h-5 w-5 shrink-0 place-items-center">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        </span>
+        <span className="max-w-0 overflow-hidden whitespace-nowrap font-display text-xs font-semibold uppercase tracking-[0.06em] opacity-0 transition-all duration-200 group-hover:ml-1.5 group-hover:max-w-[90px] group-hover:opacity-100">
+          Feedback
+        </span>
       </button>
 
       {open && (

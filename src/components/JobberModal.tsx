@@ -202,7 +202,7 @@ export default function JobberModal({
                       {money(quote.priceCard)} <span className="text-muted">card</span>
                     </p>
                     <p className="mt-1 text-xs text-muted">
-                      Single price. To show a Smooth vs Max build, ask the estimator to add a Complications Cap section for the risky items.
+                      Single price. This estimate has no Complications Cap section yet, so there is no worst-case buffer to show.
                     </p>
                   </div>
                 )}
