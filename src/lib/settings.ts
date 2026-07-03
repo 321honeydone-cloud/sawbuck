@@ -42,3 +42,35 @@ export async function setAiProviderSetting(value: AiProvider): Promise<void> {
   });
   cached = { value, at: Date.now() };
 }
+
+// ----- Local (Ollama) model pick -----
+// Which local text model the owner chose on the Admin screen. Null means "use
+// the env default" (OLLAMA_TEXT_MODEL). Validation against the allowed list
+// happens in the API route; this layer just stores the string.
+
+const LOCAL_MODEL_KEY = "aiLocalModel";
+let cachedLocal: { value: string | null; at: number } | null = null;
+
+/** The local model the owner picked, or null for the env default. Cached briefly. */
+export async function getLocalModelSetting(): Promise<string | null> {
+  if (cachedLocal && Date.now() - cachedLocal.at < TTL_MS) return cachedLocal.value;
+  let value: string | null = null;
+  try {
+    const row = await prisma.appSetting.findUnique({ where: { key: LOCAL_MODEL_KEY } });
+    if (row?.value) value = row.value;
+  } catch {
+    // Table may not exist yet. Fall back to the env default.
+  }
+  cachedLocal = { value, at: Date.now() };
+  return value;
+}
+
+/** Owner picks the local model. Persists to the DB and refreshes the cache now. */
+export async function setLocalModelSetting(value: string): Promise<void> {
+  await prisma.appSetting.upsert({
+    where: { key: LOCAL_MODEL_KEY },
+    update: { value },
+    create: { key: LOCAL_MODEL_KEY, value },
+  });
+  cachedLocal = { value, at: Date.now() };
+}

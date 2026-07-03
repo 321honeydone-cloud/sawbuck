@@ -13,7 +13,7 @@
 // Shop env:   OLLAMA_URL, OLLAMA_TEXT_MODEL, OLLAMA_VISION_MODEL
 
 import { makeAnthropic } from "../anthropic";
-import { getAiProviderSetting } from "../settings";
+import { getAiProviderSetting, getLocalModelSetting } from "../settings";
 import { ProxyAgent } from "undici";
 
 // ----- Shop (Ollama) settings -----
@@ -23,6 +23,32 @@ export const TEXT_MODEL = process.env.OLLAMA_TEXT_MODEL || "qwen3-32b-manny";
 // llama3.2-vision). The old default gemma4:26B is not a real tag, so photo
 // reading never worked in shop mode until this was set right.
 export const VISION_MODEL = process.env.OLLAMA_VISION_MODEL || "llama3.2-vision";
+
+// Local text models the owner can pick from on the Admin screen. The env
+// default is always first. Add or swap options with OLLAMA_EXTRA_TEXT_MODELS
+// (comma-separated tags); gemma4:31b ships as the built-in second option.
+// A tag here must match what `ollama list` shows on the shop box exactly, or
+// calls to it fail and the app falls back to Claude.
+export const LOCAL_TEXT_MODELS: string[] = Array.from(
+  new Set([
+    TEXT_MODEL,
+    ...(process.env.OLLAMA_EXTRA_TEXT_MODELS || "gemma4:31b")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean),
+  ])
+);
+
+/** The local text model to use right now: the owner's pick, else the env default. */
+export async function activeLocalModel(): Promise<string> {
+  try {
+    const picked = await getLocalModelSetting();
+    if (picked && LOCAL_TEXT_MODELS.includes(picked)) return picked;
+  } catch {
+    /* fall through to the env default */
+  }
+  return TEXT_MODEL;
+}
 
 // On the cloud deploy the app reaches the shop Ollama over Tailscale's userspace
 // outbound HTTP proxy (Render cannot run a normal VPN interface). When
@@ -161,6 +187,19 @@ export async function ollamaUp(): Promise<boolean> {
   }
 }
 
+/** Model tags the local Ollama box reports, or null when it is unreachable.
+ * Lets the Admin screen show which local models are actually pulled. */
+export async function ollamaTags(): Promise<string[] | null> {
+  try {
+    const r = await fetch(`${OLLAMA_URL}/api/tags`, ollamaInit({ signal: AbortSignal.timeout(6000) }) as RequestInit);
+    if (!r.ok) return null;
+    const data = (await r.json()) as { models?: { name?: string }[] };
+    return (data.models ?? []).map((m) => String(m.name ?? "")).filter(Boolean);
+  } catch {
+    return null;
+  }
+}
+
 // ===================================================================
 // Claude (cloud) provider
 // ===================================================================
@@ -232,11 +271,12 @@ function buildMessages(system: string | undefined, prompt: string, images?: stri
 }
 
 async function ollamaText(opts: ChatOpts): Promise<string> {
+  const model = opts.model || (await activeLocalModel());
   const r = await fetch(CHAT, ollamaInit({
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
-      model: opts.model || TEXT_MODEL,
+      model,
       stream: false,
       think: false,
       ...(opts.format ? { format: opts.format } : {}),
@@ -245,17 +285,18 @@ async function ollamaText(opts: ChatOpts): Promise<string> {
     }),
     signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
   }) as RequestInit);
-  if (!r.ok) throw new Error(`Ollama ${opts.model || TEXT_MODEL} ${r.status}`);
+  if (!r.ok) throw new Error(`Ollama ${model} ${r.status}`);
   const data = (await r.json()) as { message?: { content?: string } };
   return (data.message?.content ?? "").trim();
 }
 
 async function* ollamaStream(opts: ChatOpts): AsyncGenerator<string> {
+  const model = opts.model || (await activeLocalModel());
   const r = await fetch(CHAT, ollamaInit({
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
-      model: opts.model || TEXT_MODEL,
+      model,
       stream: true,
       think: false,
       options: { temperature: opts.temperature ?? 0.4 },
@@ -263,7 +304,7 @@ async function* ollamaStream(opts: ChatOpts): AsyncGenerator<string> {
     }),
     signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
   }) as RequestInit);
-  if (!r.ok || !r.body) throw new Error(`Ollama stream ${opts.model || TEXT_MODEL} ${r.status}`);
+  if (!r.ok || !r.body) throw new Error(`Ollama stream ${model} ${r.status}`);
   const reader = r.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
@@ -347,7 +388,7 @@ export async function currentModels(): Promise<{
   return {
     provider,
     url: provider === "claude" ? "Anthropic API" : OLLAMA_URL,
-    text: provider === "claude" ? CLAUDE_TEXT_MODEL : TEXT_MODEL,
+    text: provider === "claude" ? CLAUDE_TEXT_MODEL : await activeLocalModel(),
     vision: provider === "claude" ? CLAUDE_TEXT_MODEL : VISION_MODEL,
   };
 }

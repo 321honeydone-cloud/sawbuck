@@ -12,6 +12,8 @@ type State = {
   localReachable: boolean;
   localUrl: string;
   hasCloudKey: boolean;
+  localModel: string;
+  localModels: { name: string; installed: boolean }[];
 };
 
 export default function AiBrainToggle() {
@@ -28,14 +30,14 @@ export default function AiBrainToggle() {
     load().catch(() => {});
   }, []);
 
-  async function change(provider: "claude" | "ollama") {
+  async function save(patch: { provider?: "claude" | "ollama"; localModel?: string }) {
     setBusy(true);
     setSaved(false);
     try {
       const r = await fetch("/api/settings/ai-provider", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ provider }),
+        body: JSON.stringify(patch),
       });
       if (r.ok) {
         setS(await r.json());
@@ -45,6 +47,7 @@ export default function AiBrainToggle() {
       setBusy(false);
     }
   }
+  const change = (provider: "claude" | "ollama") => save({ provider });
 
   if (!s) return null;
 
@@ -79,6 +82,36 @@ export default function AiBrainToggle() {
         </button>
         {saved && !busy && <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-emerald-400">Saved</span>}
       </div>
+
+      {s.provider === "ollama" && (s.localModels?.length ?? 0) > 0 && (
+        <div className="mt-2 flex flex-wrap items-center gap-3">
+          <label htmlFor="local-model" className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">
+            Local model
+          </label>
+          <select
+            id="local-model"
+            value={s.localModel}
+            disabled={busy}
+            onChange={(e) => save({ localModel: e.target.value })}
+            className="rounded-md border border-border bg-bg px-2 py-1 text-sm text-ink disabled:opacity-60"
+          >
+            {s.localModels.map((m) => (
+              <option key={m.name} value={m.name}>
+                {m.name}
+                {s.localReachable && !m.installed ? " (not pulled)" : ""}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+      {s.provider === "ollama" &&
+        s.localReachable &&
+        s.localModels?.some((m) => m.name === s.localModel && !m.installed) && (
+          <p className="mt-1 text-xs text-amber-400">
+            {s.localModel} isn&apos;t pulled on the Ollama box yet, so calls will fail over to Claude. On that machine
+            run: <span className="font-mono">ollama pull {s.localModel}</span>, then hit Recheck.
+          </p>
+        )}
 
       <p className="mt-2 text-sm text-ink">
         Running on:{" "}
