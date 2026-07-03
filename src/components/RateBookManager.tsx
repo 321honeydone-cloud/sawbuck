@@ -55,6 +55,7 @@ export default function RateBookManager() {
   const [applying, setApplying] = useState(false);
   const [filling, setFilling] = useState(false);
   const [fillMsg, setFillMsg] = useState("");
+  const [showAdd, setShowAdd] = useState(false);
 
   useEffect(() => {
     fetch("/api/ratebook")
@@ -272,6 +273,9 @@ export default function RateBookManager() {
             </button>
           ))}
         </div>
+        <button onClick={() => setShowAdd(true)} className={btnPrimary}>
+          + Add task
+        </button>
         <span className="ml-auto font-mono text-[11px] text-muted">
           {filtered.length} {filtered.length === 1 ? "task" : "tasks"}
           {filtered.length > ROW_CAP ? ` (showing ${ROW_CAP})` : ""}
@@ -314,6 +318,8 @@ export default function RateBookManager() {
         </table>
       </div>
 
+      {showAdd && <AddTaskModal merged={merged} onSaved={onSaved} onClose={() => setShowAdd(false)} />}
+
       {/* AI proposal confirm modal */}
       {proposals && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
@@ -354,6 +360,291 @@ export default function RateBookManager() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+// ----- Add-a-task modal -----
+// Uniform task entry: category, item, and action come from dropdowns fed by
+// what is already in the book, so new names follow the same "Item, Action"
+// convention the matcher and the estimator rely on. Every dropdown has a
+// "Type my own..." escape hatch for anything the book has never seen.
+
+const CUSTOM = "__custom__";
+
+/** Canonical action verbs used across the book, most common first. */
+const ACTIONS = [
+  "Repair",
+  "Replace",
+  "Install New",
+  "Replace/Install",
+  "Remove/Install",
+  "Remove",
+  "Clean",
+  "Unclog",
+  "Seal/Caulk",
+  "Adjust",
+  "Service",
+  "Haul Off",
+];
+
+function ComboField({
+  label,
+  options,
+  pick,
+  custom,
+  setPick,
+  setCustom,
+  customPlaceholder,
+}: {
+  label: string;
+  options: string[];
+  pick: string;
+  custom: string;
+  setPick: (v: string) => void;
+  setCustom: (v: string) => void;
+  customPlaceholder?: string;
+}) {
+  const isCustom = pick === CUSTOM;
+  return (
+    <div>
+      <label className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">{label}</label>
+      {!isCustom ? (
+        <select value={pick} onChange={(e) => setPick(e.target.value)} className={input + " mt-1 block w-full"}>
+          <option value="">Pick...</option>
+          {options.map((o) => (
+            <option key={o} value={o}>
+              {o}
+            </option>
+          ))}
+          <option value={CUSTOM}>Type my own...</option>
+        </select>
+      ) : (
+        <div className="mt-1 flex gap-1.5">
+          <input
+            autoFocus
+            value={custom}
+            onChange={(e) => setCustom(e.target.value)}
+            placeholder={customPlaceholder}
+            className={input + " w-full"}
+          />
+          <button
+            type="button"
+            onClick={() => {
+              setPick("");
+              setCustom("");
+            }}
+            className={btnGhost + " shrink-0 px-2"}
+            title="Back to the list"
+          >
+            List
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function AddTaskModal({
+  merged,
+  onSaved,
+  onClose,
+}: {
+  merged: RateTask[];
+  onSaved: (name: string, override: OverrideMap[string], c: RateBookCounts) => void;
+  onClose: () => void;
+}) {
+  const [catPick, setCatPick] = useState("");
+  const [catCustom, setCatCustom] = useState("");
+  const [itemPick, setItemPick] = useState("");
+  const [itemCustom, setItemCustom] = useState("");
+  const [actionPick, setActionPick] = useState("");
+  const [actionCustom, setActionCustom] = useState("");
+  const [detail, setDetail] = useState("");
+  const [unitPick, setUnitPick] = useState("each");
+  const [unitCustom, setUnitCustom] = useState("");
+  const [price, setPrice] = useState("");
+  const [labor, setLabor] = useState("");
+  const [material, setMaterial] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [savedMsg, setSavedMsg] = useState("");
+
+  const category = (catPick === CUSTOM ? catCustom : catPick).trim();
+  const item = (itemPick === CUSTOM ? itemCustom : itemPick).trim();
+  const action = (actionPick === CUSTOM ? actionCustom : actionPick).trim();
+  const unit = (unitPick === CUSTOM ? unitCustom : unitPick).trim() || "each";
+
+  // Items (fixtures/areas) already used in this trade, from the "Item, Action"
+  // naming convention: everything before the last comma of each task name.
+  const itemOptions = useMemo(() => {
+    const src = merged.filter((t) => !category || String(t.category ?? "") === category);
+    const set = new Set<string>();
+    for (const t of src) {
+      const i = t.name.lastIndexOf(",");
+      if (i > 0) set.add(t.name.slice(0, i).trim());
+    }
+    return [...set].sort();
+  }, [merged, category]);
+
+  const tail = [action, detail.trim()].filter(Boolean).join(" ");
+  const name = [item, tail].filter(Boolean).join(", ");
+  const dupe = !!name && merged.some((t) => t.name.trim().toLowerCase() === name.toLowerCase());
+  const priceNum = Number(price);
+  const canSave = !!category && !!name && isFinite(priceNum) && priceNum > 0 && !dupe && !busy;
+
+  async function save() {
+    if (!canSave) return;
+    setBusy(true);
+    setSavedMsg("");
+    try {
+      const res = await fetch("/api/ratebook", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name,
+          category,
+          final_price: priceNum,
+          unit,
+          labor_minutes: labor === "" ? null : Number(labor),
+          material_allowance: material === "" ? null : Number(material),
+        }),
+      });
+      if (res.ok) {
+        const d = await res.json();
+        onSaved(name, d.override, d.counts);
+        setSavedMsg(`Added ${name} at $${priceNum} ${unit} at ${new Date().toLocaleTimeString()} ✓`);
+        // Keep category and unit for fast batch entry; clear the rest.
+        setItemPick("");
+        setItemCustom("");
+        setActionPick("");
+        setActionCustom("");
+        setDetail("");
+        setPrice("");
+        setLabor("");
+        setMaterial("");
+      } else {
+        setSavedMsg("Could not save. Check the fields and try again.");
+      }
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+      <div className="max-h-[90dvh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-5 shadow-xl">
+        <h2 className="font-display text-sm font-bold uppercase tracking-[0.08em] text-ink">Add a rate book task</h2>
+        <p className="mt-1 text-xs text-muted">
+          Pick from the lists to keep names uniform with the rest of the book. Any list has a &quot;Type my own&quot;
+          option when the book doesn&apos;t have what you need.
+        </p>
+
+        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <ComboField
+            label="Trade"
+            options={CATEGORIES}
+            pick={catPick}
+            custom={catCustom}
+            setPick={setCatPick}
+            setCustom={setCatCustom}
+            customPlaceholder="e.g. Pool & Screen"
+          />
+          <ComboField
+            label="Item / area"
+            options={itemOptions}
+            pick={itemPick}
+            custom={itemCustom}
+            setPick={setItemPick}
+            setCustom={setItemCustom}
+            customPlaceholder="e.g. Sink, Kitchen"
+          />
+          <ComboField
+            label="Action"
+            options={ACTIONS}
+            pick={actionPick}
+            custom={actionCustom}
+            setPick={setActionPick}
+            setCustom={setActionCustom}
+            customPlaceholder="e.g. Rebuild"
+          />
+          <div>
+            <label className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">Detail (optional)</label>
+            <input
+              value={detail}
+              onChange={(e) => setDetail(e.target.value)}
+              placeholder="e.g. Faucet, Garbage Disposal"
+              className={input + " mt-1 block w-full"}
+            />
+          </div>
+          <ComboField
+            label="Unit"
+            options={[...UNIT_OPTIONS]}
+            pick={unitPick}
+            custom={unitCustom}
+            setPick={setUnitPick}
+            setCustom={setUnitCustom}
+            customPlaceholder="e.g. per panel"
+          />
+          <div>
+            <label className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">Price $ (required)</label>
+            <input
+              inputMode="decimal"
+              value={price}
+              onChange={(e) => setPrice(e.target.value.replace(/[^0-9.]/g, ""))}
+              placeholder="e.g. 115"
+              className={input + " mt-1 block w-full"}
+            />
+          </div>
+          <div>
+            <label className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">Labor min (optional)</label>
+            <input
+              inputMode="numeric"
+              value={labor}
+              onChange={(e) => setLabor(e.target.value.replace(/[^0-9]/g, ""))}
+              placeholder="—"
+              className={input + " mt-1 block w-full"}
+            />
+          </div>
+          <div>
+            <label className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">Material $ (optional)</label>
+            <input
+              inputMode="decimal"
+              value={material}
+              onChange={(e) => setMaterial(e.target.value.replace(/[^0-9.]/g, ""))}
+              placeholder="—"
+              className={input + " mt-1 block w-full"}
+            />
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-md border border-border bg-card-2 p-3 text-sm">
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">Will be saved as</span>
+          <div className="mt-1 text-ink">
+            <span className="font-medium">{name || "—"}</span>
+            {name && (
+              <span className="ml-2 text-muted">
+                · {category || "no trade"} · {price ? `$${price}` : "no price"} {unit}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {dupe && (
+          <p className="mt-2 text-xs text-amber-400">
+            That task is already in the book. Search for it in the table and edit its price there instead.
+          </p>
+        )}
+        {savedMsg && <p className="mt-2 text-sm font-medium text-emerald-400">{savedMsg}</p>}
+
+        <div className="mt-4 flex justify-end gap-2">
+          <button onClick={onClose} disabled={busy} className={btnGhost}>
+            Done
+          </button>
+          <button onClick={save} disabled={!canSave} className={btnPrimary}>
+            {busy ? "Saving..." : "Add to rate book"}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
