@@ -2,7 +2,19 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { rowFromEstimate } from "@/lib/serialize";
 import { getSession } from "@/lib/session";
+import { snapshotEstimate } from "@/lib/memory";
 import type { Estimate } from "@/lib/types";
+
+/** First few user asks from an estimate's chat, for the memory snapshot. */
+async function userAsks(estimateId: string): Promise<string[]> {
+  const msgs = await prisma.chatMessage.findMany({
+    where: { estimateId, role: "user" },
+    orderBy: { createdAt: "asc" },
+    take: 6,
+    select: { content: true },
+  });
+  return msgs.map((m) => m.content);
+}
 
 export const runtime = "nodejs";
 
@@ -106,6 +118,7 @@ export async function PUT(req: Request) {
   }
 
   const row = rowFromEstimate(estimate);
+  const prev = await prisma.estimate.findUnique({ where: { id: row.id }, select: { status: true } });
   await prisma.estimate.update({
     where: { id: row.id },
     data: {
@@ -118,6 +131,19 @@ export async function PUT(req: Request) {
       data: row.data,
     },
   });
+
+  // Shop memory: when an estimate leaves draft (complete/sent/invoiced), record
+  // what was built and what the user asked for. Fire-and-forget; memory must
+  // never fail a save.
+  if (prev && prev.status !== row.status && ["complete", "sent", "invoiced"].includes(row.status)) {
+    try {
+      const asks = await userAsks(row.id);
+      const kind = row.status === "invoiced" ? "won" : row.status === "sent" ? "sent" : "completed";
+      void snapshotEstimate(kind, row, asks);
+    } catch {
+      /* never block the save */
+    }
+  }
 
   return NextResponse.json({ ok: true });
 }
@@ -139,6 +165,20 @@ export async function DELETE(req: Request) {
   if (session && session.role !== "admin" && row.userId !== session.uid) {
     return NextResponse.json({ error: "forbidden" }, { status: 403 });
   }
+
+  // Shop memory: snapshot the estimate BEFORE the hard delete. The row and its
+  // chat cascade away, but the job's story survives in SAWBUCK_MEMORY.md so the
+  // estimator keeps learning from it.
+  try {
+    const full = await prisma.estimate.findUnique({ where: { id } });
+    if (full) {
+      const asks = await userAsks(id);
+      void snapshotEstimate("deleted", full, asks);
+    }
+  } catch {
+    /* memory must never block a delete */
+  }
+
   await prisma.estimate.delete({ where: { id } });
   return NextResponse.json({ ok: true });
 }

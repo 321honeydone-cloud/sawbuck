@@ -6,6 +6,7 @@ import { prisma } from "@/lib/db";
 import { RATEBOOK_ID, formatLearnedRates, parseRateBook } from "@/lib/rates";
 import { OVERRIDES_ID, applyOverrides, formatPricedBookForPrompt, parseOverrides } from "@/lib/rateOverrides";
 import { rateBook, setRateBookTasks } from "@/lib/loadRateBook";
+import { memoryBlock } from "@/lib/memory";
 import { getSession } from "@/lib/session";
 import { runChat } from "@/lib/agents/boss";
 import type { Attachment, Estimate } from "@/lib/types";
@@ -56,7 +57,15 @@ export async function POST(req: Request) {
   } catch {
     /* no overrides yet, base book still applies */
   }
-  const systemExtra = learnedRates + rateBookPrices;
+  // Shop memory: distilled lessons from every past estimate, including deleted
+  // ones, ride into the estimator prompt right alongside the learned rates.
+  let shopMemory = "";
+  try {
+    shopMemory = await memoryBlock();
+  } catch {
+    /* no memory file yet — the estimator still has the rate books */
+  }
+  const systemExtra = learnedRates + rateBookPrices + shopMemory;
 
   const encoder = new TextEncoder();
   const stream = new ReadableStream<Uint8Array>({

@@ -6,9 +6,11 @@ import {
   isLearnable,
   mergeRate,
   parseRateBook,
+  rateKey,
   type RateBookItem,
   type RateInput,
 } from "@/lib/rates";
+import { logMemoryEvent } from "@/lib/memory";
 import type { CostType, Unit } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -55,7 +57,24 @@ export async function POST(req: Request) {
     source: body.source ?? "manual",
   };
 
-  const merged = mergeRate(await loadItems(), input);
+  const items = await loadItems();
+  const prevItem = items.find((r) => r.key === rateKey(input.name, input.unit, input.costType));
+  const merged = mergeRate(items, input);
   await saveItems(merged);
+
+  // Shop memory: a changed price on a known rate is a correction worth
+  // remembering — it's exactly the kind of thing the estimator should stop
+  // getting wrong. Fire-and-forget.
+  if (prevItem && prevItem.unitCost !== input.unitCost) {
+    const pct = prevItem.unitCost > 0 ? Math.round(((input.unitCost - prevItem.unitCost) / prevItem.unitCost) * 100) : 0;
+    void logMemoryEvent({
+      kind: "correction",
+      title: input.name,
+      lines: [
+        `${input.costType}/${input.unit}: was $${prevItem.unitCost}, corrected to $${input.unitCost} (${pct >= 0 ? "+" : ""}${pct}%), source ${input.source ?? "manual"}`,
+      ],
+    });
+  }
+
   return NextResponse.json({ ok: true, count: merged.length });
 }
