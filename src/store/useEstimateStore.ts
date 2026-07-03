@@ -201,7 +201,10 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
         }
       }
     } finally {
-      patchAi({ streaming: false });
+      // Pin the REAL applied changes onto the message so the chat renders an
+      // old-vs-new diff the user can verify with their eyes. These records come
+      // from applyOperation's result, never from the model's own summary text.
+      patchAi({ streaming: false, changes: collected.length ? [...collected] : undefined });
       // Name a fresh estimate by asking the AI for a short title (e.g. "Mount TV"
       // from "I want to hang up a TV"). Fire-and-forget so it never blocks the UI;
       // the title types itself into the name field when it lands. Falls back to a
@@ -230,6 +233,7 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
       if (finalAi?.summary) meta.summary = finalAi.summary;
       if (finalAi?.milestone) meta.milestone = finalAi.milestone;
       if (finalAi?.suggestions?.length) meta.suggestions = finalAi.suggestions;
+      if (finalAi?.changes?.length) meta.changes = finalAi.changes;
       const userMeta = userMsg.attachments?.length ? JSON.stringify({ attachments: userMsg.attachments }) : undefined;
       const aiMeta = Object.keys(meta).length ? JSON.stringify(meta) : undefined;
       void fetch("/api/messages", {

@@ -51,8 +51,19 @@ export default function ChatPanel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Auto-scroll only when the user is already reading the bottom of the thread.
+  // Tracked on the user's own scrolls; if they scrolled up to reread something,
+  // new tokens must not yank them back down (that fight was the double-scroll bug).
+  const stickToBottom = useRef(true);
+  const onListScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    stickToBottom.current = el.scrollHeight - el.scrollTop - el.clientHeight < 96;
+  };
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+    const el = scrollRef.current;
+    if (!el || !stickToBottom.current) return;
+    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
   }, [messages]);
 
   useEffect(() => {
@@ -118,20 +129,24 @@ export default function ChatPanel() {
   };
 
   return (
-    <div className="flex h-full flex-col">
-      <div className="border-b border-border px-4 py-3">
+    // Fixed chassis: pinned header, scrolling message list, pinned input bar.
+    // min-h-0 on the column and the list is what actually lets the middle
+    // section scroll (flex children default to min-height:auto and refuse to
+    // shrink, which was the broken-scroll bug).
+    <div className="flex h-full min-h-0 flex-col">
+      <div className="shrink-0 border-b border-border px-4 py-3">
         <h2 className="font-display text-sm font-semibold uppercase tracking-[0.08em] text-ink">Sawbuck AI</h2>
         <p className="text-xs text-muted">Describe the job. The estimate builds itself.</p>
       </div>
 
-      <div ref={scrollRef} className="flex-1 space-y-4 overflow-auto px-4 py-4">
+      <div ref={scrollRef} onScroll={onListScroll} className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain px-4 py-4">
         {messages.length === 0 && <IntakeBox onSend={(t) => void sendMessage(t)} />}
         {messages.map((m) => (
           <MessageBubble key={m.id} message={m} onSuggestion={(t) => void sendMessage(t)} />
         ))}
       </div>
 
-      <div className="border-t border-border p-3">
+      <div className="shrink-0 border-t border-border p-3">
         {files.length > 0 && (
           <div className="mb-2 flex flex-wrap gap-2">
             {files.map((f, i) => (
@@ -344,6 +359,30 @@ function MessageBubble({ message, onSuggestion }: { message: ChatMessage; onSugg
                 <span className="max-w-[120px] truncate">{a.name}</span>
               </span>
             ))}
+          </div>
+        )}
+
+        {!isUser && message.changes && message.changes.length > 0 && (
+          <div className="mt-2 overflow-hidden rounded-lg border border-border bg-card-2">
+            <div className="border-b border-border px-3 py-1.5 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-gold">
+              What changed
+            </div>
+            <div className="divide-y divide-border/60">
+              {message.changes.map((c, i) => (
+                <div key={`${c.itemId}-${i}`} className="flex items-baseline justify-between gap-3 px-3 py-1.5 text-xs">
+                  <span className="min-w-0 truncate text-ink">{c.itemName || "(unnamed line)"}</span>
+                  {c.field === "added" ? (
+                    <span className="shrink-0 font-medium text-brand">+ {c.after}</span>
+                  ) : c.field === "removed" ? (
+                    <span className="shrink-0 font-medium text-flag">line removed</span>
+                  ) : (
+                    <span className="shrink-0 text-muted">
+                      {c.field}: <s className="opacity-70">{c.before}</s> <span className="font-medium text-ink">{c.after}</span>
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

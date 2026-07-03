@@ -13,7 +13,7 @@ export default function LoginPage() {
   const [mode, setMode] = useState<Mode>("email");
 
   return (
-    <main className="grid min-h-screen place-items-center px-4 text-ink">
+    <main className="grid h-dvh place-items-center overflow-y-auto px-4 text-ink">
       <div className="w-full max-w-[340px] text-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/sawbuck-lockup.png?v=2" alt="Sawbuck AI" className="mx-auto mb-2 w-full max-w-[300px]" />

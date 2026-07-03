@@ -111,6 +111,13 @@ export async function chatText(opts: ChatOpts): Promise<string> {
   }
 }
 
+/** Local-brain-only completion. Never falls back to the paid Claude API, so
+ *  callers that must stay free (e.g. estimate titles) can opt out of cost.
+ *  Throws if the local model is unreachable, let the caller handle fallback. */
+export async function localText(opts: ChatOpts): Promise<string> {
+  return ollamaText(opts);
+}
+
 /** Structured completion. Asks for JSON and parses it. Returns null on bad JSON. */
 export async function chatJson<T>(opts: ChatOpts & { schema?: Record<string, unknown> }): Promise<T | null> {
   const raw = await chatText({ ...opts, format: opts.schema ?? "json" });

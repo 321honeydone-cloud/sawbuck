@@ -77,10 +77,10 @@ export default function Workspace({
   };
 
   return (
-    <main className="flex h-full flex-col text-ink">
+    <main className="flex h-full min-h-0 flex-col text-ink">
       <TopBar />
 
-      <div className="flex gap-1 border-b border-border bg-card p-1.5 md:hidden">
+      <div className="flex shrink-0 gap-1 border-b border-border bg-card p-1.5 md:hidden">
         <button
           onClick={() => setTab("chat")}
           className={`flex-1 rounded-md py-1.5 font-display text-xs font-semibold uppercase tracking-[0.06em] transition ${
@@ -119,7 +119,7 @@ export default function Workspace({
           className="hidden w-1.5 shrink-0 cursor-col-resize bg-border transition-colors hover:bg-brand/60 md:block"
         />
 
-        <section className={`${tab === "sheet" ? "block" : "hidden"} min-w-0 flex-1 overflow-auto md:block`}>
+        <section className={`${tab === "sheet" ? "block" : "hidden"} min-w-0 flex-1 overflow-y-auto overscroll-contain md:block`}>
           <EstimateSheet />
         </section>
       </div>
@@ -251,7 +251,7 @@ function TopBar() {
   };
 
   return (
-    <header className="flex items-center justify-between gap-3 border-b border-border bg-card px-4 py-2 backdrop-blur-sm">
+    <header className="flex shrink-0 items-center justify-between gap-3 border-b border-border bg-card px-4 py-2 backdrop-blur-sm">
       <div className="min-w-0 flex-1">
         <EstimateNameField />
         <input

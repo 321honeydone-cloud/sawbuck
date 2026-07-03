@@ -16,7 +16,7 @@ export default function NewEstimateEmpty() {
   };
 
   return (
-    <main className="grid h-screen place-items-center text-ink">
+    <main className="grid h-dvh place-items-center text-ink">
       <div className="text-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/logo.png" alt="Sawbuck AI" className="mx-auto mb-3 h-16 w-16 rounded-2xl object-contain" />

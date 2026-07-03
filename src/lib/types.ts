@@ -117,6 +117,7 @@ export interface ChatMessage {
   trace?: string[]; // boss/employee routing notes, shown to admins only
   agents?: string[]; // trade crews that handled this turn, shown to everyone
   attachments?: AttachmentMeta[]; // files the user attached to this message
+  changes?: ChangeRecord[]; // real applied mutations, rendered as an old-vs-new diff in chat
 }
 
 // ----- Structured AI operations (spec section 10) -----

@@ -16,6 +16,7 @@ import { deriveJobName } from "../engine";
 import type { Estimate, Operation, Unit } from "../types";
 import { SYSTEM_PROMPT, estimateContext } from "../ai";
 import { getRateBookEngine } from "../loadRateBook";
+import { applyOperation } from "../operations";
 import { chatJson } from "./client";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -203,6 +204,65 @@ async function* rateBookAppend(jobText: string, estimate: Estimate): AsyncGenera
   yield { type: "summary", name: estimate.name };
 }
 
+// Words in a model reply that claim the estimate was changed. If the reply says
+// one of these but no operation actually mutates anything, the reply is a lie
+// and we refuse to stream it (the "chat confirms edits that never save" bug).
+const CLAIMS_CHANGE = /\b(added|adding|removed|removing|deleted|deleting|dropped|changed|changing|updated|updating|swapped|swapping|replaced|replacing|set|lowered|raised|reduced|increased|adjusted|applied|discounted)\b/i;
+
+/** One human-readable line per change record, for the confirmation message. */
+function describeChange(c: { itemName: string; field: string; before: string; after: string }): string {
+  if (c.field === "added") return `added ${c.itemName} (${c.after})`;
+  if (c.field === "removed") return `removed ${c.itemName}`;
+  return `${c.itemName}: ${c.field} ${c.before} to ${c.after}`;
+}
+
+/**
+ * Dry-run the model's operations against the current estimate and keep only the
+ * ones that really mutate something. An edit or delete aimed at an id that does
+ * not exist produces zero change records; passing it through would let the model
+ * confirm an edit that never lands. add_group and finalize are structural and
+ * kept as-is.
+ */
+function verifyOperations(estimate: Estimate, rawOps: unknown[]): { verified: Operation[]; summaries: string[] } {
+  const verified: Operation[] = [];
+  const summaries: string[] = [];
+  let sim = estimate;
+  for (const raw of rawOps) {
+    const op = normalizeOperation(raw);
+    if (!op) continue;
+    const res = applyOperation(sim, op);
+    const structural = op.op === "add_group" || op.op === "finalize";
+    if (res.changes.length === 0 && !structural) continue; // no-op, drop it
+    sim = res.estimate;
+    verified.push(op);
+    for (const c of res.changes) summaries.push(describeChange(c));
+  }
+  return { verified, summaries };
+}
+
+/**
+ * Honest no-match message for a requested change that could not be applied.
+ * Instead of going quiet (or worse, claiming success), tell the user exactly
+ * what we do and don't have in the rate book, e.g. the repair vs replace gap.
+ */
+function honestMiss(message: string): string {
+  const base = "I could not apply that change, so the estimate is untouched.";
+  try {
+    const m = getRateBookEngine().match(message);
+    if (m.lines.length > 0) {
+      const l = m.lines[0];
+      return `${base} Closest rate in your book is ${l.task} at $${l.unitPrice} per ${l.unit}. Want me to use that rate, or add a new one to the book?`;
+    }
+    const sug = Array.from(new Set(m.unmatched.flatMap((u) => u.suggestions))).slice(0, 3);
+    if (sug.length > 0) {
+      return `${base} I don't have a rate for that in your rate book. Closest tasks I do have: ${sug.join(", ")}. Want me to use one of those, or add a new rate?`;
+    }
+  } catch {
+    /* rate book unavailable, fall through to the generic message */
+  }
+  return `${base} Point me at the exact line (its name or price) and tell me what it should say, or give me a price to use.`;
+}
+
 export interface EstimatorArgs {
   message: string;
   estimate: Estimate;
@@ -267,17 +327,40 @@ export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineD
   }
 
   const reply = (result.reply ?? "").trim();
-  if (reply) yield* streamText(reply);
+  const rawOps = Array.isArray(result.operations) ? result.operations : [];
 
-  const ops = Array.isArray(result.operations) ? result.operations : [];
-  let applied = 0;
-  for (const raw of ops) {
-    const op = normalizeOperation(raw);
-    if (op) {
-      yield { type: "operation", operation: op };
-      applied++;
-      await sleep(40);
+  // Verification gate (Bug 1). Dry-run every operation against the current
+  // estimate BEFORE saying anything. The confirmation the user reads is built
+  // from the real mutation results, never from the model's own claim.
+  const { verified, summaries } = verifyOperations(args.estimate, rawOps);
+
+  if (verified.length === 0) {
+    const wantedChange = EDIT_INTENT.test(args.message) || ADD_INTENT.test(args.message);
+    if (CLAIMS_CHANGE.test(reply) || (wantedChange && rawOps.length > 0)) {
+      // The model said it changed something (or tried to and missed). Nothing
+      // actually changed, so say that instead of streaming the phantom success.
+      yield* streamText(honestMiss(args.message));
+    } else {
+      // A genuine question or answer that changes nothing. Stream it as-is.
+      yield* streamText(reply || "The estimator got a reply it could not read. Try rewording the request.");
     }
+    return;
+  }
+
+  let applied = 0;
+  for (const op of verified) {
+    yield { type: "operation", operation: op };
+    applied++;
+    await sleep(40);
+  }
+
+  // Confirmation generated from what actually changed, not the model's prose.
+  if (summaries.length > 0) {
+    const shown = summaries.slice(0, 6).join("; ");
+    const more = summaries.length > 6 ? ` and ${summaries.length - 6} more` : "";
+    yield* streamText(`Done, ${summaries.length} change${summaries.length === 1 ? "" : "s"}: ${shown}${more}. The diff below shows old vs new, and the estimate tab matches it.`);
+  } else if (reply) {
+    yield* streamText(reply);
   }
 
   // Fresh build that produced lines gets the same finish polish as the fast path.

@@ -11,6 +11,11 @@
 html,
 body {
   height: 100%;
+  /* The app is a fixed shell: only inner panels (chat thread, estimate sheet,
+     history list) scroll. If the body can scroll too, a one-finger swipe moves
+     the page instead of the thread and it takes two tries to go anywhere. */
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 body {

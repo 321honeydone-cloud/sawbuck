@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="grid min-h-screen place-items-center px-4 text-ink">
+    <main className="grid h-dvh place-items-center overflow-y-auto px-4 text-ink">
       <div className="text-center">
         <div className="font-display text-2xl font-bold uppercase tracking-[0.1em]">Not found</div>
         <p className="mt-2 text-sm text-muted">That page or quote is not here.</p>

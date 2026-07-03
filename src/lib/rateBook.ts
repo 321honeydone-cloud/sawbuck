@@ -126,6 +126,9 @@ const ALIASES: [string, string][] = [
   ["garbage disposal install", "Sink, Kitchen, Install New Garbage Disposal"],
   ["garbage disposal", "Sink, Kitchen, Replace Garbage Disposal"],
   ["disposal", "Sink, Kitchen, Replace Garbage Disposal"],
+  ["leaky faucet", "Sink, Kitchen, Repair Faucet"], ["leaking faucet", "Sink, Kitchen, Repair Faucet"],
+  ["dripping faucet", "Sink, Kitchen, Repair Faucet"], ["faucet leak", "Sink, Kitchen, Repair Faucet"],
+  ["faucet drip", "Sink, Kitchen, Repair Faucet"],
   ["kitchen faucet", "Sink, Kitchen, Replace Faucet"], ["bathroom faucet", "Sink, Bathroom, Replace Faucet"],
   ["bath faucet", "Sink, Bathroom, Replace Faucet"], ["faucet", "Sink, Kitchen, Replace Faucet"],
   ["water heater flush", "Water Heater, Flush"], ["flush water heater", "Water Heater, Flush"],
@@ -256,6 +259,60 @@ export class RateBookEngine {
     return this.book.settings;
   }
 
+  /**
+   * Repair vs replace tier swap. "repair", "replace" and friends are STOPWORDS
+   * for fuzzy matching, and the aliases hardcode the Replace variants, so a
+   * request like "repair the kitchen faucet" used to land on "Sink, Kitchen,
+   * Replace Faucet" even though the book has a priced "Sink, Kitchen, Repair
+   * Faucet". When the segment clearly asks for one tier and the matched task
+   * name carries the other, look for the sibling task and use it if priced.
+   */
+  private tierSwap(name: string, segment: string): string {
+    if (/repair\s*[\/&]\s*replace|replace\s*[\/&]\s*repair/i.test(name)) return name; // combined task, both tiers
+    const wantsRepair = /\b(repair|fix|leak\w*|drip\w*)\b/i.test(segment) && !/\b(replace\w*|swap out|new)\b/i.test(segment);
+    const wantsReplace = /\b(replace\w*|replacement|swap out)\b/i.test(segment) && !/\b(repair|fix)\b/i.test(segment);
+    if (wantsRepair && /\breplace\b/i.test(name)) {
+      const alt = name.replace(/\bReplace\b/i, "Repair");
+      if (this.tasks.has(alt)) return alt;
+    }
+    if (wantsReplace && /\brepair\b/i.test(name)) {
+      const alt = name.replace(/\bRepair\b/i, "Replace");
+      if (this.tasks.has(alt)) return alt;
+    }
+    return name;
+  }
+
+  /**
+   * Public lookup: the priced sibling task on the other repair/replace tier,
+   * e.g. "Sink, Kitchen, Replace Faucet" -> the "Repair Faucet" task. Null when
+   * the book has no priced sibling, or the name already covers both tiers
+   * ("Repair/Replace" style names).
+   */
+  tierSibling(name: string, to: "Repair" | "Replace"): RateTask | null {
+    const clean = (name || "").trim();
+    if (/repair\s*[\/&]\s*replace|replace\s*[\/&]\s*repair/i.test(clean)) return null;
+    const from = to === "Repair" ? /\bReplace\b/i : /\bRepair\b/i;
+    if (!from.test(clean)) return null;
+    const alt = clean.replace(from, to);
+    return this.tasks.get(alt) ?? null;
+  }
+
+  /** Same idea for rooms: "leaky faucet in the bathroom" should not land on the
+   * kitchen task when a priced bathroom sibling exists. */
+  private roomSwap(name: string, segment: string): string {
+    const wantsBath = /\b(bath|bathroom|vanity)\b/i.test(segment) && !/\bkitchen\b/i.test(segment);
+    const wantsKitchen = /\bkitchen\b/i.test(segment) && !/\b(bath|bathroom|vanity)\b/i.test(segment);
+    if (wantsBath && /\bKitchen\b/i.test(name)) {
+      const alt = name.replace(/\bKitchen\b/i, "Bathroom");
+      if (this.tasks.has(alt)) return alt;
+    }
+    if (wantsKitchen && /\bBathroom\b/i.test(name)) {
+      const alt = name.replace(/\bBathroom\b/i, "Kitchen");
+      if (this.tasks.has(alt)) return alt;
+    }
+    return name;
+  }
+
   private aliasMatch(segment: string): string | null {
     const n = norm(segment);
     for (const [phrase, task] of ALIASES) {
@@ -342,6 +399,7 @@ export class RateBookEngine {
         score = f.score;
       }
       if (name && score >= 0.45) {
+        name = this.roomSwap(this.tierSwap(name, seg), seg);
         const task = this.tasks.get(name)!;
         const areaQty = RateBookEngine.areaQuantity(seg, String(task.unit ?? "each"));
         raw.push({

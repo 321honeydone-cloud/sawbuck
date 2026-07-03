@@ -38,11 +38,13 @@ export default function AppFrame({ children }: { children: React.ReactNode }) {
   const showMobileBar = !pathname.startsWith("/estimate/");
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden md:flex-row">
+    // h-dvh, not h-screen: 100vh lies on mobile when the browser address bar
+    // shows/hides, which pushed the input bar off screen and broke scrolling.
+    <div className="flex h-dvh flex-col overflow-hidden md:flex-row">
       <Nav />
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
         {showMobileBar && (
-          <header className="flex items-center justify-between gap-3 border-b border-border bg-card px-4 py-2 backdrop-blur-sm md:hidden">
+          <header className="flex shrink-0 items-center justify-between gap-3 border-b border-border bg-card px-4 py-2 backdrop-blur-sm md:hidden">
             <img src="/logo.png" alt="Sawbuck AI" className="h-7 w-7 object-contain" />
             <MobileMenu />
           </header>

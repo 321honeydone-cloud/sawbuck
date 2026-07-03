@@ -2,7 +2,7 @@
 // from "I want to hang up a TV"). Runs on whichever brain is live (Claude or the
 // shop Ollama). Best-effort: falls back to a trimmed prompt if the model errors.
 import { getSession } from "@/lib/session";
-import { chatText } from "@/lib/agents/client";
+import { activeProvider, localText } from "@/lib/agents/client";
 import { deriveJobName } from "@/lib/engine";
 
 export const runtime = "nodejs";
@@ -48,12 +48,17 @@ export async function POST(req: Request) {
     ? `Request: ${message}\n\nLine items: ${items.join("; ")}\n\nTitle:`
     : `Request: ${message}\n\nTitle:`;
 
+  // Titles are intentionally FREE: only summarize on the local brain (Ollama),
+  // and never fall back to the paid Claude API. If Local is not the active brain
+  // or is unreachable, use the offline word-based title instead.
   try {
-    const raw = await chatText({ system: SYSTEM, prompt, temperature: 0.2, timeoutMs: 12000 });
-    const title = clean(raw);
-    if (title) return Response.json({ title });
+    if ((await activeProvider()) === "ollama") {
+      const raw = await localText({ system: SYSTEM, prompt, temperature: 0.2, timeoutMs: 12000 });
+      const title = clean(raw);
+      if (title) return Response.json({ title });
+    }
   } catch {
-    // fall through to the heuristic
+    // local model unreachable, fall through to the heuristic
   }
   return Response.json({ title: deriveJobName(message) });
 }
