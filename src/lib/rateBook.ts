@@ -269,7 +269,7 @@ export class RateBookEngine {
    */
   private tierSwap(name: string, segment: string): string {
     if (/repair\s*[\/&]\s*replace|replace\s*[\/&]\s*repair/i.test(name)) return name; // combined task, both tiers
-    const wantsRepair = /\b(repair|fix|leak\w*|drip\w*)\b/i.test(segment) && !/\b(replace\w*|swap out|new)\b/i.test(segment);
+    const wantsRepair = /\b(repair|fix|leak\w*|drip\w*|loose|wobbly|stuck)\b/i.test(segment) && !/\b(replace\w*|swap out|new)\b/i.test(segment);
     const wantsReplace = /\b(replace\w*|replacement|swap out)\b/i.test(segment) && !/\b(repair|fix)\b/i.test(segment);
     if (wantsRepair && /\breplace\b/i.test(name)) {
       const alt = name.replace(/\bReplace\b/i, "Repair");
@@ -355,11 +355,22 @@ export class RateBookEngine {
   }
 
   private static splitSegments(text: string): string[] {
-    return text.split(/[,;\n]| and | plus |&|\+/i).map((p) => p.trim()).filter(Boolean);
+    return (
+      text
+        // Numbered-list markers ("1. Dripping faucet 2. Loose outlet") are item
+        // separators, NOT quantities. Splitting on them keeps "2." from turning
+        // into two faucets (that was the 9-sinks bug).
+        .split(/[,;\n]|\s\d{1,2}[.)]\s| and | plus |&|\+/i)
+        .map((p) => p.trim())
+        // Intro phrases like "Please quote the following:" are not work items.
+        .filter((p) => p && !p.endsWith(":"))
+    );
   }
 
   private static quantity(segment: string): number {
-    const m = segment.match(/^\s*(\d+)\b/);
+    // A leading count ("2 outlets") is a quantity. A leading list marker
+    // ("2. Loose handle", "2) ...") is not; those default to one.
+    const m = segment.match(/^\s*(\d+)\b(?![.)])/);
     if (m) return parseInt(m[1], 10);
     const first = norm(segment).split(" ")[0];
     return first && NUM_WORDS[first] ? NUM_WORDS[first] : 1;

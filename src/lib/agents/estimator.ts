@@ -16,6 +16,7 @@ import { deriveJobName } from "../engine";
 import type { Estimate, Operation, Unit } from "../types";
 import { SYSTEM_PROMPT, estimateContext } from "../ai";
 import { getRateBookEngine } from "../loadRateBook";
+import { cleanTaskName } from "../rateBook";
 import { applyOperation } from "../operations";
 import { chatJson } from "./client";
 
@@ -263,6 +264,71 @@ function honestMiss(message: string): string {
   return `${base} Point me at the exact line (its name or price) and tell me what it should say, or give me a price to use.`;
 }
 
+// "Set everything as repair" / "replace it all" style bulk conversions.
+// Handled deterministically from the rate book, no model in the loop, so the
+// conversion always lands or the user hears exactly which lines have no rate.
+const BULK_SCOPE = /\b(all|everything|every\s+(line|item)|whole\s+(quote|estimate)|nothing)\b/i;
+const TO_REPAIR = /\b(as|to|into|be)\s+repairs?\b|\brepairs?\s+(work|only|instead)\b|\b(nothing|not|don'?t|no)\b[^.]*\breplac/i;
+const TO_REPLACE = /\b(as|to|into|be)\s+replace(ment)?s?\b|\breplace\s+(only|instead)\b|\b(nothing|not|don'?t|no)\b[^.]*\brepair/i;
+
+/** Which tier a bulk-conversion request points at, or null if it isn't one. */
+export function bulkTierTarget(message: string): "Repair" | "Replace" | null {
+  const m = message || "";
+  if (!BULK_SCOPE.test(m)) return null;
+  const toRepair = TO_REPAIR.test(m) || (/\brepair/i.test(m) && !/\breplac/i.test(m));
+  const toReplace = TO_REPLACE.test(m) || (/\breplac/i.test(m) && !/\brepair/i.test(m));
+  if (toRepair && !toReplace) return "Repair";
+  if (toReplace && !toRepair) return "Replace";
+  // Both words present ("nothing replaced, everything as repair"): trust the
+  // explicit "as/to X" phrasing when only one side has it.
+  if (TO_REPAIR.test(m) && !TO_REPLACE.test(m)) return "Repair";
+  if (TO_REPLACE.test(m) && !TO_REPAIR.test(m)) return "Replace";
+  return null;
+}
+
+/** Convert every line to its rate-book sibling on the requested tier. Lines with
+ * no priced sibling are left alone and named honestly in the reply. */
+async function* bulkTierSwap(estimate: Estimate, to: "Repair" | "Replace"): AsyncGenerator<EngineDelta> {
+  const eng = getRateBookEngine();
+  const converted: string[] = [];
+  const skipped: string[] = [];
+  const ops: Operation[] = [];
+  for (const g of estimate.groups) {
+    for (const it of g.items) {
+      if (/\btrip\b/i.test(it.name)) continue; // service fee, not a tiered task
+      const sib = eng.tierSibling(it.name, to);
+      if (sib && sib.final_price != null && sib.final_price > 0) {
+        const newName = cleanTaskName(sib.name);
+        ops.push({ op: "edit_line_item", id: it.id, field: "name", value: newName });
+        if (it.unitCost !== sib.final_price) ops.push({ op: "edit_line_item", id: it.id, field: "unitCost", value: sib.final_price });
+        converted.push(`${it.name} is now ${newName} at $${sib.final_price}`);
+      } else {
+        const otherTier = to === "Repair" ? /\breplace\b/i : /\brepair\b/i;
+        if (otherTier.test(it.name)) skipped.push(it.name);
+      }
+    }
+  }
+
+  if (ops.length === 0) {
+    const what = skipped.length ? skipped.join(", ") : "these lines";
+    yield* streamText(
+      `I could not convert anything, so the estimate is untouched. Your rate book has no ${to.toLowerCase()} rate for ${what}. Want me to add ${to.toLowerCase()} rates to the book, or set prices by hand?`
+    );
+    return;
+  }
+
+  for (const op of ops) {
+    yield { type: "operation", operation: op };
+    await sleep(40);
+  }
+  let msg = `Done, switched ${converted.length} line${converted.length === 1 ? "" : "s"} to ${to.toLowerCase()} rates: ${converted.join("; ")}.`;
+  if (skipped.length > 0) {
+    msg += ` No ${to.toLowerCase()} rate in your book for ${skipped.join(", ")}, so those are unchanged. Want me to add ${to.toLowerCase()} rates for them, or price them by hand?`;
+  }
+  yield* streamText(msg);
+  yield { type: "summary", name: estimate.name };
+}
+
 export interface EstimatorArgs {
   message: string;
   estimate: Estimate;
@@ -296,6 +362,14 @@ export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineD
   // no reliance on the local model emitting a structured edit.
   if (hasItems && ADD_INTENT.test(combined) && !EDIT_INTENT.test(combined) && rateBookMatches(combined)) {
     yield* rateBookAppend(combined, args.estimate);
+    return;
+  }
+
+  // Bulk repair/replace conversion ("set everything as repair"): deterministic,
+  // straight from the rate book, so it can never silently do nothing.
+  const bulkTo = hasItems ? bulkTierTarget(args.message) : null;
+  if (bulkTo) {
+    yield* bulkTierSwap(args.estimate, bulkTo);
     return;
   }
 
