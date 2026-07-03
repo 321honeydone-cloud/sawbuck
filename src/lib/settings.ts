@@ -14,9 +14,11 @@ let cached: { value: AiProvider; at: number } | null = null;
 /** First-boot default from env, before the owner has ever picked in the UI. */
 function envDefault(): AiProvider {
   const p = (process.env.AI_PROVIDER || "").toLowerCase();
-  if (p === "ollama") return "ollama";
   if (p === "claude") return "claude";
-  return process.env.ANTHROPIC_API_KEY ? "claude" : "ollama";
+  // Default to Local (Ollama). The paid Claude API is never the automatic
+  // choice: it is only used when the owner explicitly switches to Claude, even
+  // if an ANTHROPIC_API_KEY is present. Manny wants Local by default.
+  return "ollama";
 }
 
 /** The brain the owner has chosen (or the env default). Cached for a few seconds. */

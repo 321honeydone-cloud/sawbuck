@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Nav from "./Nav";
 import MobileMenu from "./MobileMenu";
 import FeedbackWidget from "./FeedbackWidget";
+import ClaudeUsageGuard from "./ClaudeUsageGuard";
 import { rateBook, setRateBookTasks } from "@/lib/loadRateBook";
 import { applyOverrides } from "@/lib/rateOverrides";
 
@@ -52,6 +53,7 @@ export default function AppFrame({ children }: { children: React.ReactNode }) {
         <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
       </div>
       <FeedbackWidget />
+      <ClaudeUsageGuard />
     </div>
   );
 }

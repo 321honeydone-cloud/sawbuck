@@ -8,7 +8,7 @@
 // carries on without it. Server-only.
 
 import { makeAnthropic } from "../anthropic";
-import { CLAUDE_TEXT_MODEL, parseLooseJson } from "./client";
+import { activeProvider, CLAUDE_TEXT_MODEL, parseLooseJson } from "./client";
 
 export interface PriceFinding {
   task: string;
@@ -24,9 +24,10 @@ const PRICING_SYSTEM = `You are the Pricing Research employee for HoneyDone, an 
 
 /** Research one task. Returns null when the cloud brain is off or nothing solid was found. */
 export async function researchPrice(task: string, location = "Florida"): Promise<PriceFinding | null> {
-  // Pricing research is Claude-only (web search) and runs whenever an API key is
-  // present, independent of the estimator brain toggle. That is what lets the
-  // overnight refresh keep prices fresh even while day-to-day quoting is on Local.
+  // Pricing research uses Claude web search, so it MUST respect the brain toggle.
+  // In Local mode we skip it entirely and return null (the crew carries on with
+  // the rate book), so quoting never silently hits the paid Claude API.
+  if ((await activeProvider()) !== "claude") return null;
   const key = process.env.ANTHROPIC_API_KEY || "";
   if (!key) return null;
   const client = makeAnthropic(key);

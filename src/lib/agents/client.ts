@@ -128,13 +128,10 @@ export interface ChatOpts {
 export async function chatText(opts: ChatOpts): Promise<string> {
   const provider = await activeProvider();
   if (provider !== "ollama") return claudeText(opts);
-  try {
-    return await ollamaText(opts);
-  } catch (e) {
-    if (!ANTHROPIC_KEY) throw e;
-    console.warn("[ai] Ollama call failed, falling back to Claude:", (e as Error).message);
-    return claudeText(opts);
-  }
+  // Local mode stays local: if Ollama errors we do NOT silently fall back to the
+  // paid Claude API (that was a hidden cost). Fail loudly so the owner fixes the
+  // local box, or switches to Claude on purpose.
+  return ollamaText(opts);
 }
 
 /** Local-brain-only completion. Never falls back to the paid Claude API, so
@@ -157,17 +154,8 @@ export async function* chatStream(opts: ChatOpts): AsyncGenerator<string> {
     yield* claudeStream(opts);
     return;
   }
-  let started = false;
-  try {
-    for await (const chunk of ollamaStream(opts)) {
-      started = true;
-      yield chunk;
-    }
-  } catch (e) {
-    if (started || !ANTHROPIC_KEY) throw e;
-    console.warn("[ai] Ollama stream failed, falling back to Claude:", (e as Error).message);
-    yield* claudeStream(opts);
-  }
+  // Local mode stays local: no silent Claude fallback on an Ollama error.
+  yield* ollamaStream(opts);
 }
 
 /** Is the live brain reachable right now? Provider-aware so callers fall back fast. */
