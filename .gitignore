@@ -6,6 +6,9 @@
 .env
 /prisma/*.db
 /prisma/*.db-journal
+# Local database backups (large, machine-specific — never commit)
+/prisma/*.bak*
+/prisma/lkg_backups/
 next-env.d.ts
 .DS_Store
 

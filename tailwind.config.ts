@@ -22,6 +22,8 @@ const config: Config = {
         muted: "#85858d", // text secondary
         flag: "#e0922a", // amber "AI updates" / review status
         gold: "#c9a227",
+        yellow: "#f0c948", // bright yellow — Complications Cap
+        danger: "#e5484d", // red — Max Price Guarantee ceiling
         gain: "#5fb85f", // positive delta green
       },
       fontFamily: {

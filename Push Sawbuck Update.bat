@@ -42,9 +42,10 @@ node "scripts\memory-sync.mjs"
 echo.
 
 echo Files being committed:
-REM src = the app. The rest ship the shared learning log + its deploy wiring so
-REM Render seeds and persists SAWBUCK_MEMORY.md on the /data volume.
-git add src "SAWBUCK_MEMORY.md" "docker-start.sh" ".env.production.example" "Push Sawbuck Update.bat" scripts
+REM Stage everything (db backups, secrets, and node_modules are excluded by
+REM .gitignore). This makes sure config changes like package.json actually ship,
+REM instead of being silently left out of a hardcoded file list.
+git add -A
 git status --short
 echo.
 
