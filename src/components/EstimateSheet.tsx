@@ -81,8 +81,13 @@ export default function EstimateSheet() {
 
   return (
     <div className="flex min-h-full flex-col">
-      <TotalsBar totals={liveTotals} split={split} onJobber={() => setJobberOpen(true)} />
-      <ReviewBar />
+      {/* One sticky shell for both bars. They used to be sticky separately with
+          a hard-coded top-16 on the review bar, which only lined up while the
+          totals bar was exactly 64px tall — on phones it now wraps taller. */}
+      <div className="sticky top-0 z-10 bg-bg">
+        <TotalsBar totals={liveTotals} split={split} onJobber={() => setJobberOpen(true)} />
+        <ReviewBar />
+      </div>
       <JobberModal open={jobberOpen} onClose={() => setJobberOpen(false)} excluded={excluded} />
       <div className="flex-1 px-5 py-4">
         {!hasGroups ? (
@@ -155,16 +160,26 @@ function TotalsBar({ totals, split, onJobber }: { totals: Totals; split: BuildSp
     { key: "card", label: `Card price +${HONEYDONE.cardSurchargePct}%`, value: money(cardPrice(split.maxCash)), tone: "text-muted" },
   ];
   return (
-    <div className="sticky top-0 z-10 flex h-16 items-center gap-3 border-b border-border bg-bg px-5 backdrop-blur">
-      <div className="flex min-w-0 flex-1 items-center gap-6 overflow-x-auto overflow-y-hidden" aria-label="Estimate totals">
+    // Phones get a wrap-friendly grid so every number is visible at once — the
+    // old fixed h-16 strip forced a horizontal scroll that clipped the prices.
+    // md and up keeps the original one-row layout.
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-b border-border bg-bg px-4 py-2.5 backdrop-blur md:h-16 md:flex-nowrap md:px-5 md:py-0">
+      <div
+        className="grid w-full min-w-0 grid-cols-2 gap-x-4 gap-y-2 md:flex md:w-auto md:flex-1 md:items-center md:gap-6 md:overflow-x-auto md:overflow-y-hidden"
+        aria-label="Estimate totals"
+      >
         {metrics.map((m) => (
-          <div key={m.key} className="shrink-0">
-            <div className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.1em] text-muted">
+          <div key={m.key} className="min-w-0 md:shrink-0">
+            <div className="truncate font-mono text-[10px] uppercase tracking-[0.1em] text-muted md:whitespace-nowrap">
               {m.label}
             </div>
             <div
               className={`mt-0.5 whitespace-nowrap font-display font-semibold leading-none tabular-nums ${m.tone} ${
-                m.big ? "text-2xl" : "text-xl"
+                m.big
+                  ? "text-2xl md:text-3xl" // the Max Price Guarantee is THE number; give it top billing
+                  : m.key === "cost"
+                    ? "text-base md:text-lg" // internal cost reads quieter than client-facing prices
+                    : "text-lg md:text-xl"
               }`}
             >
               {m.value}
@@ -172,10 +187,18 @@ function TotalsBar({ totals, split, onJobber }: { totals: Totals; split: BuildSp
           </div>
         ))}
       </div>
+      {split.maxCash >= HONEYDONE.handymanCapUsd && (
+        <span
+          className="w-full rounded-md border border-danger/60 bg-danger/10 px-2.5 py-1.5 text-center font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-danger md:w-auto"
+          title="Florida Statute 489.103(9): the handyman exemption only covers jobs under $2,500 total. Do not split it into smaller invoices — refer it to a licensed contractor."
+        >
+          Over ${HONEYDONE.handymanCapUsd.toLocaleString()} — refer out
+        </span>
+      )}
       <button
         onClick={onJobber}
         disabled={!hasItems}
-        className="shrink-0 rounded-md border border-brand/60 bg-brand/10 px-3 py-2 font-display text-xs font-semibold uppercase tracking-[0.06em] text-brand transition hover:bg-brand/20 disabled:opacity-40"
+        className="w-full shrink-0 rounded-md border border-brand/60 bg-brand/10 px-3 py-2 font-display text-xs font-semibold uppercase tracking-[0.06em] text-brand transition hover:bg-brand/20 disabled:opacity-40 md:w-auto"
       >
         Finalize
       </button>
@@ -190,7 +213,7 @@ function ReviewBar() {
   if (!pending || pending.length === 0) return null;
 
   return (
-    <div className="sticky top-16 z-10 border-b border-flag/40 bg-flag/10 px-5 py-2.5">
+    <div className="border-b border-flag/40 bg-flag/10 px-5 py-2.5">
       <div className="flex items-center justify-between">
         <div className="text-sm text-flag">
           <span className="font-semibold">{pending.length}</span> AI {pending.length === 1 ? "change" : "changes"} to review
@@ -232,19 +255,26 @@ function GroupTable({
   const subtotal = included.reduce((s, i) => s + i.clientTotal, 0);
 
   return (
-    <div className={`overflow-hidden rounded-xl border bg-card ${noneIn ? "border-border/60" : "border-border"}`}>
-      <div className="flex items-center justify-between border-b border-border bg-card px-4 py-2.5">
-        <div className="flex items-center gap-3">
+    <div
+      className={`overflow-hidden rounded-xl border border-l-2 bg-card ${
+        noneIn ? "border-border/60 border-l-border" : "border-border border-l-gold/70"
+      }`}
+    >
+      <div className="flex items-center justify-between gap-3 border-b border-border bg-card px-4 py-2.5">
+        <div className="flex min-w-0 items-center gap-3">
           <Check state={state} onChange={onToggleGroup} />
           <h3
-            className={`font-display text-sm font-semibold uppercase tracking-[0.06em] ${
+            className={`min-w-0 truncate font-display text-sm font-semibold uppercase tracking-[0.06em] ${
               noneIn ? "text-muted line-through" : ""
             }`}
           >
             <span className={noneIn ? "text-muted" : "text-gold"}>{group.position}.</span> {group.name}
           </h3>
+          <span className="hidden shrink-0 font-mono text-[10px] uppercase tracking-[0.12em] text-muted sm:inline">
+            {included.length}/{group.items.length} {group.items.length === 1 ? "line" : "lines"}
+          </span>
         </div>
-        <div className="text-sm text-muted">
+        <div className="shrink-0 text-sm text-muted">
           {noneIn ? (
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted">not in total</span>
           ) : (

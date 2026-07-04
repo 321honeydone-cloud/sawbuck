@@ -20,6 +20,10 @@ export const HONEYDONE = {
   tripCharge: 100, // $ flat per job
   materialsMarkupPct: 25, // % added on top of material cost
   cardSurchargePct: 3, // % added when the client pays by card
+  // Florida Statute 489.103(9) handyman exemption: every job must stay under
+  // this, labor + materials + everything. Never split a job to duck the cap —
+  // refer it to a licensed contractor instead.
+  handymanCapUsd: 2500,
   closingLine:
     "All work performed by HoneyDone Property Maintenance LLC, an insured Florida handyman and property maintenance service. (GL Policy NXT7HVHV3Q-00-GL | Business Tax Receipt #193704)",
 } as const;

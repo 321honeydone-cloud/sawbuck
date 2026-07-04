@@ -217,6 +217,17 @@ async function* reviewStream(
     yield { type: "trace", text: `Boss QA: reviewed ${lineCount} line${lineCount === 1 ? "" : "s"}, fixed ${zeroFixed}, flagged ${zeroLeft}` };
   }
 
+  // Compliance check: Florida Statute 489.103(9) — the handyman exemption only
+  // covers jobs UNDER $2,500 total. The Boss says so out loud instead of letting
+  // an over-cap quote sail through. Never suggest splitting it into smaller
+  // invoices; the play is a referral to a licensed contractor.
+  if (baseTotal >= 2500) {
+    yield* streamWords(
+      `\n\nSTOP — this scope prices at $${Math.round(baseTotal).toLocaleString()}, which is over the $2,500 Florida handyman exemption limit (labor + materials + everything). HoneyDone cannot take this as one job, and splitting it into smaller invoices is not allowed either. Refer it to a licensed contractor, or trim the scope with the customer until the whole job sits under $2,500.`
+    );
+    if (isAdmin) yield { type: "trace", text: `Boss COMPLIANCE: total $${Math.round(baseTotal)} exceeds the $2,500 handyman cap` };
+  }
+
   // Never let a quote go out without a Max Price Guarantee. If the estimator did
   // not build a Complications Cap this turn (weaker local models skip it), add
   // one automatically, itemized by the risky work in the scope.
@@ -355,7 +366,7 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   if (decision.intent === "question") {
     yield* trace(`Boss: answering directly, ${decision.why}`);
     try {
-      const answer = await chatText({ system: ASSISTANT_SYSTEM + historyBlock(args.history), prompt: args.message, temperature: 0.5 });
+      const answer = await chatText({ system: ASSISTANT_SYSTEM + historyBlock(args.history), prompt: args.message, temperature: 0.5, timeoutMs: 60000 });
       yield* streamWords(answer || "Tell me about the job and I will price it.");
     } catch (err) {
       yield* streamWords(`I could not reach the brain right now. ${(err as Error).message}. Give it a second and try again.`);

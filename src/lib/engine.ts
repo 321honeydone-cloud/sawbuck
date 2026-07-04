@@ -26,7 +26,9 @@ export type EngineDelta =
   | { type: "milestone"; text: string } // celebration banner
   | { type: "suggestions"; suggestions: string[] } // next-action chips
   | { type: "agents"; agents: string[] } // trade crews handling this job (shown to everyone)
-  | { type: "name"; name: string }; // auto-derived estimate name
+  | { type: "name"; name: string } // auto-derived estimate name
+  | { type: "heartbeat" } // keep-alive tick while the model thinks (UI ignores it)
+  | { type: "error"; text: string }; // turn-ending failure; the chat shows the text plus a Retry chip
 
 export interface EngineContext {
   estimate: Estimate; // current state, so the engine can edit existing items
@@ -187,30 +189,50 @@ export const mockEngine: EstimateEngine = {
 // so the estimator still works offline.
 // ---------------------------------------------------------------------------
 
-async function* streamFromBoss(userMessage: string, ctx: EngineContext): AsyncGenerator<EngineDelta> {
-  const res = await fetch("/api/chat", {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({ message: userMessage, estimate: ctx.estimate, attachments: ctx.attachments ?? [], history: ctx.history ?? [] }),
-  });
-  if (!res.ok || !res.body) throw new Error(`boss ${res.status}`);
+// If the server goes silent for this long the stream is dead, not thinking:
+// the boss route heartbeats every 10s even while the model is still working,
+// so 45s of true silence means the connection or the server is gone. This
+// watchdog is what turns a would-be infinite hang into a visible error.
+const STALL_MS = 45000;
 
-  const reader = res.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    let nl: number;
-    while ((nl = buffer.indexOf("\n")) >= 0) {
-      const line = buffer.slice(0, nl).trim();
-      buffer = buffer.slice(nl + 1);
-      if (line) yield JSON.parse(line) as EngineDelta;
+async function* streamFromBoss(userMessage: string, ctx: EngineContext): AsyncGenerator<EngineDelta> {
+  const ac = new AbortController();
+  let stall: ReturnType<typeof setTimeout> | undefined;
+  const armStall = () => {
+    clearTimeout(stall);
+    stall = setTimeout(() => ac.abort(new DOMException("The estimator stopped responding.", "TimeoutError")), STALL_MS);
+  };
+
+  try {
+    armStall(); // covers the initial connect too
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ message: userMessage, estimate: ctx.estimate, attachments: ctx.attachments ?? [], history: ctx.history ?? [] }),
+      signal: ac.signal,
+    });
+    if (!res.ok || !res.body) throw new Error(`boss ${res.status}`);
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      armStall(); // any byte (heartbeats included) proves the server is alive
+      buffer += decoder.decode(value, { stream: true });
+      let nl: number;
+      while ((nl = buffer.indexOf("\n")) >= 0) {
+        const line = buffer.slice(0, nl).trim();
+        buffer = buffer.slice(nl + 1);
+        if (line) yield JSON.parse(line) as EngineDelta;
+      }
     }
+    const tail = buffer.trim();
+    if (tail) yield JSON.parse(tail) as EngineDelta;
+  } finally {
+    clearTimeout(stall);
   }
-  const tail = buffer.trim();
-  if (tail) yield JSON.parse(tail) as EngineDelta;
 }
 
 // ---------------------------------------------------------------------------
@@ -294,10 +316,28 @@ async function* rateBookBuild(userMessage: string, ctx: EngineContext): AsyncGen
 // dead-ends.
 export const estimateEngine: EstimateEngine = {
   async *send(userMessage, ctx) {
+    // Once the server has answered with anything at all (the boss route sends a
+    // heartbeat immediately), a later failure means the connection dropped
+    // MID-TURN. Falling back to the offline mock at that point used to graft
+    // template junk onto a half-built real quote — so instead we say what
+    // happened and stop. The offline fallback below is only for a server that
+    // never answered in the first place.
+    let reached = false;
     try {
-      yield* streamFromBoss(userMessage, ctx);
+      for await (const d of streamFromBoss(userMessage, ctx)) {
+        reached = true;
+        yield d;
+      }
       return;
-    } catch {
+    } catch (err) {
+      if (reached) {
+        const msg = err instanceof Error ? err.message : "connection lost";
+        yield {
+          type: "error",
+          text: `\n\nLost the estimator mid-reply: ${msg} Everything above is saved.`,
+        };
+        return;
+      }
       // App server unreachable, build locally so the estimator still works.
     }
     const hasItems = ctx.estimate.groups.some((g) => g.items.length > 0);

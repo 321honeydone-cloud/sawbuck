@@ -18,7 +18,7 @@
 
 import { promises as fs } from "fs";
 import path from "path";
-import { localText } from "./agents/client";
+import { localText, ollamaBusy } from "./agents/client";
 
 export const MEMORY_PATH =
   process.env.SAWBUCK_MEMORY_PATH || path.join(process.cwd(), "SAWBUCK_MEMORY.md");
@@ -141,12 +141,18 @@ export function logMemoryEvent(event: MemoryEvent): Promise<void> {
     await fs.writeFile(MEMORY_PATH, next, "utf8");
 
     if (count >= COMPACT_EVERY) {
-      try {
-        await compact();
-      } catch (err) {
-        // Leave the counter high; we'll retry on the next event.
-        console.warn("[memory] compaction failed, will retry:", (err as Error).message);
-      }
+      // Detached on purpose: compaction is a model call that can run minutes.
+      // The request that logged this event (a delete, a status change, a price
+      // correction) must NOT block on it — that stalled requests for up to 3
+      // minutes. It runs as its own queue turn; on failure the counter stays
+      // high and we retry on the next event.
+      void enqueue(async () => {
+        try {
+          await compact();
+        } catch (err) {
+          console.warn("[memory] compaction failed, will retry:", (err as Error).message);
+        }
+      });
     }
   });
 }
@@ -233,6 +239,14 @@ export function readMemoryRaw(): Promise<string> {
  * new-event counter, and trim the log tail. Runs inside the write queue.
  */
 async function compact(): Promise<void> {
+  // Housekeeping never fights the user for the GPU. If a live prompt holds or
+  // is waiting on the local model, skip this round; the event counter stays
+  // high and compaction retries on the next logged event. Without this check a
+  // compaction (up to 180s of generation) could land right after a turn and
+  // make the user's NEXT prompt queue behind it — another flavor of the
+  // "second prompt hangs" bug.
+  if (ollamaBusy()) throw new Error("local model is busy with a live prompt, deferring compaction");
+
   const text = await readFileEnsured();
   const entries = logEntries(text);
   if (entries.length === 0) return;

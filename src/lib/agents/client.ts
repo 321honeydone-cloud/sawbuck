@@ -211,9 +211,20 @@ export async function ollamaPs(): Promise<{ name: string; sizeVram: number }[] |
 export async function warmLocalModel(): Promise<{ ready: boolean; model: string; ms: number; error?: string }> {
   const t0 = Date.now();
   let model = "";
-  const release = await acquireOllama(); // take a turn so warming never collides with a live prompt
+  // Deliberately NO app-level lock here. Warming used to take the generation
+  // lock and hold it for up to 300s while a cold 31B model loaded, so the
+  // user's first real prompt sat queued behind the warm-up doing nothing.
+  // That was the "hang after the first prompt". Warming targets the SAME model
+  // the estimator uses, and Ollama queues same-model requests internally, so a
+  // prompt that arrives mid-load simply runs the moment the load finishes.
   try {
     model = await resolveModel(await activeLocalModel());
+    // Already resident in VRAM? Then there is nothing to warm; answer instantly
+    // instead of issuing another load call (page navigations fire this a lot).
+    const loaded = await ollamaPs();
+    if (loaded?.some((m) => m.name === model || m.name.startsWith(`${model}:`))) {
+      return { ready: true, model, ms: Date.now() - t0 };
+    }
     const r = await fetch(`${OLLAMA_URL}/api/generate`, ollamaInit({
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -225,8 +236,6 @@ export async function warmLocalModel(): Promise<{ ready: boolean; model: string;
     return { ready: true, model, ms: Date.now() - t0 };
   } catch (e) {
     return { ready: false, model, ms: Date.now() - t0, error: (e as Error).message };
-  } finally {
-    release();
   }
 }
 
@@ -343,13 +352,28 @@ function ollamaHttpError(model: string, status: number): string {
 // fired. This lock makes them take turns, so each stays fast. Lightweight
 // metadata calls (tags, ps) are NOT locked.
 let ollamaTail: Promise<void> = Promise.resolve();
+let ollamaWaiters = 0; // how many generations hold or wait on the lock right now
 async function acquireOllama(): Promise<() => void> {
+  ollamaWaiters++;
+  let done = false;
   let release!: () => void;
   const mine = new Promise<void>((res) => (release = res));
   const prev = ollamaTail;
   ollamaTail = mine;
   await prev;
-  return release;
+  return () => {
+    if (done) return; // idempotent: a double release must not corrupt the count
+    done = true;
+    ollamaWaiters--;
+    release();
+  };
+}
+
+/** True while a generation holds (or waits on) the local GPU. Background jobs
+ *  (memory compaction, warm-up refresh) check this and step aside so a live
+ *  user prompt is never stuck queued behind housekeeping. */
+export function ollamaBusy(): boolean {
+  return ollamaWaiters > 0;
 }
 
 async function ollamaText(opts: ChatOpts): Promise<string> {

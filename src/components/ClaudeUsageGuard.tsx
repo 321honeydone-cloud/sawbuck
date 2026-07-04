@@ -36,6 +36,7 @@ export default function ClaudeUsageGuard() {
   const [pending, setPending] = useState<Pending>(null);
   const pendingRef = useRef<Pending>(null);
   pendingRef.current = pending;
+  const queueRef = useRef<NonNullable<Pending>[]>([]);
 
   // Track the current brain (admin-only endpoint; non-admins just get null and
   // nothing is intercepted for them).
@@ -71,8 +72,16 @@ export default function ClaudeUsageGuard() {
       }
       const task = url ? taskFor(url) : null;
       if (task && providerRef.current === "claude" && !allowAllRef.current && !approvedRef.current.has(task)) {
-        const ok = await new Promise<boolean>((resolve) => setPending({ task, resolve }));
-        if (!ok) {
+        // Queue, never replace. Two AI calls in flight at once used to clobber
+        // the first dialog's resolver, leaving that fetch awaiting forever — a
+        // silent hang. Now each pending prompt waits its turn.
+        const ok = await new Promise<boolean>((resolve) => {
+          const mine: NonNullable<Pending> = { task, resolve };
+          if (pendingRef.current) queueRef.current.push(mine);
+          else setPending(mine);
+        });
+        // Re-check: the user may have hit "Allow all session" while we queued.
+        if (!ok && !allowAllRef.current && !approvedRef.current.has(task)) {
           // User kept it Local: abort the call so nothing hits Claude.
           throw new DOMException("Claude call declined (staying on Local).", "AbortError");
         }
@@ -90,7 +99,15 @@ export default function ClaudeUsageGuard() {
     if (choice === "session") allowAllRef.current = true;
     if (choice === "once") approvedRef.current.add(p.task);
     p.resolve(choice !== "deny");
-    setPending(null);
+    // Drain the queue. "Allow all session" answers everything still waiting;
+    // otherwise the next queued call gets its own dialog.
+    if (allowAllRef.current) {
+      for (const q of queueRef.current) q.resolve(true);
+      queueRef.current = [];
+      setPending(null);
+    } else {
+      setPending(queueRef.current.shift() ?? null);
+    }
   };
 
   if (!pending) return null;

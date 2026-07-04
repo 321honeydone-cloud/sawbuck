@@ -169,6 +169,15 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
           case "text":
             patchAi({ content: get().messages.find((m) => m.id === aiMsg.id)!.content + delta.text });
             break;
+          case "error":
+            // Turn-ending failure. Show the reason AND mark the message failed so
+            // the chat renders a one-tap Retry chip instead of making the user
+            // retype the whole request.
+            patchAi({
+              content: get().messages.find((m) => m.id === aiMsg.id)!.content + delta.text,
+              failed: true,
+            });
+            break;
           case "operation": {
             const { estimate: nextEstimate, changes } = applyOperation(get().estimate, delta.operation);
             collected.push(...changes);
@@ -205,6 +214,10 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
       // old-vs-new diff the user can verify with their eyes. These records come
       // from applyOperation's result, never from the model's own summary text.
       patchAi({ streaming: false, changes: collected.length ? [...collected] : undefined });
+      // Failed turn: keep the original request on the message so Retry is one tap.
+      if (get().messages.find((m) => m.id === aiMsg.id)?.failed && trimmed) {
+        patchAi({ retryText: trimmed });
+      }
       // Name a fresh estimate by asking the AI for a short title (e.g. "Mount TV"
       // from "I want to hang up a TV"). Fire-and-forget so it never blocks the UI;
       // the title types itself into the name field when it lands. Falls back to a

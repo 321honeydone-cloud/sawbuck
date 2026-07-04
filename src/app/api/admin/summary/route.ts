@@ -38,6 +38,9 @@ export async function POST(req: Request) {
         "You summarize a contractor's quote conversation for the shop owner in 1 to 2 short sentences. Say what the job was, the main thing the customer wanted, whether they pushed back on price, and roughly how many changes were made. No em dashes and no semicolons.",
       prompt: tx,
       temperature: 0.3,
+      // A summary is a nicety, never worth a multi-minute wait on a busy local
+      // model. Fail fast and show "could not summarize" instead.
+      timeoutMs: 45000,
     });
   } catch {
     summary = "Could not summarize right now.";

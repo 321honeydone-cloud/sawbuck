@@ -118,6 +118,8 @@ export interface ChatMessage {
   agents?: string[]; // trade crews that handled this turn, shown to everyone
   attachments?: AttachmentMeta[]; // files the user attached to this message
   changes?: ChangeRecord[]; // real applied mutations, rendered as an old-vs-new diff in chat
+  failed?: boolean; // the turn ended in an error (stall watchdog, server error)
+  retryText?: string; // original request text, powers the one-tap Retry chip
 }
 
 // ----- Structured AI operations (spec section 10) -----

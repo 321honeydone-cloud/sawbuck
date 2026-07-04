@@ -76,15 +76,37 @@ export async function POST(req: Request) {
   const encoder = new TextEncoder();
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
-      const send = (delta: EngineDelta) => controller.enqueue(encoder.encode(JSON.stringify(delta) + "\n"));
+      let closed = false;
+      const send = (delta: EngineDelta | { type: "heartbeat" }) => {
+        if (closed) return;
+        try {
+          controller.enqueue(encoder.encode(JSON.stringify(delta) + "\n"));
+        } catch {
+          closed = true; // client went away; stop writing, let the loop unwind
+        }
+      };
+      // Heartbeat: a local model can think for a minute-plus before its first
+      // token, and this stream is silent the whole time. Proxies (Render,
+      // Cloudflare) kill silent streams, and the browser cannot tell "thinking"
+      // from "dead" — both looked like THE hang. A tiny ignored line every 10s
+      // keeps the pipe alive and lets the client run a real stall watchdog.
+      const beat = setInterval(() => send({ type: "heartbeat" }), 10000);
       try {
+        send({ type: "heartbeat" }); // flush headers + first byte immediately
         for await (const delta of runChat({ message, estimate, attachments, isAdmin, systemExtra, history })) {
           send(delta);
+          if (closed) break;
         }
       } catch (err) {
-        send({ type: "text", text: `\n\n[The estimator hit an error: ${(err as Error).message}]` });
+        send({ type: "error", text: `\n\nThe estimator hit an error: ${(err as Error).message}` });
       } finally {
-        controller.close();
+        clearInterval(beat);
+        closed = true;
+        try {
+          controller.close();
+        } catch {
+          /* already closed by a client disconnect */
+        }
       }
     },
   });

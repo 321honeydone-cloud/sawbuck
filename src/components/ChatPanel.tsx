@@ -311,6 +311,35 @@ function IntakeBox({ onSend }: { onSend: (t: string) => void }) {
   );
 }
 
+/** What the user sees while the model is still thinking and no text has landed.
+ * A local 32B model can take a minute-plus before its first token; a bare
+ * blinking caret over that gap read as a hang. This shows real progress
+ * (elapsed seconds) and swaps its wording as the wait grows. */
+function WorkingIndicator() {
+  const [secs, setSecs] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setSecs((s) => s + 1), 1000);
+    return () => clearInterval(t);
+  }, []);
+  const label =
+    secs < 8
+      ? "Reading the job…"
+      : secs < 30
+        ? "Pricing it out…"
+        : secs < 75
+          ? "Still working. A local model takes a minute on bigger jobs…"
+          : "Big one. The crew is still on it…";
+  return (
+    <span className="inline-flex items-center gap-2 text-muted">
+      <span className="h-3 w-3 shrink-0 animate-spin rounded-full border border-gold border-t-transparent" aria-hidden />
+      <span>
+        {label}
+        {secs >= 8 && <span className="ml-1.5 font-mono text-[11px] text-gold">{secs}s</span>}
+      </span>
+    </span>
+  );
+}
+
 function MessageBubble({ message, onSuggestion }: { message: ChatMessage; onSuggestion: (t: string) => void }) {
   const isUser = message.role === "user";
   return (
@@ -343,9 +372,13 @@ function MessageBubble({ message, onSuggestion }: { message: ChatMessage; onSugg
               : "text-sm leading-relaxed text-ink"
           }
         >
-          <span className={message.streaming ? "caret whitespace-pre-wrap break-words" : "whitespace-pre-wrap break-words"}>
-            {message.content || (isUser && message.attachments?.length ? "Sent attachments" : "")}
-          </span>
+          {!isUser && message.streaming && !message.content ? (
+            <WorkingIndicator />
+          ) : (
+            <span className={message.streaming ? "caret whitespace-pre-wrap break-words" : "whitespace-pre-wrap break-words"}>
+              {message.content || (isUser && message.attachments?.length ? "Sent attachments" : "")}
+            </span>
+          )}
         </div>
 
         {message.attachments && message.attachments.length > 0 && (
@@ -384,6 +417,15 @@ function MessageBubble({ message, onSuggestion }: { message: ChatMessage; onSugg
               ))}
             </div>
           </div>
+        )}
+
+        {!isUser && message.failed && message.retryText && !message.streaming && (
+          <button
+            onClick={() => onSuggestion(message.retryText!)}
+            className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-flag/50 bg-flag/10 px-3 py-1.5 text-xs font-semibold text-flag transition hover:bg-flag/20"
+          >
+            <span aria-hidden>↻</span> Retry that request
+          </button>
         )}
 
         {message.milestone && (
