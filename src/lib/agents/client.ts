@@ -272,41 +272,87 @@ function buildMessages(system: string | undefined, prompt: string, images?: stri
   return msgs;
 }
 
+/** Pick a model that is actually pulled on the box. Prevents an instant 404 when
+ *  the configured tag (e.g. qwen3-32b-manny) does not match what `ollama list`
+ *  shows. Falls back to the first configured model that IS installed, else the
+ *  first tag the box reports. Returns the preferred name if we cannot list. */
+async function resolveModel(preferred: string): Promise<string> {
+  try {
+    const tags = await ollamaTags();
+    if (!tags || tags.length === 0) return preferred;
+    const has = (name: string) => tags.some((t) => t === name || t.startsWith(`${name}:`));
+    if (has(preferred)) return preferred;
+    const pick = LOCAL_TEXT_MODELS.find(has) || tags[0];
+    console.warn(`[ai] local model "${preferred}" is not pulled on ${OLLAMA_URL}; using "${pick}" instead`);
+    return pick;
+  } catch {
+    return preferred;
+  }
+}
+
+/** Turn a fetch failure into a message that says what to actually check. */
+function ollamaReachError(e: unknown, timeoutMs?: number): string {
+  const err = e as Error;
+  if (err?.name === "TimeoutError" || err?.name === "AbortError") {
+    return `The local model did not respond within ${Math.round((timeoutMs ?? 180000) / 1000)}s. A large model can take a while to load into VRAM on the first request. Try again, or pick a smaller model in Admin.`;
+  }
+  return `Cannot reach Ollama at ${OLLAMA_URL} (${err?.message || "connection error"}). Make sure "ollama serve" is running and OLLAMA_URL points at it.`;
+}
+
+function ollamaHttpError(model: string, status: number): string {
+  if (status === 404) {
+    return `Ollama has no model tagged "${model}". Run "ollama list", then pull that tag or pick an installed model in Admin.`;
+  }
+  return `Local model "${model}" returned ${status} from ${OLLAMA_URL}.`;
+}
+
 async function ollamaText(opts: ChatOpts): Promise<string> {
-  const model = opts.model || (await activeLocalModel());
-  const r = await fetch(CHAT, ollamaInit({
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      model,
-      stream: false,
-      think: false,
-      ...(opts.format ? { format: opts.format } : {}),
-      options: { temperature: opts.temperature ?? 0.4 },
-      messages: buildMessages(opts.system, opts.prompt, opts.images),
-    }),
-    signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
-  }) as RequestInit);
-  if (!r.ok) throw new Error(`Ollama ${model} ${r.status}`);
+  const model = opts.model || (await resolveModel(await activeLocalModel()));
+  let r: Response;
+  try {
+    r = await fetch(CHAT, ollamaInit({
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        model,
+        stream: false,
+        think: false,
+        keep_alive: "30m", // keep the model resident so later calls do not reload it
+        ...(opts.format ? { format: opts.format } : {}),
+        options: { temperature: opts.temperature ?? 0.4 },
+        messages: buildMessages(opts.system, opts.prompt, opts.images),
+      }),
+      signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
+    }) as RequestInit);
+  } catch (e) {
+    throw new Error(ollamaReachError(e, opts.timeoutMs));
+  }
+  if (!r.ok) throw new Error(ollamaHttpError(model, r.status));
   const data = (await r.json()) as { message?: { content?: string } };
   return (data.message?.content ?? "").trim();
 }
 
 async function* ollamaStream(opts: ChatOpts): AsyncGenerator<string> {
-  const model = opts.model || (await activeLocalModel());
-  const r = await fetch(CHAT, ollamaInit({
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      model,
-      stream: true,
-      think: false,
-      options: { temperature: opts.temperature ?? 0.4 },
-      messages: buildMessages(opts.system, opts.prompt, opts.images),
-    }),
-    signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
-  }) as RequestInit);
-  if (!r.ok || !r.body) throw new Error(`Ollama stream ${model} ${r.status}`);
+  const model = opts.model || (await resolveModel(await activeLocalModel()));
+  let r: Response;
+  try {
+    r = await fetch(CHAT, ollamaInit({
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        model,
+        stream: true,
+        think: false,
+        keep_alive: "30m", // keep the model resident so later calls do not reload it
+        options: { temperature: opts.temperature ?? 0.4 },
+        messages: buildMessages(opts.system, opts.prompt, opts.images),
+      }),
+      signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
+    }) as RequestInit);
+  } catch (e) {
+    throw new Error(ollamaReachError(e, opts.timeoutMs));
+  }
+  if (!r.ok || !r.body) throw new Error(ollamaHttpError(model, r.status));
   const reader = r.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";

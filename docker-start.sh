@@ -20,5 +20,19 @@ if [ -n "$TS_AUTHKEY" ]; then
     || echo "tailscale up failed; app will fall back to Claude"
 fi
 
+# Shared learning log lives on the persistent /data volume so every contractor's
+# quotes accumulate and survive redeploys (the container filesystem is wiped on
+# each deploy). On first boot, seed it from the repo copy that shipped in the
+# image, then always run against the volume.
+MEM_PATH="${SAWBUCK_MEMORY_PATH:-/data/SAWBUCK_MEMORY.md}"
+if [ ! -f "$MEM_PATH" ]; then
+  mkdir -p "$(dirname "$MEM_PATH")"
+  if [ -f /app/SAWBUCK_MEMORY.md ]; then
+    cp /app/SAWBUCK_MEMORY.md "$MEM_PATH"
+    echo "Seeded learning log at $MEM_PATH from the repo copy."
+  fi
+fi
+export SAWBUCK_MEMORY_PATH="$MEM_PATH"
+
 npx prisma db push --skip-generate
 exec npm run start

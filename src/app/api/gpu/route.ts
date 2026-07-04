@@ -59,9 +59,11 @@ async function fromNvidia(): Promise<GpuStats | null> {
 // Sums utilization across all GPU engine instances and caps at 100.
 async function windowsGpuUtil(): Promise<number | null> {
   try {
+    // -sc 2: GPU counters often report nothing on the very first sample, so we
+    // take two and use the last data row.
     const { stdout } = await pexec(
-      'typeperf "\\GPU Engine(*)\\Utilization Percentage" -sc 1',
-      { timeout: 6000, windowsHide: true }
+      'typeperf "\\GPU Engine(*)\\Utilization Percentage" -sc 2',
+      { timeout: 8000, windowsHide: true }
     );
     const lines = stdout.trim().split(/\r?\n/).filter(Boolean);
     // The data row starts with a quoted timestamp, e.g. "07/03/2026 02:31:00.000".

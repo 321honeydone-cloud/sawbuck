@@ -161,6 +161,73 @@ function logEntries(text: string): string[] {
     .filter((e) => e.startsWith("### "));
 }
 
+// -------------------------------------------------------------------
+// Sync merge — one shared brain across local + Render without data loss.
+// Two copies of the log (the local box and the Render deploy) both grow at
+// runtime. A plain git merge would clash line-by-line and drop entries, so we
+// UNION them instead: every "### ..." entry from both sides is kept (deduped by
+// its head line, which carries the timestamp + kind + ref), sorted newest first,
+// and capped. Lessons are curated text, so we keep the richer of the two.
+// -------------------------------------------------------------------
+
+function lessonsBodyOf(text: string): string {
+  const s = section(text, LESSONS_START, LESSONS_END);
+  if (!s) return "";
+  const body = s.body.replace(/^\s*## Lessons\s*/m, "").trim();
+  return body.includes("nothing distilled yet") ? "" : body;
+}
+
+/** Milliseconds from an entry's head line "### 2026-07-03 02:31Z | ..." (0 if unparseable). */
+function entryStampMs(entry: string): number {
+  const head = entry.split("\n")[0] || "";
+  const m = head.match(/### (\d{4}-\d{2}-\d{2}) (\d{2}:\d{2})/);
+  if (!m) return 0;
+  const t = Date.parse(`${m[1]}T${m[2]}:00Z`);
+  return Number.isFinite(t) ? t : 0;
+}
+
+/** Merge two memory files into one, losing no log entry. Pure and testable. */
+export function mergeMemoryText(base: string, incoming: string): string {
+  const byHead = new Map<string, string>();
+  for (const src of [base, incoming]) {
+    for (const e of logEntries(src)) {
+      const head = (e.split("\n")[0] || "").trim();
+      if (head && !byHead.has(head)) byHead.set(head, e.trim());
+    }
+  }
+  const merged = [...byHead.values()]
+    .sort((x, y) => entryStampMs(y) - entryStampMs(x))
+    .slice(0, MAX_LOG_ENTRIES);
+
+  const lb = lessonsBodyOf(base);
+  const li = lessonsBodyOf(incoming);
+  const lessons = (li.length > lb.length ? li : lb).trim() || "- (nothing distilled yet)";
+
+  // Work off a structurally valid base (fall back to SEED if markers are gone).
+  let out = section(base, LESSONS_START, LESSONS_END) && section(base, LOG_START, LOG_END) ? base : SEED;
+
+  const ls = section(out, LESSONS_START, LESSONS_END)!;
+  out = out.slice(0, ls.from) + `\n## Lessons\n\n${lessons}\n\n` + out.slice(ls.to);
+
+  const lg = section(out, LOG_START, LOG_END)!; // recompute: offsets shifted above
+  out = out.slice(0, lg.from) + `\n<!-- new-events: 0 -->\n\n${merged.join("\n\n")}\n` + out.slice(lg.to);
+
+  return out.replace(/\n{4,}/g, "\n\n\n");
+}
+
+/** Merge an incoming memory file into the live one on disk (used by sync). */
+export function mergeIntoMemory(incoming: string): Promise<void> {
+  return enqueue(async () => {
+    const current = await readFileEnsured();
+    await fs.writeFile(MEMORY_PATH, mergeMemoryText(current, incoming), "utf8");
+  });
+}
+
+/** The live memory file as raw markdown (seeds it if missing). For the sync API. */
+export function readMemoryRaw(): Promise<string> {
+  return readFileEnsured();
+}
+
 /**
  * Distill the raw log into the LESSONS section using the fast model, reset the
  * new-event counter, and trim the log tail. Runs inside the write queue.
