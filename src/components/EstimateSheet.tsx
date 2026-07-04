@@ -6,6 +6,7 @@ import JobberModal from "./JobberModal";
 import { money, pct } from "@/lib/format";
 import { cardPrice, HONEYDONE } from "@/lib/honeydone";
 import { computeTotals } from "@/lib/totals";
+import { splitBuilds, type BuildSplit } from "@/lib/builds";
 import { deterministicSteps, type StepsResult } from "@/lib/steps";
 import type { Group, LineItem, Totals, Unit } from "@/lib/types";
 
@@ -47,6 +48,9 @@ export default function EstimateSheet() {
     items: g.items.filter((i) => !excluded.has(i.id)),
   }));
   const liveTotals = computeTotals(includedGroups);
+  // Split the included sheet into the Smooth Scenario and Max Price Guarantee so
+  // the header can always lead with the Max (red) and show the cap buffer (yellow).
+  const split = splitBuilds({ ...estimate, groups: includedGroups });
 
   const offCount = allItemIds.filter((id) => excluded.has(id)).length;
   const masterState: CheckState =
@@ -77,7 +81,7 @@ export default function EstimateSheet() {
 
   return (
     <div className="flex min-h-full flex-col">
-      <TotalsBar totals={liveTotals} onJobber={() => setJobberOpen(true)} />
+      <TotalsBar totals={liveTotals} split={split} onJobber={() => setJobberOpen(true)} />
       <ReviewBar />
       <JobberModal open={jobberOpen} onClose={() => setJobberOpen(false)} excluded={excluded} />
       <div className="flex-1 px-5 py-4">
@@ -134,13 +138,21 @@ function Check({ state, onChange }: { state: CheckState; onChange: () => void })
   );
 }
 
-function TotalsBar({ totals, onJobber }: { totals: Totals; onJobber: () => void }) {
+function TotalsBar({ totals, split, onJobber }: { totals: Totals; split: BuildSplit; onJobber: () => void }) {
   const hasItems = useEstimateStore((s) => s.estimate.groups.some((g) => g.items.length > 0));
-  const metrics: { key: string; label: string; value: string; gold: boolean }[] = [
-    { key: "cost", label: "Job cost", value: money(totals.totalCost), gold: false },
-    { key: "markup", label: "Materials markup", value: money(totals.totalMarkup), gold: false },
-    { key: "estimate", label: "Estimate (cash/check)", value: money(totals.estimateTotal), gold: true },
-    { key: "card", label: `Card price +${HONEYDONE.cardSurchargePct}%`, value: money(cardPrice(totals.estimateTotal)), gold: false },
+  // Always lead the header with the Max Price Guarantee (red). When there is a
+  // Complications Cap, also show the Smooth expected price and the cap buffer
+  // (yellow) so the ceiling and the honest expected number are both visible.
+  const metrics: { key: string; label: string; value: string; tone: string; big?: boolean }[] = [
+    { key: "cost", label: "Job cost", value: money(totals.totalCost), tone: "text-ink" },
+    ...(split.hasCap
+      ? [
+          { key: "smooth", label: "Smooth (expected)", value: money(split.smoothCash), tone: "text-gain" },
+          { key: "cap", label: "Complications cap", value: "+" + money(split.capCash), tone: "text-yellow" },
+        ]
+      : []),
+    { key: "max", label: "Max Price Guarantee", value: money(split.maxCash), tone: "text-danger", big: true },
+    { key: "card", label: `Card price +${HONEYDONE.cardSurchargePct}%`, value: money(cardPrice(split.maxCash)), tone: "text-muted" },
   ];
   return (
     <div className="sticky top-0 z-10 flex h-16 items-center gap-3 border-b border-border bg-bg px-5 backdrop-blur">
@@ -151,8 +163,8 @@ function TotalsBar({ totals, onJobber }: { totals: Totals; onJobber: () => void 
               {m.label}
             </div>
             <div
-              className={`mt-0.5 whitespace-nowrap font-display text-xl font-semibold leading-none tabular-nums ${
-                m.gold ? "text-brand" : "text-ink"
+              className={`mt-0.5 whitespace-nowrap font-display font-semibold leading-none tabular-nums ${m.tone} ${
+                m.big ? "text-2xl" : "text-xl"
               }`}
             >
               {m.value}
