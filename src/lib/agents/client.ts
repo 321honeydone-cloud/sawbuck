@@ -211,6 +211,7 @@ export async function ollamaPs(): Promise<{ name: string; sizeVram: number }[] |
 export async function warmLocalModel(): Promise<{ ready: boolean; model: string; ms: number; error?: string }> {
   const t0 = Date.now();
   let model = "";
+  const release = await acquireOllama(); // take a turn so warming never collides with a live prompt
   try {
     model = await resolveModel(await activeLocalModel());
     const r = await fetch(`${OLLAMA_URL}/api/generate`, ollamaInit({
@@ -224,6 +225,8 @@ export async function warmLocalModel(): Promise<{ ready: boolean; model: string;
     return { ready: true, model, ms: Date.now() - t0 };
   } catch (e) {
     return { ready: false, model, ms: Date.now() - t0, error: (e as Error).message };
+  } finally {
+    release();
   }
 }
 
@@ -331,73 +334,101 @@ function ollamaHttpError(model: string, status: number): string {
   return `Local model "${model}" returned ${status} from ${OLLAMA_URL}.`;
 }
 
+// Serialize every GENERATION request to the single local Ollama box. One GPU can
+// only run one big model at a time; firing a second generation while one is in
+// flight makes Ollama try to spin up another copy (VRAM thrash) and BOTH stall
+// out to the 180s timeout. That is exactly the "first prompt fast, second one
+// like pulling teeth then it errors" symptom: a background call (auto-title,
+// warm-up, memory compaction) was still holding the GPU when the next prompt
+// fired. This lock makes them take turns, so each stays fast. Lightweight
+// metadata calls (tags, ps) are NOT locked.
+let ollamaTail: Promise<void> = Promise.resolve();
+async function acquireOllama(): Promise<() => void> {
+  let release!: () => void;
+  const mine = new Promise<void>((res) => (release = res));
+  const prev = ollamaTail;
+  ollamaTail = mine;
+  await prev;
+  return release;
+}
+
 async function ollamaText(opts: ChatOpts): Promise<string> {
   const model = opts.model || (await resolveModel(await activeLocalModel()));
-  let r: Response;
+  const release = await acquireOllama();
   try {
-    r = await fetch(CHAT, ollamaInit({
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        model,
-        stream: false,
-        think: false,
-        keep_alive: "30m", // keep the model resident so later calls do not reload it
-        ...(opts.format ? { format: opts.format } : {}),
-        options: { temperature: opts.temperature ?? 0.4 },
-        messages: buildMessages(opts.system, opts.prompt, opts.images),
-      }),
-      signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
-    }) as RequestInit);
-  } catch (e) {
-    throw new Error(ollamaReachError(e, opts.timeoutMs));
+    let r: Response;
+    try {
+      r = await fetch(CHAT, ollamaInit({
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          model,
+          stream: false,
+          think: false,
+          keep_alive: "30m", // keep the model resident so later calls do not reload it
+          ...(opts.format ? { format: opts.format } : {}),
+          options: { temperature: opts.temperature ?? 0.4 },
+          messages: buildMessages(opts.system, opts.prompt, opts.images),
+        }),
+        signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
+      }) as RequestInit);
+    } catch (e) {
+      throw new Error(ollamaReachError(e, opts.timeoutMs));
+    }
+    if (!r.ok) throw new Error(ollamaHttpError(model, r.status));
+    const data = (await r.json()) as { message?: { content?: string } };
+    return (data.message?.content ?? "").trim();
+  } finally {
+    release();
   }
-  if (!r.ok) throw new Error(ollamaHttpError(model, r.status));
-  const data = (await r.json()) as { message?: { content?: string } };
-  return (data.message?.content ?? "").trim();
 }
 
 async function* ollamaStream(opts: ChatOpts): AsyncGenerator<string> {
   const model = opts.model || (await resolveModel(await activeLocalModel()));
-  let r: Response;
+  const release = await acquireOllama();
   try {
-    r = await fetch(CHAT, ollamaInit({
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        model,
-        stream: true,
-        think: false,
-        keep_alive: "30m", // keep the model resident so later calls do not reload it
-        options: { temperature: opts.temperature ?? 0.4 },
-        messages: buildMessages(opts.system, opts.prompt, opts.images),
-      }),
-      signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
-    }) as RequestInit);
-  } catch (e) {
-    throw new Error(ollamaReachError(e, opts.timeoutMs));
-  }
-  if (!r.ok || !r.body) throw new Error(ollamaHttpError(model, r.status));
-  const reader = r.body.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    let nl: number;
-    while ((nl = buffer.indexOf("\n")) >= 0) {
-      const line = buffer.slice(0, nl).trim();
-      buffer = buffer.slice(nl + 1);
-      if (!line) continue;
-      try {
-        const obj = JSON.parse(line) as { message?: { content?: string }; done?: boolean };
-        const chunk = obj.message?.content;
-        if (chunk) yield chunk;
-      } catch {
-        // partial line, ignore, the next read completes it
+    let r: Response;
+    try {
+      r = await fetch(CHAT, ollamaInit({
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          model,
+          stream: true,
+          think: false,
+          keep_alive: "30m", // keep the model resident so later calls do not reload it
+          options: { temperature: opts.temperature ?? 0.4 },
+          messages: buildMessages(opts.system, opts.prompt, opts.images),
+        }),
+        signal: AbortSignal.timeout(opts.timeoutMs ?? 180000),
+      }) as RequestInit);
+    } catch (e) {
+      throw new Error(ollamaReachError(e, opts.timeoutMs));
+    }
+    if (!r.ok || !r.body) throw new Error(ollamaHttpError(model, r.status));
+    const reader = r.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      let nl: number;
+      while ((nl = buffer.indexOf("\n")) >= 0) {
+        const line = buffer.slice(0, nl).trim();
+        buffer = buffer.slice(nl + 1);
+        if (!line) continue;
+        try {
+          const obj = JSON.parse(line) as { message?: { content?: string }; done?: boolean };
+          const chunk = obj.message?.content;
+          if (chunk) yield chunk;
+        } catch {
+          // partial line, ignore, the next read completes it
+        }
       }
     }
+  } finally {
+    release(); // let the next Ollama call run once this stream is fully consumed
   }
 }
 

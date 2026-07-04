@@ -19,6 +19,8 @@ import { rateBookMatches, runEstimator } from "./estimator";
 import { getRateBookEngine } from "../loadRateBook";
 import { researchPrices, formatFindingsForPrompt, type PriceFinding } from "./pricing";
 import { saveResearchedPrices } from "../pricingStore";
+import { isCapGroup } from "../builds";
+import { complicationsCapOps } from "../capgen";
 
 export interface BossArgs {
   message: string;
@@ -149,13 +151,23 @@ function matchFinding(name: string, findings: PriceFinding[]): PriceFinding | nu
 async function* reviewStream(
   src: AsyncGenerator<EngineDelta>,
   findings: PriceFinding[],
-  isAdmin: boolean
+  isAdmin: boolean,
+  estimate: Estimate
 ): AsyncGenerator<EngineDelta> {
   let lineCount = 0;
   let zeroFixed = 0;
   let zeroLeft = 0;
   let dupes = 0;
   const seen = new Set<string>();
+
+  // Guarantee a Complications Cap by the end of the turn. Seed from the estimate
+  // as it stands, then watch what the estimator adds this turn.
+  let sawCap = estimate.groups.some((g) => isCapGroup(g.name));
+  const scopeNames: string[] = estimate.groups.flatMap((g) => g.items).map((i) => i.name);
+  let baseTotal = estimate.groups
+    .filter((g) => !isCapGroup(g.name))
+    .flatMap((g) => g.items)
+    .reduce((s, i) => s + (i.clientTotal || 0), 0);
 
   for await (const d of src) {
     if (d.type === "operation" && d.operation.op === "add_line_item") {
@@ -177,8 +189,17 @@ async function* reviewStream(
           if (isAdmin) yield { type: "trace", text: `Boss QA: ${op.name} has no price` };
         }
       }
+      if (isCapGroup(op.groupName)) {
+        sawCap = true;
+      } else {
+        scopeNames.push(op.name);
+        baseTotal += op.quantity * op.unitCost * (op.costType === "Material" ? 1.25 : 1);
+      }
       yield { type: "operation", operation: op };
       continue;
+    }
+    if (d.type === "operation" && d.operation.op === "add_group" && isCapGroup(d.operation.name)) {
+      sawCap = true;
     }
     yield d;
   }
@@ -194,6 +215,19 @@ async function* reviewStream(
   if (isAdmin) {
     if (dupes > 0) yield { type: "trace", text: `Boss QA: ${dupes} possible duplicate line${dupes === 1 ? "" : "s"}` };
     yield { type: "trace", text: `Boss QA: reviewed ${lineCount} line${lineCount === 1 ? "" : "s"}, fixed ${zeroFixed}, flagged ${zeroLeft}` };
+  }
+
+  // Never let a quote go out without a Max Price Guarantee. If the estimator did
+  // not build a Complications Cap this turn (weaker local models skip it), add
+  // one automatically, itemized by the risky work in the scope.
+  if (!sawCap && baseTotal > 0) {
+    for (const op of complicationsCapOps(scopeNames.join(" "), baseTotal)) {
+      yield { type: "operation", operation: op };
+    }
+    if (isAdmin) yield { type: "trace", text: "Boss: auto-added a Complications Cap (estimator left it off)" };
+    yield* streamWords(
+      "\n\nI added a Complications Cap so this quote carries a Max Price Guarantee. Those lines are only charged if that exact issue turns up, otherwise they drop off."
+    );
   }
 }
 
@@ -301,16 +335,23 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   // take the model path so those numbers actually make it into the quote.
   if (hasAttachments) {
     yield* trace("Boss to Estimator: price what Vision saw");
-    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, visionText, systemExtra }), findings, args.isAdmin);
+    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, visionText, systemExtra }), findings, args.isAdmin, args.estimate);
     return;
   }
   if (!hasItems && !findings.length && rateBookMatches(combined)) {
     yield* trace("Boss to Estimator: rate-book match, flat pricing");
-    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra }), findings, args.isAdmin);
+    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra }), findings, args.isAdmin, args.estimate);
     return;
   }
 
-  const decision = await classify(args.message, hasItems);
+  // The classifier is a blocking, non-streaming LLM call. On a big local model
+  // that first cold round trip is what makes the app "hang" before any text
+  // appears, and it only ever defaults to "estimate" anyway. So we only spend it
+  // on the fast cloud brain; on Local we go straight to estimating (the app's
+  // whole job) and let the estimator start streaming immediately.
+  const decision: Intent = cloud
+    ? await classify(args.message, hasItems)
+    : { intent: "estimate", why: "local brain, building without the classifier" };
   if (decision.intent === "question") {
     yield* trace(`Boss: answering directly, ${decision.why}`);
     try {
@@ -323,5 +364,5 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   }
 
   yield* trace(`Boss to Estimator: ${hasItems ? "edit the quote" : "build the quote"}, ${decision.why}`);
-  yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra }), findings, args.isAdmin);
+  yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra }), findings, args.isAdmin, args.estimate);
 }
