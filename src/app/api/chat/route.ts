@@ -4,10 +4,11 @@
 // EngineDeltas as NDJSON. Admins also get trace deltas showing the routing.
 import { prisma } from "@/lib/db";
 import { RATEBOOK_ID, formatLearnedRates, parseRateBook } from "@/lib/rates";
-import { OVERRIDES_ID, applyOverrides, formatPricedBookForPrompt, parseOverrides } from "@/lib/rateOverrides";
+import { OVERRIDES_ID, applyOverrides, formatPricedBookForPrompt, parseOverrides, pickRelevantTasks } from "@/lib/rateOverrides";
 import { rateBook, setRateBookTasks } from "@/lib/loadRateBook";
 import { memoryBlock } from "@/lib/memory";
 import { getSession } from "@/lib/session";
+import { activeProvider } from "@/lib/agents/client";
 import { runChat } from "@/lib/agents/boss";
 import type { Attachment, Estimate } from "@/lib/types";
 import type { EngineDelta } from "@/lib/engine";
@@ -53,7 +54,12 @@ export async function POST(req: Request) {
     // Load Manny's saved prices into the live engine so the Estimator's
     // server-side rate-book pricing matches the Rate Book screen.
     setRateBookTasks(merged);
-    rateBookPrices = formatPricedBookForPrompt(merged);
+    // A local model has to prefill the whole system prompt before its first
+    // token, so dumping all 1,100+ priced tasks makes it hang. Give Local only
+    // the tasks relevant to this message; Claude still gets the full book.
+    const provider = await activeProvider();
+    const forPrompt = provider === "ollama" ? pickRelevantTasks(merged, message, 80) : merged;
+    rateBookPrices = formatPricedBookForPrompt(forPrompt);
   } catch {
     /* no overrides yet, base book still applies */
   }

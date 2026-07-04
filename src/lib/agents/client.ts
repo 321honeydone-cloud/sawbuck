@@ -202,6 +202,31 @@ export async function ollamaPs(): Promise<{ name: string; sizeVram: number }[] |
   }
 }
 
+/**
+ * Warm the local model: ask Ollama to load it into VRAM in the background (empty
+ * prompt = load only, no generation) and keep it resident. Firing this on page
+ * load means the model is ready before the first real prompt, so the estimator
+ * does not appear to hang while a 31B model loads on the first message.
+ */
+export async function warmLocalModel(): Promise<{ ready: boolean; model: string; ms: number; error?: string }> {
+  const t0 = Date.now();
+  let model = "";
+  try {
+    model = await resolveModel(await activeLocalModel());
+    const r = await fetch(`${OLLAMA_URL}/api/generate`, ollamaInit({
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ model, prompt: "", keep_alive: "30m" }),
+      signal: AbortSignal.timeout(300000), // a big model can take a few minutes to load cold
+    }) as RequestInit);
+    if (!r.ok) return { ready: false, model, ms: Date.now() - t0, error: `Ollama returned ${r.status}` };
+    await r.json().catch(() => ({}));
+    return { ready: true, model, ms: Date.now() - t0 };
+  } catch (e) {
+    return { ready: false, model, ms: Date.now() - t0, error: (e as Error).message };
+  }
+}
+
 // ===================================================================
 // Claude (cloud) provider
 // ===================================================================

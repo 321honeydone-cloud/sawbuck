@@ -202,3 +202,27 @@ ${lines.join("\n")}`);
     blocks.join("\n")
   );
 }
+
+/**
+ * Pick only the rate-book tasks relevant to what the user actually asked, so a
+ * local model does not have to prefill all 1,100+ priced tasks on every message
+ * (that is what makes a big local model appear to hang after the first prompt).
+ * Scores tasks by how many significant words from the query appear in the task
+ * name, keeps the best `limit`. Returns [] when nothing matches (the estimator
+ * still has the built-in catalog and learned rates to price from).
+ */
+export function pickRelevantTasks(tasks: RateTask[], query: string, limit = 80): RateTask[] {
+  const words = Array.from(new Set((query.toLowerCase().match(/[a-z]{4,}/g) || [])));
+  if (words.length === 0) return [];
+  return tasks
+    .map((t) => {
+      const name = String(t.name || "").toLowerCase();
+      let score = 0;
+      for (const w of words) if (name.includes(w)) score++;
+      return { t, score };
+    })
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((x) => x.t);
+}

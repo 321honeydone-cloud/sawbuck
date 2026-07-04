@@ -8,6 +8,7 @@ import ChatPanel from "./ChatPanel";
 import EstimateSheet from "./EstimateSheet";
 import MobileMenu from "./MobileMenu";
 import GpuGauge from "./GpuGauge";
+import LocalModelWarm from "./LocalModelWarm";
 
 export interface EstimateSummary {
   id: string;
@@ -277,6 +278,7 @@ function TopBar() {
             {aiUpdateCount} AI {aiUpdateCount === 1 ? "update" : "updates"}
           </span>
         )}
+        <LocalModelWarm />
         <GpuGauge />
         {confirmDel ? (
           <div className="flex items-center gap-1">
