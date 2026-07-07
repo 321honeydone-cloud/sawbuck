@@ -164,7 +164,8 @@ async function* rateBookBuild(jobText: string, estimateName: string): AsyncGener
   // Card price + Max Guarantee live in the header (single source). Chat quotes
   // only the expected cash so it can't show a second, conflicting card number.
   let closing = `\n\nDone. Expected price $${q.cash} from your rate book. The Smooth and Max prices, with the card price, are up top.`;
-  if (q.unmatched.length > 0) closing += ` I could not match: ${q.unmatched.map((u) => u.text).join(", ")}. Add those by hand or reword them.`;
+  if (q.unmatched.length > 0)
+    closing += ` This quote is INCOMPLETE: ${q.unmatched.map((u) => u.text).join(", ")} ${q.unmatched.length === 1 ? "is" : "are"} not in your book, so ${q.unmatched.length === 1 ? "it was" : "they were"} left out of the price. Add ${q.unmatched.length === 1 ? "it" : "them"} by hand or reword, and do not send this until that scope is priced.`;
   yield* streamText(closing);
   yield { type: "summary", name: estimateName };
   yield { type: "milestone", text: "Priced from your rate book" };

@@ -148,11 +148,16 @@ function matchFinding(name: string, findings: PriceFinding[]): PriceFinding | nu
  * warns the user about lines that still have no price. Admins also get a QA
  * summary in the trace. This wraps an Estimator stream and re-yields it.
  */
+/** A request that reads like a full remodel or gut, which for a handyman almost
+ *  always exceeds the $2,500 cap once the whole scope is counted. */
+const BIG_JOB = /\b(remodel|renovat(?:e|ed|ing|ion)|gut(?:ted|ting)?|whole\s+(?:kitchen|bath|bathroom|house|home)|entire\s+(?:kitchen|bath|bathroom|house|home)|the\s+works)\b/i;
+
 async function* reviewStream(
   src: AsyncGenerator<EngineDelta>,
   findings: PriceFinding[],
   isAdmin: boolean,
-  estimate: Estimate
+  estimate: Estimate,
+  jobText: string
 ): AsyncGenerator<EngineDelta> {
   let lineCount = 0;
   let zeroFixed = 0;
@@ -226,6 +231,23 @@ async function* reviewStream(
       `\n\nSTOP — this scope prices at $${Math.round(baseTotal).toLocaleString()}, which is over the $2,500 Florida handyman exemption limit (labor + materials + everything). HoneyDone cannot take this as one job, and splitting it into smaller invoices is not allowed either. Refer it to a licensed contractor, or trim the scope with the customer until the whole job sits under $2,500.`
     );
     if (isAdmin) yield { type: "trace", text: `Boss COMPLIANCE: total $${Math.round(baseTotal)} exceeds the $2,500 handyman cap` };
+  }
+
+  // Under-scope guard. A partial priced total can hide a job that is really over
+  // the cap: a whole remodel where most of the scope was not in the book prices
+  // low, which wrongly implies it fits under $2,500. Flag it instead of shipping a
+  // lowball that could void the exemption.
+  let bookGaps: string[] = [];
+  try {
+    bookGaps = getRateBookEngine().match(jobText).unmatched.map((u) => u.text).filter(Boolean);
+  } catch {
+    bookGaps = [];
+  }
+  if (baseTotal > 0 && baseTotal < 2500 && (BIG_JOB.test(jobText) || bookGaps.length >= 3)) {
+    yield* streamWords(
+      `\n\nHeads up, this reads like a bigger job than I could price from the book${bookGaps.length ? ` (not in the book yet: ${bookGaps.slice(0, 4).join(", ")})` : ""}. A full remodel like this almost always runs past the $2,500 handyman cap once the whole scope is counted, so do not treat the number above as the job total. Price the complete scope, and if it clears $2,500 refer it to a licensed contractor.`
+    );
+    if (isAdmin) yield { type: "trace", text: `Boss COMPLIANCE: under-scope risk, priced $${Math.round(baseTotal)} but the request reads large` };
   }
 
   // Never let a quote go out without a Max Price Guarantee. If the estimator did
@@ -353,12 +375,12 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   // take the model path so those numbers actually make it into the quote.
   if (hasAttachments) {
     yield* trace("Boss to Estimator: price what Vision saw");
-    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, visionText, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate);
+    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, visionText, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate, combined);
     return;
   }
   if (!hasItems && !findings.length && rateBookMatches(combined)) {
     yield* trace("Boss to Estimator: rate-book match, flat pricing");
-    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate);
+    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate, combined);
     return;
   }
 
@@ -382,5 +404,5 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   }
 
   yield* trace(`Boss to Estimator: ${hasItems ? "edit the quote" : "build the quote"}, ${decision.why}`);
-  yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate);
+  yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate, combined);
 }

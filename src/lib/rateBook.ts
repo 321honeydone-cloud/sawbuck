@@ -368,12 +368,36 @@ export class RateBookEngine {
   }
 
   private static quantity(segment: string): number {
-    // A leading count ("2 outlets") is a quantity. A leading list marker
-    // ("2. Loose handle", "2) ...") is not; those default to one.
-    const m = segment.match(/^\s*(\d+)\b(?![.)])/);
-    if (m) return parseInt(m[1], 10);
-    const first = norm(segment).split(" ")[0];
-    return first && NUM_WORDS[first] ? NUM_WORDS[first] : 1;
+    // A leading list marker ("2. Loose handle", "2) ...") is not a count.
+    if (/^\s*\d+\s*[.)]/.test(segment)) return 1;
+    // Dimensions like "10 by 12" or "10x12" are measurements, not counts.
+    const isDim = /\b\d+\s*(?:x|by)\s*\d+\b/.test(segment.toLowerCase());
+    const words = norm(segment).split(" ").filter(Boolean);
+    const isPlural = (w: string) => /^[a-z]{3,}s$/.test(w) && !/(ss|us|ics|ous)$/.test(w);
+    const asNum = (w: string): number | null =>
+      /^\d+$/.test(w) ? parseInt(w, 10) : NUM_WORDS[w] ?? null;
+    // A number (digit or spelled out) followed by a plural noun within a few
+    // tokens is a real count: "three ceiling fans", "replace 5 outlets". Articles
+    // ("a", "an") never trigger it, so "a dozen cabinets" reads as 12, not 1.
+    for (let i = 0; i < words.length; i++) {
+      if (words[i] === "a" || words[i] === "an") continue;
+      const n = asNum(words[i]);
+      if (!n || n < 1) continue;
+      if (isDim && /^\d+$/.test(words[i])) continue; // skip dimension digits
+      for (let j = i + 1; j <= i + 3 && j < words.length; j++) {
+        if (isPlural(words[j])) return n;
+      }
+    }
+    // Fallback: a bare leading count ("2 fixtures", "3 doors"), but never a
+    // measurement or spec ("20 amp", "15 min") or a dimension.
+    if (!isDim) {
+      const lead = segment.match(/^\s*(\d+)\s*([a-z"']*)/i);
+      if (lead) {
+        const unit = /^(amps?|watts?|volts?|ft|foot|feet|in|inch|inches|sq|sqft|sf|lf|yd|yards?|gal|gallons?|hrs?|hours?|mins?|minutes?|days?)$/;
+        if (!unit.test((lead[2] || "").toLowerCase())) return parseInt(lead[1], 10);
+      }
+    }
+    return 1;
   }
 
   // Area-priced tasks (unit is per sq ft or per linear foot) take their quantity
