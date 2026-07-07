@@ -1,0 +1,57 @@
+{
+ "trade": "Data / Cable / Ethernet",
+ "count": 10,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Data / Cable / Ethernet > Install Audio Cable Jacks",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Install Audio Cable Jacks",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install Cable Jack - Ground Up",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Install Cable Jack - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install Data Jack - Ground Up",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Install Data Jack - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install New Video Cable Jacks",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Install New Video Cable Jacks",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Replace Cable Jack",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Replace Cable Jack",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Replace Data Jack",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Replace Data Jack",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Audio Cable",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Run New Audio Cable",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Cable Lines",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Run New Cable Lines",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Data Lines",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Run New Data Lines",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Video Data Cables",
+   "taxonomy_path": "Labor > Data / Cable / Ethernet > Run New Video Data Cables",
+   "suggested_unit": "each"
+  }
+ ]
+}

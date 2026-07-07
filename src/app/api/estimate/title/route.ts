@@ -2,7 +2,7 @@
 // from "I want to hang up a TV"). Runs on whichever brain is live (Claude or the
 // shop Ollama). Best-effort: falls back to a trimmed prompt if the model errors.
 import { getSession } from "@/lib/session";
-import { activeProvider, localText } from "@/lib/agents/client";
+import { activeProvider, housekeepingModel, localText } from "@/lib/agents/client";
 import { deriveJobName } from "@/lib/engine";
 
 export const runtime = "nodejs";
@@ -53,7 +53,9 @@ export async function POST(req: Request) {
   // or is unreachable, use the offline word-based title instead.
   try {
     if ((await activeProvider()) === "ollama") {
-      const raw = await localText({ system: SYSTEM, prompt, temperature: 0.2, timeoutMs: 12000 });
+      // Use whatever model is already in VRAM so a title never forces a model
+      // swap right after a turn (that swap was part of the second-prompt hang).
+      const raw = await localText({ system: SYSTEM, prompt, temperature: 0.2, timeoutMs: 12000, model: await housekeepingModel() });
       const title = clean(raw);
       if (title) return Response.json({ title });
     }

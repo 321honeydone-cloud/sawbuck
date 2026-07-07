@@ -7,16 +7,21 @@
 // the brain is Claude, which needs no warm-up).
 
 import { useEffect, useState } from "react";
+import { useEstimateStore } from "@/store/useEstimateStore";
 
 type Warm = { provider?: string; ready?: boolean; model?: string; error?: string };
 
 export default function LocalModelWarm() {
   const [state, setState] = useState<"warming" | "ready" | "error">("warming");
   const [model, setModel] = useState("");
+  // Two-stage brain: fresh quote → warm the first-turn model (gemma); a quote
+  // with conversation already on it → its next prompt runs the steady model
+  // (qwen), so warm that instead.
+  const fresh = useEstimateStore((s) => s.messages.length === 0);
 
   useEffect(() => {
     let live = true;
-    fetch("/api/ai/warm")
+    fetch(`/api/ai/warm?stage=${fresh ? "first" : "steady"}`)
       .then((r) => (r.ok ? (r.json() as Promise<Warm>) : null))
       .then((d) => {
         if (!live) return;
@@ -29,6 +34,7 @@ export default function LocalModelWarm() {
     return () => {
       live = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- warm once per mount with the stage seen at load
   }, []);
 
   if (state === "ready") return null;

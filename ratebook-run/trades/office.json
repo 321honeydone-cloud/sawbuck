@@ -1,0 +1,27 @@
+{
+ "trade": "Office",
+ "count": 4,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Office > Administrative > Documentation",
+   "taxonomy_path": "Office > Administrative > Documentation",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Office > Administrative > Permit Processing",
+   "taxonomy_path": "Office > Administrative > Permit Processing",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Office > Project Management > Scheduling",
+   "taxonomy_path": "Office > Project Management > Scheduling",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Office > Project Management > Site Supervision",
+   "taxonomy_path": "Office > Project Management > Site Supervision",
+   "suggested_unit": "each"
+  }
+ ]
+}

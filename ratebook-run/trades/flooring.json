@@ -1,0 +1,268 @@
+{
+ "trade": "Flooring",
+ "count": 30,
+ "anchors_same_book": [
+  {
+   "name": "Carpet, Stretching",
+   "price": 160.0,
+   "unit": "each"
+  },
+  {
+   "name": "Carpet, Install New",
+   "price": 230.0,
+   "unit": "each"
+  },
+  {
+   "name": "Carpet, Patching",
+   "price": 120.0,
+   "unit": "each"
+  },
+  {
+   "name": "Carpet, Cleaning",
+   "price": 115.0,
+   "unit": "each"
+  },
+  {
+   "name": "Carpet, Transition Strips, Install",
+   "price": 65.0,
+   "unit": "each"
+  },
+  {
+   "name": "Carpet, Tack Strip, Install",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Vinyl, Plank, Glue Down, Install New",
+   "price": 290.0,
+   "unit": "each"
+  },
+  {
+   "name": "Vinyl, Plank, Glue Down, Repair/Replace",
+   "price": 120.0,
+   "unit": "each"
+  },
+  {
+   "name": "Vinyl, Plank, Floating, Install New",
+   "price": 230.0,
+   "unit": "each"
+  },
+  {
+   "name": "Vinyl, Plank, Floating, Repair/Replace",
+   "price": 120.0,
+   "unit": "each"
+  },
+  {
+   "name": "Vinyl, Sheet, Glue Down, Install New",
+   "price": 240.0,
+   "unit": "each"
+  },
+  {
+   "name": "Vinyl, Sheet, Glue Down, Repair/Replace",
+   "price": 120.0,
+   "unit": "each"
+  },
+  {
+   "name": "Laminate, Floating, Install New",
+   "price": 290.0,
+   "unit": "each"
+  },
+  {
+   "name": "Laminate, Floating, Repair/Replace",
+   "price": 120.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cement, Stained, Re-Stain",
+   "price": 240.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cement, Epoxy, Re-Apply",
+   "price": 300.0,
+   "unit": "each"
+  },
+  {
+   "name": "Wood Floors, Refinish",
+   "price": 350.0,
+   "unit": "each"
+  },
+  {
+   "name": "Wood Floors, Replace Damaged Pieces",
+   "price": 180.0,
+   "unit": "each"
+  },
+  {
+   "name": "Wood Floors, Install New",
+   "price": 350.0,
+   "unit": "each"
+  },
+  {
+   "name": "Wood Floors, Repair Gouges & Dents",
+   "price": 120.0,
+   "unit": "each"
+  },
+  {
+   "name": "All Flooring, Repair Squeaks",
+   "price": 115.0,
+   "unit": "each"
+  },
+  {
+   "name": "All Flooring, Install Transition Strips",
+   "price": 65.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Flooring > Carpet > Install New - Ground Up",
+   "taxonomy_path": "Labor > Flooring > Carpet > Install New - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Carpet > Patch / Repair",
+   "taxonomy_path": "Labor > Flooring > Carpet > Patch / Repair",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Carpet > Remove Permanently",
+   "taxonomy_path": "Labor > Flooring > Carpet > Remove Permanently",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Carpet > Replace",
+   "taxonomy_path": "Labor > Flooring > Carpet > Replace",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Carpet > Shampoo / Steam Clean",
+   "taxonomy_path": "Labor > Flooring > Carpet > Shampoo / Steam Clean",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Carpet > Stretch",
+   "taxonomy_path": "Labor > Flooring > Carpet > Stretch",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Hardwood > Install New - Ground Up",
+   "taxonomy_path": "Labor > Flooring > Hardwood > Install New - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Hardwood > Patch / Repair",
+   "taxonomy_path": "Labor > Flooring > Hardwood > Patch / Repair",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Hardwood > Remove Permanently",
+   "taxonomy_path": "Labor > Flooring > Hardwood > Remove Permanently",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Hardwood > Replace",
+   "taxonomy_path": "Labor > Flooring > Hardwood > Replace",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Laminate - Wood > Install New - Ground Up",
+   "taxonomy_path": "Labor > Flooring > Laminate - Wood > Install New - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Laminate - Wood > Patch / Repair",
+   "taxonomy_path": "Labor > Flooring > Laminate - Wood > Patch / Repair",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Laminate - Wood > Remove Permanently",
+   "taxonomy_path": "Labor > Flooring > Laminate - Wood > Remove Permanently",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Laminate - Wood > Replace",
+   "taxonomy_path": "Labor > Flooring > Laminate - Wood > Replace",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Laminate Vinyl Plank (LVP) > Install New - Ground Up",
+   "taxonomy_path": "Labor > Flooring > Laminate Vinyl Plank (LVP) > Install New - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Laminate Vinyl Plank (LVP) > Patch / Repair",
+   "taxonomy_path": "Labor > Flooring > Laminate Vinyl Plank (LVP) > Patch / Repair",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Laminate Vinyl Plank (LVP) > Remove Permanently",
+   "taxonomy_path": "Labor > Flooring > Laminate Vinyl Plank (LVP) > Remove Permanently",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Laminate Vinyl Plank (LVP) > Replace",
+   "taxonomy_path": "Labor > Flooring > Laminate Vinyl Plank (LVP) > Replace",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Miscellaneous / Other > Concrete Stain - Ground Up",
+   "taxonomy_path": "Labor > Flooring > Miscellaneous / Other > Concrete Stain - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Miscellaneous / Other > Concrete Stain - Repair",
+   "taxonomy_path": "Labor > Flooring > Miscellaneous / Other > Concrete Stain - Repair",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Miscellaneous / Other > Epoxy - Ground Up",
+   "taxonomy_path": "Labor > Flooring > Miscellaneous / Other > Epoxy - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Miscellaneous / Other > Epoxy - Repair",
+   "taxonomy_path": "Labor > Flooring > Miscellaneous / Other > Epoxy - Repair",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Sheet Vinyl > Install New - Ground Up",
+   "taxonomy_path": "Labor > Flooring > Sheet Vinyl > Install New - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Sheet Vinyl > Patch / Repair",
+   "taxonomy_path": "Labor > Flooring > Sheet Vinyl > Patch / Repair",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Sheet Vinyl > Remove Permanently",
+   "taxonomy_path": "Labor > Flooring > Sheet Vinyl > Remove Permanently",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Sheet Vinyl > Replace",
+   "taxonomy_path": "Labor > Flooring > Sheet Vinyl > Replace",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Vinyl Tile (LVT) > Install New - Ground Up",
+   "taxonomy_path": "Labor > Flooring > Vinyl Tile (LVT) > Install New - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Vinyl Tile (LVT) > Patch / Repair",
+   "taxonomy_path": "Labor > Flooring > Vinyl Tile (LVT) > Patch / Repair",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Vinyl Tile (LVT) > Remove Permanently",
+   "taxonomy_path": "Labor > Flooring > Vinyl Tile (LVT) > Remove Permanently",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Flooring > Vinyl Tile (LVT) > Replace",
+   "taxonomy_path": "Labor > Flooring > Vinyl Tile (LVT) > Replace",
+   "suggested_unit": "sq ft"
+  }
+ ]
+}

@@ -1,0 +1,663 @@
+{
+ "trade": "Doors",
+ "count": 106,
+ "anchors_same_book": [
+  {
+   "name": "Replace interior doorknob/lever (customer supplied)",
+   "price": 55,
+   "unit": "each"
+  },
+  {
+   "name": "Adjust strike plate / latch alignment",
+   "price": 55,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bypass, Replace Headrail",
+   "price": 120.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bypass, Replace Doors(Set) (Always",
+   "price": 240,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bypass, Replace Wheels (All)",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bypass, Reinstall And/Or Adjust Doors",
+   "price": 50.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bypass, Install Floor Guide",
+   "price": 38.33,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bypass, Install Handle (Including",
+   "price": 43.33,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bifold, Replace Headrail (Set)",
+   "price": 185,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bifold, Replace Door Hardware (As",
+   "price": 100,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bifold, Replace Doors (All New",
+   "price": 275,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bifold, Reinstall And/Or Adjust Doors",
+   "price": 100,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Bifold, Install Knobs",
+   "price": 38.33,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Standard, Replace Door Only",
+   "price": 250,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Standard, Replace Door And Frame",
+   "price": 350,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Standard, Replace Knob",
+   "price": 55.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Standard, Adjust Door / Strike Plate",
+   "price": 50.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Pocket, Replace Latching Mechanism",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Pocket, Replace Locking Mechanism",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Pocket, Replace Rail",
+   "price": 225.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Pocket, Replace Door",
+   "price": 220.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Pocket, Repair / Stuck Door",
+   "price": 110.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Barn, Install New",
+   "price": 280.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Barn, Replace Door Slab Only",
+   "price": 165.0,
+   "unit": "each"
+  },
+  {
+   "name": "Interior, Barn, Replace Hardware",
+   "price": 120.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Doors > Exterior > French > Adjustment Only",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Adjustment Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Install Accessory Locks",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Install Accessory Locks",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Install Alarm",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Install Alarm",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Install New - Replacement - Pre-Hung",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Install New - Replacement - Pre-Hung",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Install New - Replacment - Slab Only (Each)",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Install New - Replacment - Slab Only (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Bottom Seal (Each)",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Replace Bottom Seal (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Deadbolt",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Replace Deadbolt",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Doorknob / Lever / Handle",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Replace Doorknob / Lever / Handle",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Slider Bolt Latch",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Replace Slider Bolt Latch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Sweep (Each)",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Replace Sweep (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Threshold",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Replace Threshold",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Weather Stripping",
+   "taxonomy_path": "Labor > Doors > Exterior > French > Replace Weather Stripping",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Adjust / Align Safety Sensors",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Adjust / Align Safety Sensors",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Clean And Lube Tracks",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Clean And Lube Tracks",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Paint Door",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Paint Door",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace All Panels",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Replace All Panels",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Locking / Latching Mechanism",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Replace Locking / Latching Mechanism",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Motor",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Replace Motor",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Panel (Single)",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Replace Panel (Single)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Track",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Replace Track",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Weather Stripping / Exterior Trim",
+   "taxonomy_path": "Labor > Doors > Exterior > Garage > Replace Weather Stripping / Exterior Trim",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Adjustment Only",
+   "taxonomy_path": "Labor > Doors > Exterior > Hinged Screen > Adjustment Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Install / Replace Pneumatic Door Closer",
+   "taxonomy_path": "Labor > Doors > Exterior > Hinged Screen > Install / Replace Pneumatic Door Closer",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Install / Replace Spring / Chain Assembly",
+   "taxonomy_path": "Labor > Doors > Exterior > Hinged Screen > Install / Replace Spring / Chain Assembly",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Exterior > Hinged Screen > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Install New - Replacement",
+   "taxonomy_path": "Labor > Doors > Exterior > Hinged Screen > Install New - Replacement",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Replace Handle",
+   "taxonomy_path": "Labor > Doors > Exterior > Hinged Screen > Replace Handle",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Security > Adjustment Only",
+   "taxonomy_path": "Labor > Doors > Exterior > Security > Adjustment Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Security > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Exterior > Security > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Security > Install New - Replacement",
+   "taxonomy_path": "Labor > Doors > Exterior > Security > Install New - Replacement",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Security > Replace Deadbolt",
+   "taxonomy_path": "Labor > Doors > Exterior > Security > Replace Deadbolt",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Security > Replace Doorknob / Lever / Handle",
+   "taxonomy_path": "Labor > Doors > Exterior > Security > Replace Doorknob / Lever / Handle",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Clean And Lubricate Track",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Clean And Lubricate Track",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install Alarm",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Install Alarm",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Fixed Pane",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Install New - Fixed Pane",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Full Replacement",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Install New - Full Replacement",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Slider Pane",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Install New - Slider Pane",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install Secondary Pin Lock",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Install Secondary Pin Lock",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Replace Handle / Latch Assembly",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Replace Handle / Latch Assembly",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Replace Mortise Style Latch",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Replace Mortise Style Latch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Replace Wheels",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Glass > Replace Wheels",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Screen > Adjustment Only",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Screen > Adjustment Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Sliding Screen > Install New",
+   "taxonomy_path": "Labor > Doors > Exterior > Sliding Screen > Install New",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Adjust To Latch And Lock Smoothly",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Adjust To Latch And Lock Smoothly",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install / Replace / Adjust Self Closing Hinge",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install / Replace / Adjust Self Closing Hinge",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Alarm",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install Alarm",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Knocker",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install Knocker",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install New (Pre-Hung)",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install New (Pre-Hung)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install New (Slab Only)",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install New (Slab Only)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Peephole",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install Peephole",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Security Sleeve",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install Security Sleeve",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Security Strike Plate Or Reinforcement",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Install Security Strike Plate Or Reinforcement",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Mortise For Doorknob Or Deadbolt",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Mortise For Doorknob Or Deadbolt",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Rekey",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Rekey",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Repair / Replace Hinge",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Repair / Replace Hinge",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Bolt For Deadbolt",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Replace Bolt For Deadbolt",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Deadbolt",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Replace Deadbolt",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Doorknob / Lever / Handle",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Replace Doorknob / Lever / Handle",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Latch For Doorknob",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Replace Latch For Doorknob",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Sweep",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Replace Sweep",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Threshold",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Replace Threshold",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Weather Stripping",
+   "taxonomy_path": "Labor > Doors > Exterior > Standard Slab > Replace Weather Stripping",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Doors > Exterior > Storm > Adjustment Only",
+   "taxonomy_path": "Labor > Doors > Exterior > Storm > Adjustment Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Storm > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Exterior > Storm > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Storm > Install New - Replacment",
+   "taxonomy_path": "Labor > Doors > Exterior > Storm > Install New - Replacment",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Storm > Install Or Replace Pneumatic Closer",
+   "taxonomy_path": "Labor > Doors > Exterior > Storm > Install Or Replace Pneumatic Closer",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Storm > Install Or Replace Spring & Chain",
+   "taxonomy_path": "Labor > Doors > Exterior > Storm > Install Or Replace Spring & Chain",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Storm > Replace Glass / Plexiglass",
+   "taxonomy_path": "Labor > Doors > Exterior > Storm > Replace Glass / Plexiglass",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Exterior > Storm > Replace Handle / Lock / Latch",
+   "taxonomy_path": "Labor > Doors > Exterior > Storm > Replace Handle / Lock / Latch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Accordion > Adjust Only",
+   "taxonomy_path": "Labor > Doors > Interior > Accordion > Adjust Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Accordion > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Interior > Accordion > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Accordion > Replace Door (Accordion Only)",
+   "taxonomy_path": "Labor > Doors > Interior > Accordion > Replace Door (Accordion Only)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Accordion > Replace Latching / Locking Mechanism",
+   "taxonomy_path": "Labor > Doors > Interior > Accordion > Replace Latching / Locking Mechanism",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Barn > Adjust Only",
+   "taxonomy_path": "Labor > Doors > Interior > Barn > Adjust Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Barn > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Interior > Barn > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Barn > Replace Hardware (All)",
+   "taxonomy_path": "Labor > Doors > Interior > Barn > Replace Hardware (All)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bifold > Adjust Only",
+   "taxonomy_path": "Labor > Doors > Interior > Bifold > Adjust Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bifold > Install Knob (Each)",
+   "taxonomy_path": "Labor > Doors > Interior > Bifold > Install Knob (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bifold > Install New Assembly - Ground Up (Each)",
+   "taxonomy_path": "Labor > Doors > Interior > Bifold > Install New Assembly - Ground Up (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bifold > Replace All Hardware (Each)",
+   "taxonomy_path": "Labor > Doors > Interior > Bifold > Replace All Hardware (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bifold > Replace Door Assembly (Each)",
+   "taxonomy_path": "Labor > Doors > Interior > Bifold > Replace Door Assembly (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bifold > Replace Headrail (Each)",
+   "taxonomy_path": "Labor > Doors > Interior > Bifold > Replace Headrail (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bypass > Adjust Only",
+   "taxonomy_path": "Labor > Doors > Interior > Bypass > Adjust Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bypass > Install Flush Door Pull",
+   "taxonomy_path": "Labor > Doors > Interior > Bypass > Install Flush Door Pull",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bypass > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Interior > Bypass > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Bypass > Replace Door (Each)",
+   "taxonomy_path": "Labor > Doors > Interior > Bypass > Replace Door (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Pocket > Repair Or Adjust Stuck Door",
+   "taxonomy_path": "Labor > Doors > Interior > Pocket > Repair Or Adjust Stuck Door",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Pocket > Replace Handle / Latch Mechanism",
+   "taxonomy_path": "Labor > Doors > Interior > Pocket > Replace Handle / Latch Mechanism",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Bypass > Adjust Only",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Bypass > Adjust Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Bypass > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Bypass > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Bypass > Replace Bumpers",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Bypass > Replace Bumpers",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Bypass > Replace Handle",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Bypass > Replace Handle",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Adjust Only",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Hinged > Adjust Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Hinged > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Replace Door (Each)",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Hinged > Replace Door (Each)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Replace Handle",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Hinged > Replace Handle",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Replace Latch / Magnet",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Hinged > Replace Latch / Magnet",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Replace Trim / Strips",
+   "taxonomy_path": "Labor > Doors > Interior > Shower > Hinged > Replace Trim / Strips",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Doors > Interior > Standard Slab > Install New - Ground Up",
+   "taxonomy_path": "Labor > Doors > Interior > Standard Slab > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Standard Slab > Repair / Replace Hinge",
+   "taxonomy_path": "Labor > Doors > Interior > Standard Slab > Repair / Replace Hinge",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Interior > Standard Slab > Replace Door (Pre-Hung)",
+   "taxonomy_path": "Labor > Doors > Interior > Standard Slab > Replace Door (Pre-Hung)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Doors > Miscellaneous > Install Doorstop",
+   "taxonomy_path": "Labor > Doors > Miscellaneous > Install Doorstop",
+   "suggested_unit": "each"
+  }
+ ]
+}

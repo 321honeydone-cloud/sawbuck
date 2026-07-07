@@ -1,0 +1,73 @@
+{
+ "trade": "Masonry",
+ "count": 5,
+ "anchors_same_book": [
+  {
+   "name": "Brick, Repair",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Slump Block, Repair",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cinder Block, Repair",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Stone Veneer, Repair",
+   "price": 195.0,
+   "unit": "each"
+  },
+  {
+   "name": "Stone Wall, Repair",
+   "price": 250.0,
+   "unit": "each"
+  },
+  {
+   "name": "Grout, Replace/Repair",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Fireplace, Repair",
+   "price": 250.0,
+   "unit": "each"
+  },
+  {
+   "name": "Chimney Flue, Replace/Repair",
+   "price": 310.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Masonry > Repair / Replace Damaged / Missing Grout/Mortar",
+   "taxonomy_path": "Labor > Masonry > Repair / Replace Damaged / Missing Grout/Mortar",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Brick",
+   "taxonomy_path": "Labor > Masonry > Replace Damaged / Missing Brick",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Cinder Block",
+   "taxonomy_path": "Labor > Masonry > Replace Damaged / Missing Cinder Block",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Slump Block",
+   "taxonomy_path": "Labor > Masonry > Replace Damaged / Missing Slump Block",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Stone Veneer",
+   "taxonomy_path": "Labor > Masonry > Replace Damaged / Missing Stone Veneer",
+   "suggested_unit": "each"
+  }
+ ]
+}

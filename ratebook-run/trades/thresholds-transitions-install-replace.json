@@ -1,0 +1,12 @@
+{
+ "trade": "Thresholds / Transitions Install / Replace",
+ "count": 1,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Thresholds / Transitions Install / Replace",
+   "taxonomy_path": "Thresholds / Transitions Install / Replace",
+   "suggested_unit": "linear ft"
+  }
+ ]
+}

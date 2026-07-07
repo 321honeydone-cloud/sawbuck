@@ -1,0 +1,107 @@
+{
+ "trade": "Landscaping",
+ "count": 20,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Landscaping > Install Holiday Lights",
+   "taxonomy_path": "Labor > Landscaping > Install Holiday Lights",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Install Mailbox - Ground Up",
+   "taxonomy_path": "Labor > Landscaping > Install Mailbox - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Install Misters",
+   "taxonomy_path": "Labor > Landscaping > Install Misters",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Junk Removal",
+   "taxonomy_path": "Labor > Landscaping > Junk Removal",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Lawn Mowing / Edging / Trimming",
+   "taxonomy_path": "Labor > Landscaping > Lawn Mowing / Edging / Trimming",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Landscaping > Pool Maintenance",
+   "taxonomy_path": "Labor > Landscaping > Pool Maintenance",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Pour Cement Slab",
+   "taxonomy_path": "Labor > Landscaping > Pour Cement Slab",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Pressure Wash Driveway",
+   "taxonomy_path": "Labor > Landscaping > Pressure Wash Driveway",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Landscaping > Pressure Wash Garage",
+   "taxonomy_path": "Labor > Landscaping > Pressure Wash Garage",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Landscaping > Pressure Wash Porch",
+   "taxonomy_path": "Labor > Landscaping > Pressure Wash Porch",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Landscaping > Pressure Wash Sidewalk",
+   "taxonomy_path": "Labor > Landscaping > Pressure Wash Sidewalk",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Landscaping > Remount Mailbox Post To Ground",
+   "taxonomy_path": "Labor > Landscaping > Remount Mailbox Post To Ground",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Remount Mailbox To Post",
+   "taxonomy_path": "Labor > Landscaping > Remount Mailbox To Post",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Remove Holiday Lights",
+   "taxonomy_path": "Labor > Landscaping > Remove Holiday Lights",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Remove Tree",
+   "taxonomy_path": "Labor > Landscaping > Remove Tree",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Replace Mailbox - Box Only",
+   "taxonomy_path": "Labor > Landscaping > Replace Mailbox - Box Only",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Solar Maintenance",
+   "taxonomy_path": "Labor > Landscaping > Solar Maintenance",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Trim Tree",
+   "taxonomy_path": "Labor > Landscaping > Trim Tree",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Landscaping > Weed Removal",
+   "taxonomy_path": "Labor > Landscaping > Weed Removal",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Landscaping > Welding - General",
+   "taxonomy_path": "Labor > Landscaping > Welding - General",
+   "suggested_unit": "each"
+  }
+ ]
+}

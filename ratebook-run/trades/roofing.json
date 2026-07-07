@@ -1,0 +1,188 @@
+{
+ "trade": "Roofing",
+ "count": 17,
+ "anchors_same_book": [
+  {
+   "name": "Patch, Flat Roof",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Patch, Shingle Roof",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Patch, Tile Roof",
+   "price": 250.0,
+   "unit": "each"
+  },
+  {
+   "name": "Patch, Metal Roof",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Patch, Asphalt Roof",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Scuppers, Repair",
+   "price": 155.0,
+   "unit": "each"
+  },
+  {
+   "name": "Gutters, Rapair",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Gutters, Clean Out",
+   "price": 160.0,
+   "unit": "each"
+  },
+  {
+   "name": "Gutters, Install New",
+   "price": 250.0,
+   "unit": "each"
+  },
+  {
+   "name": "Chimney, Sealing",
+   "price": 180.0,
+   "unit": "each"
+  },
+  {
+   "name": "Chimney, Cap Install/Replace",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Vent Caps, Install/Replace",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Vents, Whirlybird, Install/Replace",
+   "price": 160.0,
+   "unit": "each"
+  },
+  {
+   "name": "Parapet, Seal",
+   "price": 180.0,
+   "unit": "each"
+  },
+  {
+   "name": "Skylight, Install New",
+   "price": 500,
+   "unit": "each"
+  },
+  {
+   "name": "Skylight, Covers, Replace",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Skylight, Seal",
+   "price": 150.0,
+   "unit": "each"
+  },
+  {
+   "name": "Satellite Dishes, Install/Remove",
+   "price": 115.0,
+   "unit": "each"
+  },
+  {
+   "name": "Other Roof Accessories, Install/Remove",
+   "price": 120.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Roofing > Apply Elastomeric Coating Flat Roof",
+   "taxonomy_path": "Labor > Roofing > Apply Elastomeric Coating Flat Roof",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Clear Scuppers",
+   "taxonomy_path": "Labor > Roofing > Clear Scuppers",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Install / Replace Pipe Boot",
+   "taxonomy_path": "Labor > Roofing > Install / Replace Pipe Boot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Install Downspout - Ground Up",
+   "taxonomy_path": "Labor > Roofing > Install Downspout - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Install Gutters - Ground Up",
+   "taxonomy_path": "Labor > Roofing > Install Gutters - Ground Up",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Roofing > Install Satellite Dish",
+   "taxonomy_path": "Labor > Roofing > Install Satellite Dish",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Install Vent Cap",
+   "taxonomy_path": "Labor > Roofing > Install Vent Cap",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Install Whirlybird / Attic Vent",
+   "taxonomy_path": "Labor > Roofing > Install Whirlybird / Attic Vent",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Remove Old Satellite Cables",
+   "taxonomy_path": "Labor > Roofing > Remove Old Satellite Cables",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Remove Satellite Dish",
+   "taxonomy_path": "Labor > Roofing > Remove Satellite Dish",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Replace Downspout",
+   "taxonomy_path": "Labor > Roofing > Replace Downspout",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Replace Skylight Curb",
+   "taxonomy_path": "Labor > Roofing > Replace Skylight Curb",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Replace Skylight Inner Dome",
+   "taxonomy_path": "Labor > Roofing > Replace Skylight Inner Dome",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Replace Skylight Outer Dome",
+   "taxonomy_path": "Labor > Roofing > Replace Skylight Outer Dome",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Replace Vent Cap",
+   "taxonomy_path": "Labor > Roofing > Replace Vent Cap",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Replace Whirlybird / Attic Vent",
+   "taxonomy_path": "Labor > Roofing > Replace Whirlybird / Attic Vent",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Roofing > Secure Gutters",
+   "taxonomy_path": "Labor > Roofing > Secure Gutters",
+   "suggested_unit": "linear ft"
+  }
+ ]
+}

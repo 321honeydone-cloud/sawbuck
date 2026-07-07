@@ -1,0 +1,92 @@
+{
+ "trade": "Fixtures / Mounts / Accessories",
+ "count": 17,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Grab Bars / Safety Bars",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Bathroom > Grab Bars / Safety Bars",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Mirror",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Bathroom > Mirror",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Shower Curtain Rod (Permanent)",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Bathroom > Shower Curtain Rod (Permanent)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > TP Holder",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Bathroom > TP Holder",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Towel Bar",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Bathroom > Towel Bar",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Towel Hook",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Bathroom > Towel Hook",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Towel Ring",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Bathroom > Towel Ring",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install / Hang Miscellaneous",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > General > Install / Hang Miscellaneous",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install / Hang Picture Frames",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > General > Install / Hang Picture Frames",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install / Replace AC Register",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > General > Install / Replace AC Register",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install / Replace Closet Rod",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > General > Install / Replace Closet Rod",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install Floating Shelves",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > General > Install Floating Shelves",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install Replace Register Return",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > General > Install Replace Register Return",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install Standard Shelving",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > General > Install Standard Shelving",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install TV Mount",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > General > Install TV Mount",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Kitchen > Paper Towel holder",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Kitchen > Paper Towel holder",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Kitchen > Pot Rack",
+   "taxonomy_path": "Labor > Fixtures / Mounts / Accessories > Kitchen > Pot Rack",
+   "suggested_unit": "each"
+  }
+ ]
+}

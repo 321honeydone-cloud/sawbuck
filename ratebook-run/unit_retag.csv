@@ -1,0 +1,184 @@
+category,name,old_unit,suggested_unit,priced
+Doors,"Interior, Shower, Hinged, Replace Trim",each,linear ft,True
+Doors,"Exterior, Standard Entry, Replace Threshold",each,linear ft,True
+Doors,"Exterior, Garage, Replace Trim",each,linear ft,True
+Doors,"Exterior, French (Specific), Replace Threshold",each,linear ft,True
+Plumbing,"Tub/Shower, Replace/Install Trim/Beauty Kit",each,linear ft,True
+Carpentry,"Baseboard, Install/Replace",each,linear ft,True
+Carpentry,"Door Casing, Install/Replace",each,linear ft,True
+Carpentry,"Window Casing, Install/Replace",each,linear ft,True
+Carpentry,"Chair Rail, Install/Replace",each,linear ft,True
+Carpentry,"Crown Moulding, Install/Replace",each,linear ft,True
+Carpentry,"Cabinet Trim, Install/Replace",each,linear ft,True
+Tile,"Tile, Floor, Install/Repair",each,sq ft,True
+Tile,"Tile, Bathroom Walls, Install/Repair",each,sq ft,True
+Tile,"Tile, Backsplash, Install/Repair",each,sq ft,True
+Tile,"Tile, Countertop, Install, Repair",each,sq ft,True
+Tile,"Tile, Pool, Install/Repair",each,sq ft,True
+Flooring,"Carpet, Stretching",each,sq ft,True
+Flooring,"Carpet, Install New",each,sq ft,True
+Flooring,"Carpet, Patching",each,sq ft,True
+Flooring,"Carpet, Cleaning",each,sq ft,True
+Flooring,"Carpet, Transition Strips, Install",each,sq ft,True
+Flooring,"Carpet, Tack Strip, Install",each,sq ft,True
+Flooring,"Vinyl, Plank, Glue Down, Install New",each,sq ft,True
+Flooring,"Vinyl, Plank, Glue Down, Repair/Replace",each,sq ft,True
+Flooring,"Vinyl, Plank, Floating, Install New",each,sq ft,True
+Flooring,"Vinyl, Plank, Floating, Repair/Replace",each,sq ft,True
+Flooring,"Vinyl, Sheet, Glue Down, Install New",each,sq ft,True
+Flooring,"Vinyl, Sheet, Glue Down, Repair/Replace",each,sq ft,True
+Flooring,"Laminate, Floating, Install New",each,sq ft,True
+Flooring,"Laminate, Floating, Repair/Replace",each,sq ft,True
+Flooring,"Cement, Stained, Re-Stain",each,sq ft,True
+Flooring,"Cement, Epoxy, Re-Apply",each,sq ft,True
+Flooring,"Wood Floors, Refinish",each,sq ft,True
+Flooring,"Wood Floors, Replace Damaged Pieces",each,sq ft,True
+Flooring,"Wood Floors, Install New",each,sq ft,True
+Flooring,"Wood Floors, Repair Gouges & Dents",each,sq ft,True
+Flooring,"All Flooring, Repair Squeaks",each,sq ft,True
+Flooring,"All Flooring, Install Transition Strips",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Drywall, Patch",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Drywall, Texture",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Drywall, Smooth Finish",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Drywall, Install New",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Drywall, Patch And Paint",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Drywall, Broken Joint/Tape Repair",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Drywall, Nail Pop Repair",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Paint, Full Interior",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Popcorn, Paint",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Popcorn, Remove",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Popcorn, Patch",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Popcorn, Apply",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Ceiling Tile, Glue Down, Replace/Repair/Install",each,sq ft,True
+Interior Wall & Ceiling Finishes &,"Ceiling Tile, Drop Down, Replace/Repair/Install",each,sq ft,True
+Roofing,"Gutters, Rapair",each,linear ft,True
+Roofing,"Gutters, Clean Out",each,linear ft,True
+Roofing,"Gutters, Install New",each,linear ft,True
+Exterior Walls Finishes,"Paint, Full Exterior",each,sq ft,True
+Fencing,"Wood Picket, Build New",each,linear ft,True
+Fencing,"Wood Picket, Repair/Replace Wooden Parts",each,linear ft,True
+Fencing,"Wood Picket, Seal",each,linear ft,True
+Fencing,"Wood Gate, Build New Or Repair",each,linear ft,True
+Fencing,"Wood Mounted Latches & Hinges, Install/",each,linear ft,True
+Fencing,"Chain Link, Build New",each,linear ft,True
+Fencing,"Chain Link, Repair/Replace Components",each,linear ft,True
+Fencing,"Chain Link Gate, Build New Or Repair",each,linear ft,True
+Fencing,"Chain Link Latches & Hinges, Install/Replace",each,linear ft,True
+Fencing,"Block/Masonry, Build New",each,linear ft,True
+Fencing,"Block/Masonry, Repair/Replace",each,linear ft,True
+Fencing,"Block/Masonry, Grout",each,linear ft,True
+Fencing,"Block/Masonry, Mount Gates To Masonry",each,linear ft,True
+Fencing,"Block/Masonry, Install Latches/Hinges To",each,linear ft,True
+Fencing,"Gates, Self Closing Devices, Install/Replace",each,linear ft,True
+Misc / Exterior,Tree Removal/Trimming,each,linear ft,True
+Misc / Exterior,Pressure Washing,each,sq ft,True
+Misc / Exterior,Junk Hauling,each,hour,True
+Equipment Rental,Equipment Rental > Heavy Equipment > Mini Excavator,each,hour,False
+Equipment Rental,Equipment Rental > Heavy Equipment > Skid Steer,each,hour,False
+Equipment Rental,Equipment Rental > Power Tools > Circular Saw,each,hour,False
+Equipment Rental,Equipment Rental > Power Tools > Nail Gun,each,hour,False
+Equipment Rental,Equipment Rental > Scaffolding > Extension Ladder,each,hour,False
+Equipment Rental,Equipment Rental > Scaffolding > Rolling Scaffold,each,hour,False
+Appliances,Appliances > Dryer > Haul Off Old Dryer,each,hour,False
+Appliances,Appliances > Full Range (Cooktop + Oven) > Haul Away Old Range,each,hour,False
+Appliances,Appliances > Refrigerator > Haul Away Old Refrigerator,each,hour,False
+Carpentry,Carpentry > Install Baseboard / Ground Up,each,linear ft,False
+Carpentry,Carpentry > Install Chair Rail - Ground Up,each,linear ft,False
+Carpentry,Carpentry > Install Crown Molding - Ground Up,each,linear ft,False
+Carpentry,Carpentry > Install Door Casing - Ground Up - Exterior,each,linear ft,False
+Carpentry,Carpentry > Install Door Casing - Ground Up - Interior,each,linear ft,False
+Carpentry,Carpentry > Replace Crown Molding,each,linear ft,False
+Carpentry,Carpentry > Replace Door Casing - Ground Up - Exterior,each,linear ft,False
+Doors,Doors > Exterior > French > Replace Threshold,each,linear ft,False
+Doors,Doors > Exterior > French > Replace Weather Stripping,each,linear ft,False
+Doors,Doors > Exterior > Garage > Replace Weather Stripping / Exterior Trim,each,linear ft,False
+Doors,Doors > Exterior > Standard Slab > Replace Threshold,each,linear ft,False
+Doors,Doors > Exterior > Standard Slab > Replace Weather Stripping,each,linear ft,False
+Doors,Doors > Interior > Shower > Hinged > Replace Trim / Strips,each,linear ft,False
+Fencing,Fencing > Chain Link > Install New - Ground Up,each,linear ft,False
+Fencing,Fencing > Chain Link > Install Privacy Slats,each,linear ft,False
+Fencing,Fencing > Chain Link > Repalce Gate Hardware,each,linear ft,False
+Fencing,Fencing > Chain Link > Replace Horizontal Rails,each,linear ft,False
+Fencing,Fencing > Chain Link > Replace Vertical Posts,each,linear ft,False
+Fencing,Fencing > Chain Link > Secure Chain Link To Poles,each,linear ft,False
+Fencing,Fencing > Masonry > Build New - Ground Up,each,linear ft,False
+Fencing,Fencing > Masonry > Mount Gate,each,linear ft,False
+Fencing,Fencing > Masonry > Mount Hardware,each,linear ft,False
+Fencing,Fencing > Masonry > Repair / Replace Grout,each,linear ft,False
+Fencing,Fencing > Wood Picket > Apply Exterior Sealer,each,linear ft,False
+Fencing,Fencing > Wood Picket > Build New - Ground Up,each,linear ft,False
+Fencing,Fencing > Wood Picket > Paint,each,linear ft,False
+Fencing,Fencing > Wood Picket > Repair / Rebuild Gate,each,linear ft,False
+Fencing,Fencing > Wood Picket > Replace Gate Hardware,each,linear ft,False
+Fencing,Fencing > Wood Picket > Replace Pickets,each,linear ft,False
+Fencing,Fencing > Wood Picket > Replace Post,each,linear ft,False
+Fencing,Fencing > Wood Picket > Replace Rail,each,linear ft,False
+Flooring,Flooring > Carpet > Install New - Ground Up,each,sq ft,False
+Flooring,Flooring > Carpet > Patch / Repair,each,sq ft,False
+Flooring,Flooring > Carpet > Remove Permanently,each,sq ft,False
+Flooring,Flooring > Carpet > Replace,each,sq ft,False
+Flooring,Flooring > Carpet > Shampoo / Steam Clean,each,sq ft,False
+Flooring,Flooring > Carpet > Stretch,each,sq ft,False
+Flooring,Flooring > Hardwood > Install New - Ground Up,each,sq ft,False
+Flooring,Flooring > Hardwood > Patch / Repair,each,sq ft,False
+Flooring,Flooring > Hardwood > Remove Permanently,each,sq ft,False
+Flooring,Flooring > Hardwood > Replace,each,sq ft,False
+Flooring,Flooring > Laminate - Wood > Install New - Ground Up,each,sq ft,False
+Flooring,Flooring > Laminate - Wood > Patch / Repair,each,sq ft,False
+Flooring,Flooring > Laminate - Wood > Remove Permanently,each,sq ft,False
+Flooring,Flooring > Laminate - Wood > Replace,each,sq ft,False
+Flooring,Flooring > Laminate Vinyl Plank (LVP) > Install New - Ground Up,each,sq ft,False
+Flooring,Flooring > Laminate Vinyl Plank (LVP) > Patch / Repair,each,sq ft,False
+Flooring,Flooring > Laminate Vinyl Plank (LVP) > Remove Permanently,each,sq ft,False
+Flooring,Flooring > Laminate Vinyl Plank (LVP) > Replace,each,sq ft,False
+Flooring,Flooring > Miscellaneous / Other > Concrete Stain - Ground Up,each,sq ft,False
+Flooring,Flooring > Miscellaneous / Other > Concrete Stain - Repair,each,sq ft,False
+Flooring,Flooring > Miscellaneous / Other > Epoxy - Ground Up,each,sq ft,False
+Flooring,Flooring > Miscellaneous / Other > Epoxy - Repair,each,sq ft,False
+Flooring,Flooring > Sheet Vinyl > Install New - Ground Up,each,sq ft,False
+Flooring,Flooring > Sheet Vinyl > Patch / Repair,each,sq ft,False
+Flooring,Flooring > Sheet Vinyl > Remove Permanently,each,sq ft,False
+Flooring,Flooring > Sheet Vinyl > Replace,each,sq ft,False
+Flooring,Flooring > Vinyl Tile (LVT) > Install New - Ground Up,each,sq ft,False
+Flooring,Flooring > Vinyl Tile (LVT) > Patch / Repair,each,sq ft,False
+Flooring,Flooring > Vinyl Tile (LVT) > Remove Permanently,each,sq ft,False
+Flooring,Flooring > Vinyl Tile (LVT) > Replace,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Ceiling Tile > Install New - Ground Up,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Ceiling Tile > Remove + Skim,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Ceiling Tile > Remove + Skim + Texture,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Ceiling Tile > Remove Permanently,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Drop Ceiling > Replace Tile,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Drywall > Install New Drywall - Ground Up,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Drywall > Paint - Ground Up,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Drywall > Texture - Ground Up,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Paint > Custom Paint Match Fee,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Paint > Per Bathroom Paint,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Paint > Per Bedroom Room Paint,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Paint > Per Closet / Pantry Paint,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Paint > Per Hour Paint,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Paint > Per Kitchen Paint,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Paint > Per Square Foot Paint,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Paint > Whole House Paint - Interior,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Popcorn > Remove Popcorn + Skim + Texture,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Popcorn > Remove Popcorn Permanently,each,sq ft,False
+Interior Walls & Ceilings,Interior Walls & Ceilings > Popcorn > Remove Popocorn + Skim,each,sq ft,False
+Landscaping,Landscaping > Lawn Mowing / Edging / Trimming,each,linear ft,False
+Landscaping,Landscaping > Pressure Wash Driveway,each,sq ft,False
+Landscaping,Landscaping > Pressure Wash Garage,each,sq ft,False
+Landscaping,Landscaping > Pressure Wash Porch,each,sq ft,False
+Landscaping,Landscaping > Pressure Wash Sidewalk,each,sq ft,False
+Landscaping,Landscaping > Trim Tree,each,linear ft,False
+Roofing,Roofing > Install Gutters - Ground Up,each,linear ft,False
+Roofing,Roofing > Secure Gutters,each,linear ft,False
+Tile,Tile > Grout - Install New,each,sq ft,False
+Tile,Tile > Install New - Ground Up,each,sq ft,False
+Windows,Windows > Replace Weather Stripping / Caulking,each,linear ft,False
+Materials,Materials > Paint > Exterior Paint,each,sq ft,False
+Materials,Materials > Paint > Interior Paint,each,sq ft,False
+Thresholds / Transitions Install / Replace,Thresholds / Transitions Install / Replace,each,linear ft,False
+Travel / Hauling,Travel / Hauling > Delivery > Local Delivery,each,hour,False
+Travel / Hauling,Travel / Hauling > Delivery > Regional Delivery,each,hour,False
+Travel / Hauling,Travel / Hauling > Disposal > Debris Removal,each,hour,False
+Travel / Hauling,Travel / Hauling > Disposal > Dumpster Rental,each,hour,False
+Travel / Hauling,Travel / Hauling > Vehicle > Truck,each,hour,False
+Travel / Hauling,Travel / Hauling > Vehicle > Van,each,hour,False

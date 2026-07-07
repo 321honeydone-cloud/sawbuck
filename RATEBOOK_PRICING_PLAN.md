@@ -84,3 +84,17 @@ Repoint the WS7 scheduled jobs at Brevard: daily fill of any remaining stubs, we
 - Pilot trade: confirm we start the pricing run on Electrical (139), or pick a smaller trade like Flooring (30) to shake out the workflow first.
 - RSMeans: in or out. Free sources only, or budget for the paid index.
 - Zip set: confirm the Brevard zips to average (Melbourne, West Melbourne, Viera, Rockledge, Palm Bay) match your actual service radius.
+
+---
+
+## Run log: Electrical pilot (2026-07-06)
+
+Decisions locked with Manny this session (these OVERRIDE the 2026-06-25 "market price wins" line above):
+- Reconciliation: REALISTIC MINUTES WIN. Set honest labor minutes, price = (min/60 x $100) + (materials x 1.25). Market research is the cross-check, not the setter. Where a stub duplicates an existing priced anchor, SNAP to the anchor price (the book carries a labor premium above raw formula on swaps like outlets/switches).
+- Market price is TASK-ONLY. The $100 trip fee is added once by the engine, never baked into a line.
+- REFER items LOAD LIVE + FLAGGED (Manny's call, against the conservative recommendation). Flag column: REFER = licensed/permit, VERIFY = gray (confirm), blank = handyman-legal.
+- Pilot trade = Electrical (139 stubs). Output: ratebook-run/electrical_review.csv for Manny's approval before it loads to CATALOG-RATE-OVERRIDES.
+
+Electrical pilot result: 139 priced. 111 handyman, 10 VERIFY, 18 REFER. Range $35-$550. Floor $35 (book's lowest anchor is ~$36). Verified: 0 non-anchor items drift from formula, all ground-up installs exceed their swap anchors, all regulated items flagged.
+
+Still owed before the full 696 run (from the pre-run review): category ALIAS MAP so renamed trades inherit anchors (Interior Walls & Ceilings, Landscaping, Exterior Walls, Travel/Hauling all miss their anchors on exact-string join); unit re-tag false positives (lawn mowing/tree trim tagged LF; per-room paint tagged SF; paint-as-material tagged SF; fence gate hardware tagged LF; shower beauty kit tagged LF; transition strips tagged SF); prep.py mount path is stale.

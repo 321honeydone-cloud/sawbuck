@@ -1,0 +1,37 @@
+{
+ "trade": "Materials",
+ "count": 6,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Materials > Drywall > Drywall Sheets",
+   "taxonomy_path": "Materials > Drywall > Drywall Sheets",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Materials > Drywall > Joint Compound",
+   "taxonomy_path": "Materials > Drywall > Joint Compound",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Materials > Lumber > 2x4 Studs",
+   "taxonomy_path": "Materials > Lumber > 2x4 Studs",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Materials > Lumber > Plywood Sheets",
+   "taxonomy_path": "Materials > Lumber > Plywood Sheets",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Materials > Paint > Exterior Paint",
+   "taxonomy_path": "Materials > Paint > Exterior Paint",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Materials > Paint > Interior Paint",
+   "taxonomy_path": "Materials > Paint > Interior Paint",
+   "suggested_unit": "sq ft"
+  }
+ ]
+}

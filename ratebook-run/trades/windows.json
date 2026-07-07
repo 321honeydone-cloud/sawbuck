@@ -1,0 +1,128 @@
+{
+ "trade": "Windows",
+ "count": 13,
+ "anchors_same_book": [
+  {
+   "name": "Window, Replace",
+   "price": 450,
+   "unit": "each"
+  },
+  {
+   "name": "Window Glass, Single Pane, Replace",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window Glass, Dual Pane, Replace",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window, Casement, Crank, Replace",
+   "price": 100.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window, Locks, Replace/Repair",
+   "price": 65.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window, Springs & Balances, Replace",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window, Blinds, Standard Horizontal, Replace",
+   "price": 65.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window, Curtain Rods, Replace",
+   "price": 60.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window Blinds, Standard Vertical, Replace",
+   "price": 95.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window, Clear Weep Holes",
+   "price": 41.67,
+   "unit": "each"
+  },
+  {
+   "name": "Window, Install Sensors/Alarms",
+   "price": 65.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Windows > Build New Window Screen",
+   "taxonomy_path": "Labor > Windows > Build New Window Screen",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Install New - Ground Up",
+   "taxonomy_path": "Labor > Windows > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Repair / Rescreen Window Screen",
+   "taxonomy_path": "Labor > Windows > Repair / Rescreen Window Screen",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Replace Balance / Rope / Weight",
+   "taxonomy_path": "Labor > Windows > Replace Balance / Rope / Weight",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Replace Balance Springs",
+   "taxonomy_path": "Labor > Windows > Replace Balance Springs",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Replace Full Frame",
+   "taxonomy_path": "Labor > Windows > Replace Full Frame",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Replace Glass (Reglaze) - Dual Pane",
+   "taxonomy_path": "Labor > Windows > Replace Glass (Reglaze) - Dual Pane",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Replace Glass (Reglaze) - Single Pane",
+   "taxonomy_path": "Labor > Windows > Replace Glass (Reglaze) - Single Pane",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Replace Glass (Reglaze), Triple Pane",
+   "taxonomy_path": "Labor > Windows > Replace Glass (Reglaze), Triple Pane",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Replace Locking Mechanism",
+   "taxonomy_path": "Labor > Windows > Replace Locking Mechanism",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Replace Weather Stripping / Caulking",
+   "taxonomy_path": "Labor > Windows > Replace Weather Stripping / Caulking",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Windows > Retrofit - New Sash",
+   "taxonomy_path": "Labor > Windows > Retrofit - New Sash",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Windows > Seal Window Exterior For Leaks",
+   "taxonomy_path": "Labor > Windows > Seal Window Exterior For Leaks",
+   "suggested_unit": "each"
+  }
+ ]
+}

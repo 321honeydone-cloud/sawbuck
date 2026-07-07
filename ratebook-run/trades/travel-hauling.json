@@ -1,0 +1,37 @@
+{
+ "trade": "Travel / Hauling",
+ "count": 6,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Travel / Hauling > Delivery > Local Delivery",
+   "taxonomy_path": "Travel / Hauling > Delivery > Local Delivery",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Travel / Hauling > Delivery > Regional Delivery",
+   "taxonomy_path": "Travel / Hauling > Delivery > Regional Delivery",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Travel / Hauling > Disposal > Debris Removal",
+   "taxonomy_path": "Travel / Hauling > Disposal > Debris Removal",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Travel / Hauling > Disposal > Dumpster Rental",
+   "taxonomy_path": "Travel / Hauling > Disposal > Dumpster Rental",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Travel / Hauling > Vehicle > Truck",
+   "taxonomy_path": "Travel / Hauling > Vehicle > Truck",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Travel / Hauling > Vehicle > Van",
+   "taxonomy_path": "Travel / Hauling > Vehicle > Van",
+   "suggested_unit": "hour"
+  }
+ ]
+}

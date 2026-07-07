@@ -24,6 +24,13 @@ export const TEXT_MODEL = process.env.OLLAMA_TEXT_MODEL || "qwen3-32b-manny";
 // reading never worked in shop mode until this was set right.
 export const VISION_MODEL = process.env.OLLAMA_VISION_MODEL || "llama3.2-vision";
 
+// ----- Two-stage local brain (Manny's rule, 2026-07-04) -----
+// The FIRST prompt on a fresh quote runs gemma4:31b (loads and answers fast
+// cold), then every prompt after that on the same quote runs qwen3:27b, which
+// holds up better on follow-up edits. Override with env if the tags change.
+export const FIRST_TURN_MODEL = process.env.OLLAMA_FIRST_MODEL || "gemma4:31b";
+export const STEADY_MODEL = process.env.OLLAMA_STEADY_MODEL || "qwen3:27b";
+
 // Local text models the owner can pick from on the Admin screen. The env
 // default is always first. Add or swap options with OLLAMA_EXTRA_TEXT_MODELS
 // (comma-separated tags); gemma4:31b ships as the built-in second option.
@@ -32,6 +39,8 @@ export const VISION_MODEL = process.env.OLLAMA_VISION_MODEL || "llama3.2-vision"
 export const LOCAL_TEXT_MODELS: string[] = Array.from(
   new Set([
     TEXT_MODEL,
+    FIRST_TURN_MODEL,
+    STEADY_MODEL,
     ...(process.env.OLLAMA_EXTRA_TEXT_MODELS || "gemma4:31b")
       .split(",")
       .map((s) => s.trim())
@@ -208,7 +217,7 @@ export async function ollamaPs(): Promise<{ name: string; sizeVram: number }[] |
  * load means the model is ready before the first real prompt, so the estimator
  * does not appear to hang while a 31B model loads on the first message.
  */
-export async function warmLocalModel(): Promise<{ ready: boolean; model: string; ms: number; error?: string }> {
+export async function warmLocalModel(stage: "first" | "steady" = "first"): Promise<{ ready: boolean; model: string; ms: number; error?: string }> {
   const t0 = Date.now();
   let model = "";
   // Deliberately NO app-level lock here. Warming used to take the generation
@@ -217,8 +226,10 @@ export async function warmLocalModel(): Promise<{ ready: boolean; model: string;
   // That was the "hang after the first prompt". Warming targets the SAME model
   // the estimator uses, and Ollama queues same-model requests internally, so a
   // prompt that arrives mid-load simply runs the moment the load finishes.
+  // Stage-aware: a fresh quote's next prompt runs the first-turn model (gemma),
+  // an existing conversation's next prompt runs the steady model (qwen).
   try {
-    model = await resolveModel(await activeLocalModel());
+    model = await localChatModel(stage === "first");
     // Already resident in VRAM? Then there is nothing to warm; answer instantly
     // instead of issuing another load call (page navigations fire this a lot).
     const loaded = await ollamaPs();
@@ -374,6 +385,55 @@ async function acquireOllama(): Promise<() => void> {
  *  user prompt is never stuck queued behind housekeeping. */
 export function ollamaBusy(): boolean {
   return ollamaWaiters > 0;
+}
+
+/** Local model for a chat turn. First prompt on a fresh quote runs the
+ *  first-turn model (gemma), every later prompt runs the steady model (qwen).
+ *  Resolved against `ollama list` so a missing tag falls back instead of 404ing. */
+export async function localChatModel(firstTurn: boolean): Promise<string> {
+  return resolveModel(firstTurn ? FIRST_TURN_MODEL : STEADY_MODEL);
+}
+
+/** Best model for background housekeeping (estimate titles, memory compaction):
+ *  whatever text model is ALREADY sitting in VRAM, so housekeeping never forces
+ *  a model swap right when the user is mid-conversation. Falls back to the
+ *  steady model when nothing is loaded. */
+export async function housekeepingModel(): Promise<string> {
+  try {
+    const loaded = await ollamaPs();
+    if (loaded && loaded.length > 0) {
+      const hit = LOCAL_TEXT_MODELS.find((m) => loaded.some((l) => l.name === m || l.name.startsWith(`${m}:`)));
+      if (hit) return hit;
+    }
+  } catch {
+    /* box unreachable; the caller's own error handling covers it */
+  }
+  return resolveModel(STEADY_MODEL);
+}
+
+/** Fire-and-forget: load the steady model (qwen) into VRAM shortly AFTER the
+ *  first turn finishes, so the quote's second prompt — which switches models —
+ *  does not pay the cold load. Waits a beat so the title generation on the
+ *  still-loaded first-turn model can run first, and steps aside if a live
+ *  generation already holds the GPU (that generation will load what it needs). */
+export function prewarmSteadyModel(delayMs = 15000): void {
+  void (async () => {
+    try {
+      await new Promise((r) => setTimeout(r, delayMs));
+      if (ollamaBusy()) return;
+      const model = await resolveModel(STEADY_MODEL);
+      const loaded = await ollamaPs();
+      if (loaded?.some((m) => m.name === model || m.name.startsWith(`${model}:`))) return;
+      await fetch(`${OLLAMA_URL}/api/generate`, ollamaInit({
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ model, prompt: "", keep_alive: "30m" }),
+        signal: AbortSignal.timeout(300000),
+      }) as RequestInit);
+    } catch {
+      /* best-effort; worst case the second prompt loads it itself */
+    }
+  })();
 }
 
 async function ollamaText(opts: ChatOpts): Promise<string> {

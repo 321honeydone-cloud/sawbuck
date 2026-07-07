@@ -1,0 +1,193 @@
+{
+ "trade": "Cabinets",
+ "count": 23,
+ "anchors_same_book": [
+  {
+   "name": "Cabinet, Kitchen, Replace/Install",
+   "price": 175.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet, Vanity, Replace/Install",
+   "price": 230.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet, Pantry/Laundry, Replace/Install",
+   "price": 230.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet, Rotten Sink Cabinet Bottom, Replace",
+   "price": 240.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet, Door, Replace",
+   "price": 100.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet, Door Hinges, Replace",
+   "price": 60.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet Door Hinges, Adjustment",
+   "price": 33.33,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet Drawer, Replace",
+   "price": 130.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet Drawer, Build New Box",
+   "price": 180.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet Drawer, Replace Rails",
+   "price": 95.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet, Door And Drawer Pulls, Replace/Install",
+   "price": 60.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet, Toe Kick, Replace/Install",
+   "price": 95.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet Coutertops, Replace/Install",
+   "price": 400,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet Countetops, Caulk",
+   "price": 60.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Cabinets > Caulk Countertops",
+   "taxonomy_path": "Labor > Cabinets > Caulk Countertops",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Bathroom Medicine",
+   "taxonomy_path": "Labor > Cabinets > Install New - Ground Up - Bathroom Medicine",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Bathroom Vanity",
+   "taxonomy_path": "Labor > Cabinets > Install New - Ground Up - Bathroom Vanity",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Kitchen Base",
+   "taxonomy_path": "Labor > Cabinets > Install New - Ground Up - Kitchen Base",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Kitchen Pantry",
+   "taxonomy_path": "Labor > Cabinets > Install New - Ground Up - Kitchen Pantry",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Kitchen Upper",
+   "taxonomy_path": "Labor > Cabinets > Install New - Ground Up - Kitchen Upper",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Install New Countertops - Ground Up",
+   "taxonomy_path": "Labor > Cabinets > Install New Countertops - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Install New Door / Drawer Pulls - Ground Up",
+   "taxonomy_path": "Labor > Cabinets > Install New Door / Drawer Pulls - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Remove Permanently",
+   "taxonomy_path": "Labor > Cabinets > Remove Permanently",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Repair Drawer Front",
+   "taxonomy_path": "Labor > Cabinets > Repair Drawer Front",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Repair Drawer Rail",
+   "taxonomy_path": "Labor > Cabinets > Repair Drawer Rail",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Repair Hinge",
+   "taxonomy_path": "Labor > Cabinets > Repair Hinge",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace - Bathroom Medicine",
+   "taxonomy_path": "Labor > Cabinets > Replace - Bathroom Medicine",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace - Kitchen Base",
+   "taxonomy_path": "Labor > Cabinets > Replace - Kitchen Base",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace - Kitchen Pantry",
+   "taxonomy_path": "Labor > Cabinets > Replace - Kitchen Pantry",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace - Kitchen Upper",
+   "taxonomy_path": "Labor > Cabinets > Replace - Kitchen Upper",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace Cabinet Bottom - Full",
+   "taxonomy_path": "Labor > Cabinets > Replace Cabinet Bottom - Full",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace Cabinet Bottom - Overlay",
+   "taxonomy_path": "Labor > Cabinets > Replace Cabinet Bottom - Overlay",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace Countertops",
+   "taxonomy_path": "Labor > Cabinets > Replace Countertops",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace Drawer Front",
+   "taxonomy_path": "Labor > Cabinets > Replace Drawer Front",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace Drawer Rail",
+   "taxonomy_path": "Labor > Cabinets > Replace Drawer Rail",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Replace Hinge",
+   "taxonomy_path": "Labor > Cabinets > Replace Hinge",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Cabinets > Secure",
+   "taxonomy_path": "Labor > Cabinets > Secure",
+   "suggested_unit": "each"
+  }
+ ]
+}

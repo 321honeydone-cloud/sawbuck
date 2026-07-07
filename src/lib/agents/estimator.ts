@@ -335,6 +335,9 @@ export interface EstimatorArgs {
   visionText?: string;
   /** learnedRates + priced-book text appended to the system prompt. */
   systemExtra?: string;
+  /** Exact local model tag for this turn (two-stage brain: gemma on the first
+   * prompt of a quote, qwen after). Undefined on Claude, which picks its own. */
+  model?: string;
 }
 
 /** True when a fresh job text matches enough rate-book tasks to quote directly. */
@@ -389,6 +392,7 @@ export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineD
       prompt: userTurn,
       schema: ESTIMATOR_SCHEMA,
       temperature: 0.2,
+      model: args.model,
     });
   } catch (err) {
     yield* streamText(`The estimator could not reach your local model. ${(err as Error).message}. Start Ollama and try again.`);

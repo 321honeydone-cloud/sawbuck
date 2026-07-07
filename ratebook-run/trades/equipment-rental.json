@@ -1,0 +1,37 @@
+{
+ "trade": "Equipment Rental",
+ "count": 6,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Equipment Rental > Heavy Equipment > Mini Excavator",
+   "taxonomy_path": "Equipment Rental > Heavy Equipment > Mini Excavator",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Equipment Rental > Heavy Equipment > Skid Steer",
+   "taxonomy_path": "Equipment Rental > Heavy Equipment > Skid Steer",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Equipment Rental > Power Tools > Circular Saw",
+   "taxonomy_path": "Equipment Rental > Power Tools > Circular Saw",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Equipment Rental > Power Tools > Nail Gun",
+   "taxonomy_path": "Equipment Rental > Power Tools > Nail Gun",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Equipment Rental > Scaffolding > Extension Ladder",
+   "taxonomy_path": "Equipment Rental > Scaffolding > Extension Ladder",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Equipment Rental > Scaffolding > Rolling Scaffold",
+   "taxonomy_path": "Equipment Rental > Scaffolding > Rolling Scaffold",
+   "suggested_unit": "hour"
+  }
+ ]
+}

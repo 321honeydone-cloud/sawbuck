@@ -8,13 +8,17 @@ import { activeProvider, warmLocalModel } from "@/lib/agents/client";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(req: Request) {
   const s = await getSession();
   if (!s) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
   const provider = await activeProvider();
   if (provider !== "ollama") return NextResponse.json({ provider, ready: true });
 
-  const r = await warmLocalModel();
+  // Stage-aware: a fresh quote's first prompt runs the first-turn model
+  // (gemma), an existing conversation's next prompt runs the steady model
+  // (qwen). The client tells us which it is looking at.
+  const stage = new URL(req.url).searchParams.get("stage") === "steady" ? "steady" : "first";
+  const r = await warmLocalModel(stage);
   return NextResponse.json({ provider: "ollama", ...r });
 }

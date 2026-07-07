@@ -1,0 +1,237 @@
+{
+ "trade": "Interior Walls & Ceilings",
+ "count": 46,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Interior Walls & Ceilings > Ceiling Tile > Install New - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Ceiling Tile > Install New - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Ceiling Tile > Remove + Skim",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Ceiling Tile > Remove + Skim",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Ceiling Tile > Remove + Skim + Texture",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Ceiling Tile > Remove + Skim + Texture",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Ceiling Tile > Remove Permanently",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Ceiling Tile > Remove Permanently",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drop Ceiling > Install New - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drop Ceiling > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drop Ceiling > Remove Permanently",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drop Ceiling > Remove Permanently",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drop Ceiling > Repair Frame",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drop Ceiling > Repair Frame",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drop Ceiling > Replace Tile",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drop Ceiling > Replace Tile",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Install New Drywall - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Install New Drywall - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Paint - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Paint - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Patch - 1\" Diameter To 4\" Diameter",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Patch - 1\" Diameter To 4\" Diameter",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Patch - 4\" Diameter To 1 Square Foot",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Patch - 4\" Diameter To 1 Square Foot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Patch - Less than 1 Inch Diameter (Fill)",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Patch - Less than 1 Inch Diameter (Fill)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Patch - More Than 1 Square Foot",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Patch - More Than 1 Square Foot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Prime - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Prime - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Repair Nail Pops",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Repair Nail Pops",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Repair Peeling Joint Tape",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Repair Peeling Joint Tape",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Skim - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Skim - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Tape Joints - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Tape Joints - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Texture - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Drywall > Texture - Ground Up",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Custom Paint Match Fee",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paint > Custom Paint Match Fee",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Bathroom Paint",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paint > Per Bathroom Paint",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Bedroom Room Paint",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paint > Per Bedroom Room Paint",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Closet / Pantry Paint",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paint > Per Closet / Pantry Paint",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Hour Paint",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paint > Per Hour Paint",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Kitchen Paint",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paint > Per Kitchen Paint",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Square Foot Paint",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paint > Per Square Foot Paint",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Whole House Paint - Interior",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paint > Whole House Paint - Interior",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paneling / Tongue & Groove > Install New - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paneling / Tongue & Groove > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paneling / Tongue & Groove > Replace",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Paneling / Tongue & Groove > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Plaster > Patch - Large",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Plaster > Patch - Large",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Plaster > Patch - Medium",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Plaster > Patch - Medium",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Plaster > Patch - Small",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Plaster > Patch - Small",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Popcorn > Remove Popcorn + Skim + Texture",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Popcorn > Remove Popcorn + Skim + Texture",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Popcorn > Remove Popcorn Permanently",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Popcorn > Remove Popcorn Permanently",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Popcorn > Remove Popocorn + Skim",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Popcorn > Remove Popocorn + Skim",
+   "suggested_unit": "sq ft"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Install New - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Tongue & Groove > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Patch / Repair",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Tongue & Groove > Patch / Repair",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Refinish",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Tongue & Groove > Refinish",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Remove Permanently",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Tongue & Groove > Remove Permanently",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Replace",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Tongue & Groove > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Install New - Ground Up",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Wallpaper > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Patch / Repair",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Wallpaper > Patch / Repair",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Remove Permanently",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Wallpaper > Remove Permanently",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Replace",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Wallpaper > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Surfacce Preparation",
+   "taxonomy_path": "Labor > Interior Walls & Ceilings > Wallpaper > Surfacce Preparation",
+   "suggested_unit": "each"
+  }
+ ]
+}

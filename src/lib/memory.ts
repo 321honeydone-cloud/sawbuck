@@ -18,7 +18,7 @@
 
 import { promises as fs } from "fs";
 import path from "path";
-import { localText, ollamaBusy } from "./agents/client";
+import { housekeepingModel, localText, ollamaBusy } from "./agents/client";
 
 export const MEMORY_PATH =
   process.env.SAWBUCK_MEMORY_PATH || path.join(process.cwd(), "SAWBUCK_MEMORY.md");
@@ -272,8 +272,10 @@ async function compact(): Promise<void> {
       "Be specific, no filler. Maximum 40 bullets and 3500 characters. " +
       "Output ONLY markdown bullet lines starting with '- ', nothing else.",
     temperature: 0.2,
-    // The shop box (qwen3-32b) needs room to chew on a big log.
+    // A big log takes room to chew on.
     timeoutMs: 180000,
+    // Whatever model is already in VRAM — compaction must never force a swap.
+    model: await housekeepingModel(),
   });
 
   const lessons = raw

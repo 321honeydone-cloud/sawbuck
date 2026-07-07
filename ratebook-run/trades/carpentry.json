@@ -1,0 +1,148 @@
+{
+ "trade": "Carpentry",
+ "count": 20,
+ "anchors_same_book": [
+  {
+   "name": "Baseboard, Install/Replace",
+   "price": 60.0,
+   "unit": "each"
+  },
+  {
+   "name": "Door Casing, Install/Replace",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Window Casing, Install/Replace",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Wainscott, Install/Replace",
+   "price": 250.0,
+   "unit": "each"
+  },
+  {
+   "name": "Chair Rail, Install/Replace",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Crown Moulding, Install/Replace",
+   "price": 180.0,
+   "unit": "each"
+  },
+  {
+   "name": "Cabinet Trim, Install/Replace",
+   "price": 95.0,
+   "unit": "each"
+  },
+  {
+   "name": "Fascia, Repair/Replace",
+   "price": 180.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Carpentry > Build Deck - Ground Up",
+   "taxonomy_path": "Labor > Carpentry > Build Deck - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Fill / Repair Rotten Fascia",
+   "taxonomy_path": "Labor > Carpentry > Fill / Repair Rotten Fascia",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Install Bannister",
+   "taxonomy_path": "Labor > Carpentry > Install Bannister",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Install Baseboard / Ground Up",
+   "taxonomy_path": "Labor > Carpentry > Install Baseboard / Ground Up",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Carpentry > Install Chair Rail - Ground Up",
+   "taxonomy_path": "Labor > Carpentry > Install Chair Rail - Ground Up",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Carpentry > Install Crown Molding - Ground Up",
+   "taxonomy_path": "Labor > Carpentry > Install Crown Molding - Ground Up",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Carpentry > Install Door Casing - Ground Up - Exterior",
+   "taxonomy_path": "Labor > Carpentry > Install Door Casing - Ground Up - Exterior",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Carpentry > Install Door Casing - Ground Up - Interior",
+   "taxonomy_path": "Labor > Carpentry > Install Door Casing - Ground Up - Interior",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Carpentry > Install Hand Rails",
+   "taxonomy_path": "Labor > Carpentry > Install Hand Rails",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Install Siding",
+   "taxonomy_path": "Labor > Carpentry > Install Siding",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Install Wainscott - Ground Up",
+   "taxonomy_path": "Labor > Carpentry > Install Wainscott - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Rebuild Deck - Replace Rotten Components",
+   "taxonomy_path": "Labor > Carpentry > Rebuild Deck - Replace Rotten Components",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Repair Bannister",
+   "taxonomy_path": "Labor > Carpentry > Repair Bannister",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Repair Hand Rails",
+   "taxonomy_path": "Labor > Carpentry > Repair Hand Rails",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Replace Crown Molding",
+   "taxonomy_path": "Labor > Carpentry > Replace Crown Molding",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Carpentry > Replace Door Casing - Ground Up - Exterior",
+   "taxonomy_path": "Labor > Carpentry > Replace Door Casing - Ground Up - Exterior",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Carpentry > Replace Porch Post",
+   "taxonomy_path": "Labor > Carpentry > Replace Porch Post",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Replace Rotten Fascia",
+   "taxonomy_path": "Labor > Carpentry > Replace Rotten Fascia",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Replace Siding",
+   "taxonomy_path": "Labor > Carpentry > Replace Siding",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Carpentry > Stairs - Interior - Rebuild Treads & Risers",
+   "taxonomy_path": "Labor > Carpentry > Stairs - Interior - Rebuild Treads & Risers",
+   "suggested_unit": "each"
+  }
+ ]
+}

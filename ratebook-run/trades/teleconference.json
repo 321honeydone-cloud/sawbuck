@@ -1,0 +1,27 @@
+{
+ "trade": "Teleconference",
+ "count": 4,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Teleconference > Client Meetings > Initial Consultation",
+   "taxonomy_path": "Teleconference > Client Meetings > Initial Consultation",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Teleconference > Client Meetings > Progress Review",
+   "taxonomy_path": "Teleconference > Client Meetings > Progress Review",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Teleconference > Technical Consultations > Design Consultation",
+   "taxonomy_path": "Teleconference > Technical Consultations > Design Consultation",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Teleconference > Technical Consultations > Engineering Review",
+   "taxonomy_path": "Teleconference > Technical Consultations > Engineering Review",
+   "suggested_unit": "each"
+  }
+ ]
+}

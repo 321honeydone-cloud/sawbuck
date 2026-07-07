@@ -1,0 +1,12 @@
+{
+ "trade": "Cleaning",
+ "count": 1,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Cleaning",
+   "taxonomy_path": "Labor > Cleaning",
+   "suggested_unit": "each"
+  }
+ ]
+}

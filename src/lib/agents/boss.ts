@@ -13,7 +13,7 @@
 
 import type { EngineDelta } from "../engine";
 import type { Estimate, Attachment } from "../types";
-import { chatJson, chatText, cloudBrain } from "./client";
+import { activeProvider, chatJson, chatText, cloudBrain, localChatModel } from "./client";
 import { describeAttachments } from "./vision";
 import { rateBookMatches, runEstimator } from "./estimator";
 import { getRateBookEngine } from "../loadRateBook";
@@ -248,7 +248,14 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   const hasItems = args.estimate.groups.some((g) => g.items.length > 0);
   const hasAttachments = args.attachments.length > 0;
 
+  // Two-stage local brain: the very first prompt on a quote runs the first-turn
+  // model (gemma, quick off a cold start); every prompt after runs the steady
+  // model (qwen, steadier on follow-up edits). Claude mode ignores this.
+  const firstTurn = !args.history || args.history.length === 0;
+  const localModel = (await activeProvider()) === "ollama" ? await localChatModel(firstTurn) : undefined;
+
   yield* trace("Boss: reading the request");
+  if (localModel) yield* trace(`Boss: local brain ${localModel} (${firstTurn ? "first turn" : "steady"})`);
 
   // Step 1, eyes first. Anything attached goes to the Vision employee.
   let visionText = "";
@@ -346,12 +353,12 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   // take the model path so those numbers actually make it into the quote.
   if (hasAttachments) {
     yield* trace("Boss to Estimator: price what Vision saw");
-    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, visionText, systemExtra }), findings, args.isAdmin, args.estimate);
+    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, visionText, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate);
     return;
   }
   if (!hasItems && !findings.length && rateBookMatches(combined)) {
     yield* trace("Boss to Estimator: rate-book match, flat pricing");
-    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra }), findings, args.isAdmin, args.estimate);
+    yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate);
     return;
   }
 
@@ -366,7 +373,7 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   if (decision.intent === "question") {
     yield* trace(`Boss: answering directly, ${decision.why}`);
     try {
-      const answer = await chatText({ system: ASSISTANT_SYSTEM + historyBlock(args.history), prompt: args.message, temperature: 0.5, timeoutMs: 60000 });
+      const answer = await chatText({ system: ASSISTANT_SYSTEM + historyBlock(args.history), prompt: args.message, temperature: 0.5, timeoutMs: 60000, model: localModel });
       yield* streamWords(answer || "Tell me about the job and I will price it.");
     } catch (err) {
       yield* streamWords(`I could not reach the brain right now. ${(err as Error).message}. Give it a second and try again.`);
@@ -375,5 +382,5 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
   }
 
   yield* trace(`Boss to Estimator: ${hasItems ? "edit the quote" : "build the quote"}, ${decision.why}`);
-  yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra }), findings, args.isAdmin, args.estimate);
+  yield* reviewStream(runEstimator({ message: args.message, estimate: args.estimate, systemExtra, model: localModel }), findings, args.isAdmin, args.estimate);
 }

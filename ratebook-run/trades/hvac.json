@@ -1,0 +1,57 @@
+{
+ "trade": "HVAC",
+ "count": 10,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "HVAC > Install / Replace HVAC Filter",
+   "taxonomy_path": "Labor > HVAC > Install / Replace HVAC Filter",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Install Mini Split",
+   "taxonomy_path": "Labor > HVAC > Install Mini Split",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Install Window AC",
+   "taxonomy_path": "Labor > HVAC > Install Window AC",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Program Thermostat",
+   "taxonomy_path": "Labor > HVAC > Program Thermostat",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler (Complete Unit)",
+   "taxonomy_path": "Labor > HVAC > Replace Swamp Cooler (Complete Unit)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Motor",
+   "taxonomy_path": "Labor > HVAC > Replace Swamp Cooler Motor",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Pads",
+   "taxonomy_path": "Labor > HVAC > Replace Swamp Cooler Pads",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Pump",
+   "taxonomy_path": "Labor > HVAC > Replace Swamp Cooler Pump",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Spider",
+   "taxonomy_path": "Labor > HVAC > Replace Swamp Cooler Spider",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "HVAC > Replace Thermostat",
+   "taxonomy_path": "Labor > HVAC > Replace Thermostat",
+   "suggested_unit": "each"
+  }
+ ]
+}

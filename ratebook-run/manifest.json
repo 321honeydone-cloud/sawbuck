@@ -1,0 +1,132 @@
+[
+ {
+  "trade": "Electrical",
+  "slug": "electrical",
+  "count": 139
+ },
+ {
+  "trade": "Doors",
+  "slug": "doors",
+  "count": 106
+ },
+ {
+  "trade": "Plumbing",
+  "slug": "plumbing",
+  "count": 84
+ },
+ {
+  "trade": "Appliances",
+  "slug": "appliances",
+  "count": 57
+ },
+ {
+  "trade": "Interior Walls & Ceilings",
+  "slug": "interior-walls-ceilings",
+  "count": 46
+ },
+ {
+  "trade": "Window Coverings & Accessories",
+  "slug": "window-coverings-accessories",
+  "count": 41
+ },
+ {
+  "trade": "Flooring",
+  "slug": "flooring",
+  "count": 30
+ },
+ {
+  "trade": "Cabinets",
+  "slug": "cabinets",
+  "count": 23
+ },
+ {
+  "trade": "Carpentry",
+  "slug": "carpentry",
+  "count": 20
+ },
+ {
+  "trade": "Landscaping",
+  "slug": "landscaping",
+  "count": 20
+ },
+ {
+  "trade": "Fencing",
+  "slug": "fencing",
+  "count": 18
+ },
+ {
+  "trade": "Fixtures / Mounts / Accessories",
+  "slug": "fixtures-mounts-accessories",
+  "count": 17
+ },
+ {
+  "trade": "Roofing",
+  "slug": "roofing",
+  "count": 17
+ },
+ {
+  "trade": "Windows",
+  "slug": "windows",
+  "count": 13
+ },
+ {
+  "trade": "Data / Cable / Ethernet",
+  "slug": "data-cable-ethernet",
+  "count": 10
+ },
+ {
+  "trade": "HVAC",
+  "slug": "hvac",
+  "count": 10
+ },
+ {
+  "trade": "Equipment Rental",
+  "slug": "equipment-rental",
+  "count": 6
+ },
+ {
+  "trade": "Exterior Walls",
+  "slug": "exterior-walls",
+  "count": 6
+ },
+ {
+  "trade": "Tile",
+  "slug": "tile",
+  "count": 6
+ },
+ {
+  "trade": "Materials",
+  "slug": "materials",
+  "count": 6
+ },
+ {
+  "trade": "Travel / Hauling",
+  "slug": "travel-hauling",
+  "count": 6
+ },
+ {
+  "trade": "Masonry",
+  "slug": "masonry",
+  "count": 5
+ },
+ {
+  "trade": "Office",
+  "slug": "office",
+  "count": 4
+ },
+ {
+  "trade": "Teleconference",
+  "slug": "teleconference",
+  "count": 4
+ },
+ {
+  "trade": "Cleaning",
+  "slug": "cleaning",
+  "count": 1
+ },
+ {
+  "trade": "Thresholds / Transitions Install / Replace",
+  "slug": "thresholds-transitions-install-replace",
+  "count": 1
+ }
+]

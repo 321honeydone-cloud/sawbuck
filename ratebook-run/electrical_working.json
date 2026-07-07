@@ -1,0 +1,892 @@
+{
+ "stubs": [
+  {
+   "name": "Electrical > Bulbs > Specialty - Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Install / Replace Weatherproof Gang Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Install Ceiling Fan Rated Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install AFCI Breaker",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Double Pole Breaker",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install GFCI Breaker",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Gang Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Junction Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Single Pole Circuit Breaker",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Replace Fuse",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Reset Breaker",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Run New Conduit",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Run New Leg From Panel",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Distribution > Troubleshoot / Diagonose",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Smart > Install Smart Doorbell - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Smart > Program Smart Doorbell",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Smart > Remove Smart Doorbell",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Smart > Replace Smart Doorbell",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Install New System - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Repair Chimes In Chime Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Repair Wiring - Chime Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Repair Wiring - Pushbutton",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Repair Wiring - Transformer",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Replace Pushbutton",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Run New Wiring",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Chime Box Batteries",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Pushbutton Batteries",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Repeater Batteries",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Wireless Chime Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Wireless Pushbutton",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Wireless Repeater",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Reprogram",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Secure Chime Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Secure Pushbutton",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Secure Repeater",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Replace Bulb",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Replace Cover",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Replace Fan Wheel / Blade",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Can / Recessed > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Can / Recessed > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Can / Recessed > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Balance",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Diagnose / Troubleshoot,",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install / Replace Downrod",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Light Kit",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Medallion",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Remodel Box",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Remote & Receiver - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace Globes / Shades",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace LED Light Assembly",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace Pull Chain Switch For Fan",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace Pull Switch For Light",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace Remote / Receiver",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Reporgram Remote / Receiver",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Secure Fan / Blades",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Adjust Length",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Replace Globe",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Flood > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Flood > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Flood > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Pathway > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Pathway > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Pathway > Replace Fixtures",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Pathway > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Porch > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Porch > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Porch > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Replace Ballast",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Upgrade To LED",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Adjust Length",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Replace Globe",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Sconce > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Sconce > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Sconce > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Track > Add Receptacles",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Track > Adjust Tracks",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Track > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Track > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Track > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Under Cabinet > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Under Cabinet > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Under Cabinet > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Vanity > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Vanity > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Lighting > Vanity > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Outlets > Repair Loose Outlet (Tighten)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Outlets > Repair Outlet Wiring",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Outlets > Replace Outlet (With Switched Receptacle)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Outlets > Replace Outlet - GFCI",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Outlets > Replace Outlet - Standard",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Outlets > Replace Outlet Cover",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Outlets > Replace WR (Weather Resistant) Outlet",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Outlets > Test Outlets",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Inspect",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Replace Battery",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Test",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Inspect",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Install New - Battery Operated - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Replace Battery",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Replace Detector - Battery Operated",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Replace Detector - Hard Wired",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Test",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Diagnose / Troubleshoot",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Inspect",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Replace Battery",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Secure",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Test",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Diagnose Switch Wiring",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Install Dimmer Switch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Install Humidity Sensored Switch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Install Movement Sensored Switch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Install Photocell Switch (Exterior Dusk / Dawn)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Install Smart Switch (Wifi / Bluetooth)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Install Timer Switch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Replace 3 Way Switch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Replace 4 Way Switch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Replace Double Pole Switch",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Electrical > Switches > Replace Single Pole Switch",
+   "suggested_unit": "each"
+  }
+ ],
+ "anchors": [
+  {
+   "name": "Replace outlet or switch",
+   "price": 85,
+   "labor_minutes": 20,
+   "material_allowance": 5
+  },
+  {
+   "name": "Replace light fixture (standard)",
+   "price": 105,
+   "labor_minutes": 60,
+   "material_allowance": 5
+  },
+  {
+   "name": "Replace ceiling fan (standard)",
+   "price": 160,
+   "labor_minutes": 90,
+   "material_allowance": 10
+  },
+  {
+   "name": "Replace hardwired smoke/CO detector",
+   "price": 55,
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Circuit Breakers, Replace",
+   "price": 125.0,
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fuses, Replace",
+   "price": 60.0,
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Wiring, Replace/Repair",
+   "price": 230.0,
+   "labor_minutes": 120,
+   "material_allowance": 30
+  },
+  {
+   "name": "Outlets, Replace/Install",
+   "price": 85,
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Outlets, Split/Switch Controlled, Replace/Install",
+   "price": 95,
+   "labor_minutes": 40,
+   "material_allowance": 10
+  },
+  {
+   "name": "GFCI Outlets, Replace/Install",
+   "price": 95,
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Switches, Replace Install",
+   "price": 85,
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Switches, Dimmable, Replace/Install",
+   "price": 95,
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Switches, Sensored, Replace/Install",
+   "price": 110,
+   "labor_minutes": 40,
+   "material_allowance": 15
+  },
+  {
+   "name": "Switches, 3 Way, Replace/Install",
+   "price": 110,
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Gang Boxes, Remodel Type, Install",
+   "price": 90.0,
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Ceiling Fan Rated Remodel Gang Boxes, Install",
+   "price": 120.0,
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "General Lighting Gang Boxes, Install",
+   "price": 90.0,
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Outdoor Weatherproof Boxes, Install",
+   "price": 120.0,
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Cable Outlets, Replace",
+   "price": 60.0,
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Phone Jack, Replace",
+   "price": 60.0,
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Fixture, Ceiling Fan, Install New",
+   "price": 165.0,
+   "labor_minutes": 90,
+   "material_allowance": 15
+  },
+  {
+   "name": "Fixture, Ceiling Fan, Balance",
+   "price": 60.0,
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Fixture, Ceiling Fan, Replace/Install Remote &",
+   "price": 95.0,
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fixture, Ceiling Fan, Replace Light",
+   "price": 90.0,
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Fixture, Ceiling Fan, Replace Pull Chain",
+   "price": 60.0,
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Fixture, Ceiling Fan, Replace Globes",
+   "price": 51.67,
+   "labor_minutes": 25,
+   "material_allowance": 10
+  },
+  {
+   "name": "Fixture, Can Lights, Replace/Install New",
+   "price": 120.0,
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fixture, Vanity Light Bar, Replace/Install New",
+   "price": 115.0,
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Fixture, Chandelier, Replace/Install New",
+   "price": 225.0,
+   "labor_minutes": 120,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fixture, Dome Light, Replace/Install New",
+   "price": 85.0,
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Fixture, Fluorescent, Replace/Install New",
+   "price": 120.0,
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fixture, Pendant Light, Replace/Install New",
+   "price": 115.0,
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Fixture, Track Light, Replace/Install New",
+   "price": 150.0,
+   "labor_minutes": 75,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fixture, Sconce, Replace/Install New",
+   "price": 115.0,
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Fixture, Porch Light, Replace/Install New",
+   "price": 90.0,
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Fixture, Sensored Flood, Program",
+   "price": 50.0,
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Fixture, Sensored Flood, Install New",
+   "price": 150.0,
+   "labor_minutes": 75,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fixture, Sensored Exterior, Diagnose/Replace",
+   "price": 120.0,
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fixture, Hard Wired Pathway Lights, Replace/",
+   "price": 180.0,
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Fixture, Under Cabinet Lighting, Replace/Install",
+   "price": 180.0,
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Exhaust Fan, Replace Motor",
+   "price": 125.0,
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Exhaust Fan, Replace Unit",
+   "price": 240.0,
+   "labor_minutes": 120,
+   "material_allowance": 40
+  },
+  {
+   "name": "Smoke/CO Detectors, Replace/Install New",
+   "price": 65.0,
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doorbell, Wired, Diagnose",
+   "price": 80.0,
+   "labor_minutes": 45,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doorbell, Wired, Replace Transformer",
+   "price": 120.0,
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Doorbell, Wired, Replace Push Button",
+   "price": 60.0,
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doorbell, Wired, Replace Chime Box",
+   "price": 90.0,
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doorbell, Wireless, Replace/Install",
+   "price": 65.0,
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Outlet Covers, Replace",
+   "price": 36.33,
+   "labor_minutes": 20,
+   "material_allowance": 3
+  },
+  {
+   "name": "Switch Plates, Replace",
+   "price": 36.33,
+   "labor_minutes": 20,
+   "material_allowance": 3
+  },
+  {
+   "name": "Bulbs, Fixture, Replace",
+   "price": 38.33,
+   "labor_minutes": 20,
+   "material_allowance": 5
+  },
+  {
+   "name": "Bulbs, Mocrowave, Replace",
+   "price": 38.33,
+   "labor_minutes": 20,
+   "material_allowance": 5
+  },
+  {
+   "name": "Bulbs, Oven/Range, Replace",
+   "price": 38.33,
+   "labor_minutes": 20,
+   "material_allowance": 5
+  },
+  {
+   "name": "Bulbs, Refrigerator, Replace",
+   "price": 38.33,
+   "labor_minutes": 20,
+   "material_allowance": 5
+  },
+  {
+   "name": "Bulbs, Halogen, Replace",
+   "price": 38.33,
+   "labor_minutes": 20,
+   "material_allowance": 5
+  }
+ ]
+}

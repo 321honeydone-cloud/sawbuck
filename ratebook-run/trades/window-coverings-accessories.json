@@ -1,0 +1,212 @@
+{
+ "trade": "Window Coverings & Accessories",
+ "count": 41,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Window Coverings & Accessories > Child / Safety > Install Alarms",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Child / Safety > Install Alarms",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Child / Safety > Install Child Safety Stops",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Child / Safety > Install Child Safety Stops",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Child / Safety > Install Security Bars",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Child / Safety > Install Security Bars",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Curtains > Install New - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Curtains > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Curtains > Remove Permanently",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Curtains > Remove Permanently",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Curtains > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Curtains > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Install Privacy Film",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Films & Coatings > Install Privacy Film",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Install Tint Film",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Films & Coatings > Install Tint Film",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Install UV Blocking Film",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Films & Coatings > Install UV Blocking Film",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Remove Privacy Film",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Films & Coatings > Remove Privacy Film",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Remove Tint Film",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Films & Coatings > Remove Tint Film",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Remove UV Blocking Film",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Films & Coatings > Remove UV Blocking Film",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Install - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Install - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Repair Louvres",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Repair Louvres",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Replace Rod",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Replace Rod",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Install - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Install - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Repair Louvres",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Repair Louvres",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Replace Rod",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Replace Rod",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Install New - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Repair",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Repair",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Install New - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Repair",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Repair",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Install New - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Repair",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Repair",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roller Shades > Install New - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Roller Shades > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roller Shades > Repair",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Roller Shades > Repair",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roller Shades > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Roller Shades > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roman Shades > Install New - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Roman Shades > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roman Shades > Repair",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Roman Shades > Repair",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roman Shades > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Shades - Specialty > Roman Shades > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Clean & Lubricate Track (Dry Lubricant)",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Vertical Blinds > Clean & Lubricate Track (Dry Lubricant)",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Install New - Ground Up",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Vertical Blinds > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Replace",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Vertical Blinds > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Replace Headrail",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Vertical Blinds > Replace Headrail",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Replace Louvres",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Vertical Blinds > Replace Louvres",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Replace Rod",
+   "taxonomy_path": "Labor > Window Coverings & Accessories > Vertical Blinds > Replace Rod",
+   "suggested_unit": "each"
+  }
+ ]
+}

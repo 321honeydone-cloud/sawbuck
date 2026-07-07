@@ -1,0 +1,173 @@
+{
+ "trade": "Fencing",
+ "count": 18,
+ "anchors_same_book": [
+  {
+   "name": "Wood Picket, Build New",
+   "price": 800,
+   "unit": "each"
+  },
+  {
+   "name": "Wood Picket, Repair/Replace Wooden Parts",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Wood Picket, Seal",
+   "price": 180.0,
+   "unit": "each"
+  },
+  {
+   "name": "Wood Gate, Build New Or Repair",
+   "price": 250.0,
+   "unit": "each"
+  },
+  {
+   "name": "Wood Mounted Latches & Hinges, Install/",
+   "price": 95.0,
+   "unit": "each"
+  },
+  {
+   "name": "Chain Link, Build New",
+   "price": 600,
+   "unit": "each"
+  },
+  {
+   "name": "Chain Link, Repair/Replace Components",
+   "price": 155.0,
+   "unit": "each"
+  },
+  {
+   "name": "Chain Link Gate, Build New Or Repair",
+   "price": 190.0,
+   "unit": "each"
+  },
+  {
+   "name": "Chain Link Latches & Hinges, Install/Replace",
+   "price": 95.0,
+   "unit": "each"
+  },
+  {
+   "name": "Block/Masonry, Build New",
+   "price": 1200,
+   "unit": "each"
+  },
+  {
+   "name": "Block/Masonry, Repair/Replace",
+   "price": 250.0,
+   "unit": "each"
+  },
+  {
+   "name": "Block/Masonry, Grout",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Block/Masonry, Mount Gates To Masonry",
+   "price": 250.0,
+   "unit": "each"
+  },
+  {
+   "name": "Block/Masonry, Install Latches/Hinges To",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Gates, Self Closing Devices, Install/Replace",
+   "price": 100.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Fencing > Chain Link > Install New - Ground Up",
+   "taxonomy_path": "Labor > Fencing > Chain Link > Install New - Ground Up",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Chain Link > Install Privacy Slats",
+   "taxonomy_path": "Labor > Fencing > Chain Link > Install Privacy Slats",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Chain Link > Repalce Gate Hardware",
+   "taxonomy_path": "Labor > Fencing > Chain Link > Repalce Gate Hardware",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Chain Link > Replace Horizontal Rails",
+   "taxonomy_path": "Labor > Fencing > Chain Link > Replace Horizontal Rails",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Chain Link > Replace Vertical Posts",
+   "taxonomy_path": "Labor > Fencing > Chain Link > Replace Vertical Posts",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Chain Link > Secure Chain Link To Poles",
+   "taxonomy_path": "Labor > Fencing > Chain Link > Secure Chain Link To Poles",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Masonry > Build New - Ground Up",
+   "taxonomy_path": "Labor > Fencing > Masonry > Build New - Ground Up",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Masonry > Mount Gate",
+   "taxonomy_path": "Labor > Fencing > Masonry > Mount Gate",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Masonry > Mount Hardware",
+   "taxonomy_path": "Labor > Fencing > Masonry > Mount Hardware",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Masonry > Repair / Replace Grout",
+   "taxonomy_path": "Labor > Fencing > Masonry > Repair / Replace Grout",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Wood Picket > Apply Exterior Sealer",
+   "taxonomy_path": "Labor > Fencing > Wood Picket > Apply Exterior Sealer",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Wood Picket > Build New - Ground Up",
+   "taxonomy_path": "Labor > Fencing > Wood Picket > Build New - Ground Up",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Wood Picket > Paint",
+   "taxonomy_path": "Labor > Fencing > Wood Picket > Paint",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Wood Picket > Repair / Rebuild Gate",
+   "taxonomy_path": "Labor > Fencing > Wood Picket > Repair / Rebuild Gate",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Wood Picket > Replace Gate Hardware",
+   "taxonomy_path": "Labor > Fencing > Wood Picket > Replace Gate Hardware",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Wood Picket > Replace Pickets",
+   "taxonomy_path": "Labor > Fencing > Wood Picket > Replace Pickets",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Wood Picket > Replace Post",
+   "taxonomy_path": "Labor > Fencing > Wood Picket > Replace Post",
+   "suggested_unit": "linear ft"
+  },
+  {
+   "name": "Fencing > Wood Picket > Replace Rail",
+   "taxonomy_path": "Labor > Fencing > Wood Picket > Replace Rail",
+   "suggested_unit": "linear ft"
+  }
+ ]
+}

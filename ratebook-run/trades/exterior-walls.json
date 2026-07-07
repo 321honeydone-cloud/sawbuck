@@ -1,0 +1,37 @@
+{
+ "trade": "Exterior Walls",
+ "count": 6,
+ "anchors_same_book": [],
+ "tasks": [
+  {
+   "name": "Exterior Walls > Install 4X8 Siding - Ground Up",
+   "taxonomy_path": "Labor > Exterior Walls > Install 4X8 Siding - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Exterior Walls > Install Board & Batten Siding - Ground Up",
+   "taxonomy_path": "Labor > Exterior Walls > Install Board & Batten Siding - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Exterior Walls > Install Fiber Cement Siding - Ground Up",
+   "taxonomy_path": "Labor > Exterior Walls > Install Fiber Cement Siding - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Exterior Walls > Install Shiplap Siding - Ground Up",
+   "taxonomy_path": "Labor > Exterior Walls > Install Shiplap Siding - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Exterior Walls > Install Stucco - Ground Up",
+   "taxonomy_path": "Labor > Exterior Walls > Install Stucco - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Exterior Walls > Install Vinyl Siding - Ground Up",
+   "taxonomy_path": "Labor > Exterior Walls > Install Vinyl Siding - Ground Up",
+   "suggested_unit": "each"
+  }
+ ]
+}

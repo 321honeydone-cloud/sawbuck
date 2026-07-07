@@ -8,7 +8,7 @@ import { OVERRIDES_ID, applyOverrides, formatPricedBookForPrompt, parseOverrides
 import { rateBook, setRateBookTasks } from "@/lib/loadRateBook";
 import { memoryBlock } from "@/lib/memory";
 import { getSession } from "@/lib/session";
-import { activeProvider } from "@/lib/agents/client";
+import { activeProvider, prewarmSteadyModel } from "@/lib/agents/client";
 import { runChat } from "@/lib/agents/boss";
 import type { Attachment, Estimate } from "@/lib/types";
 import type { EngineDelta } from "@/lib/engine";
@@ -97,6 +97,11 @@ export async function POST(req: Request) {
           send(delta);
           if (closed) break;
         }
+        // Two-stage brain: this quote's NEXT prompt switches to the steady
+        // model (qwen), so start loading it now, detached, while the user is
+        // still reading this reply. Their second prompt then starts instantly
+        // instead of paying the model swap.
+        if (history.length === 0 && (await activeProvider()) === "ollama") prewarmSteadyModel();
       } catch (err) {
         send({ type: "error", text: `\n\nThe estimator hit an error: ${(err as Error).message}` });
       } finally {

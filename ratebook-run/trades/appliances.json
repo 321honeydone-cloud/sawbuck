@@ -1,0 +1,418 @@
+{
+ "trade": "Appliances",
+ "count": 57,
+ "anchors_same_book": [
+  {
+   "name": "Refrigerator, Replace Appliance",
+   "price": 110.0,
+   "unit": "each"
+  },
+  {
+   "name": "Refrigerator, Replace Ice Maker",
+   "price": 150.0,
+   "unit": "each"
+  },
+  {
+   "name": "Refrigerator, Replace Water Filter",
+   "price": 43.33,
+   "unit": "each"
+  },
+  {
+   "name": "Refrigerator, Replace Supply Line",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Refrigerator, Replace Shelves/Drawers",
+   "price": 65.0,
+   "unit": "each"
+  },
+  {
+   "name": "Refrigerator, Repair Appliance",
+   "price": 145.0,
+   "unit": "each"
+  },
+  {
+   "name": "Washing Machine, Replace Supply Lines",
+   "price": 65.0,
+   "unit": "each"
+  },
+  {
+   "name": "Washing Machine, Replace Drain Hose",
+   "price": 65.0,
+   "unit": "each"
+  },
+  {
+   "name": "Washing Machine, Replace Electrical Plug",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Washing Machine, Clear Drain Side Debris",
+   "price": 80.0,
+   "unit": "each"
+  },
+  {
+   "name": "Washing Machine, Install Or Remove",
+   "price": 85.0,
+   "unit": "each"
+  },
+  {
+   "name": "Dryer, Replace/Upgrade Electrical Plug",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Dryer, Replace Gas Valve",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Dryer, Replace Gas Line",
+   "price": 155.0,
+   "unit": "each"
+  },
+  {
+   "name": "Dryer, Replace Exhaust Hose",
+   "price": 65.0,
+   "unit": "each"
+  },
+  {
+   "name": "Dryer, Full Vent Cleaning To Exterior",
+   "price": 135.0,
+   "unit": "each"
+  },
+  {
+   "name": "Dryer, Install Or Remove",
+   "price": 85.0,
+   "unit": "each"
+  },
+  {
+   "name": "Range/Oven Install Or Remove",
+   "price": 85.0,
+   "unit": "each"
+  },
+  {
+   "name": "Range/Oven, Install Anti-Tip Device",
+   "price": 60.0,
+   "unit": "each"
+  },
+  {
+   "name": "Range/Oven, Replace Burners/Coils",
+   "price": 65.0,
+   "unit": "each"
+  },
+  {
+   "name": "Range/Oven, Replace Electrical Cord",
+   "price": 90.0,
+   "unit": "each"
+  },
+  {
+   "name": "Range/Oven, Replace Gas Valve",
+   "price": 125.0,
+   "unit": "each"
+  },
+  {
+   "name": "Range/Oven, Replace Gas Line",
+   "price": 155.0,
+   "unit": "each"
+  },
+  {
+   "name": "Range/Oven, Repair/Replace Drawer Rails",
+   "price": 95.0,
+   "unit": "each"
+  },
+  {
+   "name": "Above Range Microwave,",
+   "price": 165.0,
+   "unit": "each"
+  }
+ ],
+ "tasks": [
+  {
+   "name": "Appliances > Dishwasher > Install Drain Line Service Loop / Backflow Prevention",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Install Drain Line Service Loop / Backflow Prevention",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Install New - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Mount / Secure Dishwasher",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Mount / Secure Dishwasher",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Repair Leak",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Repair Leak",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Baskets",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Replace Baskets",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Control Board",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Replace Control Board",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Dishwasher",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Replace Dishwasher",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Drain Line",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Replace Drain Line",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Power Cord",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Replace Power Cord",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Pump Motor",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Replace Pump Motor",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Water Level Sensor",
+   "taxonomy_path": "Labor > Appliances > Dishwasher > Replace Water Level Sensor",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dryer > Haul Off Old Dryer",
+   "taxonomy_path": "Labor > Appliances > Dryer > Haul Off Old Dryer",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Appliances > Dryer > Install / Upgrade Plug Type",
+   "taxonomy_path": "Labor > Appliances > Dryer > Install / Upgrade Plug Type",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dryer > Install New - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Dryer > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dryer > Replace Belt",
+   "taxonomy_path": "Labor > Appliances > Dryer > Replace Belt",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dryer > Replace Heating Elements",
+   "taxonomy_path": "Labor > Appliances > Dryer > Replace Heating Elements",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Dryer > Replace Knobs",
+   "taxonomy_path": "Labor > Appliances > Dryer > Replace Knobs",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Freezer > Clean Coils & Heat Exchanger",
+   "taxonomy_path": "Labor > Appliances > Freezer > Clean Coils & Heat Exchanger",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Freezer > Install / Replace",
+   "taxonomy_path": "Labor > Appliances > Freezer > Install / Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Haul Away Old Range",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Haul Away Old Range",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Install New Range - Free Standing",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Install New Range - Free Standing",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Level Range",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Level Range",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Repair Broiler Drawer Rails",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Repair Broiler Drawer Rails",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Burner",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Replace Burner",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Drip Pans",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Replace Drip Pans",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Electric Coil",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Replace Electric Coil",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Knob",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Replace Knob",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Oven Door",
+   "taxonomy_path": "Labor > Appliances > Full Range (Cooktop + Oven) > Replace Oven Door",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Microwave > Install New - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Microwave > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Microwave > Replace Bulb",
+   "taxonomy_path": "Labor > Appliances > Microwave > Replace Bulb",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Microwave > Replace Door",
+   "taxonomy_path": "Labor > Appliances > Microwave > Replace Door",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Microwave > Replace Fuse",
+   "taxonomy_path": "Labor > Appliances > Microwave > Replace Fuse",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Microwave > Replace Turntable",
+   "taxonomy_path": "Labor > Appliances > Microwave > Replace Turntable",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Range Hood > Install New - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Range Hood > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Refrigerator > Clean & Blow Out Coils / Heat Exchanger",
+   "taxonomy_path": "Labor > Appliances > Refrigerator > Clean & Blow Out Coils / Heat Exchanger",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Refrigerator > Haul Away Old Refrigerator",
+   "taxonomy_path": "Labor > Appliances > Refrigerator > Haul Away Old Refrigerator",
+   "suggested_unit": "hour"
+  },
+  {
+   "name": "Appliances > Refrigerator > Install External Water Filter - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Refrigerator > Install External Water Filter - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Refrigerator > Repair Water / Ice Dispenser",
+   "taxonomy_path": "Labor > Appliances > Refrigerator > Repair Water / Ice Dispenser",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Refrigerator > Replace Air Filter",
+   "taxonomy_path": "Labor > Appliances > Refrigerator > Replace Air Filter",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Refrigerator > Replace Water / Ice Dispenser",
+   "taxonomy_path": "Labor > Appliances > Refrigerator > Replace Water / Ice Dispenser",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Refrigerator > Run & Install Supply Line - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Refrigerator > Run & Install Supply Line - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Install New - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Standalone Cooktop > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Replace Burner",
+   "taxonomy_path": "Labor > Appliances > Standalone Cooktop > Replace Burner",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Replace Coil",
+   "taxonomy_path": "Labor > Appliances > Standalone Cooktop > Replace Coil",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Replace Drip Pans",
+   "taxonomy_path": "Labor > Appliances > Standalone Cooktop > Replace Drip Pans",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Standalone Or Double Oven > Install Built In Oven - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Standalone Or Double Oven > Install Built In Oven - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Standalone Or Double Oven > Replace Built In Oven",
+   "taxonomy_path": "Labor > Appliances > Standalone Or Double Oven > Replace Built In Oven",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Standalone Or Double Oven > Replace Oven Door",
+   "taxonomy_path": "Labor > Appliances > Standalone Or Double Oven > Replace Oven Door",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Trash Compactor > Install New - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Trash Compactor > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Trash Compactor > Replace",
+   "taxonomy_path": "Labor > Appliances > Trash Compactor > Replace",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Trash Compactor > Secure To Cabinet",
+   "taxonomy_path": "Labor > Appliances > Trash Compactor > Secure To Cabinet",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Washing Machine > Install New - Ground Up",
+   "taxonomy_path": "Labor > Appliances > Washing Machine > Install New - Ground Up",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Washing Machine > Remove Debris From Trap",
+   "taxonomy_path": "Labor > Appliances > Washing Machine > Remove Debris From Trap",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Knobs",
+   "taxonomy_path": "Labor > Appliances > Washing Machine > Replace Knobs",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Plug",
+   "taxonomy_path": "Labor > Appliances > Washing Machine > Replace Plug",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Pump",
+   "taxonomy_path": "Labor > Appliances > Washing Machine > Replace Pump",
+   "suggested_unit": "each"
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Water Level Sensor",
+   "taxonomy_path": "Labor > Appliances > Washing Machine > Replace Water Level Sensor",
+   "suggested_unit": "each"
+  }
+ ]
+}
