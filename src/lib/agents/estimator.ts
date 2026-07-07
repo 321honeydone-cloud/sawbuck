@@ -352,20 +352,37 @@ export function rateBookMatches(text: string): boolean {
   }
 }
 
+/** Diagnostic / troubleshooting intent: the customer wants us to find or figure
+ *  out an unknown cause, not do a named replace or install. When true we skip the
+ *  deterministic rate-book fast path (which grabs a Replace price) and let the
+ *  model lead with a diagnostic line plus a conditional repair in the cap. */
+const DIAGNOSTIC_INTENT =
+  /\b(diagnos\w*|troubleshoot\w*|figure out (?:why|what)|find (?:out )?(?:where|why|the source|the leak|the cause)|what(?:'s| is) wrong|why (?:is|does|do|are|won'?t|it|my|the|this|that)|won'?t (?:turn|start|drain|heat|cool|latch|open|close|run)|keeps? running|running (?:by itself|on its own)|take a look|look at (?:it|this|what)|check (?:out |on )?(?:why|what|it)|not sure what|can'?t tell|what it needs)\b/i;
+const HARD_SCOPE = /\b(replace|replacing|reinstall|install|installing)\b/i;
+
+/** Fires when the request is asking for diagnosis, not a named replace/install. */
+export function diagnosticIntent(text: string): boolean {
+  if (!text.trim()) return false;
+  return DIAGNOSTIC_INTENT.test(text) && !HARD_SCOPE.test(text);
+}
+
 /** The estimator does its job and streams EngineDeltas. */
 export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineDelta> {
   const hasItems = args.estimate.groups.some((g) => g.items.length > 0);
   const combined = (args.visionText ? `${args.message} ${args.visionText}` : args.message).trim();
 
   // Fresh job that the rate book knows: price it flat, no model call.
-  if (!hasItems && rateBookMatches(combined)) {
+  // Diagnostic/troubleshooting requests skip this so they are not grabbed as a
+  // Replace price; they fall to the model, which leads with a diagnostic line
+  // and parks the likely repair in the Complications Cap.
+  if (!hasItems && !diagnosticIntent(combined) && rateBookMatches(combined)) {
     yield* rateBookBuild(combined, args.estimate.name);
     return;
   }
 
   // Add-to-existing of tasks the rate book already knows: lay them in directly,
   // no reliance on the local model emitting a structured edit.
-  if (hasItems && ADD_INTENT.test(combined) && !EDIT_INTENT.test(combined) && rateBookMatches(combined)) {
+  if (hasItems && ADD_INTENT.test(combined) && !EDIT_INTENT.test(combined) && !diagnosticIntent(combined) && rateBookMatches(combined)) {
     yield* rateBookAppend(combined, args.estimate);
     return;
   }
