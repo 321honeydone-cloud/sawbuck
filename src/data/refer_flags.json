@@ -1,0 +1,503 @@
+{
+ "generatedAt": "2026-07-06",
+ "note": "Regulated-trade rate-book tasks. HoneyDone is an insured Florida handyman, not a licensed contractor. REFER = licensed trade + permit, always refer out. VERIFY = gray scope, confirm on site and refer if it needs new wiring, a permit, or structural work. Generated from the ratebook pricing run; edit via the pricing workflow, not by hand.",
+ "refer": [
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Ground Up",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "HVAC > Install Mini Split",
+   "category": "HVAC",
+   "note": "HVAC install and refrigerant work needs a licensed HVAC contractor and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler (Complete Unit)",
+   "category": "HVAC",
+   "note": "HVAC install and refrigerant work needs a licensed HVAC contractor and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Buried Sewer Line Repair / Replacement",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Copper Pipe Sweating / Repair",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Galvanized Steel Pipe Repair / Replacement",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > In-Home Sewer / Drain Line Repair / Replacement",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Water Main Repair",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Water Main Replacement",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Main Home Shutoff Valve - Compression Type",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Main Home Shutoff Valve - PVC Type",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Main Home Shutoff Valve - Solder Type",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install New Water Heater Tank - Ground Up",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install New Water Heater Tankless - Ground Up",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install Water Softener - Ground Up",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Repair / Replace Overpressure Vent Plumbing",
+   "category": "Plumbing",
+   "note": "Water heater, repipe, and main, sewer, or gas line work needs a licensed plumber and a permit. We coordinate a licensed sub."
+  },
+  {
+   "name": "Roofing > Apply Elastomeric Coating Flat Roof",
+   "category": "Roofing",
+   "note": "Roof-system and penetration work needs a licensed roofer and a permit. We coordinate a licensed sub; minor gutter and soffit we handle."
+  },
+  {
+   "name": "Roofing > Install / Replace Pipe Boot",
+   "category": "Roofing",
+   "note": "Roof-system and penetration work needs a licensed roofer and a permit. We coordinate a licensed sub; minor gutter and soffit we handle."
+  },
+  {
+   "name": "Roofing > Replace Skylight Curb",
+   "category": "Roofing",
+   "note": "Roof-system and penetration work needs a licensed roofer and a permit. We coordinate a licensed sub; minor gutter and soffit we handle."
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install AFCI Breaker",
+   "category": "Electrical",
+   "note": "Panel, breaker, and new-circuit work requires a licensed electrician and a Brevard County permit. We coordinate a licensed sub so it is done to code and insured."
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Double Pole Breaker",
+   "category": "Electrical",
+   "note": "Panel, breaker, and new-circuit work requires a licensed electrician and a Brevard County permit. We coordinate a licensed sub so it is done to code and insured."
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install GFCI Breaker",
+   "category": "Electrical",
+   "note": "Panel, breaker, and new-circuit work requires a licensed electrician and a Brevard County permit. We coordinate a licensed sub so it is done to code and insured."
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Single Pole Circuit Breaker",
+   "category": "Electrical",
+   "note": "Panel, breaker, and new-circuit work requires a licensed electrician and a Brevard County permit. We coordinate a licensed sub so it is done to code and insured."
+  },
+  {
+   "name": "Electrical > Distribution > Replace Fuse",
+   "category": "Electrical",
+   "note": "Panel, breaker, and new-circuit work requires a licensed electrician and a Brevard County permit. We coordinate a licensed sub so it is done to code and insured."
+  },
+  {
+   "name": "Electrical > Distribution > Run New Conduit",
+   "category": "Electrical",
+   "note": "Panel, breaker, and new-circuit work requires a licensed electrician and a Brevard County permit. We coordinate a licensed sub so it is done to code and insured."
+  },
+  {
+   "name": "Electrical > Distribution > Run New Leg From Panel",
+   "category": "Electrical",
+   "note": "Panel, breaker, and new-circuit work requires a licensed electrician and a Brevard County permit. We coordinate a licensed sub so it is done to code and insured."
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new bath fan means new duct and new wiring, which needs mechanical and electrical permits and a licensed sub. We coordinate the whole job."
+  },
+  {
+   "name": "Electrical > Lighting > Can / Recessed > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Flood > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Porch > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Sconce > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Track > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  },
+  {
+   "name": "Electrical > Lighting > Vanity > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "A brand-new fixture location needs new wiring, which requires a licensed electrician and a permit. We coordinate; a licensed sub does the wiring."
+  }
+ ],
+ "verify": [
+  {
+   "name": "Appliances > Dishwasher > Install New - Ground Up",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Dryer > Install / Upgrade Plug Type",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Install New Range - Free Standing",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Microwave > Install New - Ground Up",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Range Hood > Install New - Ground Up",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Refrigerator > Run & Install Supply Line - Ground Up",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Install New - Ground Up",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Standalone Or Double Oven > Install Built In Oven - Ground Up",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Standalone Or Double Oven > Replace Built In Oven",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Trash Compactor > Install New - Ground Up",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Plug",
+   "category": "Appliances",
+   "note": "A gas hookup or new circuit is licensed gas or electrical work. We handle the set and connections on existing service; new gas or circuit we sub."
+  },
+  {
+   "name": "Carpentry > Build Deck - Ground Up",
+   "category": "Carpentry",
+   "note": "Load-bearing and structural work (ledger, posts) may need a permit and engineering. We confirm scope before quoting."
+  },
+  {
+   "name": "Carpentry > Replace Porch Post",
+   "category": "Carpentry",
+   "note": "Load-bearing and structural work (ledger, posts) may need a permit and engineering. We confirm scope before quoting."
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install Audio Cable Jacks",
+   "category": "Data / Cable / Ethernet",
+   "note": "New in-wall low-voltage runs may fall under Florida limited-energy licensing. We confirm scope; existing-jack work we handle."
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install Cable Jack - Ground Up",
+   "category": "Data / Cable / Ethernet",
+   "note": "New in-wall low-voltage runs may fall under Florida limited-energy licensing. We confirm scope; existing-jack work we handle."
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install Data Jack - Ground Up",
+   "category": "Data / Cable / Ethernet",
+   "note": "New in-wall low-voltage runs may fall under Florida limited-energy licensing. We confirm scope; existing-jack work we handle."
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install New Video Cable Jacks",
+   "category": "Data / Cable / Ethernet",
+   "note": "New in-wall low-voltage runs may fall under Florida limited-energy licensing. We confirm scope; existing-jack work we handle."
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Audio Cable",
+   "category": "Data / Cable / Ethernet",
+   "note": "New in-wall low-voltage runs may fall under Florida limited-energy licensing. We confirm scope; existing-jack work we handle."
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Cable Lines",
+   "category": "Data / Cable / Ethernet",
+   "note": "New in-wall low-voltage runs may fall under Florida limited-energy licensing. We confirm scope; existing-jack work we handle."
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Data Lines",
+   "category": "Data / Cable / Ethernet",
+   "note": "New in-wall low-voltage runs may fall under Florida limited-energy licensing. We confirm scope; existing-jack work we handle."
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Video Data Cables",
+   "category": "Data / Cable / Ethernet",
+   "note": "New in-wall low-voltage runs may fall under Florida limited-energy licensing. We confirm scope; existing-jack work we handle."
+  },
+  {
+   "name": "Doors > Exterior > French > Install New - Ground Up",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "Doors > Exterior > Garage > Install New - Ground Up",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace All Panels",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Motor",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "Doors > Exterior > Security > Install New - Ground Up",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Fixed Pane",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Full Replacement",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Slider Pane",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install New - Ground Up",
+   "category": "Doors",
+   "note": "New rough openings, garage torsion springs, and hardwired openers we sub to the right licensed pro for safety and code. We coordinate the job."
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Motor",
+   "category": "HVAC",
+   "note": "Scope may need a licensed HVAC contractor. We confirm before quoting."
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Cinder Block",
+   "category": "Masonry",
+   "note": "Load-bearing block or foundation work may be structural and permitted. We confirm; veneer and repair we handle."
+  },
+  {
+   "name": "Office > Administrative > Permit Processing",
+   "category": "Office",
+   "note": "Permit-pulling and licensed design or engineering sit outside handyman scope. We coordinate the right licensed professional."
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Install Bidet - Ground Up",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Replace Bidet",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Replace Mounting Flange",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Replace Shower / Tub Mixer Valve",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Copper Tubing 1/4\" Or 3/8\" Compression Type Repair",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Frost Free Hose Bibb - Solder Type",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Hose Bibb - Solder Type",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Kitchen > Miscellaneous > Install Pasta Arm - Ground Up",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Laundry > Replace Washing Machine Hose Bibb",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install / Repair Drain Pan Drain Plumbing",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install / Replace Drain Pan",
+   "category": "Plumbing",
+   "note": "This may cross into permitted plumbing (valve body, moving a drain). We confirm on site and sub if a permit is needed."
+  },
+  {
+   "name": "Roofing > Install Vent Cap",
+   "category": "Roofing",
+   "note": "A new roof penetration is licensed-roofer work; a like-for-like swap we handle. We confirm on site."
+  },
+  {
+   "name": "Roofing > Install Whirlybird / Attic Vent",
+   "category": "Roofing",
+   "note": "A new roof penetration is licensed-roofer work; a like-for-like swap we handle. We confirm on site."
+  },
+  {
+   "name": "Roofing > Replace Skylight Outer Dome",
+   "category": "Roofing",
+   "note": "A new roof penetration is licensed-roofer work; a like-for-like swap we handle. We confirm on site."
+  },
+  {
+   "name": "Teleconference > Technical Consultations > Design Consultation",
+   "category": "Teleconference",
+   "note": "Permit-pulling and licensed design or engineering sit outside handyman scope. We coordinate the right licensed professional."
+  },
+  {
+   "name": "Teleconference > Technical Consultations > Engineering Review",
+   "category": "Teleconference",
+   "note": "Permit-pulling and licensed design or engineering sit outside handyman scope. We coordinate the right licensed professional."
+  },
+  {
+   "name": "Window Coverings & Accessories > Child / Safety > Install Security Bars",
+   "category": "Window Coverings & Accessories",
+   "note": "This scope may require a licensed trade and a permit. We confirm before quoting and coordinate a licensed sub if needed."
+  },
+  {
+   "name": "Windows > Install New - Ground Up",
+   "category": "Windows",
+   "note": "Full-window and impact replacement often needs a permit and licensed installer under Florida code. We confirm and sub if required; glass, screen, and hardware we handle."
+  },
+  {
+   "name": "Windows > Replace Full Frame",
+   "category": "Windows",
+   "note": "Full-window and impact replacement often needs a permit and licensed installer under Florida code. We confirm and sub if required; glass, screen, and hardware we handle."
+  },
+  {
+   "name": "Electrical > Distribution > Install / Replace Weatherproof Gang Box",
+   "category": "Electrical",
+   "note": "A like-for-like box on existing wiring we handle. If it needs new wiring it becomes licensed electrical work and we refer it out. We confirm on site."
+  },
+  {
+   "name": "Electrical > Distribution > Install Ceiling Fan Rated Box",
+   "category": "Electrical",
+   "note": "A like-for-like box on existing wiring we handle. If it needs new wiring it becomes licensed electrical work and we refer it out. We confirm on site."
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Gang Box",
+   "category": "Electrical",
+   "note": "A like-for-like box on existing wiring we handle. If it needs new wiring it becomes licensed electrical work and we refer it out. We confirm on site."
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Junction Box",
+   "category": "Electrical",
+   "note": "A like-for-like box on existing wiring we handle. If it needs new wiring it becomes licensed electrical work and we refer it out. We confirm on site."
+  },
+  {
+   "name": "Electrical > Distribution > Troubleshoot / Diagonose",
+   "category": "Electrical",
+   "note": "We do the visual and load-side checks. Anything inside the panel is licensed electrical work and we refer it to a licensed electrician."
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Install New System - Ground Up",
+   "category": "Electrical",
+   "note": "New low-voltage wiring can fall under Florida limited-energy licensing. We confirm scope first and sub it out if a license is required."
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Run New Wiring",
+   "category": "Electrical",
+   "note": "New low-voltage wiring can fall under Florida limited-energy licensing. We confirm scope first and sub it out if a license is required."
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Remodel Box",
+   "category": "Electrical",
+   "note": "A like-for-like box on existing wiring we handle. If it needs new wiring it becomes licensed electrical work and we refer it out. We confirm on site."
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Upgrade To LED",
+   "category": "Electrical",
+   "note": "Plug-in or lamp-only versions we handle. Hardwired versions are licensed electrical work; we confirm which on site."
+  },
+  {
+   "name": "Electrical > Lighting > Under Cabinet > Install New - Ground Up",
+   "category": "Electrical",
+   "note": "Plug-in or lamp-only versions we handle. Hardwired versions are licensed electrical work; we confirm which on site."
+  }
+ ]
+}

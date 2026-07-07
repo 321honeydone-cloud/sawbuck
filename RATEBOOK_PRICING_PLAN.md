@@ -98,3 +98,12 @@ Decisions locked with Manny this session (these OVERRIDE the 2026-06-25 "market 
 Electrical pilot result: 139 priced. 111 handyman, 10 VERIFY, 18 REFER. Range $35-$550. Floor $35 (book's lowest anchor is ~$36). Verified: 0 non-anchor items drift from formula, all ground-up installs exceed their swap anchors, all regulated items flagged.
 
 Still owed before the full 696 run (from the pre-run review): category ALIAS MAP so renamed trades inherit anchors (Interior Walls & Ceilings, Landscaping, Exterior Walls, Travel/Hauling all miss their anchors on exact-string join); unit re-tag false positives (lawn mowing/tree trim tagged LF; per-room paint tagged SF; paint-as-material tagged SF; fence gate hardware tagged LF; shower beauty kit tagged LF; transition strips tagged SF); prep.py mount path is stale.
+
+## Full run complete (2026-07-06)
+All 696 stubs priced into ratebook-run/master_ratebook_review.csv (+ per-trade CSVs in ratebook-run/trades/).
+Method held uniform across 26 trades: anchor-first snap, realistic-minutes formula, task-only, two-build
+(expected + max guarantee), repeat-unit price on each-tasks, haul-off flag, refer notes, $35 floor on each.
+Counts: 597 handyman, 62 VERIFY, 37 REFER, 92 haul-off. 13 fence/gutter/stucco/siding rows carry a
+[PER-UNIT RATE, confirm] tag (standard Brevard unit costs, Manny to confirm). Mechanical fixes done:
+anchor alias map, unit re-tag false positives, T&G/paneling + drawer-rail + window-covering unit fixes.
+Remaining: Manny approves master CSV, then load to CATALOG-RATE-OVERRIDES + set weekly stub-fill schedule.

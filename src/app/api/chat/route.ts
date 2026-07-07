@@ -5,6 +5,7 @@
 import { prisma } from "@/lib/db";
 import { RATEBOOK_ID, formatLearnedRates, parseRateBook } from "@/lib/rates";
 import { OVERRIDES_ID, applyOverrides, formatPricedBookForPrompt, parseOverrides, pickRelevantTasks } from "@/lib/rateOverrides";
+import { formatReferFlagsForPrompt } from "@/lib/referFlags";
 import { rateBook, setRateBookTasks } from "@/lib/loadRateBook";
 import { memoryBlock } from "@/lib/memory";
 import { getSession } from "@/lib/session";
@@ -48,6 +49,7 @@ export async function POST(req: Request) {
     /* no rate book yet, static price book still applies */
   }
   let rateBookPrices = "";
+  let referBlock = "";
   try {
     const ovRow = await prisma.catalog.findUnique({ where: { id: OVERRIDES_ID } });
     const merged = applyOverrides(rateBook.tasks, parseOverrides(ovRow?.items));
@@ -60,6 +62,7 @@ export async function POST(req: Request) {
     const provider = await activeProvider();
     const forPrompt = provider === "ollama" ? pickRelevantTasks(merged, message, 80) : merged;
     rateBookPrices = formatPricedBookForPrompt(forPrompt);
+    referBlock = formatReferFlagsForPrompt(forPrompt);
   } catch {
     /* no overrides yet, base book still applies */
   }
@@ -71,7 +74,7 @@ export async function POST(req: Request) {
   } catch {
     /* no memory file yet — the estimator still has the rate books */
   }
-  const systemExtra = learnedRates + rateBookPrices + shopMemory;
+  const systemExtra = learnedRates + rateBookPrices + referBlock + shopMemory;
 
   const encoder = new TextEncoder();
   const stream = new ReadableStream<Uint8Array>({
