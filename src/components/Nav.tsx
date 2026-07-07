@@ -25,8 +25,14 @@ export default function Nav() {
   const onNew = async () => {
     setCreating(true);
     const id = await createEstimate();
-    if (id) router.push(`/estimate/${id}`);
-    else setCreating(false);
+    if (id) {
+      // router.push onto the same URL (when the server reuses an existing empty
+      // draft) is a no-op, which made the button look dead. refresh() forces the
+      // route to re-render either way, so New always lands on a clean draft.
+      router.push(`/estimate/${id}`);
+      router.refresh();
+    }
+    setCreating(false);
   };
 
   const signOut = async () => {

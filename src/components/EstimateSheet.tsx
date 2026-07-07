@@ -35,47 +35,38 @@ const SHEET_COLS = "grid grid-cols-[1.15rem_2.6rem_minmax(0,1fr)_3.6rem_4.2rem_4
 
 export default function EstimateSheet() {
   const estimate = useEstimateStore((s) => s.estimate);
+  const setLinesOff = useEstimateStore((s) => s.setLinesOff);
   const [jobberOpen, setJobberOpen] = useState(false);
-  // Excluded LINE ITEM ids. Unchecked lines drop out of the total and the
-  // Jobber quote but stay visible, greyed. Sections roll up their lines.
-  const [excluded, setExcluded] = useState<Set<string>>(new Set());
 
-  useEffect(() => setExcluded(new Set()), [estimate.id]);
+  // Struck lines now live on the item itself (item.off) and are saved with the
+  // quote, so the greying, the totals, and the Jobber export read one source and
+  // survive a reload. The Set below is derived only for the child components that
+  // still take an "excluded" set.
+  const allItems = estimate.groups.flatMap((g) => g.items);
+  const allItemIds = allItems.map((i) => i.id);
+  const excluded = new Set(allItems.filter((i) => i.off).map((i) => i.id));
 
-  const allItemIds = estimate.groups.flatMap((g) => g.items.map((i) => i.id));
-  const includedGroups = estimate.groups.map((g) => ({
-    ...g,
-    items: g.items.filter((i) => !excluded.has(i.id)),
-  }));
-  const liveTotals = computeTotals(includedGroups);
-  // Split the included sheet into the Smooth Scenario and Max Price Guarantee so
-  // the header can always lead with the Max (red) and show the cap buffer (yellow).
-  const split = splitBuilds({ ...estimate, groups: includedGroups });
+  // computeTotals and splitBuilds already skip struck lines, so the header math
+  // reflects the current strikes with no extra filtering.
+  const liveTotals = computeTotals(estimate.groups);
+  const split = splitBuilds(estimate);
 
-  const offCount = allItemIds.filter((id) => excluded.has(id)).length;
+  const offCount = excluded.size;
   const masterState: CheckState =
     offCount === 0 ? "on" : offCount === allItemIds.length ? "off" : "some";
 
-  const toggleItem = (id: string) =>
-    setExcluded((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
+  const toggleItem = (id: string) => {
+    const it = allItems.find((i) => i.id === id);
+    setLinesOff([id], !it?.off);
+  };
 
-  const toggleGroup = (group: Group) =>
-    setExcluded((prev) => {
-      const next = new Set(prev);
-      const allIn = group.items.every((i) => !next.has(i.id));
-      for (const i of group.items) {
-        if (allIn) next.add(i.id); // all on → turn the section off
-        else next.delete(i.id); // otherwise → turn the whole section on
-      }
-      return next;
-    });
+  const toggleGroup = (group: Group) => {
+    // any line on → strike the whole section; all already off → restore it.
+    const anyOn = group.items.some((i) => !i.off);
+    setLinesOff(group.items.map((i) => i.id), anyOn);
+  };
 
-  const toggleAll = () => setExcluded((prev) => (prev.size === 0 ? new Set(allItemIds) : new Set()));
+  const toggleAll = () => setLinesOff(allItemIds, offCount === 0);
 
   const hasGroups = estimate.groups.length > 0;
 

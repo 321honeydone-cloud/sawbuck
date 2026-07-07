@@ -161,7 +161,9 @@ async function* rateBookBuild(jobText: string, estimateName: string): AsyncGener
   }
 
   await sleep(120);
-  let closing = `\n\nDone. Flat-rate total $${q.cash} cash, $${q.card} card. The Rate Book panel up top has the same number.`;
+  // Card price + Max Guarantee live in the header (single source). Chat quotes
+  // only the expected cash so it can't show a second, conflicting card number.
+  let closing = `\n\nDone. Expected price $${q.cash} from your rate book. The Smooth and Max prices, with the card price, are up top.`;
   if (q.unmatched.length > 0) closing += ` I could not match: ${q.unmatched.map((u) => u.text).join(", ")}. Add those by hand or reword them.`;
   yield* streamText(closing);
   yield { type: "summary", name: estimateName };

@@ -11,8 +11,11 @@ export default function NewEstimateEmpty() {
   const start = async () => {
     setCreating(true);
     const id = await createEstimate();
-    if (id) router.push(`/estimate/${id}`);
-    else setCreating(false);
+    if (id) {
+      router.push(`/estimate/${id}`);
+      router.refresh();
+    }
+    setCreating(false);
   };
 
   return (

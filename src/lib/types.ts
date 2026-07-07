@@ -26,6 +26,7 @@ export interface LineItem {
   supplierPrice: number | null;
   notes: string | null;
   media?: MediaItem[]; // photos/video carried from an inspection, shown in the breakdown
+  off?: boolean; // struck out: still shown (greyed) but dropped from every total and the Jobber export. Persisted.
 }
 
 export interface Group {
@@ -137,6 +138,7 @@ export type Operation =
       supplier?: string | null;
     }
   | { op: "edit_line_item"; id: string; field: keyof LineItem; value: string | number }
+  | { op: "set_line_off"; id: string; off: boolean }
   | { op: "delete_line_item"; id: string }
   | { op: "set_markup"; target: "all" | string; pct: number }
   | { op: "set_labor_rate"; rate: number }

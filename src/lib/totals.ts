@@ -10,11 +10,14 @@ export function recalcLineItem(item: LineItem): LineItem {
   return { ...item, builderCost, markupAmount, clientTotal };
 }
 
-/** Recompute a group's subtotals from its (already-recalculated) items. */
+/** Recompute a group's subtotals from its (already-recalculated) items.
+ *  Struck (off) lines keep their own math for display but are excluded from the
+ *  subtotal, so a greyed line never inflates the group's billed number. */
 export function recalcGroup(group: Group): Group {
   const items = group.items.map(recalcLineItem);
-  const subtotalBuilder = round2(items.reduce((s, i) => s + i.builderCost, 0));
-  const subtotalClient = round2(items.reduce((s, i) => s + i.clientTotal, 0));
+  const live = items.filter((i) => !i.off);
+  const subtotalBuilder = round2(live.reduce((s, i) => s + i.builderCost, 0));
+  const subtotalClient = round2(live.reduce((s, i) => s + i.clientTotal, 0));
   return { ...group, items, subtotalBuilder, subtotalClient };
 }
 
@@ -23,6 +26,7 @@ export function computeTotals(groups: Group[]): Totals {
   let totalMarkup = 0;
   for (const g of groups) {
     for (const i of g.items) {
+      if (i.off) continue; // struck lines are dropped from every total
       totalCost += i.builderCost;
       totalMarkup += i.markupAmount;
     }

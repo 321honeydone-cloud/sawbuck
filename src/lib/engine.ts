@@ -297,7 +297,10 @@ async function* rateBookBuild(userMessage: string, ctx: EngineContext): AsyncGen
   }
 
   await sleep(150);
-  let closing = `\n\nDone. Flat-rate total $${q.cash} cash, $${q.card} card. The Rate Book panel up top has the same number.`;
+  // Report only the expected (pre-cap) cash figure here. The card price and the
+  // Max Price Guarantee live in the header, which is the single source for the
+  // card number, so the chat can never quote a second, conflicting card total.
+  let closing = `\n\nDone. Expected price $${q.cash} from your rate book. The Smooth and Max prices, with the card price, are up top.`;
   if (q.unmatched.length > 0) {
     closing += ` I could not match: ${q.unmatched.map((u) => u.text).join(", ")}. Add those by hand or reword them.`;
   }

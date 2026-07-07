@@ -27,6 +27,7 @@ interface EstimateState {
   acceptChanges: () => void;
   rejectChanges: () => void;
   editLineItem: (id: string, field: keyof LineItem, value: string | number) => void;
+  setLinesOff: (ids: string[], off: boolean) => void;
   renameEstimate: (name: string) => void;
   setClient: (name: string) => void;
   setStatus: (status: EstimateStatus) => void;
@@ -292,6 +293,19 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
       learnRate(item, "manual");
       learnRateBook(item, "manual");
     }
+  },
+
+  setLinesOff: (ids, off) => {
+    // Strike (or un-strike) one or more lines and save. Because applyOperation
+    // recalculates the whole estimate, the stored totals immediately reflect the
+    // change, so the header, the quotes/history tab, and the Jobber export all
+    // read the same lowered number.
+    let estimate = get().estimate;
+    for (const id of ids) {
+      estimate = applyOperation(estimate, { op: "set_line_off", id, off }).estimate;
+    }
+    set({ estimate });
+    void persist(estimate);
   },
 
   renameEstimate: (name) => {

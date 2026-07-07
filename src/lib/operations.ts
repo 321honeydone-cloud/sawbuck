@@ -118,6 +118,19 @@ export function applyOperation(
       break;
     }
 
+    case "set_line_off": {
+      // Strike or un-strike a line. It stays on the sheet (greyed) but recalc
+      // below drops it from every total. No change record: a manual toggle is
+      // not an AI update and should not light up the review bar.
+      for (const g of next.groups) {
+        const item = g.items.find((i) => i.id === op.id);
+        if (!item) continue;
+        item.off = op.off;
+        break;
+      }
+      break;
+    }
+
     case "delete_line_item": {
       for (const g of next.groups) {
         const item = g.items.find((i) => i.id === op.id);

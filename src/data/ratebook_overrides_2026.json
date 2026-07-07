@@ -1,0 +1,4880 @@
+{
+ "version": "v1",
+ "generatedAt": "2026-07-06",
+ "source": "ratebook_2026",
+ "count": 696,
+ "overrides": [
+  {
+   "name": "Appliances > Dishwasher > Install Drain Line Service Loop / Backflow Prevention",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Dishwasher > Install New - Ground Up",
+   "final_price": 195,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 35
+  },
+  {
+   "name": "Appliances > Dishwasher > Mount / Secure Dishwasher",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Dishwasher > Repair Leak",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Baskets",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 30
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Control Board",
+   "final_price": 155,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 45
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Dishwasher",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Drain Line",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Power Cord",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Pump Motor",
+   "final_price": 195,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 55
+  },
+  {
+   "name": "Appliances > Dishwasher > Replace Water Level Sensor",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 30
+  },
+  {
+   "name": "Appliances > Dryer > Haul Off Old Dryer",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Appliances > Dryer > Install / Upgrade Plug Type",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Dryer > Install New - Ground Up",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Dryer > Replace Belt",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Appliances > Dryer > Replace Heating Elements",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 40
+  },
+  {
+   "name": "Appliances > Dryer > Replace Knobs",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Freezer > Clean Coils & Heat Exchanger",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 5
+  },
+  {
+   "name": "Appliances > Freezer > Install / Replace",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Haul Away Old Range",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Install New Range - Free Standing",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Level Range",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 5
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Repair Broiler Drawer Rails",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Burner",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Drip Pans",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Electric Coil",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Knob",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Full Range (Cooktop + Oven) > Replace Oven Door",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 25
+  },
+  {
+   "name": "Appliances > Microwave > Install New - Ground Up",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Microwave > Replace Bulb",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Microwave > Replace Door",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 25
+  },
+  {
+   "name": "Appliances > Microwave > Replace Fuse",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Microwave > Replace Turntable",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Range Hood > Install New - Ground Up",
+   "final_price": 225,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 25
+  },
+  {
+   "name": "Appliances > Refrigerator > Clean & Blow Out Coils / Heat Exchanger",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 5
+  },
+  {
+   "name": "Appliances > Refrigerator > Haul Away Old Refrigerator",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Appliances > Refrigerator > Install External Water Filter - Ground Up",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 25
+  },
+  {
+   "name": "Appliances > Refrigerator > Repair Water / Ice Dispenser",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 20
+  },
+  {
+   "name": "Appliances > Refrigerator > Replace Air Filter",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Refrigerator > Replace Water / Ice Dispenser",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 45
+  },
+  {
+   "name": "Appliances > Refrigerator > Run & Install Supply Line - Ground Up",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Install New - Ground Up",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 20
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Replace Burner",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Replace Coil",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Standalone Cooktop > Replace Drip Pans",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Standalone Or Double Oven > Install Built In Oven - Ground Up",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 20
+  },
+  {
+   "name": "Appliances > Standalone Or Double Oven > Replace Built In Oven",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Standalone Or Double Oven > Replace Oven Door",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 25
+  },
+  {
+   "name": "Appliances > Trash Compactor > Install New - Ground Up",
+   "final_price": 180,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Appliances > Trash Compactor > Replace",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Trash Compactor > Secure To Cabinet",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Washing Machine > Install New - Ground Up",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Appliances > Washing Machine > Remove Debris From Trap",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 5
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Knobs",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Plug",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Pump",
+   "final_price": 180,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 45
+  },
+  {
+   "name": "Appliances > Washing Machine > Replace Water Level Sensor",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 30
+  },
+  {
+   "name": "Cabinets > Caulk Countertops",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Bathroom Medicine",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Bathroom Vanity",
+   "final_price": 230,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 30
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Kitchen Base",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Kitchen Pantry",
+   "final_price": 230,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 30
+  },
+  {
+   "name": "Cabinets > Install New - Ground Up - Kitchen Upper",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Cabinets > Install New Countertops - Ground Up",
+   "final_price": 400,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 0
+  },
+  {
+   "name": "Cabinets > Install New Door / Drawer Pulls - Ground Up",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Cabinets > Remove Permanently",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 0
+  },
+  {
+   "name": "Cabinets > Repair Drawer Front",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Cabinets > Repair Drawer Rail",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Cabinets > Repair Hinge",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Cabinets > Replace - Bathroom Medicine",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Cabinets > Replace - Kitchen Base",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Cabinets > Replace - Kitchen Pantry",
+   "final_price": 230,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 30
+  },
+  {
+   "name": "Cabinets > Replace - Kitchen Upper",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Cabinets > Replace Cabinet Bottom - Full",
+   "final_price": 240,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 40
+  },
+  {
+   "name": "Cabinets > Replace Cabinet Bottom - Overlay",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 30
+  },
+  {
+   "name": "Cabinets > Replace Countertops",
+   "final_price": 400,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 0
+  },
+  {
+   "name": "Cabinets > Replace Drawer Front",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 25
+  },
+  {
+   "name": "Cabinets > Replace Drawer Rail",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Cabinets > Replace Hinge",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Cabinets > Secure",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Carpentry > Build Deck - Ground Up",
+   "final_price": 1500,
+   "unit": "each",
+   "labor_minutes": 720,
+   "material_allowance": 0
+  },
+  {
+   "name": "Carpentry > Fill / Repair Rotten Fascia",
+   "final_price": 180,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Carpentry > Install Bannister",
+   "final_price": 325,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 60
+  },
+  {
+   "name": "Carpentry > Install Baseboard / Ground Up",
+   "final_price": 10,
+   "unit": "per linear foot",
+   "labor_minutes": 6,
+   "material_allowance": 2
+  },
+  {
+   "name": "Carpentry > Install Chair Rail - Ground Up",
+   "final_price": 11,
+   "unit": "per linear foot",
+   "labor_minutes": 6,
+   "material_allowance": 3
+  },
+  {
+   "name": "Carpentry > Install Crown Molding - Ground Up",
+   "final_price": 18,
+   "unit": "per linear foot",
+   "labor_minutes": 10,
+   "material_allowance": 4
+  },
+  {
+   "name": "Carpentry > Install Door Casing - Ground Up - Exterior",
+   "final_price": 16,
+   "unit": "per linear foot",
+   "labor_minutes": 9,
+   "material_allowance": 4
+  },
+  {
+   "name": "Carpentry > Install Door Casing - Ground Up - Interior",
+   "final_price": 13,
+   "unit": "per linear foot",
+   "labor_minutes": 7,
+   "material_allowance": 3
+  },
+  {
+   "name": "Carpentry > Install Hand Rails",
+   "final_price": 32,
+   "unit": "per linear foot",
+   "labor_minutes": 20,
+   "material_allowance": 8
+  },
+  {
+   "name": "Carpentry > Install Siding",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 8,
+   "material_allowance": 4
+  },
+  {
+   "name": "Carpentry > Install Wainscott - Ground Up",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Carpentry > Rebuild Deck - Replace Rotten Components",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Carpentry > Repair Bannister",
+   "final_price": 180,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Carpentry > Repair Hand Rails",
+   "final_price": 26.25,
+   "unit": "per linear foot",
+   "labor_minutes": 12,
+   "material_allowance": 5
+  },
+  {
+   "name": "Carpentry > Replace Crown Molding",
+   "final_price": 20,
+   "unit": "per linear foot",
+   "labor_minutes": 11,
+   "material_allowance": 4
+  },
+  {
+   "name": "Carpentry > Replace Door Casing - Ground Up - Exterior",
+   "final_price": 18,
+   "unit": "per linear foot",
+   "labor_minutes": 11,
+   "material_allowance": 4
+  },
+  {
+   "name": "Carpentry > Replace Porch Post",
+   "final_price": 275,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 60
+  },
+  {
+   "name": "Carpentry > Replace Rotten Fascia",
+   "final_price": 180,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Carpentry > Replace Siding",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 10,
+   "material_allowance": 4
+  },
+  {
+   "name": "Carpentry > Stairs - Interior - Rebuild Treads & Risers",
+   "final_price": 155,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 45
+  },
+  {
+   "name": "Cleaning",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install Audio Cable Jacks",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install Cable Jack - Ground Up",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 50,
+   "material_allowance": 12
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install Data Jack - Ground Up",
+   "final_price": 105,
+   "unit": "each",
+   "labor_minutes": 55,
+   "material_allowance": 12
+  },
+  {
+   "name": "Data / Cable / Ethernet > Install New Video Cable Jacks",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 50,
+   "material_allowance": 12
+  },
+  {
+   "name": "Data / Cable / Ethernet > Replace Cable Jack",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 8
+  },
+  {
+   "name": "Data / Cable / Ethernet > Replace Data Jack",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 8
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Audio Cable",
+   "final_price": 155,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 25
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Cable Lines",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 20
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Data Lines",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 80,
+   "material_allowance": 25
+  },
+  {
+   "name": "Data / Cable / Ethernet > Run New Video Data Cables",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 80,
+   "material_allowance": 25
+  },
+  {
+   "name": "Doors > Exterior > French > Adjustment Only",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Exterior > French > Install Accessory Locks",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 25
+  },
+  {
+   "name": "Doors > Exterior > French > Install Alarm",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > French > Install New - Ground Up",
+   "final_price": 975,
+   "unit": "each",
+   "labor_minutes": 360,
+   "material_allowance": 300
+  },
+  {
+   "name": "Doors > Exterior > French > Install New - Replacement - Pre-Hung",
+   "final_price": 475,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 60
+  },
+  {
+   "name": "Doors > Exterior > French > Install New - Replacment - Slab Only (Each)",
+   "final_price": 350,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 30
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Bottom Seal (Each)",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Deadbolt",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Doorknob / Lever / Handle",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Slider Bolt Latch",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 12
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Sweep (Each)",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 12
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Threshold",
+   "final_price": 140,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 30
+  },
+  {
+   "name": "Doors > Exterior > French > Replace Weather Stripping",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Doors > Exterior > Garage > Adjust / Align Safety Sensors",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Exterior > Garage > Clean And Lube Tracks",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doors > Exterior > Garage > Install New - Ground Up",
+   "final_price": 750,
+   "unit": "each",
+   "labor_minutes": 300,
+   "material_allowance": 200
+  },
+  {
+   "name": "Doors > Exterior > Garage > Paint Door",
+   "final_price": 225,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 30
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace All Panels",
+   "final_price": 1025,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 500
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Locking / Latching Mechanism",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 30
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Motor",
+   "final_price": 510,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 250
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Panel (Single)",
+   "final_price": 340,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 150
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Track",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 80
+  },
+  {
+   "name": "Doors > Exterior > Garage > Replace Weather Stripping / Exterior Trim",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 40
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Adjustment Only",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Install / Replace Pneumatic Door Closer",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Install / Replace Spring / Chain Assembly",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 12
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Install New - Ground Up",
+   "final_price": 390,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 150
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Install New - Replacement",
+   "final_price": 300,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 120
+  },
+  {
+   "name": "Doors > Exterior > Hinged Screen > Replace Handle",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Security > Adjustment Only",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Exterior > Security > Install New - Ground Up",
+   "final_price": 560,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 250
+  },
+  {
+   "name": "Doors > Exterior > Security > Install New - Replacement",
+   "final_price": 450,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 200
+  },
+  {
+   "name": "Doors > Exterior > Security > Replace Deadbolt",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Exterior > Security > Replace Doorknob / Lever / Handle",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Clean And Lubricate Track",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install Alarm",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Fixed Pane",
+   "final_price": 450,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 200
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Full Replacement",
+   "final_price": 1000,
+   "unit": "each",
+   "labor_minutes": 300,
+   "material_allowance": 400
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Ground Up",
+   "final_price": 1225,
+   "unit": "each",
+   "labor_minutes": 360,
+   "material_allowance": 500
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install New - Slider Pane",
+   "final_price": 510,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 250
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Install Secondary Pin Lock",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 12
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Replace Handle / Latch Assembly",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 25
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Replace Mortise Style Latch",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 30
+  },
+  {
+   "name": "Doors > Exterior > Sliding Glass > Replace Wheels",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Doors > Exterior > Sliding Screen > Adjustment Only",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Exterior > Sliding Screen > Install New",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 60
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Adjust To Latch And Lock Smoothly",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install / Replace / Adjust Self Closing Hinge",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Alarm",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Knocker",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install New (Pre-Hung)",
+   "final_price": 700,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 60
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install New (Slab Only)",
+   "final_price": 350,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 30
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install New - Ground Up",
+   "final_price": 810,
+   "unit": "each",
+   "labor_minutes": 300,
+   "material_allowance": 250
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Peephole",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Security Sleeve",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 25
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Install Security Strike Plate Or Reinforcement",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 25
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Mortise For Doorknob Or Deadbolt",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Rekey",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 8
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Repair / Replace Hinge",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Bolt For Deadbolt",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 12
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Deadbolt",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Doorknob / Lever / Handle",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Latch For Doorknob",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Sweep",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 12
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Threshold",
+   "final_price": 140,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 30
+  },
+  {
+   "name": "Doors > Exterior > Standard Slab > Replace Weather Stripping",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Doors > Exterior > Storm > Adjustment Only",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Exterior > Storm > Install New - Ground Up",
+   "final_price": 475,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 180
+  },
+  {
+   "name": "Doors > Exterior > Storm > Install New - Replacment",
+   "final_price": 390,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 150
+  },
+  {
+   "name": "Doors > Exterior > Storm > Install Or Replace Pneumatic Closer",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Exterior > Storm > Install Or Replace Spring & Chain",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 12
+  },
+  {
+   "name": "Doors > Exterior > Storm > Replace Glass / Plexiglass",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 45
+  },
+  {
+   "name": "Doors > Exterior > Storm > Replace Handle / Lock / Latch",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 20
+  },
+  {
+   "name": "Doors > Interior > Accordion > Adjust Only",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Accordion > Install New - Ground Up",
+   "final_price": 220,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 60
+  },
+  {
+   "name": "Doors > Interior > Accordion > Replace Door (Accordion Only)",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 20
+  },
+  {
+   "name": "Doors > Interior > Accordion > Replace Latching / Locking Mechanism",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Interior > Barn > Adjust Only",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Barn > Install New - Ground Up",
+   "final_price": 280,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 30
+  },
+  {
+   "name": "Doors > Interior > Barn > Replace Hardware (All)",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Doors > Interior > Bifold > Adjust Only",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Bifold > Install Knob (Each)",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Interior > Bifold > Install New Assembly - Ground Up (Each)",
+   "final_price": 275,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 40
+  },
+  {
+   "name": "Doors > Interior > Bifold > Replace All Hardware (Each)",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Interior > Bifold > Replace Door Assembly (Each)",
+   "final_price": 275,
+   "unit": "each",
+   "labor_minutes": 165,
+   "material_allowance": 40
+  },
+  {
+   "name": "Doors > Interior > Bifold > Replace Headrail (Each)",
+   "final_price": 185,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 20
+  },
+  {
+   "name": "Doors > Interior > Bypass > Adjust Only",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Bypass > Install Flush Door Pull",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doors > Interior > Bypass > Install New - Ground Up",
+   "final_price": 260,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 40
+  },
+  {
+   "name": "Doors > Interior > Bypass > Replace Door (Each)",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Pocket > Repair Or Adjust Stuck Door",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doors > Interior > Pocket > Replace Handle / Latch Mechanism",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Interior > Shower > Bypass > Adjust Only",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Shower > Bypass > Install New - Ground Up",
+   "final_price": 600,
+   "unit": "each",
+   "labor_minutes": 600,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Shower > Bypass > Replace Bumpers",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 8
+  },
+  {
+   "name": "Doors > Interior > Shower > Bypass > Replace Handle",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Adjust Only",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Install New - Ground Up",
+   "final_price": 600,
+   "unit": "each",
+   "labor_minutes": 600,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Replace Door (Each)",
+   "final_price": 600,
+   "unit": "each",
+   "labor_minutes": 600,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Replace Handle",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Replace Latch / Magnet",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 5
+  },
+  {
+   "name": "Doors > Interior > Shower > Hinged > Replace Trim / Strips",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Doors > Interior > Standard Slab > Install New - Ground Up",
+   "final_price": 350,
+   "unit": "each",
+   "labor_minutes": 250,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Interior > Standard Slab > Repair / Replace Hinge",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 12
+  },
+  {
+   "name": "Doors > Interior > Standard Slab > Replace Door (Pre-Hung)",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 0
+  },
+  {
+   "name": "Doors > Miscellaneous > Install Doorstop",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 5
+  },
+  {
+   "name": "Equipment Rental > Heavy Equipment > Mini Excavator",
+   "final_price": 275,
+   "unit": "per hour",
+   "labor_minutes": 0,
+   "material_allowance": 275
+  },
+  {
+   "name": "Equipment Rental > Heavy Equipment > Skid Steer",
+   "final_price": 300,
+   "unit": "per hour",
+   "labor_minutes": 0,
+   "material_allowance": 300
+  },
+  {
+   "name": "Equipment Rental > Power Tools > Circular Saw",
+   "final_price": 40,
+   "unit": "per hour",
+   "labor_minutes": 0,
+   "material_allowance": 40
+  },
+  {
+   "name": "Equipment Rental > Power Tools > Nail Gun",
+   "final_price": 45,
+   "unit": "per hour",
+   "labor_minutes": 0,
+   "material_allowance": 45
+  },
+  {
+   "name": "Equipment Rental > Scaffolding > Extension Ladder",
+   "final_price": 40,
+   "unit": "per hour",
+   "labor_minutes": 0,
+   "material_allowance": 40
+  },
+  {
+   "name": "Equipment Rental > Scaffolding > Rolling Scaffold",
+   "final_price": 65,
+   "unit": "per hour",
+   "labor_minutes": 0,
+   "material_allowance": 65
+  },
+  {
+   "name": "Exterior Walls > Install 4X8 Siding - Ground Up",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Exterior Walls > Install Board & Batten Siding - Ground Up",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Exterior Walls > Install Fiber Cement Siding - Ground Up",
+   "final_price": 310,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 60
+  },
+  {
+   "name": "Exterior Walls > Install Shiplap Siding - Ground Up",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Exterior Walls > Install Stucco - Ground Up",
+   "final_price": 9,
+   "unit": "per sq ft",
+   "labor_minutes": 150,
+   "material_allowance": 60
+  },
+  {
+   "name": "Exterior Walls > Install Vinyl Siding - Ground Up",
+   "final_price": 6,
+   "unit": "per sq ft",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Fencing > Chain Link > Install New - Ground Up",
+   "final_price": 16,
+   "unit": "per linear foot",
+   "labor_minutes": 360,
+   "material_allowance": 0
+  },
+  {
+   "name": "Fencing > Chain Link > Install Privacy Slats",
+   "final_price": 155,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 30
+  },
+  {
+   "name": "Fencing > Chain Link > Repalce Gate Hardware",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fencing > Chain Link > Replace Horizontal Rails",
+   "final_price": 6,
+   "unit": "per linear foot",
+   "labor_minutes": 75,
+   "material_allowance": 30
+  },
+  {
+   "name": "Fencing > Chain Link > Replace Vertical Posts",
+   "final_price": 155,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 30
+  },
+  {
+   "name": "Fencing > Chain Link > Secure Chain Link To Poles",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fencing > Masonry > Build New - Ground Up",
+   "final_price": 48,
+   "unit": "per linear foot",
+   "labor_minutes": 600,
+   "material_allowance": 0
+  },
+  {
+   "name": "Fencing > Masonry > Mount Gate",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Fencing > Masonry > Mount Hardware",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fencing > Masonry > Repair / Replace Grout",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fencing > Wood Picket > Apply Exterior Sealer",
+   "final_price": 2.5,
+   "unit": "per linear foot",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Fencing > Wood Picket > Build New - Ground Up",
+   "final_price": 28,
+   "unit": "per linear foot",
+   "labor_minutes": 480,
+   "material_allowance": 0
+  },
+  {
+   "name": "Fencing > Wood Picket > Paint",
+   "final_price": 2.75,
+   "unit": "per sq ft",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Fencing > Wood Picket > Repair / Rebuild Gate",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Fencing > Wood Picket > Replace Gate Hardware",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fencing > Wood Picket > Replace Pickets",
+   "final_price": 9,
+   "unit": "per linear foot",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Fencing > Wood Picket > Replace Post",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Fencing > Wood Picket > Replace Rail",
+   "final_price": 7,
+   "unit": "per linear foot",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Grab Bars / Safety Bars",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 30
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Mirror",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 15
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Shower Curtain Rod (Permanent)",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > TP Holder",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 12
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Towel Bar",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 12
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Towel Hook",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 8
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Bathroom > Towel Ring",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 10
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install / Hang Miscellaneous",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 12
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install / Hang Picture Frames",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 8
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install / Replace AC Register",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 15
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install / Replace Closet Rod",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 20
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install Floating Shelves",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install Replace Register Return",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install Standard Shelving",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 30
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > General > Install TV Mount",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 50,
+   "material_allowance": 25
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Kitchen > Paper Towel holder",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 8
+  },
+  {
+   "name": "Fixtures / Mounts / Accessories > Kitchen > Pot Rack",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Flooring > Carpet > Install New - Ground Up",
+   "final_price": 6,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Carpet > Patch / Repair",
+   "final_price": 8,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Carpet > Remove Permanently",
+   "final_price": 1.75,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 0
+  },
+  {
+   "name": "Flooring > Carpet > Replace",
+   "final_price": 8,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Carpet > Shampoo / Steam Clean",
+   "final_price": 1,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 0
+  },
+  {
+   "name": "Flooring > Carpet > Stretch",
+   "final_price": 2,
+   "unit": "per sq ft",
+   "labor_minutes": 2,
+   "material_allowance": 0
+  },
+  {
+   "name": "Flooring > Hardwood > Install New - Ground Up",
+   "final_price": 14,
+   "unit": "per sq ft",
+   "labor_minutes": 6,
+   "material_allowance": 6
+  },
+  {
+   "name": "Flooring > Hardwood > Patch / Repair",
+   "final_price": 18,
+   "unit": "per sq ft",
+   "labor_minutes": 8,
+   "material_allowance": 8
+  },
+  {
+   "name": "Flooring > Hardwood > Remove Permanently",
+   "final_price": 5,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 0
+  },
+  {
+   "name": "Flooring > Hardwood > Replace",
+   "final_price": 18,
+   "unit": "per sq ft",
+   "labor_minutes": 8,
+   "material_allowance": 6
+  },
+  {
+   "name": "Flooring > Laminate - Wood > Install New - Ground Up",
+   "final_price": 6,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Laminate - Wood > Patch / Repair",
+   "final_price": 10,
+   "unit": "per sq ft",
+   "labor_minutes": 6,
+   "material_allowance": 4
+  },
+  {
+   "name": "Flooring > Laminate - Wood > Remove Permanently",
+   "final_price": 1.75,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 0
+  },
+  {
+   "name": "Flooring > Laminate - Wood > Replace",
+   "final_price": 7,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Laminate Vinyl Plank (LVP) > Install New - Ground Up",
+   "final_price": 7,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 4
+  },
+  {
+   "name": "Flooring > Laminate Vinyl Plank (LVP) > Patch / Repair",
+   "final_price": 10,
+   "unit": "per sq ft",
+   "labor_minutes": 6,
+   "material_allowance": 4
+  },
+  {
+   "name": "Flooring > Laminate Vinyl Plank (LVP) > Remove Permanently",
+   "final_price": 1.75,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 0
+  },
+  {
+   "name": "Flooring > Laminate Vinyl Plank (LVP) > Replace",
+   "final_price": 8,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 4
+  },
+  {
+   "name": "Flooring > Miscellaneous / Other > Concrete Stain - Ground Up",
+   "final_price": 5,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 2
+  },
+  {
+   "name": "Flooring > Miscellaneous / Other > Concrete Stain - Repair",
+   "final_price": 5,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 2
+  },
+  {
+   "name": "Flooring > Miscellaneous / Other > Epoxy - Ground Up",
+   "final_price": 7,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Miscellaneous / Other > Epoxy - Repair",
+   "final_price": 7,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Sheet Vinyl > Install New - Ground Up",
+   "final_price": 6,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Sheet Vinyl > Patch / Repair",
+   "final_price": 10,
+   "unit": "per sq ft",
+   "labor_minutes": 6,
+   "material_allowance": 4
+  },
+  {
+   "name": "Flooring > Sheet Vinyl > Remove Permanently",
+   "final_price": 5,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 0
+  },
+  {
+   "name": "Flooring > Sheet Vinyl > Replace",
+   "final_price": 9,
+   "unit": "per sq ft",
+   "labor_minutes": 5,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Vinyl Tile (LVT) > Install New - Ground Up",
+   "final_price": 6,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 3
+  },
+  {
+   "name": "Flooring > Vinyl Tile (LVT) > Patch / Repair",
+   "final_price": 10,
+   "unit": "per sq ft",
+   "labor_minutes": 6,
+   "material_allowance": 4
+  },
+  {
+   "name": "Flooring > Vinyl Tile (LVT) > Remove Permanently",
+   "final_price": 5,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 0
+  },
+  {
+   "name": "Flooring > Vinyl Tile (LVT) > Replace",
+   "final_price": 9,
+   "unit": "per sq ft",
+   "labor_minutes": 5,
+   "material_allowance": 3
+  },
+  {
+   "name": "HVAC > Install / Replace HVAC Filter",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 10,
+   "material_allowance": 20
+  },
+  {
+   "name": "HVAC > Install Mini Split",
+   "final_price": 800,
+   "unit": "each",
+   "labor_minutes": 480,
+   "material_allowance": 0
+  },
+  {
+   "name": "HVAC > Install Window AC",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "HVAC > Program Thermostat",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 0
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler (Complete Unit)",
+   "final_price": 500,
+   "unit": "each",
+   "labor_minutes": 300,
+   "material_allowance": 0
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Motor",
+   "final_price": 260,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 90
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Pads",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 35
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Pump",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 40
+  },
+  {
+   "name": "HVAC > Replace Swamp Cooler Spider",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "HVAC > Replace Thermostat",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 45
+  },
+  {
+   "name": "Interior Walls & Ceilings > Ceiling Tile > Install New - Ground Up",
+   "final_price": 6,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 3
+  },
+  {
+   "name": "Interior Walls & Ceilings > Ceiling Tile > Remove + Skim",
+   "final_price": 6.25,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Ceiling Tile > Remove + Skim + Texture",
+   "final_price": 8,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Ceiling Tile > Remove Permanently",
+   "final_price": 3.25,
+   "unit": "per sq ft",
+   "labor_minutes": 2,
+   "material_allowance": 0
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drop Ceiling > Install New - Ground Up",
+   "final_price": 10,
+   "unit": "per sq ft",
+   "labor_minutes": 5,
+   "material_allowance": 4
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drop Ceiling > Remove Permanently",
+   "final_price": 3.25,
+   "unit": "per sq ft",
+   "labor_minutes": 2,
+   "material_allowance": 0
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drop Ceiling > Repair Frame",
+   "final_price": 7.5,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 2
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drop Ceiling > Replace Tile",
+   "final_price": 4.25,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 2
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Install New Drywall - Ground Up",
+   "final_price": 3,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Paint - Ground Up",
+   "final_price": 3,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Patch - 1\" Diameter To 4\" Diameter",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 10
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Patch - 4\" Diameter To 1 Square Foot",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Patch - Less than 1 Inch Diameter (Fill)",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 5
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Patch - More Than 1 Square Foot",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 100,
+   "material_allowance": 35
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Prime - Ground Up",
+   "final_price": 3,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Repair Nail Pops",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Repair Peeling Joint Tape",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 20
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Skim - Ground Up",
+   "final_price": 2,
+   "unit": "per sq ft",
+   "labor_minutes": 2,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Tape Joints - Ground Up",
+   "final_price": 3,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Drywall > Texture - Ground Up",
+   "final_price": 2,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Custom Paint Match Fee",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Bathroom Paint",
+   "final_price": 245,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 35
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Bedroom Room Paint",
+   "final_price": 425,
+   "unit": "each",
+   "labor_minutes": 210,
+   "material_allowance": 60
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Closet / Pantry Paint",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 20
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Hour Paint",
+   "final_price": 100,
+   "unit": "per hour",
+   "labor_minutes": 60,
+   "material_allowance": 0
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Kitchen Paint",
+   "final_price": 360,
+   "unit": "each",
+   "labor_minutes": 180,
+   "material_allowance": 50
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Per Square Foot Paint",
+   "final_price": 3,
+   "unit": "per sq ft",
+   "labor_minutes": 1,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paint > Whole House Paint - Interior",
+   "final_price": 350,
+   "unit": "each",
+   "labor_minutes": 360,
+   "material_allowance": 0
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paneling / Tongue & Groove > Install New - Ground Up",
+   "final_price": 8,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 4
+  },
+  {
+   "name": "Interior Walls & Ceilings > Paneling / Tongue & Groove > Replace",
+   "final_price": 8,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 4
+  },
+  {
+   "name": "Interior Walls & Ceilings > Plaster > Patch - Large",
+   "final_price": 240,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 35
+  },
+  {
+   "name": "Interior Walls & Ceilings > Plaster > Patch - Medium",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 20
+  },
+  {
+   "name": "Interior Walls & Ceilings > Plaster > Patch - Small",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Interior Walls & Ceilings > Popcorn > Remove Popcorn + Skim + Texture",
+   "final_price": 5,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Popcorn > Remove Popcorn Permanently",
+   "final_price": 3,
+   "unit": "per sq ft",
+   "labor_minutes": 2,
+   "material_allowance": 0
+  },
+  {
+   "name": "Interior Walls & Ceilings > Popcorn > Remove Popocorn + Skim",
+   "final_price": 4,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Install New - Ground Up",
+   "final_price": 8,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 4
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Patch / Repair",
+   "final_price": 175,
+   "unit": "per sq ft",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Refinish",
+   "final_price": 6.25,
+   "unit": "per sq ft",
+   "labor_minutes": 3,
+   "material_allowance": 1
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Remove Permanently",
+   "final_price": 3.25,
+   "unit": "per sq ft",
+   "labor_minutes": 2,
+   "material_allowance": 0
+  },
+  {
+   "name": "Interior Walls & Ceilings > Tongue & Groove > Replace",
+   "final_price": 9,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 4
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Install New - Ground Up",
+   "final_price": 290,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 40
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Patch / Repair",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Remove Permanently",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 15
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Replace",
+   "final_price": 455,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 55
+  },
+  {
+   "name": "Interior Walls & Ceilings > Wallpaper > Surfacce Preparation",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Landscaping > Install Holiday Lights",
+   "final_price": 220,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 20
+  },
+  {
+   "name": "Landscaping > Install Mailbox - Ground Up",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 30
+  },
+  {
+   "name": "Landscaping > Install Misters",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Landscaping > Junk Removal",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 0
+  },
+  {
+   "name": "Landscaping > Lawn Mowing / Edging / Trimming",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 0
+  },
+  {
+   "name": "Landscaping > Pool Maintenance",
+   "final_price": 180,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Landscaping > Pour Cement Slab",
+   "final_price": 600,
+   "unit": "each",
+   "labor_minutes": 360,
+   "material_allowance": 0
+  },
+  {
+   "name": "Landscaping > Pressure Wash Driveway",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 15
+  },
+  {
+   "name": "Landscaping > Pressure Wash Garage",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 15
+  },
+  {
+   "name": "Landscaping > Pressure Wash Porch",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 15
+  },
+  {
+   "name": "Landscaping > Pressure Wash Sidewalk",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 15
+  },
+  {
+   "name": "Landscaping > Remount Mailbox Post To Ground",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Landscaping > Remount Mailbox To Post",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Landscaping > Remove Holiday Lights",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 0
+  },
+  {
+   "name": "Landscaping > Remove Tree",
+   "final_price": 300,
+   "unit": "each",
+   "labor_minutes": 180,
+   "material_allowance": 0
+  },
+  {
+   "name": "Landscaping > Replace Mailbox - Box Only",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 30
+  },
+  {
+   "name": "Landscaping > Solar Maintenance",
+   "final_price": 180,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Landscaping > Trim Tree",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 0
+  },
+  {
+   "name": "Landscaping > Weed Removal",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Landscaping > Welding - General",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Masonry > Repair / Replace Damaged / Missing Grout/Mortar",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Brick",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Cinder Block",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Slump Block",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Masonry > Replace Damaged / Missing Stone Veneer",
+   "final_price": 195,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 45
+  },
+  {
+   "name": "Materials > Drywall > Drywall Sheets",
+   "final_price": 15,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 16
+  },
+  {
+   "name": "Materials > Drywall > Joint Compound",
+   "final_price": 20,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 18
+  },
+  {
+   "name": "Materials > Lumber > 2x4 Studs",
+   "final_price": 5,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 5
+  },
+  {
+   "name": "Materials > Lumber > Plywood Sheets",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 40
+  },
+  {
+   "name": "Materials > Paint > Exterior Paint",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 55
+  },
+  {
+   "name": "Materials > Paint > Interior Paint",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 45
+  },
+  {
+   "name": "Office > Administrative > Documentation",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Office > Administrative > Permit Processing",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 0
+  },
+  {
+   "name": "Office > Project Management > Scheduling",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Office > Project Management > Site Supervision",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 0
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Install Bidet - Ground Up",
+   "final_price": 230,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Install New Toilet - Ground Up",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Repair Shutoff Valve / Angle Stop",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Replace Bidet",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Replace High Efficiency Flush Components",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Replace Mounting Flange",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Replace Shutoff Valve / Angle Stop",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Toilet > Replace Tank Seals",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Re-Caulk Tub / Shower",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 8
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Repair Mixer Valve (Seals)",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Repair Shower Cartridge (Seals)",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Repair Trip Lever Drain Assembly",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Repair Valve Stem Packings / Seals",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Replace Overflow Drain Cover",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Replace Overflow Drain Cover Seal",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 8
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Replace Shower / Tub Mixer Valve",
+   "final_price": 325,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 60
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Replace Shower Wand",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Replace Threaded Drain Assembly",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Replace Trip Lever Drain Assembly",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 30
+  },
+  {
+   "name": "Plumbing > Bathroom > Tub / Shower > Replace Valve Stem",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Bathroom > Vanity Sink > Install New Sink - Ground Up",
+   "final_price": 225,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Bathroom > Vanity Sink > Repair Faucet - New Handles",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Vanity Sink > Repair Faucet - New Seals / Cartridges",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Vanity Sink > Repair Shutoff Valve / Angle Stop",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Bathroom > Vanity Sink > Replace Shutoff Valve / Angle Stop",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Vanity Sink > Replace Sink Drain / Pop Up Assembly",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Bathroom > Vanity Sink > Replace Sink Drain Assembly (Attached To Sink)",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Bathroom > Vanity Sink > Tighten Down Faucet",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Buried Sewer Line Repair / Replacement",
+   "final_price": 1175,
+   "unit": "each",
+   "labor_minutes": 480,
+   "material_allowance": 300
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Copper Pipe Sweating / Repair",
+   "final_price": 175,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Copper Tubing 1/4\" Or 3/8\" Compression Type Repair",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Galvanized Steel Pipe Repair / Replacement",
+   "final_price": 375,
+   "unit": "each",
+   "labor_minutes": 180,
+   "material_allowance": 60
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > In-Home Sewer / Drain Line Repair / Replacement",
+   "final_price": 525,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 100
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Irrigation Line Repair / Replacement",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Water Main Repair",
+   "final_price": 500,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 80
+  },
+  {
+   "name": "Plumbing > Distribution / General Plumbing > Water Main Replacement",
+   "final_price": 1110,
+   "unit": "each",
+   "labor_minutes": 480,
+   "material_allowance": 250
+  },
+  {
+   "name": "Plumbing > Exterior > Insulate Exterior Pipes",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Frost Free Hose Bibb - PVC Type",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Frost Free Hose Bibb - Solder Type",
+   "final_price": 155,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Frost Free Hose Bibb - Threaded",
+   "final_price": 105,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Hose Bibb - PVC Type",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Hose Bibb - Solder Type",
+   "final_price": 120,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Hose Bibb - Threaded",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Irrigation Valve",
+   "final_price": 140,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 30
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Main Home Shutoff Valve - Compression Type",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Main Home Shutoff Valve - PVC Type",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 30
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Main Home Shutoff Valve - Solder Type",
+   "final_price": 225,
+   "unit": "each",
+   "labor_minutes": 105,
+   "material_allowance": 40
+  },
+  {
+   "name": "Plumbing > Exterior > Replace Sprinkler Head",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Kitchen > Dishwasher > Repair Shutoff Valve / Angle Stop",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Kitchen > Dishwasher > Replace Shutoff Valve / Angle Stop",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Kitchen > Miscellaneous > Install Pasta Arm - Ground Up",
+   "final_price": 325,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 60
+  },
+  {
+   "name": "Plumbing > Kitchen > Miscellaneous > Repair Pasta Arm",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Kitchen > Miscellaneous > Replace Pasta Arm",
+   "final_price": 155,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Kitchen > Miscellaneous > Replace Shutoff Valve / Angle Stop - Other",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Kitchen > Refrigerator > Repair Supply Line Leak",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Kitchen > Refrigerator > Replace External Water Filter",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Adjust / Tighten Set Screws / Handle",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Caulk Sink Basin",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 8
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Install Garbage Disposal - Ground Up",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Install RO / Water Filter - Ground Up",
+   "final_price": 300,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Install RO Drinking Water Tap",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Install Soap Dispenser / Accessories In Sink Basin",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > New Install - Ground Up",
+   "final_price": 225,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Permanently Remove RO System",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 5
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Repair Faucet (Seals)",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Repair Garbage Disposal - Break Free & Reset",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Repair RO Plumbing",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Repair Shutoff Valve / Angle Stop",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Replace Hot And Cold Knobs",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Replace RO Cartridges / Filters",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 30
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Replace Shutoff Valve / Angle Stop",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Replace Sink Basin - Top Mount",
+   "final_price": 225,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 25
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Replace Sink Basin - Under Mount",
+   "final_price": 275,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 35
+  },
+  {
+   "name": "Plumbing > Kitchen > Sink > Unclog / Snake Drain",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 5
+  },
+  {
+   "name": "Plumbing > Laundry > Repair Washing Machine Hose Bibb",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Plumbing > Laundry > Replace Washing Machine Hose Bibb",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Laundry > Replace Washing Machine Supply Hoses",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 20
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install / Repair Drain Pan Drain Plumbing",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install / Replace Drain Pan",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 30
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install New Water Heater Tank - Ground Up",
+   "final_price": 525,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 100
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install New Water Heater Tankless - Ground Up",
+   "final_price": 850,
+   "unit": "each",
+   "labor_minutes": 360,
+   "material_allowance": 200
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Install Water Softener - Ground Up",
+   "final_price": 375,
+   "unit": "each",
+   "labor_minutes": 180,
+   "material_allowance": 60
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Repair / Replace Overpressure Vent Plumbing",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Plumbing > Water Heaters & Softeners > Run Water Softener Regeneration Cycle",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Roofing > Apply Elastomeric Coating Flat Roof",
+   "final_price": 550,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 120
+  },
+  {
+   "name": "Roofing > Clear Scuppers",
+   "final_price": 155,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 30
+  },
+  {
+   "name": "Roofing > Install / Replace Pipe Boot",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Roofing > Install Downspout - Ground Up",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Roofing > Install Gutters - Ground Up",
+   "final_price": 8,
+   "unit": "per linear foot",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Roofing > Install Satellite Dish",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Roofing > Install Vent Cap",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Roofing > Install Whirlybird / Attic Vent",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 35
+  },
+  {
+   "name": "Roofing > Remove Old Satellite Cables",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Roofing > Remove Satellite Dish",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Roofing > Replace Downspout",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Roofing > Replace Skylight Curb",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Roofing > Replace Skylight Inner Dome",
+   "final_price": 165,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 35
+  },
+  {
+   "name": "Roofing > Replace Skylight Outer Dome",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Roofing > Replace Vent Cap",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Roofing > Replace Whirlybird / Attic Vent",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 35
+  },
+  {
+   "name": "Roofing > Secure Gutters",
+   "final_price": 4,
+   "unit": "per linear foot",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Teleconference > Client Meetings > Initial Consultation",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Teleconference > Client Meetings > Progress Review",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Teleconference > Technical Consultations > Design Consultation",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Teleconference > Technical Consultations > Engineering Review",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Thresholds / Transitions Install / Replace",
+   "final_price": 19.5,
+   "unit": "per linear foot",
+   "labor_minutes": 8,
+   "material_allowance": 5
+  },
+  {
+   "name": "Tile > Backsplash - Remove & Replace",
+   "final_price": 25,
+   "unit": "per sq ft",
+   "labor_minutes": 12,
+   "material_allowance": 8
+  },
+  {
+   "name": "Tile > Grout - Install New",
+   "final_price": 6,
+   "unit": "per sq ft",
+   "labor_minutes": 4,
+   "material_allowance": 2
+  },
+  {
+   "name": "Tile > Grout - Regrout",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 25
+  },
+  {
+   "name": "Tile > Install New - Ground Up",
+   "final_price": 18,
+   "unit": "per sq ft",
+   "labor_minutes": 8,
+   "material_allowance": 6
+  },
+  {
+   "name": "Tile > Repair - Replace Individual Tile",
+   "final_price": 30,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 6
+  },
+  {
+   "name": "Tile > Seal Tile & Grout",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 15
+  },
+  {
+   "name": "Travel / Hauling > Delivery > Local Delivery",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 0
+  },
+  {
+   "name": "Travel / Hauling > Delivery > Regional Delivery",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 150,
+   "material_allowance": 0
+  },
+  {
+   "name": "Travel / Hauling > Disposal > Debris Removal",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 0
+  },
+  {
+   "name": "Travel / Hauling > Disposal > Dumpster Rental",
+   "final_price": 375,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 375
+  },
+  {
+   "name": "Travel / Hauling > Vehicle > Truck",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 90
+  },
+  {
+   "name": "Travel / Hauling > Vehicle > Van",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 0,
+   "material_allowance": 90
+  },
+  {
+   "name": "Window Coverings & Accessories > Child / Safety > Install Alarms",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Child / Safety > Install Child Safety Stops",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Child / Safety > Install Security Bars",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Curtains > Install New - Ground Up",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 35,
+   "material_allowance": 8
+  },
+  {
+   "name": "Window Coverings & Accessories > Curtains > Remove Permanently",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Curtains > Replace",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Install Privacy Film",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Install Tint Film",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Install UV Blocking Film",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Remove Privacy Film",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 35,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Remove Tint Film",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Films & Coatings > Remove UV Blocking Film",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 35,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Install - Ground Up",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Repair Louvres",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 5
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Replace",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > 2\" Faux Wood > Replace Rod",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 5
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Install - Ground Up",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Repair Louvres",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 4
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Replace",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Horizontal Blinds > One Inch Vinyl Or Aluminum > Replace Rod",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 4
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Install New - Ground Up",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Repair",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Bamboo Shades > Replace",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Install New - Ground Up",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Repair",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Cellular Shades > Replace",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Install New - Ground Up",
+   "final_price": 140,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 10
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Repair",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 8
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Motorized Shades > Replace",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roller Shades > Install New - Ground Up",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roller Shades > Repair",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roller Shades > Replace",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roman Shades > Install New - Ground Up",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roman Shades > Repair",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Shades - Specialty > Roman Shades > Replace",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Clean & Lubricate Track (Dry Lubricant)",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 3
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Install New - Ground Up",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 8
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Replace",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Replace Headrail",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 10
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Replace Louvres",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 6
+  },
+  {
+   "name": "Window Coverings & Accessories > Vertical Blinds > Replace Rod",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 5
+  },
+  {
+   "name": "Windows > Build New Window Screen",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Windows > Install New - Ground Up",
+   "final_price": 450,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 0
+  },
+  {
+   "name": "Windows > Repair / Rescreen Window Screen",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Windows > Replace Balance / Rope / Weight",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Windows > Replace Balance Springs",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Windows > Replace Full Frame",
+   "final_price": 450,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 0
+  },
+  {
+   "name": "Windows > Replace Glass (Reglaze) - Dual Pane",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Windows > Replace Glass (Reglaze) - Single Pane",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Windows > Replace Glass (Reglaze), Triple Pane",
+   "final_price": 230,
+   "unit": "each",
+   "labor_minutes": 105,
+   "material_allowance": 55
+  },
+  {
+   "name": "Windows > Replace Locking Mechanism",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Windows > Replace Weather Stripping / Caulking",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Windows > Retrofit - New Sash",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Windows > Seal Window Exterior For Leaks",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Bulbs > Specialty - Replace",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Distribution > Install / Replace Weatherproof Gang Box",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Electrical > Distribution > Install Ceiling Fan Rated Box",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install AFCI Breaker",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 50
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Double Pole Breaker",
+   "final_price": 145,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 35
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install GFCI Breaker",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 50
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Gang Box",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Junction Box",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Distribution > Replace / Install Single Pole Circuit Breaker",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 25
+  },
+  {
+   "name": "Electrical > Distribution > Replace Fuse",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Distribution > Reset Breaker",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 10,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Distribution > Run New Conduit",
+   "final_price": 275,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 60
+  },
+  {
+   "name": "Electrical > Distribution > Run New Leg From Panel",
+   "final_price": 410,
+   "unit": "each",
+   "labor_minutes": 180,
+   "material_allowance": 90
+  },
+  {
+   "name": "Electrical > Distribution > Troubleshoot / Diagonose",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Doorbells > Smart > Install Smart Doorbell - Ground Up",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Smart > Program Smart Doorbell",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Doorbells > Smart > Remove Smart Doorbell",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Doorbells > Smart > Replace Smart Doorbell",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 5
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Install New System - Ground Up",
+   "final_price": 260,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 50
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Repair Chimes In Chime Box",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Repair Wiring - Chime Box",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Repair Wiring - Pushbutton",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Repair Wiring - Transformer",
+   "final_price": 90,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Replace Pushbutton",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Wired > Run New Wiring",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Diagnose / Troubleshoot",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Install New - Ground Up",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Chime Box Batteries",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Pushbutton Batteries",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Repeater Batteries",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Wireless Chime Box",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 25
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Wireless Pushbutton",
+   "final_price": 45,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Replace Wireless Repeater",
+   "final_price": 70,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 30
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Reprogram",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Secure Chime Box",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Secure Pushbutton",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Doorbells > Wireless > Secure Repeater",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Install New - Ground Up",
+   "final_price": 550,
+   "unit": "each",
+   "labor_minutes": 240,
+   "material_allowance": 120
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Replace Bulb",
+   "final_price": 40,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Replace Cover",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 20
+  },
+  {
+   "name": "Electrical > Exhaust Fans > Replace Fan Wheel / Blade",
+   "final_price": 105,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 25
+  },
+  {
+   "name": "Electrical > Lighting > Can / Recessed > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Can / Recessed > Install New - Ground Up",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 40
+  },
+  {
+   "name": "Electrical > Lighting > Can / Recessed > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Balance",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Diagnose / Troubleshoot,",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install / Replace Downrod",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 30
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Light Kit",
+   "final_price": 150,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 60
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Medallion",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 40
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Remodel Box",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 20
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Install Remote & Receiver - Ground Up",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 20
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace Globes / Shades",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace LED Light Assembly",
+   "final_price": 130,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 50
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace Pull Chain Switch For Fan",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace Pull Switch For Light",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Replace Remote / Receiver",
+   "final_price": 100,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 25
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Reporgram Remote / Receiver",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Ceiling Fan > Secure Fan / Blades",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Adjust Length",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Install New - Ground Up",
+   "final_price": 390,
+   "unit": "each",
+   "labor_minutes": 120,
+   "material_allowance": 150
+  },
+  {
+   "name": "Electrical > Lighting > Chandelier > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Install New - Ground Up",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 50
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Replace Globe",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Lighting > Dome > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Flood > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Flood > Install New - Ground Up",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 60
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Flood > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Pathway > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Pathway > Install New - Ground Up",
+   "final_price": 190,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 30
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Pathway > Replace Fixtures",
+   "final_price": 80,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 25
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Pathway > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Porch > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Porch > Install New - Ground Up",
+   "final_price": 160,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 50
+  },
+  {
+   "name": "Electrical > Lighting > Exterior Porch > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Install New - Ground Up",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 60
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Replace Ballast",
+   "final_price": 125,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 40
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Fluorescent > Upgrade To LED",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 60,
+   "material_allowance": 80
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Adjust Length",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Install New - Ground Up",
+   "final_price": 240,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 90
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Replace Globe",
+   "final_price": 60,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Lighting > Pendant > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Sconce > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Sconce > Install New - Ground Up",
+   "final_price": 225,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 60
+  },
+  {
+   "name": "Electrical > Lighting > Sconce > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Track > Add Receptacles",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 25
+  },
+  {
+   "name": "Electrical > Lighting > Track > Adjust Tracks",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Track > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Track > Install New - Ground Up",
+   "final_price": 315,
+   "unit": "each",
+   "labor_minutes": 100,
+   "material_allowance": 120
+  },
+  {
+   "name": "Electrical > Lighting > Track > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Under Cabinet > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Under Cabinet > Install New - Ground Up",
+   "final_price": 250,
+   "unit": "each",
+   "labor_minutes": 90,
+   "material_allowance": 80
+  },
+  {
+   "name": "Electrical > Lighting > Under Cabinet > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Vanity > Diagnose / Troubleshoot",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Lighting > Vanity > Install New - Ground Up",
+   "final_price": 200,
+   "unit": "each",
+   "labor_minutes": 75,
+   "material_allowance": 60
+  },
+  {
+   "name": "Electrical > Lighting > Vanity > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Outlets > Repair Loose Outlet (Tighten)",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Outlets > Repair Outlet Wiring",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Electrical > Outlets > Replace Outlet (With Switched Receptacle)",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Outlets > Replace Outlet - GFCI",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Outlets > Replace Outlet - Standard",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Electrical > Outlets > Replace Outlet Cover",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 3
+  },
+  {
+   "name": "Electrical > Outlets > Replace WR (Weather Resistant) Outlet",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Outlets > Test Outlets",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Diagnose / Troubleshoot",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Inspect",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Install New - Ground Up",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 20
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Replace Battery",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 5
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Battery Operated > Test",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Diagnose / Troubleshoot",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Inspect",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Install New - Battery Operated - Ground Up",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 20
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Replace Battery",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 5
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Replace Detector - Battery Operated",
+   "final_price": 65,
+   "unit": "each",
+   "labor_minutes": 25,
+   "material_allowance": 20
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Replace Detector - Hard Wired",
+   "final_price": 55,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Carbon Monoxide > Test",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Diagnose / Troubleshoot",
+   "final_price": 50,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Inspect",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 20,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Replace Battery",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 5
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Secure",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Smoke / CO Detectors > Hard Wired > Test",
+   "final_price": 35,
+   "unit": "each",
+   "labor_minutes": 15,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Switches > Diagnose Switch Wiring",
+   "final_price": 75,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 0
+  },
+  {
+   "name": "Electrical > Switches > Install Dimmer Switch",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Switches > Install Humidity Sensored Switch",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Switches > Install Movement Sensored Switch",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Switches > Install Photocell Switch (Exterior Dusk / Dawn)",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Switches > Install Smart Switch (Wifi / Bluetooth)",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Switches > Install Timer Switch",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 15
+  },
+  {
+   "name": "Electrical > Switches > Replace 3 Way Switch",
+   "final_price": 110,
+   "unit": "each",
+   "labor_minutes": 45,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Switches > Replace 4 Way Switch",
+   "final_price": 115,
+   "unit": "each",
+   "labor_minutes": 50,
+   "material_allowance": 12
+  },
+  {
+   "name": "Electrical > Switches > Replace Double Pole Switch",
+   "final_price": 95,
+   "unit": "each",
+   "labor_minutes": 40,
+   "material_allowance": 10
+  },
+  {
+   "name": "Electrical > Switches > Replace Single Pole Switch",
+   "final_price": 85,
+   "unit": "each",
+   "labor_minutes": 30,
+   "material_allowance": 5
+  }
+ ]
+}

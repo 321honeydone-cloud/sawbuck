@@ -90,8 +90,11 @@ export default function MobileMenu() {
     setOpen(false);
     setCreating(true);
     const id = await createEstimate();
-    if (id) router.push(`/estimate/${id}`);
-    else setCreating(false);
+    if (id) {
+      router.push(`/estimate/${id}`);
+      router.refresh();
+    }
+    setCreating(false);
   };
 
   const signOut = async () => {

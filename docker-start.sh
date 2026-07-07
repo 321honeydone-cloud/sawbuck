@@ -35,4 +35,8 @@ fi
 export SAWBUCK_MEMORY_PATH="$MEM_PATH"
 
 npx prisma db push --skip-generate
+# One-time bulk load of the 2026 ratebook prices into the overrides row.
+# Idempotent (marks itself done in AppSetting) and never blocks boot.
+node scripts/load-overrides-2026.mjs || true
+
 exec npm run start
