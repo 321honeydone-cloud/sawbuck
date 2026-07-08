@@ -19,6 +19,7 @@ import { getRateBookEngine } from "../loadRateBook";
 import { cleanTaskName } from "../rateBook";
 import { applyOperation } from "../operations";
 import { chatJson } from "./client";
+import { taskLikeGaps } from "./pricing";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -164,8 +165,12 @@ async function* rateBookBuild(jobText: string, estimateName: string): AsyncGener
   // Card price + Max Guarantee live in the header (single source). Chat quotes
   // only the expected cash so it can't show a second, conflicting card number.
   let closing = `\n\nDone. Expected price $${q.cash} from your rate book. The Smooth and Max prices, with the card price, are up top.`;
-  if (q.unmatched.length > 0)
-    closing += ` This quote is INCOMPLETE: ${q.unmatched.map((u) => u.text).join(", ")} ${q.unmatched.length === 1 ? "is" : "are"} not in your book, so ${q.unmatched.length === 1 ? "it was" : "they were"} left out of the price. Add ${q.unmatched.length === 1 ? "it" : "them"} by hand or reword, and do not send this until that scope is priced.`;
+  // Only flag REAL task gaps, never the customer's narrative. taskLikeGaps drops
+  // conversational fragments, so a chatty prompt no longer produces a wall of
+  // "customer states he is worried..." text on the quote.
+  const realGaps = taskLikeGaps(q.unmatched.map((u) => u.text));
+  if (realGaps.length > 0)
+    closing += ` This quote is INCOMPLETE: ${realGaps.join(", ")} ${realGaps.length === 1 ? "is" : "are"} not in your book, so ${realGaps.length === 1 ? "it was" : "they were"} left out of the price. Add ${realGaps.length === 1 ? "it" : "them"} by hand or reword, and do not send this until that scope is priced.`;
   yield* streamText(closing);
   yield { type: "summary", name: estimateName };
   yield { type: "milestone", text: "Priced from your rate book" };
@@ -367,10 +372,49 @@ export function diagnosticIntent(text: string): boolean {
   return DIAGNOSTIC_INTENT.test(text) && !HARD_SCOPE.test(text);
 }
 
+// Work priced by area or length, or a door where size and interior/exterior swing
+// the price. If the request names one of these without a measurement, we ask
+// before quoting instead of guessing a quantity of 1 or grabbing the nearest
+// wrong line (a prehung door is not a cabinet door).
+const DOOR_WORK = /\bdoors?\b/i;
+const DOOR_ACTION = /\b(install|replace|replacing|hang|hung|new|swap|prehung|pre-hung|entry|slab)\b/i;
+const DOOR_HARDWARE = /\b(knob|handle|lever|hinge|lock|deadbolt|latch|sweep|threshold|weather ?strip(?:ping)?|casing|knocker|stop|screen|sensor|closer|track|bell|viewer|peephole|kick ?plate|paint)\b/i;
+const DOOR_SIZE = /(?:\b\d+\s*(?:x|by)\s*\d+\b)|\b3[026]\b/;
+const DOOR_TYPE = /\b(interior|exterior)\b/i;
+const MEASURED_WORK = /\b(floor(?:ing|s)?|lvp|laminate|vinyl plank|tile|backsplash|carpet|drywall|sheet ?rock|paint(?:ing)?|baseboards?|base board|trim|crown|casing|molding|moulding|fence|fencing|deck(?:ing)?|counter ?tops?|siding|sod|pavers?|concrete|stucco|wallpaper)\b/i;
+const HAS_MEASURE = /\b\d+(?:\.\d+)?\s*(?:sq\.?\s?ft|sqft|sf|square\s*f(?:ee|oo)t|lin(?:ear)?\s*(?:ft|feet|foot)|lf|ft|feet|foot|yards?|yd|inch(?:es)?)\b|\b\d+\s*(?:x|by)\s*\d+\b/i;
+
+/** A one-line clarifying question when a sized job is missing its measurement, or
+ *  null when the request is specific enough to price. Diagnostic requests never
+ *  clarify: a diagnosis is not a measured install. */
+export function clarifyNeeded(text: string): string | null {
+  if (diagnosticIntent(text)) return null;
+  if (DOOR_WORK.test(text) && DOOR_ACTION.test(text) && !/\bcabinet\b/i.test(text) && !DOOR_HARDWARE.test(text)) {
+    if (!DOOR_TYPE.test(text) || !DOOR_SIZE.test(text)) {
+      return "Quick question before I price that door, your book prices these very differently. Is it interior or exterior, and what size, 30, 32, or 36 by 80? If you are not sure, the Florida standard is a 36x80 exterior entry or a 32x80 interior. Give me those two and I will price the right line.";
+    }
+  }
+  if (MEASURED_WORK.test(text) && !HAS_MEASURE.test(text)) {
+    return "Before I price that I need a rough size, since this kind of work is billed by the square foot or linear foot. About how much are we covering, roughly? A ballpark is fine and I will note it as an estimate.";
+  }
+  return null;
+}
+
 /** The estimator does its job and streams EngineDeltas. */
 export async function* runEstimator(args: EstimatorArgs): AsyncGenerator<EngineDelta> {
   const hasItems = args.estimate.groups.some((g) => g.items.length > 0);
   const combined = (args.visionText ? `${args.message} ${args.visionText}` : args.message).trim();
+
+  // Clarify before quoting anything sized. Work priced by the square or linear
+  // foot, or a door where interior/exterior and size swing the price, gets one
+  // question instead of a guessed quantity or the wrong line.
+  if (!hasItems) {
+    const ask = clarifyNeeded(combined);
+    if (ask) {
+      yield* streamText(ask);
+      return;
+    }
+  }
 
   // Fresh job that the rate book knows: price it flat, no model call.
   // Diagnostic/troubleshooting requests skip this so they are not grabbed as a

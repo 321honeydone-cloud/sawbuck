@@ -420,6 +420,12 @@ export class RateBookEngine {
     return null;
   }
 
+  /** Square feet stated in a segment ("patch 15 sq ft of drywall" => 15), or null. */
+  private static drywallSqft(seg: string): number | null {
+    const m = seg.toLowerCase().match(/(\d+(?:\.\d+)?)\s*(?:sq\.?\s?ft|sqft|sf|square\s*f(?:ee|oo)t)\b/);
+    return m ? parseFloat(m[1]) : null;
+  }
+
   match(text: string): { lines: MatchedLine[]; unmatched: Unmatched[] } {
     const raw: MatchedLine[] = [];
     const unmatched: Unmatched[] = [];
@@ -436,6 +442,19 @@ export class RateBookEngine {
       if (name && score >= 0.45) {
         name = this.roomSwap(this.tierSwap(name, seg), seg);
         const task = this.tasks.get(name)!;
+        // Drywall patch/repair rule: flat $100 up to 10 sq ft, then $10 per sq ft
+        // (a 10 sq ft minimum). Overrides the size-tier flat prices for any
+        // "Drywall ... Patch" task; install, skim, texture, tape, and nail-pop
+        // repairs keep their own rates.
+        if (/drywall/i.test(name) && /patch/i.test(name)) {
+          const sf = RateBookEngine.drywallSqft(seg);
+          if (sf != null && sf >= 10) {
+            raw.push({ task: "Drywall Patch / Repair", category: "Interior Walls & Ceilings", qty: sf, unit: "sq ft", unitPrice: 10, laborMinutes: 0, materialAllowance: 0, confident: true });
+          } else {
+            raw.push({ task: "Drywall Patch / Repair (10 sq ft minimum)", category: "Interior Walls & Ceilings", qty: 1, unit: "each", unitPrice: 100, laborMinutes: 0, materialAllowance: 0, confident: true });
+          }
+          continue;
+        }
         const areaQty = RateBookEngine.areaQuantity(seg, String(task.unit ?? "each"));
         raw.push({
           task: cleanTaskName(name),

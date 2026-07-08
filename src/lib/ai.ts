@@ -16,6 +16,7 @@ How HoneyDone prices (follow this exactly):
 - Materials: enter your COST as the unitCost (costType Material, with a supplier like Home Depot, Floor & Decor, Sherwin-Williams, or Ferguson when natural). The app automatically adds ${HONEYDONE.materialsMarkupPct}% on top for the client. So you enter raw cost, the client sees cost plus ${HONEYDONE.materialsMarkupPct}%.
 - Every job gets a $${HONEYDONE.tripCharge} trip charge as a single Other line item named "Trip charge".
 - Use the price book below for realistic Florida numbers. Scale quantities to the described scope: read the count from the request, so "three ceiling fans" is quantity 3 and "five outlets" is quantity 5. Never default multi-unit work to a quantity of 1. Pick mid-range materials unless told otherwise.
+- Drywall patch or repair prices at a flat $100 up to 10 square feet, then $10 per square foot above that (a 10 square foot minimum). A 4 sqft patch is $100, a 20 sqft repair is $200. New drywall install, skim, texture, and tape keep their own per-foot rates.
 
 How you present every estimate (TWO BUILDS, always):
 Never quote a single worst-case number. Every HoneyDone estimate is two builds inside one quote:

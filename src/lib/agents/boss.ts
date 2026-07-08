@@ -17,7 +17,7 @@ import { activeProvider, chatJson, chatText, cloudBrain, localChatModel } from "
 import { describeAttachments } from "./vision";
 import { rateBookMatches, runEstimator } from "./estimator";
 import { getRateBookEngine } from "../loadRateBook";
-import { researchPrices, formatFindingsForPrompt, type PriceFinding } from "./pricing";
+import { priceGaps, taskLikeGaps, formatFindingsForPrompt, type PriceFinding } from "./pricing";
 import { saveResearchedPrices } from "../pricingStore";
 import { isCapGroup } from "../builds";
 import { complicationsCapOps } from "../capgen";
@@ -233,21 +233,22 @@ async function* reviewStream(
     if (isAdmin) yield { type: "trace", text: `Boss COMPLIANCE: total $${Math.round(baseTotal)} exceeds the $2,500 handyman cap` };
   }
 
-  // Under-scope guard. A partial priced total can hide a job that is really over
-  // the cap: a whole remodel where most of the scope was not in the book prices
-  // low, which wrongly implies it fits under $2,500. Flag it instead of shipping a
-  // lowball that could void the exemption.
-  let bookGaps: string[] = [];
-  try {
-    bookGaps = getRateBookEngine().match(jobText).unmatched.map((u) => u.text).filter(Boolean);
-  } catch {
-    bookGaps = [];
-  }
-  if (baseTotal > 0 && baseTotal < 2500 && (BIG_JOB.test(jobText) || bookGaps.length >= 3)) {
+  // Under-scope guard. A whole remodel or gut can price low when most of the scope
+  // is not in the book, which wrongly implies it fits under $2,500. Fire ONLY on
+  // genuine remodel language, never on how wordy the request is: a chatty prompt
+  // produces lots of unmatched fragments, and counting those falsely flagged small
+  // jobs (a drywall patch and a door repaint) as big ones.
+  if (baseTotal > 0 && baseTotal < 2500 && BIG_JOB.test(jobText)) {
+    let bookGaps: string[] = [];
+    try {
+      bookGaps = getRateBookEngine().match(jobText).unmatched.map((u) => u.text).filter(Boolean);
+    } catch {
+      bookGaps = [];
+    }
     yield* streamWords(
-      `\n\nHeads up, this reads like a bigger job than I could price from the book${bookGaps.length ? ` (not in the book yet: ${bookGaps.slice(0, 4).join(", ")})` : ""}. A full remodel like this almost always runs past the $2,500 handyman cap once the whole scope is counted, so do not treat the number above as the job total. Price the complete scope, and if it clears $2,500 refer it to a licensed contractor.`
+      `\n\nHeads up, this reads like a full remodel, which almost always runs past the $2,500 handyman cap once the whole scope is counted${bookGaps.length ? ` (not in the book yet: ${bookGaps.slice(0, 4).join(", ")})` : ""}. Do not treat the number above as the job total. Price the complete scope, and if it clears $2,500 refer it to a licensed contractor.`
     );
-    if (isAdmin) yield { type: "trace", text: `Boss COMPLIANCE: under-scope risk, priced $${Math.round(baseTotal)} but the request reads large` };
+    if (isAdmin) yield { type: "trace", text: `Boss COMPLIANCE: remodel-scale request priced at $${Math.round(baseTotal)}, likely over cap` };
   }
 
   // Never let a quote go out without a Max Price Guarantee. If the estimator did
@@ -305,19 +306,22 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
     yield* trace("Boss to General Service agent: handle the scope");
   }
 
-  // Step 3, Pricing Research. Fill price gaps the rate book cannot cover, or
-  // answer a plain pricing question. Cloud-only (needs Claude web search).
+  // Step 3, Pricing Research. Fill price gaps the rate book cannot cover, or answer
+  // a plain pricing question. Cloud mode uses Claude web search for live prices;
+  // local mode estimates on gemma4 from the model's own knowledge. Either way a gap
+  // gets a number instead of being dropped.
   const cloud = (await cloudBrain()).ready;
+  const how = cloud ? "searching the web" : "estimating on gemma4";
   const location = args.estimate.location || "Florida";
   const pricingQuestion = PRICING_Q.test(args.message);
   let marketExtra = "";
   let findings: PriceFinding[] = [];
-  if (cloud && combined) {
+  if (combined) {
     try {
       let gaps: string[] = [];
       if (pricingQuestion) {
         gaps = [args.message.trim()];
-        yield* trace("Boss to Pricing Research agent: pricing question, searching the web");
+        yield* trace(`Boss to Pricing Research agent: pricing question, ${how}`);
       } else {
         let unmatched: string[] = [];
         try {
@@ -328,17 +332,25 @@ export async function* runChat(args: BossArgs): AsyncGenerator<EngineDelta> {
         } catch {
           unmatched = [];
         }
-        gaps = unmatched.slice(0, 6);
+        // Filter conversational noise so we never price a narrative fragment.
+        gaps = taskLikeGaps(unmatched).slice(0, 3);
         if (gaps.length)
           yield* trace(
-            `Boss to Pricing Research agent: ${gaps.length} task${gaps.length === 1 ? "" : "s"} not in the book, searching the web`
+            `Boss to Pricing Research agent: ${gaps.length} task${gaps.length === 1 ? "" : "s"} not in the book, ${how}`
           );
       }
       if (gaps.length) {
-        findings = await researchPrices(gaps, location, pricingQuestion ? 3 : 6);
+        findings = await priceGaps(gaps, location, pricingQuestion ? 1 : 3);
         for (const f of findings) yield* trace(`Pricing to Boss: ${f.task}, median $${f.median} per ${f.unit}`);
         if (findings.length) {
           marketExtra = formatFindingsForPrompt(findings);
+          if (!pricingQuestion) {
+            yield* streamWords(
+              `\n\nA few items were not in your book. ${cloud ? "Market rates" : "gemma4 estimates"}: ${findings
+                .map((f) => `${f.task} about $${f.median} per ${f.unit} (range $${f.low} to $${f.high})`)
+                .join("; ")}.${cloud ? "" : " These are model estimates, not live prices, so adjust any line if you know the real number."}`
+            );
+          }
           if (args.isAdmin) {
             const saved = await saveResearchedPrices(findings);
             if (saved) yield* trace(`Pricing: saved ${saved} price${saved === 1 ? "" : "s"} into the rate book`);
