@@ -145,11 +145,6 @@ export async function priceGaps(tasks: string[], location = "Florida", max = 6, 
  *  never price "customer states he is worried about the wall" as a line item. */
 export function taskLikeGaps(gaps: string[]): string[] {
   const STOP = /^(a|an|the|and|also|but|so|because|approx|approximately|customer|client|he|she|they|it|his|her|their|i|we|you|worried|states?|said|says|need|needs|wants?|would|about|per|both|standard|coverage|mounted|in|on|at|above|below|near|around|beyond|with|for|that|this|these|those)\b/i;
-  // Instructions and app meta-commands are NOT tasks. Never price or save phrases
-  // like "divide them", "organize items", "using web search", "add a new rate",
-  // "line numbers", or filler like "general handyman service". This is what put
-  // junk rates in the book (a command got quoted as if it were work).
-  const COMMAND = /^(?:divide|organi[sz]e|categori[sz]e|sort|rename|renumber|plug|fill)\b|\b(?:web search|line numbers?|initial prompt|use your reasoning|by hand|add (?:a )?(?:new )?rate|fill (?:in|the) (?:estimate|quote|items?|request|scope)|general (?:handyman|maintenance|organi[sz]ation|service|checkup))\b/i;
   const seen = new Set<string>();
   const out: string[] = [];
   for (const g of gaps) {
@@ -157,7 +152,6 @@ export function taskLikeGaps(gaps: string[]): string[] {
     const words = t.split(/\s+/);
     if (words.length === 0 || words.length > 5) continue;
     if (STOP.test(t)) continue;
-    if (COMMAND.test(t)) continue;
     const key = t.toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);

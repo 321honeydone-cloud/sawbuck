@@ -42,14 +42,12 @@ const TRADE_KEYWORDS: { trade: string; rx: RegExp }[] = [
   { trade: "Carpentry & Rot", rx: /\b(fascia|soffit|trim|framing|stud|joist|rot|rotten|wood|carpentr|baseboard|crown|jamb|subfloor|beam|rafter)\b/i },
   { trade: "Drywall & Paint", rx: /\b(drywall|sheetrock|patch|texture|paint|primer|mud|tape|skim|wall repair)\b/i },
   { trade: "Tile & Wet Areas", rx: /\b(tile|grout|shower|tub|backsplash|bath(room)?|wet area|caulk|waterproof|pan liner)\b/i },
-  { trade: "Plumbing & Fixtures", rx: /\b(toilet|faucet|sink|drain|valve|water heater|plumb|p-?trap|supply line|garbage disposal|hose bib|vanity|vanities|medicine cabinet|shut-?off)\b/i },
-  { trade: "Electrical", rx: /\b(outlet|gfci|breaker|panel|wiring|light fixture|switch|electric|ceiling fan|recessed|smoke detector|carbon monoxide|globe|light bulb|bulb|lights?)\b/i },
+  { trade: "Plumbing & Fixtures", rx: /\b(toilet|faucet|sink|drain|valve|water heater|plumb|p-?trap|supply line|garbage disposal|hose bib)\b/i },
+  { trade: "Electrical", rx: /\b(outlet|gfci|breaker|panel|wiring|light fixture|switch|electric|ceiling fan|recessed)\b/i },
   { trade: "Pressure Washing", rx: /\b(pressure wash|power wash|soft wash|driveway clean|mildew|algae|wash the)\b/i },
   { trade: "Decks & Fences", rx: /\b(deck|fence|railing|gate|fence post|picket|pergola|lattice)\b/i },
   { trade: "Doors & Windows", rx: /\b(window|door|screen|weatherstrip|threshold|sliding glass|storm door)\b/i },
   { trade: "Roofing & Exterior", rx: /\b(roof|shingle|flashing|gutter|downspout|siding|stucco|exterior wall)\b/i },
-  { trade: "Flooring", rx: /\b(floor(?:ing|s)?|linoleum|vinyl|lvp|laminate|hardwood|subfloor|underlayment|transition strip|luxury vinyl|plank)\b/i },
-  { trade: "Appliances & Hauling", rx: /\b(blinds?|shade|smoke detector|carbon monoxide|washer|dryer|appliance|dishwasher|fridge|refrigerator|microwave|haul|dispose|disposal|remove)\b/i },
 ];
 
 /** Plain pricing questions ("what should this cost", "going rate") go to Pricing Research. */
@@ -154,26 +152,6 @@ function matchFinding(name: string, findings: PriceFinding[]): PriceFinding | nu
  *  always exceeds the $2,500 cap once the whole scope is counted. */
 const BIG_JOB = /\b(remodel|renovat(?:e|ed|ing|ion)|gut(?:ted|ting)?|whole\s+(?:kitchen|bath|bathroom|house|home)|entire\s+(?:kitchen|bath|bathroom|house|home)|the\s+works)\b/i;
 
-// Regulated / permit trades an insured (unlicensed) handyman must refer out:
-// real HVAC, roofing, service-panel electrical, and structural work.
-const REFER_OUT = /\b(a\/?c\b|air\s?condition\w*|hvac|mini\s?split|condenser|air handler|furnace|heat pump|re-?roof|roof replacement|new roof|tear\s?off|electrical panel|service panel|main breaker|sub-?panel|structural|load-?bearing|foundation)\b/i;
-
-/** Pull discrete items out of an enumerated request ("1) ... 2) ..."). Empty
- *  unless the text has at least three numbered markers, so a chatty single-task
- *  prompt is never mistaken for a multi-item scope. */
-function enumeratedItems(text: string): string[] {
-  const markers = (text.match(/\d+\s*[).]/g) || []).length;
-  if (markers < 3) return [];
-  const out: string[] = [];
-  const re = /\d+\s*[).]\s*\.?\s*([^]*?)(?=\s*\d+\s*[).]|$)/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(text))) {
-    const item = (m[1] || "").replace(/^[\s.]+|[\s.;,]+$/g, "").trim();
-    if (item.length > 2) out.push(item.slice(0, 70));
-  }
-  return out;
-}
-
 async function* reviewStream(
   src: AsyncGenerator<EngineDelta>,
   findings: PriceFinding[],
@@ -271,36 +249,6 @@ async function* reviewStream(
       `\n\nHeads up, this reads like a full remodel, which almost always runs past the $2,500 handyman cap once the whole scope is counted${bookGaps.length ? ` (not in the book yet: ${bookGaps.slice(0, 4).join(", ")})` : ""}. Do not treat the number above as the job total. Price the complete scope, and if it clears $2,500 refer it to a licensed contractor.`
     );
     if (isAdmin) yield { type: "trace", text: `Boss COMPLIANCE: remodel-scale request priced at $${Math.round(baseTotal)}, likely over cap` };
-  }
-
-  // Scope-coverage QA. If the customer enumerated several distinct tasks but the
-  // estimate came out with far fewer lines, most of the scope got dropped (the
-  // rate book could not match it and nothing stubbed it in). Say so out loud and
-  // name what is missing, instead of calling a 1-line quote "done".
-  const requested = enumeratedItems(jobText);
-  if (requested.length >= 3) {
-    const covered = (name: string) =>
-      scopeNames.some((s) => {
-        const a = normName(s);
-        const b = normName(name);
-        return !!a && !!b && (a.includes(b) || b.includes(a));
-      });
-    const missing = requested.filter((r) => !covered(r));
-    if (missing.length > 0) {
-      yield* streamWords(
-        `\n\nScope check: you listed ${requested.length} items and the estimate has ${scopeNames.length} priced line${scopeNames.length === 1 ? "" : "s"}. Still not on the quote: ${missing.slice(0, 8).join("; ")}. These were not dropped on purpose, they just are not in your rate book, so add a line or a rate for each before you send this.`
-      );
-      if (isAdmin) yield { type: "trace", text: `Boss QA: scope coverage ${scopeNames.length}/${requested.length}, ${missing.length} missing` };
-    }
-  }
-
-  // Refer-out guard. Some scope is off-limits for an insured, unlicensed handyman
-  // (permit or license required): real HVAC, roofing, a service panel, structural.
-  if (REFER_OUT.test(jobText)) {
-    yield* streamWords(
-      "\n\nRefer-out flag: this scope names work an insured handyman should not quote (HVAC, roofing, a service panel, or structural). Price only the handyman-safe items and refer the regulated work to a licensed contractor."
-    );
-    if (isAdmin) yield { type: "trace", text: "Boss COMPLIANCE: regulated trade detected, refer out" };
   }
 
   // Never let a quote go out without a Max Price Guarantee. If the estimator did
