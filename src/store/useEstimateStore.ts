@@ -5,6 +5,7 @@ import { estimateEngine, deriveJobName } from "@/lib/engine";
 import { applyOperation } from "@/lib/operations";
 import type { Attachment, ChangeRecord, ChatMessage, Estimate, EstimateStatus, Exclusion, LineItem } from "@/lib/types";
 import { suggestExclusions } from "@/lib/exclusions";
+import type { PhotoLoadResult, RoundRole } from "@/lib/photo_loader/types";
 
 const DEFAULT_NAMES = new Set(["", "New Estimate", "New HoneyDone Estimate", "Untitled Estimate", "Untitled"]);
 const isDefaultName = (n: string) => DEFAULT_NAMES.has((n || "").trim());
@@ -21,8 +22,16 @@ interface EstimateState {
   snapshot: Estimate | null; // pre-AI state, for reject/undo
   highlightIds: Set<string>; // line items touched by the latest AI run
   autoNameTick: number; // bumps each time the AI auto-derives the name (drives the typing animation)
+  // Job photos from Drive for the open quote (photo_loader). Null until loaded.
+  photos: PhotoLoadResult | null;
+  photosLoading: boolean;
 
   hydrate: (estimate: Estimate, messages: ChatMessage[]) => void;
+  loadPhotos: () => Promise<void>;
+  assignRound: (roundKey: string, quoteId: string, role?: RoundRole | null) => Promise<void>;
+  sortPhotos: (propertyFolderId: string, moves: { date: string; fileIds: string[] }[]) => Promise<string | null>;
+  setUpPhotoFolder: () => Promise<string | null>;
+  setClientAddress: (address: string) => void;
   sendMessage: (text: string, attachments?: Attachment[]) => Promise<void>;
   acceptChanges: () => void;
   rejectChanges: () => void;
@@ -127,8 +136,75 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
   snapshot: null,
   highlightIds: new Set(),
   autoNameTick: 0,
+  photos: null,
+  photosLoading: false,
 
-  hydrate: (estimate, messages) => set({ estimate, messages }),
+  hydrate: (estimate, messages) => set({ estimate, messages, photos: null, photosLoading: false }),
+
+  loadPhotos: async () => {
+    const id = get().estimate.id;
+    set({ photosLoading: true });
+    try {
+      const res = await fetch(`/api/photos?estimateId=${encodeURIComponent(id)}`, { cache: "no-store" });
+      if (!res.ok) throw new Error(`photos ${res.status}`);
+      const data = (await res.json()) as PhotoLoadResult;
+      // The quote may have changed while we waited; only keep a result for the open one.
+      if (get().estimate.id === id) set({ photos: data });
+    } catch (e) {
+      if (get().estimate.id === id) {
+        set({ photos: { ok: false, configured: true, error: (e as Error).message, quoteId: id, quotes: [], rounds: [], needsYou: [], skipped: [], loadedAt: new Date().toISOString() } });
+      }
+    } finally {
+      if (get().estimate.id === id) set({ photosLoading: false });
+    }
+  },
+
+  assignRound: async (roundKey, quoteId, role) => {
+    await fetch("/api/photos/assign", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ roundKey, quoteId, role: role ?? null }),
+    }).catch(() => {});
+    await get().loadPhotos();
+  },
+
+  sortPhotos: async (propertyFolderId, moves) => {
+    try {
+      const res = await fetch("/api/photos/sort", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ propertyFolderId, moves }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string; moved?: number };
+      if (!res.ok || !data.ok) return data.error || "Sort failed.";
+      await get().loadPhotos();
+      return null;
+    } catch (e) {
+      return (e as Error).message;
+    }
+  },
+
+  setUpPhotoFolder: async () => {
+    try {
+      const res = await fetch("/api/photos/setup", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ estimateId: get().estimate.id }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !data.ok) return data.error || "Could not set up the folder.";
+      await get().loadPhotos();
+      return null;
+    } catch (e) {
+      return (e as Error).message;
+    }
+  },
+
+  setClientAddress: (address) => {
+    const next = { ...get().estimate, clientAddress: address.trim() || null };
+    set({ estimate: next });
+    void persist(next);
+  },
 
   sendMessage: async (text, attachments = []) => {
     const trimmed = text.trim();

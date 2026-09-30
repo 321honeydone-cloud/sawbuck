@@ -70,6 +70,9 @@ export interface Estimate {
   selectedTier?: ServiceTier;
   // Client-facing exclusions, editable and persisted, grow as the quote grows.
   exclusions?: Exclusion[];
+  // When the quote reached each stage (ISO), stamped server-side on status change.
+  // photo_loader reads won as the approval date and complete/invoiced as job done.
+  statusTimes?: Partial<Record<EstimateStatus, string>>;
 }
 
 /** One fully-built tier variant returned by /api/tiers. */

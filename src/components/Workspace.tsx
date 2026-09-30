@@ -223,6 +223,8 @@ function TopBar() {
   const router = useRouter();
   const id = useEstimateStore((s) => s.estimate.id);
   const clientName = useEstimateStore((s) => s.estimate.clientName ?? "");
+  const clientAddress = useEstimateStore((s) => s.estimate.clientAddress ?? "");
+  const setClientAddress = useEstimateStore((s) => s.setClientAddress);
   const status = useEstimateStore((s) => s.estimate.status);
   const aiUpdateCount = useEstimateStore((s) => s.estimate.aiUpdateCount);
   const setClient = useEstimateStore((s) => s.setClient);
@@ -269,6 +271,22 @@ function TopBar() {
             if (e.key === "Enter") (e.target as HTMLInputElement).blur();
           }}
           className="mt-0.5 w-full truncate rounded bg-transparent px-1.5 py-0.5 font-mono text-[11px] text-muted outline-none transition hover:bg-card-2 focus:bg-card-2 focus:text-ink focus:ring-1 focus:ring-brand/50"
+        />
+        {/* Property address. The photo loader matches this to the PM address subfolder
+            in Drive (house number exact), so it lives right under the client name. */}
+        <input
+          key={"addr-" + clientAddress}
+          defaultValue={clientAddress}
+          placeholder="Property address (for job photos)"
+          aria-label="Property address"
+          onBlur={(e) => {
+            const v = e.target.value.trim();
+            if (v !== clientAddress) setClientAddress(v);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+          }}
+          className="w-full truncate rounded bg-transparent px-1.5 py-0.5 font-mono text-[11px] text-muted outline-none transition hover:bg-card-2 focus:bg-card-2 focus:text-ink focus:ring-1 focus:ring-brand/50"
         />
       </div>
 

@@ -6,9 +6,20 @@ import { money } from "@/lib/format";
 import { computeTotals } from "@/lib/totals";
 import { splitBuilds, type BuildSplit } from "@/lib/builds";
 import type { JobberQuote } from "@/lib/jobber";
+import type { MatchedRound } from "@/lib/photo_loader/types";
+import { roundsForQuote, thumbUrl } from "./PhotoGallery";
+import { easternDate } from "@/lib/photo_loader/dates";
 
 /** Format the finalized quote as the plain-text block ready to send or paste. */
-function asText(q: JobberQuote, split: BuildSplit, exclusionTexts: string[]): string {
+function asText(q: JobberQuote, split: BuildSplit, exclusionTexts: string[], beforePhotos: MatchedRound[] = []): string {
+  const photoFiles = beforePhotos.flatMap((r) => r.photos.filter((p) => !p.skipped));
+  const photoBlock = photoFiles.length
+    ? [
+        "",
+        `PHOTOS (before, ${photoFiles.length}):`,
+        ...photoFiles.map((p) => `- ${p.smallFile?.name ?? p.file.name}: ${p.file.webViewLink ?? `https://drive.google.com/file/d/${p.file.id}/view`}`),
+      ]
+    : [];
   const priceBlock = split.hasCap
     ? [
         `EXPECTED PRICE (Smooth Scenario): ${money(split.smoothCash)} (cash/check) | ${money(split.smoothCard)} (card)`,
@@ -30,6 +41,7 @@ function asText(q: JobberQuote, split: BuildSplit, exclusionTexts: string[]): st
     "",
     "EXCLUSIONS:",
     ...exclusionTexts.map((e) => `- ${e}`),
+    ...photoBlock,
   ].join("\n");
 }
 
@@ -43,6 +55,7 @@ export default function JobberModal({
   excluded?: Set<string>;
 }) {
   const estimate = useEstimateStore((s) => s.estimate);
+  const photos = useEstimateStore((s) => s.photos);
   const exclusions = useEstimateStore((s) => s.estimate.exclusions ?? []);
   const seedExclusions = useEstimateStore((s) => s.seedExclusions);
   const addExclusion = useEstimateStore((s) => s.addExclusion);
@@ -99,6 +112,9 @@ export default function JobberModal({
 
   const split = splitBuilds(includedEstimate());
   const includedTexts = exclusions.filter((e) => e.included).map((e) => e.text);
+  // Only the Before round goes with the quote draft. Progress and After stay with the job.
+  const beforeRounds = roundsForQuote(photos).filter((r) => r.role === "Before");
+  const beforeCount = beforeRounds.reduce((n, r) => n + r.photos.filter((p) => !p.skipped).length, 0);
 
   const addNow = () => {
     addExclusion(newExcl);
@@ -108,7 +124,7 @@ export default function JobberModal({
   const copy = async () => {
     if (!quote) return;
     try {
-      await navigator.clipboard.writeText(asText(quote, split, includedTexts));
+      await navigator.clipboard.writeText(asText(quote, split, includedTexts, beforeRounds));
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
@@ -214,6 +230,29 @@ export default function JobberModal({
                 )}
               </>
             )}
+
+            <div>
+              <Label>Photos on the quote</Label>
+              {beforeCount === 0 ? (
+                <p className="mt-0.5 text-xs text-muted">No Before photos matched from Drive. Progress and After photos never go on the quote.</p>
+              ) : (
+                <>
+                  <p className="mt-0.5 text-xs text-muted">
+                    {beforeCount} Before photo{beforeCount === 1 ? "" : "s"} ride with this quote (Drive links are in the copied text). Small copies are used when they exist.
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {beforeRounds.flatMap((r) =>
+                      r.photos
+                        .filter((p) => !p.skipped)
+                        .map((p) => (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img key={p.file.id} src={thumbUrl(p.smallFile?.id ?? p.file.id, 128)} alt={p.file.name} title={`${p.file.name} · ${easternDate(r.startedAt)}`} className="h-14 w-14 rounded-md border border-border object-cover" loading="lazy" />
+                        ))
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
 
             <div>
               <Label>Exclusions</Label>

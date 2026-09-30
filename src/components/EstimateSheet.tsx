@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useEstimateStore } from "@/store/useEstimateStore";
 import JobberModal from "./JobberModal";
+import PhotoGallery from "./PhotoGallery";
 import { money, pct } from "@/lib/format";
 import { cardPrice, HONEYDONE } from "@/lib/honeydone";
 import { computeTotals } from "@/lib/totals";
@@ -81,6 +82,7 @@ export default function EstimateSheet() {
       </div>
       <JobberModal open={jobberOpen} onClose={() => setJobberOpen(false)} excluded={excluded} />
       <div className="flex-1 px-5 py-4">
+        <PhotoGallery />
         {!hasGroups ? (
           <div className="grid h-full place-items-center py-24 text-center text-muted">
             <div>

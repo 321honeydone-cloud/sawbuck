@@ -117,8 +117,20 @@ export async function PUT(req: Request) {
     return NextResponse.json({ error: "missing estimate id" }, { status: 400 });
   }
 
+  const prev = await prisma.estimate.findUnique({ where: { id: estimate.id }, select: { status: true, data: true } });
+  // Stamp when the quote reached this stage. photo_loader uses "won" as the
+  // approval date and "complete"/"invoiced" as the job-done date, so these
+  // must come from the server clock, not from a client that may edit later.
+  if (prev && prev.status !== estimate.status) {
+    let prevTimes: Record<string, string> = {};
+    try {
+      prevTimes = (JSON.parse(prev.data || "{}") as { statusTimes?: Record<string, string> }).statusTimes ?? {};
+    } catch {
+      prevTimes = {};
+    }
+    estimate.statusTimes = { ...prevTimes, ...(estimate.statusTimes ?? {}), [estimate.status]: new Date().toISOString() };
+  }
   const row = rowFromEstimate(estimate);
-  const prev = await prisma.estimate.findUnique({ where: { id: row.id }, select: { status: true } });
   await prisma.estimate.update({
     where: { id: row.id },
     data: {

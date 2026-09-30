@@ -17,7 +17,7 @@ export interface EstimateRow {
 }
 
 export function estimateFromRow(row: EstimateRow): Estimate {
-  let parsed: { groups?: Group[]; totals?: Totals; clientName?: string | null; clientAddress?: string | null; exclusions?: Exclusion[] } = {};
+  let parsed: { groups?: Group[]; totals?: Totals; clientName?: string | null; clientAddress?: string | null; exclusions?: Exclusion[]; statusTimes?: Estimate["statusTimes"] } = {};
   try {
     parsed = JSON.parse(row.data || "{}");
   } catch {
@@ -37,6 +37,7 @@ export function estimateFromRow(row: EstimateRow): Estimate {
     clientName: parsed.clientName ?? null,
     clientAddress: parsed.clientAddress ?? null,
     exclusions: parsed.exclusions ?? [],
+    statusTimes: parsed.statusTimes ?? {},
   };
   // Trust the stored numbers but reconcile derived fields defensively.
   return recalcEstimate(estimate);
@@ -53,6 +54,6 @@ export function rowFromEstimate(estimate: Estimate): EstimateRow {
     markupDefault: estimate.markupDefault,
     finishLevel: estimate.finishLevel,
     aiUpdateCount: estimate.aiUpdateCount,
-    data: JSON.stringify({ groups: estimate.groups, totals: estimate.totals, clientName: estimate.clientName ?? null, clientAddress: estimate.clientAddress ?? null, exclusions: estimate.exclusions ?? [] }),
+    data: JSON.stringify({ groups: estimate.groups, totals: estimate.totals, clientName: estimate.clientName ?? null, clientAddress: estimate.clientAddress ?? null, exclusions: estimate.exclusions ?? [], statusTimes: estimate.statusTimes ?? {} }),
   };
 }

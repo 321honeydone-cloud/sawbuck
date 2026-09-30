@@ -13,6 +13,8 @@ import { activeProvider, prewarmSteadyModel } from "@/lib/agents/client";
 import { runChat } from "@/lib/agents/boss";
 import type { Attachment, Estimate } from "@/lib/types";
 import type { EngineDelta } from "@/lib/engine";
+import { driveConfigured } from "@/lib/photo_loader/drive";
+import { beforeRoundAttachments } from "@/lib/photo_loader/server";
 
 export const runtime = "nodejs";
 
@@ -28,7 +30,7 @@ export async function POST(req: Request) {
   }
   const message = (body.message ?? "").trim();
   const estimate = body.estimate;
-  const attachments = (body.attachments ?? []).slice(0, MAX_ATTACHMENTS);
+  let attachments = (body.attachments ?? []).slice(0, MAX_ATTACHMENTS);
   const history = (Array.isArray(body.history) ? body.history : [])
     .filter((h) => h && (h.role === "user" || h.role === "ai") && typeof h.content === "string")
     .slice(-8)
@@ -39,6 +41,26 @@ export async function POST(req: Request) {
 
   const session = await getSession();
   const isAdmin = session?.role === "admin";
+
+  // Auto quote: a fresh build with nothing attached loads the matched Before
+  // round from the client's Drive folder and hands it to the Vision employee.
+  // Only the Before round, never Progress or After, and never when the user
+  // attached their own files. Any Drive trouble just means no photos.
+  let autoPhotoNote = "";
+  const freshBuild = (body.history ?? []).length === 0 && !(estimate.groups ?? []).some((g) => g.items.length > 0);
+  if (freshBuild && attachments.length === 0 && estimate.clientName && driveConfigured()) {
+    try {
+      const { attachments: found, result } = await beforeRoundAttachments(estimate.id, MAX_ATTACHMENTS);
+      if (found.length) {
+        attachments = found;
+        autoPhotoNote = `Photo loader: ${found.length} Before photo${found.length === 1 ? "" : "s"} from Drive (${result.folder?.propertyFolder?.name ?? result.folder?.clientFolder.name ?? "client folder"})`;
+      } else if (result.needsYou.length) {
+        autoPhotoNote = `Photo loader: nothing attached, ${result.needsYou.length} item${result.needsYou.length === 1 ? "" : "s"} in Needs you`;
+      }
+    } catch {
+      /* Drive down: quote without photos, same as before */
+    }
+  }
 
   // Fold the shop's learned rates and full priced book into the estimator prompt.
   let learnedRates = "";
@@ -96,6 +118,7 @@ export async function POST(req: Request) {
       const beat = setInterval(() => send({ type: "heartbeat" }), 10000);
       try {
         send({ type: "heartbeat" }); // flush headers + first byte immediately
+        if (autoPhotoNote && isAdmin) send({ type: "trace", text: autoPhotoNote });
         for await (const delta of runChat({ message, estimate, attachments, isAdmin, systemExtra, history })) {
           send(delta);
           if (closed) break;

@@ -1,3 +1,14 @@
+## 2026-09-30: Photo loader (Drive job photos on the quote)
+
+- New module `src/lib/photo_loader/` (see its README). Finds the client folder in "1. Clients" by exact name, the PM address subfolder by normalized street address (house number exact), and the `YYYY-MM-DD` date folder for the quote. Dates each photo from EXIF, then filename (`PXL_` is UTC, `IMG_` local, `YYYY-MM-DD_` date only), then upload time at LOW confidence. Groups rounds on a 12 hour gap and matches them to quotes (Before / Progress / After). Anything unclear lands in Needs you.
+- Quote view: "Job photos" gallery on the estimate sheet, grouped by round with a confidence dot, plus "Pick the quote for these photos" and "Sort photos" cards. One tap each. Nothing in Drive moves, renames, or deletes without a tap.
+- Auto quote: a fresh build with no attachments pulls the matched Before round from Drive into the Vision pass.
+- Finalize (Jobber): the Before round is listed on the modal and its Drive links go in the copied text. Progress and After stay with the job.
+- Top bar: property address field under the client name.
+- Estimates now stamp `statusTimes` on status change (server clock). `won` doubles as the approval date for photo matching.
+- `scripts/shrink_client_photos.py`: the shrink recipe with the EXIF fix (`exif=` on save) and optional `--rename` to SawBUCK names.
+- `npm test` runs the photo loader tests against the real 2026-09-30 Drive listings.
+
 # HoneyDone Estimating — what changed
 
 Took the generic Handoff clone and made it yours.
