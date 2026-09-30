@@ -6,6 +6,7 @@ import { money } from "@/lib/format";
 import { computeTotals } from "@/lib/totals";
 import { splitBuilds, type BuildSplit } from "@/lib/builds";
 import type { JobberQuote } from "@/lib/jobber";
+import PushResultSheet from "./PushResultSheet";
 
 /** Format the finalized quote as the plain-text block ready to send or paste. */
 function asText(q: JobberQuote, split: BuildSplit, exclusionTexts: string[]): string {
@@ -259,6 +260,10 @@ export default function JobberModal({
                 </button>
               </div>
             </div>
+
+            {/* Owner only: update mode push to an existing draft Jobber quote,
+                the push result sheet, and the inspector chat box. */}
+            <PushResultSheet estimate={includedEstimate()} quote={quote} exclusionTexts={includedTexts} />
           </div>
         </div>
       </div>

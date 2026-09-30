@@ -16,3 +16,7 @@ next-env.d.ts
 _w1_backups/
 .env.*
 !.env.production.example
+
+# Jobber push runtime files (the seeded playbook IS committed)
+/data/send-log.jsonl
+/data/*.tmp

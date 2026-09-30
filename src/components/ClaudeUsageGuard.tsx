@@ -14,6 +14,7 @@ import { useEffect, useRef, useState } from "react";
 // AI endpoints that can reach Claude, mapped to a plain-English task label.
 const AI_TASKS: { match: string; label: string }[] = [
   { match: "/api/chat", label: "Estimator chat (build or edit the quote)" },
+  { match: "/api/jobber/chat", label: "Jobber inspector chat (repair a stopped push)" },
   { match: "/api/jobber", label: "Finalize quote wording" },
   { match: "/api/steps", label: "Line item work steps" },
   { match: "/api/vision", label: "Read a photo or PDF" },
@@ -22,7 +23,11 @@ const AI_TASKS: { match: string; label: string }[] = [
   { match: "/api/admin/summary", label: "Admin quote summary" },
 ];
 
+// Jobber push, approve, and playbook routes talk to Zapier only, never Claude.
+const NO_AI = ["/api/jobber/push", "/api/jobber/approve", "/api/jobber/playbook"];
+
 function taskFor(url: string): string | null {
+  if (NO_AI.some((p) => url.includes(p))) return null;
   const hit = AI_TASKS.find((t) => url.includes(t.match));
   return hit ? hit.label : null;
 }
