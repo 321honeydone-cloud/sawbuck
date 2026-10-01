@@ -5,6 +5,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createEstimate } from "@/lib/createEstimate";
 import { Icon, Seg, Toaster, toast, usePresence, useOutside } from "./ui";
+import Splash from "./Splash";
+import { promptInstall, useInstall } from "./install";
+import IosInstall from "./IosInstall";
 
 type Mode = "system" | "light" | "dark";
 type Backdrop = "flat" | "grad";
@@ -45,6 +48,8 @@ export default function Shell({ children }: { children: React.ReactNode }) {
   const [accent, setAccent] = useState("harbor");
   const [bg, setBg] = useState<Backdrop>("grad");
   const [creating, setCreating] = useState(false);
+  const [iosHelp, setIosHelp] = useState(false);
+  const install = useInstall();
 
   // Slide direction for the page that just mounted.
   const prevDepth = useRef(depth(pathname));
@@ -85,7 +90,30 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     write("v2-mode", mode);
     write("v2-accent", accent);
     write("v2-bg", bg);
+    // Phone status bar and installed-app title bar follow the chosen mode.
+    const dark = mode === "dark" || (mode === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute("content", dark ? "#161a21" : "#ffffff"));
   }, [mode, accent, bg]);
+
+  // Home screen shortcut "New job" opens /v2?new=1.
+  useEffect(() => {
+    const u = new URL(window.location.href);
+    if (u.searchParams.get("new") === "1") {
+      u.searchParams.delete("new");
+      window.history.replaceState(null, "", u.pathname + u.search);
+      void newJob();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const doInstall = async () => {
+    setShopOpen(false);
+    if (install.canPrompt) {
+      const ok = await promptInstall();
+      if (ok) toast("Sawbuck is on your home screen");
+    } else setIosHelp(true);
+  };
+  const showInstall = !install.installed && (install.canPrompt || install.ios);
 
   const newJob = async () => {
     if (creating) return;
@@ -168,6 +196,11 @@ export default function Shell({ children }: { children: React.ReactNode }) {
               >
                 Appearance
               </button>
+              {showInstall && (
+                <button role="menuitem" onClick={doInstall}>
+                  Install Sawbuck app <small>{install.ios ? "iPhone" : "home screen"}</small>
+                </button>
+              )}
               <hr />
               <Link href="/history" role="menuitem">
                 Open classic Sawbuck
@@ -228,6 +261,8 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         </div>
       </main>
       <Toaster />
+      <IosInstall open={iosHelp} onClose={() => setIosHelp(false)} />
+      <Splash />
     </>
   );
 }

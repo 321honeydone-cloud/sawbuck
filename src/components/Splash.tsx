@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 // Branded loading splash shown on cold open (a fresh page load / app launch).
 // Matches the desktop launcher splash so the handoff from the app icon is
 // seamless. Fades out after a brief beat, then unmounts.
 export default function Splash() {
+  const onV2 = usePathname().startsWith("/v2"); // v2 shows its own splash (src/v2/Splash.tsx)
   const [hidden, setHidden] = useState(false);
   const [gone, setGone] = useState(false);
 
@@ -18,7 +20,7 @@ export default function Splash() {
     };
   }, []);
 
-  if (gone) return null;
+  if (gone || onV2) return null;
 
   return (
     <div

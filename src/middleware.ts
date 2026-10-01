@@ -16,6 +16,11 @@ export async function middleware(req: NextRequest) {
   return NextResponse.redirect(url);
 }
 
+// Public static files stay open too: Chrome fetches the install manifest, the
+// service worker and the app icons without the login cookie, so gating them
+// would redirect to /login and make the app uninstallable.
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|login|api/auth|api/cron|api/memory|uploads).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|login|api/auth|api/cron|api/memory|uploads|sw\\.js|manifest\\.webmanifest|v2\\.webmanifest|offline\\.html|icons/|screens/|logo\\.png|sawbuck-lockup\\.png).*)",
+  ],
 };

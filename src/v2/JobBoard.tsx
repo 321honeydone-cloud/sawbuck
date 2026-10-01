@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useRef, useState } from "react";
-import { Icon, initials, moneyWhole, usePresence, useOutside } from "./ui";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Icon, initials, moneyWhole, toast, usePresence, useOutside } from "./ui";
+import { Lockup } from "./Splash";
+import { promptInstall, useInstall } from "./install";
+import IosInstall from "./IosInstall";
 
 export interface JobCard {
   id: string;
@@ -142,7 +145,12 @@ export default function JobBoard({ jobs }: { jobs: JobCard[] }) {
   };
 
   return (
+    <>
+    <div className="brandbar">
+      <Lockup size="sm" />
+    </div>
     <section className="home">
+      <InstallCard />
       <div className="label">HoneyDone Property Maintenance</div>
       <h1>Jobs</h1>
       <div className="stats">
@@ -298,5 +306,55 @@ export default function JobBoard({ jobs }: { jobs: JobCard[] }) {
         })}
       </div>
     </section>
+    </>
+  );
+}
+
+/** One-time nudge on phones to put Sawbuck on the home screen. */
+function InstallCard() {
+  const st = useInstall();
+  const [hidden, setHidden] = useState(true);
+  const [ios, setIos] = useState(false);
+  useEffect(() => {
+    let dismissed = false;
+    try {
+      dismissed = localStorage.getItem("v2-install-dismissed") === "1";
+    } catch {
+      /* private mode */
+    }
+    setHidden(dismissed || !window.matchMedia("(max-width: 820px)").matches);
+  }, []);
+  if (hidden || st.installed || !(st.canPrompt || st.ios)) return <IosInstall open={ios} onClose={() => setIos(false)} />;
+  const dismiss = () => {
+    setHidden(true);
+    try {
+      localStorage.setItem("v2-install-dismissed", "1");
+    } catch {
+      /* ignore */
+    }
+  };
+  return (
+    <div className="installcard">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/icons/v2-icon-192.png?v=1" alt="" />
+      <span className="tx">
+        <b>Put Sawbuck on your home screen</b>
+        Opens full screen like any app.
+      </span>
+      <button
+        className="btn sm"
+        onClick={async () => {
+          if (st.canPrompt) {
+            if (await promptInstall()) toast("Sawbuck is on your home screen");
+          } else setIos(true);
+        }}
+      >
+        Install
+      </button>
+      <button className="iconbtn" aria-label="Not now" onClick={dismiss}>
+        {Icon.x}
+      </button>
+      <IosInstall open={ios} onClose={() => setIos(false)} />
+    </div>
   );
 }
