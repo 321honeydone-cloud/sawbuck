@@ -90,10 +90,18 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     write("v2-mode", mode);
     write("v2-accent", accent);
     write("v2-bg", bg);
-    // Phone status bar and installed-app title bar follow the chosen mode.
-    const dark = mode === "dark" || (mode === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
-    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute("content", dark ? "#161a21" : "#ffffff"));
   }, [mode, accent, bg]);
+
+  // Phone status bar and installed-app title bar follow the chosen mode. Next
+  // re-renders the theme-color tags on navigation, so re-apply on route change.
+  // Auto mode keeps each tag on its own scheme so the bar follows the phone.
+  useEffect(() => {
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
+      const forDark = (m.getAttribute("media") || "").includes("dark");
+      const dark = mode === "system" ? forDark : mode === "dark";
+      m.setAttribute("content", dark ? "#161a21" : "#ffffff");
+    });
+  }, [mode, pathname]);
 
   // Home screen shortcut "New job" opens /v2?new=1.
   useEffect(() => {
