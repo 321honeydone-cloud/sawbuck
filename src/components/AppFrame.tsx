@@ -32,7 +32,8 @@ export default function AppFrame({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  if (pathname === "/login") return <>{children}</>;
+  // /login renders bare. /v2 is the new Option A UI with its own shell (src/v2).
+  if (pathname === "/login" || pathname.startsWith("/v2")) return <>{children}</>;
 
   // The estimate screen hosts the hamburger in its own top bar (next to
   // Delete + Status), so we skip the shared mobile bar there to avoid stacking.

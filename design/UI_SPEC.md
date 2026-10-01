@@ -113,6 +113,13 @@ Ease for everything: cubic-bezier(.2,.7,.2,1). Respect reduced motion: when it's
 - Popovers need a solid surface background and their own scroll (max-height about 60vh).
 - On phone, the app shell must not scroll as a whole. Main needs min-height 0 so only the panes scroll.
 
+## Build status (v2, phase 1, 2026-10-01)
+The new UI is live at `/v2`, beside the classic app. It shares the same database, login, AI chat, rate book and Jobber scope writer. Classic is untouched and tagged `sawbuck-classic`.
+- Built: app shell (rail, Shop menu, appearance panel with mode, scheme and backdrop), Jobs home (stat tiles, client combo search, stage filters, job cards with progress), job screen (header with rename, client, job switcher, stage picker, delete, Finalize), chat (intake box, templates, attachments, mic, crew badges, change diffs, retry), quote grid (totals strip that counts up, AI review bar, groups, Live and Max Cost dots, keyboard nav), line inspector (edit, Live switch, steps, cost math, photos, delete), exclusions, Finalize dialog (copy quote, mark as sent), phone layout (swipe Chat and Quote, bottom sheet inspector), motion rules above.
+- Files: `src/app/v2/*` (routes), `src/v2/*` (components and `v2.css`). The only classic file touched is `src/components/AppFrame.tsx` (one line so `/v2` skips the classic frame).
+- Flags in this code base: only Live (the existing struck/off line) and Max Cost only (derived from the Complications Cap group) exist here. TAX, HIDE $ and CLIENT come in when the PC code with the chips is merged.
+- Still classic (linked from the Shop menu): Rate book, Scout, Crew and admin. Phase 2 rebuilds those in the v2 look.
+
 ## Where this lands in the code
 - `src/components/Nav.tsx`, `navItems.tsx`, `MobileMenu.tsx`: the new rail and bottom bar (New, Jobs, Ask AI, Shop menu).
 - `src/app/page.tsx` and `src/app/history/page.tsx`: become the Home job board.
