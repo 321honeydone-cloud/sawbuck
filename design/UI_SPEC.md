@@ -24,7 +24,8 @@ Build this on top of the LATEST Sawbuck code (the build with the LIVE / TAX / HI
 
 ## Home
 - Title, then 4 stat tiles: New leads, Need a quote, Quotes out ($), Won this month ($). Clicking a tile filters by that stage, and clicking again clears the filter.
-- Search (client, address, job) and stage filter pills: All, Lead, Scouted, Quoted, Sent, Won, Done.
+- Search is a combo box. Clicking it (or its arrow) drops a list of every client with their last address and job count. Typing narrows it to matching Clients, Addresses and Jobs, grouped, with the matched letters highlighted. Arrow keys and Enter pick an item, Esc closes. Picking a client or address filters the cards. Picking a job opens it. An X clears the search.
+- Stage filter pills: All, Lead, Scouted, Quoted, Sent, Won, Done.
 - Job card: stage pill, last touched date, job name, client, address, a 6-step progress bar (Lead to Done, amber while in progress, petrol once Won or Done), and the quote price or "No quote yet".
 - Card hover: lifts 4px with a petrol-tinted shadow, an amber-to-petrol stripe sweeps across the top, and "Open >" slides in. Cards rise in one after another on load. On phone, "Open" always shows.
 
