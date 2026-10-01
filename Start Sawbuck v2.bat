@@ -5,6 +5,9 @@ REM for example E:\sawbuck_v2. Port 3001 so the classic app can keep 3000.
 REM Shares the HTTPS Tailscale address so phones can install it from Chrome.
 cd /d "%~dp0"
 
+REM No login screen on this private box (Tailscale only). Your Render site keeps its login.
+set SAWBUCK_NO_LOGIN=1
+
 if not exist "node_modules\next" (
   echo First-time setup. Installing, this happens only once...
   call npm install

@@ -92,6 +92,9 @@ export async function signSession(s: Session): Promise<string> {
 }
 
 export async function verifySession(token: string | undefined): Promise<Session | null> {
+  // No-login switch for a private box (for example the shop PC reached over
+  // Tailscale). Everyone is the owner. Never set this on a public host.
+  if (process.env.SAWBUCK_NO_LOGIN === "1") return { uid: "owner", name: "Owner", role: "admin" };
   if (!token) return null;
   const dot = token.indexOf(".");
   if (dot < 0) return null;
