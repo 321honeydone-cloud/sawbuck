@@ -12,6 +12,7 @@
 // whole 416KB book.
 
 import type { RateTask } from "./rateBook";
+import type { PriceSample } from "./priceSamples";
 
 /** Catalog row that holds the override map (JSON). No schema migration needed. */
 export const OVERRIDES_ID = "CATALOG-RATE-OVERRIDES";
@@ -30,6 +31,8 @@ export interface RateOverride {
   isNew?: boolean;
   source?: string; // "screen" = edited on the Rate Book page, "quote" = learned from a quote
   updatedAt: string; // ISO
+  /** recent jobs behind final_price when it was learned from quotes (see priceSamples.ts) */
+  samples?: PriceSample[];
 }
 
 export type OverrideMap = Record<string, RateOverride>;

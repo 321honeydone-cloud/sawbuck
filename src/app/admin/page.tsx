@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import UserManager from "@/components/UserManager";
 import AiBrainToggle from "@/components/AiBrainToggle";
+import LearningHealth from "@/components/LearningHealth";
 import CrewQuotes, { type UserQuoteGroup, type CrewQuote } from "@/components/CrewQuotes";
 import { prisma } from "@/lib/db";
 import { estimateFromRow } from "@/lib/serialize";
@@ -99,6 +100,14 @@ export default async function AdminPage() {
             machine that can see your Ollama box.
           </p>
           <AiBrainToggle />
+        </section>
+
+        <section className="space-y-3">
+          <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-gold">Learning health</div>
+          <p className="text-xs text-muted">
+            Is Sawbuck getting smarter from your quotes? Green is good, amber needs a nudge, red is broken.
+          </p>
+          <LearningHealth />
         </section>
 
         <section className="space-y-3">

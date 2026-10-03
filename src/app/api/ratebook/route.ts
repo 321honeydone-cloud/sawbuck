@@ -12,6 +12,7 @@ import {
   type OverrideMap,
   type RateOverride,
 } from "@/lib/rateOverrides";
+import { WEIGHT, seedSamples } from "@/lib/priceSamples";
 
 export const runtime = "nodejs";
 
@@ -96,6 +97,10 @@ export async function POST(req: Request) {
     isNew: isNew || prev?.isNew,
     source: "screen",
     updatedAt: new Date().toISOString(),
+    // A price set here is a deliberate call: it restarts the task's job history
+    // with this price counting like several jobs, so it sticks until real
+    // quotes outvote it.
+    samples: seedSamples(final_price, WEIGHT.screen, "screen"),
   };
   overrides[name] = next;
   await saveOverrides(overrides);

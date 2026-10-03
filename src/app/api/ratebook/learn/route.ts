@@ -3,6 +3,7 @@ import { prisma } from "@/lib/db";
 import { getSession } from "@/lib/session";
 import { rateBook } from "@/lib/loadRateBook";
 import { cleanTaskName } from "@/lib/rateBook";
+import { WEIGHT, addSample, learnedPrice, seedSamples } from "@/lib/priceSamples";
 import {
   OVERRIDES_ID,
   OVERRIDES_NAME,
@@ -44,14 +45,16 @@ async function saveOverrides(map: OverrideMap) {
 }
 
 // POST /api/ratebook/learn — fold one quote line into the living rate book.
-// Overwrites the matching task's price, or adds the task if it is not in the
-// book yet. The price stored is the line's all-in client price per unit.
+// Adds the line's all-in client price per unit as one job sample on the
+// matching task (or creates the task if it is not in the book yet). The task's
+// price becomes the weighted middle of its recent jobs instead of whatever was
+// typed last, so one odd job can't wreck a good number. See priceSamples.ts.
 export async function POST(req: Request) {
   // Owner/admin only: crew quotes never change Manny's pricing.
   const s = await getSession();
   if (!s || s.role !== "admin") return NextResponse.json({ error: "forbidden" }, { status: 403 });
 
-  let body: { name?: string; unit?: string; allIn?: number; source?: string };
+  let body: { name?: string; unit?: string; allIn?: number; source?: string; ref?: string };
   try {
     body = (await req.json()) as typeof body;
   } catch {
@@ -86,9 +89,21 @@ export async function POST(req: Request) {
   const baseTask = rateBook.tasks.find((t) => t.name === targetName);
   const prev = overrides[targetName];
 
+  // History so far: this task's samples, else whatever price it already had
+  // (a Rate Book screen price counts like several jobs, anything else like one).
+  const existing =
+    prev?.samples ??
+    (prev
+      ? seedSamples(prev.final_price, prev.source === "screen" ? WEIGHT.screen : WEIGHT.legacy, prev.source === "screen" ? "screen" : "legacy", prev.updatedAt)
+      : seedSamples(baseTask?.final_price, WEIGHT.legacy, "book"));
+  const now = new Date().toISOString();
+  const ref = typeof body.ref === "string" && body.ref ? body.ref.slice(0, 120) : `unref-${now}`;
+  const samples = addSample(existing, { v: allIn, w: body.source === "ai" ? WEIGHT.ai : WEIGHT.manual, ref, at: now });
+  const price = learnedPrice(samples) ?? round2(allIn);
+
   overrides[targetName] = {
     name: targetName,
-    final_price: round2(allIn),
+    final_price: price,
     unit: label,
     labor_minutes: prev?.labor_minutes ?? baseTask?.labor_minutes ?? null,
     material_allowance: prev?.material_allowance ?? baseTask?.material_allowance ?? null,
@@ -96,10 +111,11 @@ export async function POST(req: Request) {
     taxonomy_path: baseTask?.taxonomy_path ?? prev?.taxonomy_path,
     isNew: isNewName || prev?.isNew,
     source: "quote",
-    updatedAt: new Date().toISOString(),
+    updatedAt: now,
+    samples,
   };
   await saveOverrides(overrides);
 
   const counts = rateBookCounts(applyOverrides(rateBook.tasks, overrides), overrides);
-  return NextResponse.json({ ok: true, name: targetName, added: isNewName, price: round2(allIn), counts });
+  return NextResponse.json({ ok: true, name: targetName, added: isNewName, price, counts });
 }

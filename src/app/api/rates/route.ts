@@ -55,6 +55,7 @@ export async function POST(req: Request) {
     unitCost: Number(body.unitCost),
     supplier: body.supplier ?? null,
     source: body.source ?? "manual",
+    ref: typeof body.ref === "string" && body.ref ? body.ref.slice(0, 120) : undefined,
   };
 
   const items = await loadItems();
@@ -67,11 +68,12 @@ export async function POST(req: Request) {
   // getting wrong. Fire-and-forget.
   if (prevItem && prevItem.unitCost !== input.unitCost) {
     const pct = prevItem.unitCost > 0 ? Math.round(((input.unitCost - prevItem.unitCost) / prevItem.unitCost) * 100) : 0;
+    const now = merged.find((r) => r.key === prevItem.key)?.unitCost ?? input.unitCost;
     void logMemoryEvent({
       kind: "correction",
       title: input.name,
       lines: [
-        `${input.costType}/${input.unit}: was $${prevItem.unitCost}, corrected to $${input.unitCost} (${pct >= 0 ? "+" : ""}${pct}%), source ${input.source ?? "manual"}`,
+        `${input.costType}/${input.unit}: was $${prevItem.unitCost}, corrected to $${input.unitCost} (${pct >= 0 ? "+" : ""}${pct}%), source ${input.source ?? "manual"}; learned price now $${now}`,
       ],
     });
   }

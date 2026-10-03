@@ -5,6 +5,7 @@ import { estimateEngine, deriveJobName } from "@/lib/engine";
 import { applyOperation } from "@/lib/operations";
 import type { Attachment, ChangeRecord, ChatMessage, Estimate, EstimateStatus, Exclusion, LineItem } from "@/lib/types";
 import { suggestExclusions } from "@/lib/exclusions";
+import { lineRef } from "@/lib/priceSamples";
 
 const DEFAULT_NAMES = new Set(["", "New Estimate", "New HoneyDone Estimate", "Untitled Estimate", "Untitled"]);
 const isDefaultName = (n: string) => DEFAULT_NAMES.has((n || "").trim());
@@ -76,7 +77,7 @@ function findItem(estimate: Estimate, id: string): LineItem | undefined {
 }
 
 /** Fold a line item into the shop rate book (fire-and-forget, best-effort). */
-function learnRate(item: LineItem, source: "manual" | "ai") {
+function learnRate(item: LineItem, source: "manual" | "ai", estimateId: string) {
   if (!item.name?.trim() || !(item.unitCost > 0)) return;
   void fetch("/api/rates", {
     method: "POST",
@@ -88,6 +89,7 @@ function learnRate(item: LineItem, source: "manual" | "ai") {
       unitCost: item.unitCost,
       supplier: item.supplier,
       source,
+      ref: estimateId ? lineRef(estimateId, item.id) : undefined,
     }),
   }).catch(() => {});
 }
@@ -95,7 +97,7 @@ function learnRate(item: LineItem, source: "manual" | "ai") {
 /** Fold a line into the LIVING flat-rate book (the Rate Book screen) as its
  * all-in client price per unit. Overwrites the matching task or adds it if new,
  * so the book stays current as jobs are priced. Fire-and-forget. */
-function learnRateBook(item: LineItem, source: "manual" | "ai") {
+function learnRateBook(item: LineItem, source: "manual" | "ai", estimateId: string) {
   const name = item.name?.trim();
   if (!name) return;
   const qty = item.quantity > 0 ? item.quantity : 1;
@@ -104,7 +106,7 @@ function learnRateBook(item: LineItem, source: "manual" | "ai") {
   void fetch("/api/ratebook/learn", {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ name, unit: item.unit, allIn, source }),
+    body: JSON.stringify({ name, unit: item.unit, allIn, source, ref: estimateId ? lineRef(estimateId, item.id) : undefined }),
   }).catch(() => {});
 }
 
@@ -269,8 +271,8 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
     for (const id of highlightIds) {
       const item = findItem(estimate, id);
       if (item) {
-        learnRate(item, "ai");
-        learnRateBook(item, "ai");
+        learnRate(item, "ai", estimate.id);
+        learnRateBook(item, "ai", estimate.id);
       }
     }
     set({ pendingChanges: null, snapshot: null, highlightIds: new Set() });
@@ -290,8 +292,8 @@ export const useEstimateStore = create<EstimateState>((set, get) => ({
     void persist(estimate);
     const item = findItem(estimate, id);
     if (item) {
-      learnRate(item, "manual");
-      learnRateBook(item, "manual");
+      learnRate(item, "manual", estimate.id);
+      learnRateBook(item, "manual", estimate.id);
     }
   },
 

@@ -10,6 +10,7 @@
 
 import type { CostType, Unit } from "./types";
 import { CATALOG } from "./honeydone";
+import { WEIGHT, addSample, learnedPrice, seedSamples, type PriceSample } from "./priceSamples";
 
 export const RATEBOOK_ID = "CATALOG-RATEBOOK";
 export const RATEBOOK_NAME = "Learned Rate Book";
@@ -19,11 +20,14 @@ export interface RateBookItem {
   name: string;
   unit: Unit;
   costType: CostType;
+  /** the learned price: weighted middle of `samples` (see priceSamples.ts) */
   unitCost: number;
   supplier: string | null;
   useCount: number;
   source: "seed" | "manual" | "ai";
   updatedAt: string; // ISO
+  /** recent jobs that used this rate; missing on rows saved before samples existed */
+  samples?: PriceSample[];
 }
 
 /** Identity used to dedupe rates: same work + unit + cost type collapses together. */
@@ -39,6 +43,8 @@ export interface RateInput {
   unitCost: number;
   supplier?: string | null;
   source?: RateBookItem["source"];
+  /** "<estimateId>:<lineId>" so re-editing one line replaces its sample */
+  ref?: string;
 }
 
 /** Worth remembering? Skip blanks and zero-cost noise. */
@@ -47,25 +53,31 @@ export function isLearnable(input: { name?: string; unitCost?: number }): boolea
 }
 
 /**
- * Fold one rate into the book. If the key already exists we update the price and
- * supplier to the latest, keep the newest name, and bump the use count. New keys
- * are appended. Returns a fresh array.
+ * Fold one rate into the book. The rate's price is no longer simply the latest
+ * one typed: each call adds a sample (one per quote line, re-edits replace it)
+ * and the price becomes the weighted middle of recent jobs. See priceSamples.ts.
+ * Keeps the newest name and supplier and bumps the use count. Returns a fresh array.
  */
 export function mergeRate(items: RateBookItem[], input: RateInput): RateBookItem[] {
   const key = rateKey(input.name, input.unit, input.costType);
   const now = new Date().toISOString();
   const next = items.slice();
   const idx = next.findIndex((r) => r.key === key);
+  const w = input.source === "manual" ? WEIGHT.manual : input.source === "ai" ? WEIGHT.ai : WEIGHT.legacy;
+  const ref = input.ref ?? `unref-${now}`;
   if (idx >= 0) {
     const prev = next[idx];
+    const base = prev.samples ?? seedSamples(prev.unitCost, WEIGHT.legacy, "legacy", prev.updatedAt);
+    const samples = addSample(base, { v: input.unitCost, w, ref, at: now });
     next[idx] = {
       ...prev,
       name: input.name.trim(),
-      unitCost: input.unitCost,
+      unitCost: learnedPrice(samples) ?? input.unitCost,
       supplier: input.supplier ?? prev.supplier,
       useCount: prev.useCount + 1,
       source: input.source ?? prev.source,
       updatedAt: now,
+      samples,
     };
   } else {
     next.push({
@@ -78,6 +90,7 @@ export function mergeRate(items: RateBookItem[], input: RateInput): RateBookItem
       useCount: 1,
       source: input.source ?? "manual",
       updatedAt: now,
+      samples: addSample([], { v: input.unitCost, w, ref, at: now }),
     });
   }
   return next;
@@ -119,7 +132,9 @@ export function formatLearnedRates(items: RateBookItem[], limit = 60): string {
   const top = learned.slice().sort((a, b) => b.useCount - a.useCount).slice(0, limit);
   const lines = top.map((r) => {
     const sup = r.supplier ? ` [${r.supplier}]` : "";
-    return `  - ${r.name}: ${r.costType}, ${r.unit} @ $${r.unitCost}${sup} (used ${r.useCount}x)`;
+    const won = (r.samples ?? []).filter((x) => x.o === "won").length;
+    const wonNote = won > 0 ? `, ${won} invoiced` : "";
+    return `  - ${r.name}: ${r.costType}, ${r.unit} @ $${r.unitCost}${sup} (used ${r.useCount}x${wonNote})`;
   });
-  return `\n\nLearned rates from this shop's past estimates. Prefer these exact numbers when the work matches, they reflect what HoneyDone actually charged:\n${lines.join("\n")}`;
+  return `\n\nLearned rates from this shop's past estimates. Prefer these exact numbers when the work matches, they are the middle of what HoneyDone actually charged on recent jobs, leaning on invoiced ones:\n${lines.join("\n")}`;
 }

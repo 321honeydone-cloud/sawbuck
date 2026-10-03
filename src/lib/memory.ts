@@ -18,7 +18,8 @@
 
 import { promises as fs } from "fs";
 import path from "path";
-import { housekeepingModel, localText, ollamaBusy } from "./agents/client";
+import { CLAUDE_FAST_MODEL, activeProvider, chatText, housekeepingModel, localText, ollamaBusy } from "./agents/client";
+import { prisma } from "./db";
 
 export const MEMORY_PATH =
   process.env.SAWBUCK_MEMORY_PATH || path.join(process.cwd(), "SAWBUCK_MEMORY.md");
@@ -148,7 +149,7 @@ export function logMemoryEvent(event: MemoryEvent): Promise<void> {
       // high and we retry on the next event.
       void enqueue(async () => {
         try {
-          await compact();
+          await compactAndRecord();
         } catch (err) {
           console.warn("[memory] compaction failed, will retry:", (err as Error).message);
         }
@@ -239,13 +240,14 @@ export function readMemoryRaw(): Promise<string> {
  * new-event counter, and trim the log tail. Runs inside the write queue.
  */
 async function compact(): Promise<void> {
+  const provider = await activeProvider();
   // Housekeeping never fights the user for the GPU. If a live prompt holds or
   // is waiting on the local model, skip this round; the event counter stays
   // high and compaction retries on the next logged event. Without this check a
   // compaction (up to 180s of generation) could land right after a turn and
   // make the user's NEXT prompt queue behind it — another flavor of the
   // "second prompt hangs" bug.
-  if (ollamaBusy()) throw new Error("local model is busy with a live prompt, deferring compaction");
+  if (provider === "ollama" && ollamaBusy()) throw new Error("local model is busy with a live prompt, deferring compaction");
 
   const text = await readFileEnsured();
   const entries = logEntries(text);
@@ -254,10 +256,7 @@ async function compact(): Promise<void> {
   const lessonsSec = section(text, LESSONS_START, LESSONS_END);
   const currentLessons = lessonsSec ? lessonsSec.body.replace(/^\s*## Lessons\s*/m, "").trim() : "";
 
-  // Compaction always runs on the shop's own Ollama box — never the paid API.
-  // localText throws if the box is unreachable; the caller leaves the event
-  // counter high so we simply retry on the next logged event.
-  const raw = await localText({
+  const ask = {
     system:
       "You maintain the long-term memory of Sawbuck, the AI estimator for HoneyDone Property Maintenance " +
       "(insured handyman in Florida, $100/hr labor, 25% materials markup, $100 trip fee, every job under $2,500). " +
@@ -272,11 +271,18 @@ async function compact(): Promise<void> {
       "Be specific, no filler. Maximum 40 bullets and 3500 characters. " +
       "Output ONLY markdown bullet lines starting with '- ', nothing else.",
     temperature: 0.2,
-    // A big log takes room to chew on.
-    timeoutMs: 180000,
-    // Whatever model is already in VRAM — compaction must never force a swap.
-    model: await housekeepingModel(),
-  });
+  };
+
+  // Compaction runs on whichever brain the owner picked. It used to be
+  // hardwired to the local Ollama box, so a shop running on Claude (no Ollama
+  // at all) failed every single compaction and the lessons never grew past
+  // what was typed by hand. On Claude it uses the fast, cheap model: one short
+  // call every COMPACT_EVERY events. On Local it stays free and uses whatever
+  // model is already in VRAM so it never forces a swap.
+  const raw =
+    provider === "ollama"
+      ? await localText({ ...ask, timeoutMs: 180000, model: await housekeepingModel() })
+      : await chatText({ ...ask, model: CLAUDE_FAST_MODEL });
 
   const lessons = raw
     .split("\n")
@@ -301,7 +307,101 @@ async function compact(): Promise<void> {
     fresh.slice(logs.to);
   next = next.replace(/\n{4,}/g, "\n\n\n");
   await fs.writeFile(MEMORY_PATH, next, "utf8");
-  console.log(`[memory] compacted ${freshEntries.length} log entries into ${lessons.split("\n").length} lessons`);
+  const count = lessons.split("\n").length;
+  console.log(`[memory] compacted ${freshEntries.length} log entries into ${count} lessons`);
+  await saveMemoryStatus({ lastCompactedAt: new Date().toISOString(), lastBrain: provider, lastError: null, lastErrorAt: null });
+}
+
+// -------------------------------------------------------------------
+// Health — what the Admin "Learning health" card reads.
+// -------------------------------------------------------------------
+
+const STATUS_KEY = "memoryStatus";
+
+export interface MemoryStatus {
+  lastCompactedAt: string | null;
+  lastBrain: string | null;
+  lastError: string | null;
+  lastErrorAt: string | null;
+}
+
+async function readMemoryStatus(): Promise<MemoryStatus> {
+  const empty: MemoryStatus = { lastCompactedAt: null, lastBrain: null, lastError: null, lastErrorAt: null };
+  try {
+    const row = await prisma.appSetting.findUnique({ where: { key: STATUS_KEY } });
+    return row ? { ...empty, ...(JSON.parse(row.value) as Partial<MemoryStatus>) } : empty;
+  } catch {
+    return empty;
+  }
+}
+
+async function saveMemoryStatus(patch: Partial<MemoryStatus>): Promise<void> {
+  try {
+    const value = JSON.stringify({ ...(await readMemoryStatus()), ...patch });
+    await prisma.appSetting.upsert({ where: { key: STATUS_KEY }, update: { value }, create: { key: STATUS_KEY, value } });
+  } catch {
+    /* status is a nicety, never break memory over it */
+  }
+}
+
+/** Run compaction and remember a failure so the Admin card can show it. */
+async function compactAndRecord(): Promise<void> {
+  try {
+    await compact();
+  } catch (err) {
+    // API errors arrive as raw JSON; keep just the readable part for the card.
+    const raw = (err as Error).message || "unknown error";
+    const readable = raw.match(/"message"\s*:\s*"([^"]+)"/)?.[1] ?? raw;
+    await saveMemoryStatus({ lastError: readable.slice(0, 300), lastErrorAt: new Date().toISOString() });
+    throw err;
+  }
+}
+
+/**
+ * Distill the log into lessons right now (the Admin "Distill now" button).
+ * Resolves once it finishes; throws with the reason if it failed.
+ */
+export function compactNow(): Promise<void> {
+  let failure: Error | null = null;
+  return enqueue(async () => {
+    try {
+      await compactAndRecord();
+    } catch (err) {
+      failure = err as Error;
+    }
+  }).then(() => {
+    if (failure) throw failure;
+  });
+}
+
+export interface MemoryStats extends MemoryStatus {
+  path: string;
+  logEntries: number;
+  /** events logged since lessons were last distilled */
+  pending: number;
+  lessons: number;
+  lastEventAt: string | null;
+  compactEvery: number;
+}
+
+/** Counts off the live memory file plus the last compaction result. */
+export async function memoryStats(): Promise<MemoryStats> {
+  const text = await readFileEnsured();
+  const entries = logEntries(text);
+  const m = text.match(COUNTER_RE);
+  const lessons = lessonsBodyOf(text)
+    .split("\n")
+    .filter((l) => l.trim().startsWith("- ")).length;
+  const newest = entries.length ? entryStampMs(entries[0]) : 0;
+  return {
+    path: MEMORY_PATH,
+    logEntries: entries.length,
+    pending: m ? Number(m[1]) : 0,
+    lessons,
+    lastEventAt: newest ? new Date(newest).toISOString() : null,
+    compactEvery: COMPACT_EVERY,
+    ...(await readMemoryStatus()),
+  };
 }
 
 // -------------------------------------------------------------------

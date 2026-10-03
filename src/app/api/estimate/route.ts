@@ -3,6 +3,7 @@ import { prisma } from "@/lib/db";
 import { rowFromEstimate } from "@/lib/serialize";
 import { getSession } from "@/lib/session";
 import { snapshotEstimate } from "@/lib/memory";
+import { markEstimateOutcome } from "@/lib/learnOutcome";
 import type { Estimate } from "@/lib/types";
 
 /** First few user asks from an estimate's chat, for the memory snapshot. */
@@ -145,6 +146,12 @@ export async function PUT(req: Request) {
     }
   }
 
+  // Price learning: an invoiced quote's prices count triple in the rate books;
+  // moving it back off invoiced takes the boost away. Fire-and-forget.
+  if (prev && prev.status !== row.status && (row.status === "invoiced" || prev.status === "invoiced")) {
+    void markEstimateOutcome(row.id, row.status === "invoiced" ? "won" : null).catch(() => {});
+  }
+
   return NextResponse.json({ ok: true });
 }
 
@@ -174,6 +181,9 @@ export async function DELETE(req: Request) {
     if (full) {
       const asks = await userAsks(id);
       void snapshotEstimate("deleted", full, asks);
+      // Price learning: a deleted quote's prices count half from now on. An
+      // invoiced job that gets cleaned up keeps its full weight, it was paid.
+      if (full.status !== "invoiced") void markEstimateOutcome(id, "deleted").catch(() => {});
     }
   } catch {
     /* memory must never block a delete */
